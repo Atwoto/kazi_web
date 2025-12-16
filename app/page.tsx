@@ -21,9 +21,9 @@ export default function Home() {
               </div>
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-heading font-bold text-foreground leading-[1.1] tracking-tight">
                 Work delivered, <br />
-                <span className="text-muted-foreground/60">without the freelance hassle.</span>
+                <span className="text-gray-600">without the freelance hassle.</span>
               </h1>
-              <p className="text-xl text-muted-foreground max-w-xl leading-relaxed">
+              <p className="text-xl text-gray-600 max-w-xl leading-relaxed">
                 Kazi connects Europe to vetted East African talent. We handle the quality, payments, and delivery so you can focus on growth.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
