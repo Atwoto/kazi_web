@@ -4,9 +4,10 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { Menu, X, ChevronDown, Search } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
-import SearchModal from "@/components/common/SearchModal";
+import { useLanguage } from "@/context/LanguageContext";
+import LanguageSwitcher from "@/components/common/LanguageSwitcher";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -17,19 +18,19 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 
-const servicesList = [
-  { title: "Video Editing", href: "/services/video-editing", description: "Professional cuts for social & business." },
-  { title: "Photo Editing", href: "/services/photo-editing", description: "High-end retouching & manipulation." },
-  { title: "Web Design & Dev", href: "/services/web-design-development", description: "Custom, responsive websites." },
-  { title: "Graphic Design", href: "/services/graphic-design", description: "Logos, branding & marketing assets." },
-  { title: "AI Services", href: "/services/ai-services", description: "Automation & data solutions." },
-  { title: "Academic Support", href: "/services/academic-support", description: "Editing, proofreading & coaching." },
-];
-
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const { t } = useLanguage();
+
+  const servicesList = [
+    { title: "Video Editing", href: "/services/video-editing", description: "Professional cuts for social & business." },
+    { title: "Photo Editing", href: "/services/photo-editing", description: "High-end retouching & manipulation." },
+    { title: "Web Design & Dev", href: "/services/web-design-development", description: "Custom, responsive websites." },
+    { title: "Graphic Design", href: "/services/graphic-design", description: "Logos, branding & marketing assets." },
+    { title: "AI Services", href: "/services/ai-services", description: "Automation & data solutions." },
+    { title: "Academic Support", href: "/services/academic-support", description: "Editing, proofreading & coaching." },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -53,25 +54,26 @@ export default function Navbar() {
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between relative z-50">
         {/* Logo */}
         <Link href="/" className="flex items-center space-x-2 mr-8">
-          <div className="bg-blue-600 rounded-full p-1.5">
-             <Image src="/globe.svg" alt="Kazi Logo" width={20} height={20} className="invert" />
-          </div>
+          <Image 
+            src="/logo.jpg" 
+            alt="Kazi Logo" 
+            width={40} 
+            height={40} 
+            className="rounded-full" 
+          />
           <span className="text-2xl font-heading font-bold text-foreground tracking-tight">Kazi</span>
         </Link>
 
         {/* Desktop Navigation Links - Centered */}
         <div className="hidden lg:flex items-center space-x-1 absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
           <Link href="/" className={cn(navigationMenuTriggerStyle(), "bg-transparent hover:bg-accent hover:text-accent-foreground text-muted-foreground")}>
-            Home
-          </Link>
-          <Link href="/about" className={cn(navigationMenuTriggerStyle(), "bg-transparent hover:bg-accent hover:text-accent-foreground text-muted-foreground")}>
-            About
+            {t.nav.home}
           </Link>
 
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="bg-transparent hover:bg-accent hover:text-accent-foreground text-muted-foreground">Services</NavigationMenuTrigger>
+                <NavigationMenuTrigger className="bg-transparent hover:bg-accent hover:text-accent-foreground text-muted-foreground">{t.nav.services}</NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] bg-popover text-popover-foreground">
                     {servicesList.map((service) => (
@@ -103,34 +105,26 @@ export default function Navbar() {
           </NavigationMenu>
 
           <Link href="/portfolio" className={cn(navigationMenuTriggerStyle(), "bg-transparent hover:bg-accent hover:text-accent-foreground text-muted-foreground")}>
-            Portfolio
+            {t.nav.portfolio}
           </Link>
           <Link href="/pricing" className={cn(navigationMenuTriggerStyle(), "bg-transparent hover:bg-accent hover:text-accent-foreground text-muted-foreground")}>
-            Pricing
+            {t.nav.pricing}
           </Link>
           <Link href="/faq" className={cn(navigationMenuTriggerStyle(), "bg-transparent hover:bg-accent hover:text-accent-foreground text-muted-foreground")}>
-            FAQ
+            {t.nav.faq}
           </Link>
           <Link href="/contact" className={cn(navigationMenuTriggerStyle(), "bg-transparent hover:bg-accent hover:text-accent-foreground text-muted-foreground")}>
-            Contact
+            {t.nav.contact}
           </Link>
         </div>
 
         {/* Action Buttons */}
-        <div className="flex items-center space-x-3 ml-auto">
-          {/* Search Button */}
-          <button
-            onClick={() => setIsSearchOpen(true)}
-            className="p-2 text-muted-foreground hover:text-foreground hover:bg-accent rounded-full transition-colors"
-            aria-label="Search"
-          >
-            <Search className="h-5 w-5" />
-          </button>
-
+        <div className="flex items-center space-x-4 ml-auto">
+          <LanguageSwitcher />
           <Button asChild className="rounded-full px-6 bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm shadow-lg shadow-blue-500/20">
-            <Link href="/contact">Get Started</Link>
+            <Link href="/contact">{t.nav.getStarted}</Link>
           </Button>
-
+          
           {/* Mobile Menu Button */}
           <button className="lg:hidden p-2 text-muted-foreground hover:text-foreground" onClick={toggleMobileMenu} aria-label="Toggle mobile menu">
             {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -141,24 +135,11 @@ export default function Navbar() {
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
         <div className="fixed inset-0 top-0 bg-background z-40 flex flex-col p-6 pt-28 space-y-6 lg:hidden overflow-y-auto h-screen animate-in slide-in-from-top-10 duration-200">
-          <button
-            onClick={() => {
-              setIsSearchOpen(true);
-              setIsMobileMenuOpen(false);
-            }}
-            className="flex items-center gap-3 text-xl font-semibold text-foreground border-b border-border pb-2 hover:text-primary transition-colors"
-          >
-            <Search className="h-5 w-5" />
-            Search
-          </button>
           <Link href="/" className="text-xl font-semibold text-foreground border-b border-border pb-2" onClick={toggleMobileMenu}>
-            Home
-          </Link>
-          <Link href="/about" className="text-xl font-semibold text-foreground border-b border-border pb-2" onClick={toggleMobileMenu}>
-            About
+            {t.nav.home}
           </Link>
           <div className="space-y-3 border-b border-border pb-4">
-            <p className="text-xl font-semibold text-foreground mb-2">Services</p>
+            <p className="text-xl font-semibold text-foreground mb-2">{t.nav.services}</p>
             {servicesList.map(service => (
                 <Link key={service.title} href={service.href} className="block pl-4 text-muted-foreground hover:text-primary transition-colors" onClick={toggleMobileMenu}>
                     {service.title}
@@ -166,25 +147,22 @@ export default function Navbar() {
             ))}
           </div>
           <Link href="/portfolio" className="text-xl font-semibold text-foreground border-b border-border pb-2" onClick={toggleMobileMenu}>
-            Portfolio
+            {t.nav.portfolio}
           </Link>
           <Link href="/pricing" className="text-xl font-semibold text-foreground border-b border-border pb-2" onClick={toggleMobileMenu}>
-            Pricing
+            {t.nav.pricing}
           </Link>
           <Link href="/faq" className="text-xl font-semibold text-foreground border-b border-border pb-2" onClick={toggleMobileMenu}>
-            FAQ
+            {t.nav.faq}
           </Link>
           <Link href="/contact" className="text-xl font-semibold text-foreground border-b border-border pb-2" onClick={toggleMobileMenu}>
-            Contact
+            {t.nav.contact}
           </Link>
           <Button asChild className="w-full rounded-full py-6 text-lg mt-4 bg-blue-600 hover:bg-blue-700 text-white">
-            <Link href="/contact" onClick={toggleMobileMenu}>Get Started</Link>
+            <Link href="/contact" onClick={toggleMobileMenu}>{t.nav.getStarted}</Link>
           </Button>
         </div>
       )}
-
-      {/* Search Modal */}
-      <SearchModal isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
     </nav>
   );
 }

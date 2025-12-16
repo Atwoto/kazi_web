@@ -20,21 +20,21 @@ export default function Home() {
             {/* Left Column: Text Content */}
             <div className="flex flex-col text-left space-y-8 z-10">
               <div className="inline-flex items-center space-x-2 bg-blue-50 dark:bg-blue-900/30 w-fit px-3 py-1 rounded-full">
-                <span className="text-xs font-semibold text-blue-600 dark:text-blue-400 uppercase tracking-wide">Managed Offshoring</span>
+                <span className="text-xs font-semibold text-blue-600 dark:text-blue-400 uppercase tracking-wide">Premium Managed Services</span>
               </div>
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-heading font-bold text-foreground leading-[1.1] tracking-tight">
-                Work delivered, <br />
-                <span className="text-muted-foreground">without the freelance hassle.</span>
+                Your Dedicated <br />
+                <span className="text-blue-600">Remote Operations Team.</span>
               </h1>
-              <p className="text-xl text-gray-600 dark:text-gray-300 max-w-xl leading-relaxed">
-                Kazi connects Europe to vetted East African talent. We handle the quality, payments, and delivery so you can focus on growth.
+              <p className="text-xl text-muted-foreground max-w-xl leading-relaxed">
+                We are not a marketplace. We are your managed service partner. One point of contact, end-to-end delivery, and European quality standards.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
                 <Button asChild className="h-12 px-8 rounded-full text-lg bg-blue-600 hover:bg-blue-700 text-white shadow-xl shadow-blue-500/20 transition-all hover:scale-105">
-                  <Link href="/contact">Request a Quote</Link>
+                  <Link href="/contact">Get a Proposal</Link>
                 </Button>
                 <Button asChild variant="outline" className="h-12 px-8 rounded-full text-lg border-input text-foreground hover:bg-accent hover:text-accent-foreground transition-all">
-                  <Link href="/how-it-works">How it Works</Link>
+                  <Link href="/how-it-works">Our Process</Link>
                 </Button>
               </div>
               
@@ -45,11 +45,8 @@ export default function Home() {
                    <div className="w-10 h-10 rounded-full border-2 border-background bg-gray-300 dark:bg-gray-600" />
                    <div className="w-10 h-10 rounded-full border-2 border-background bg-gray-400 dark:bg-gray-500" />
                 </div>
-                <div className="text-sm text-gray-600 dark:text-gray-400">
-                  <span className="font-bold text-foreground">
-                    <AnimatedCounter end={100} suffix="+" />
-                  </span>{" "}
-                  projects delivered.
+                <div className="text-sm text-muted-foreground">
+                  <span className="font-bold text-foreground">EU-Managed</span> delivery.
                 </div>
               </div>
             </div>

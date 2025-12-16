@@ -4,15 +4,18 @@ import { Linkedin, Instagram, Facebook } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-100 text-gray-700 py-10">
+    <footer className="bg-gray-100 text-gray-700 py-10 pb-32">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
         {/* Logo and Blurb */}
         <div className="col-span-1 md:col-span-1">
-          <Link href="/" className="flex items-center space-x-2 mb-4">
-            <div className="bg-primary rounded-full p-1.5">
-               <Image src="/globe.svg" alt="Kazi Logo" width={20} height={20} className="invert" />
-            </div>
-            <span className="text-xl font-heading font-bold text-gray-900">Kazi</span>
+          <Link href="/" className="flex items-center space-x-2 mb-6">
+             <Image 
+               src="/logo1.jpg" 
+               alt="Kazi - Work Handled" 
+               width={180} 
+               height={60} 
+               className="object-contain"
+             />
           </Link>
           <p className="text-sm text-gray-500 leading-relaxed">
             Kazi connects skilled East African freelancers with clients in
@@ -55,12 +58,12 @@ export default function Footer() {
       </div>
 
       {/* Social Media & Copyright */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-gray-200">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-gray-200 relative z-50">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="text-sm text-gray-500">
             © {new Date().getFullYear()} Kazi. All rights reserved.
           </div>
-          
+
           <div className="flex space-x-6 items-center">
             <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#0077b5] transition-colors" aria-label="LinkedIn">
               <Linkedin className="h-5 w-5" />
