@@ -184,7 +184,7 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
               Get a premium development team without the overhead. Start your project with Kazi today.
             </p>
             <Button asChild className="bg-white text-blue-600 hover:bg-gray-100 rounded-full px-10 py-7 text-lg font-bold shadow-lg">
-              <Link href={service.ctaLink}>Get a Free Quote</Link>
+              <Link href={service.ctaLink}>Get a Quote</Link>
             </Button>
             <p className="mt-6 text-sm text-blue-200 opacity-80">No commitment required. Reply time: &lt;4 hours.</p>
           </div>
