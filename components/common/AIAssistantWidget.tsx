@@ -53,14 +53,14 @@ export default function AIAssistantWidget() {
   }
 
   return (
-    <div className="fixed bottom-4 right-20 z-50">
+    <div className="fixed bottom-4 right-4 z-50">
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
         <DialogTrigger asChild>
           <Button
-            className="rounded-full w-14 h-14 flex items-center justify-center shadow-lg bg-primary hover:bg-blue-600 transition-colors"
+            className="rounded-full w-14 h-14 flex items-center justify-center shadow-lg bg-primary hover:bg-blue-600 transition-all duration-300 hover:scale-110 animate-pulse hover:animate-none group"
             aria-label="Open AI Assistant"
           >
-            <Bot className="h-7 w-7 text-white" />
+            <Bot className="h-7 w-7 text-white group-hover:rotate-12 transition-transform duration-300" />
           </Button>
         </DialogTrigger>
         <DialogContent className="sm:max-w-[425px]">
