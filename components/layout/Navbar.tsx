@@ -4,8 +4,9 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, Search } from "lucide-react";
 import { cn } from "@/lib/utils";
+import SearchModal from "@/components/common/SearchModal";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -28,6 +29,7 @@ const servicesList = [
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -112,11 +114,20 @@ export default function Navbar() {
         </div>
 
         {/* Action Buttons */}
-        <div className="flex items-center space-x-4 ml-auto">
+        <div className="flex items-center space-x-3 ml-auto">
+          {/* Search Button */}
+          <button
+            onClick={() => setIsSearchOpen(true)}
+            className="p-2 text-muted-foreground hover:text-foreground hover:bg-accent rounded-full transition-colors"
+            aria-label="Search"
+          >
+            <Search className="h-5 w-5" />
+          </button>
+
           <Button asChild className="rounded-full px-6 bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm shadow-lg shadow-blue-500/20">
             <Link href="/contact">Get Started</Link>
           </Button>
-          
+
           {/* Mobile Menu Button */}
           <button className="lg:hidden p-2 text-muted-foreground hover:text-foreground" onClick={toggleMobileMenu} aria-label="Toggle mobile menu">
             {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -127,6 +138,16 @@ export default function Navbar() {
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
         <div className="fixed inset-0 top-0 bg-background z-40 flex flex-col p-6 pt-28 space-y-6 lg:hidden overflow-y-auto h-screen animate-in slide-in-from-top-10 duration-200">
+          <button
+            onClick={() => {
+              setIsSearchOpen(true);
+              setIsMobileMenuOpen(false);
+            }}
+            className="flex items-center gap-3 text-xl font-semibold text-foreground border-b border-border pb-2 hover:text-primary transition-colors"
+          >
+            <Search className="h-5 w-5" />
+            Search
+          </button>
           <Link href="/" className="text-xl font-semibold text-foreground border-b border-border pb-2" onClick={toggleMobileMenu}>
             Home
           </Link>
@@ -155,6 +176,9 @@ export default function Navbar() {
           </Button>
         </div>
       )}
+
+      {/* Search Modal */}
+      <SearchModal isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
     </nav>
   );
 }
