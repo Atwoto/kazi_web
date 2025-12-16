@@ -1,9 +1,11 @@
 "use client";
 
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import Link from "next/link";
+import { Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -70,6 +72,8 @@ const formSchema = z.object({
 });
 
 export default function WorkWithUsPage() {
+  const [isLoading, setIsLoading] = useState(false);
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -85,9 +89,17 @@ export default function WorkWithUsPage() {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
-    alert("Application submitted successfully!");
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    setIsLoading(true);
+    try {
+      console.log(values);
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      alert("Application submitted successfully!");
+    } catch (error) {
+      console.error("Submission error:", error);
+    } finally {
+      setIsLoading(false);
+    }
   }
 
   return (
@@ -394,8 +406,19 @@ export default function WorkWithUsPage() {
                 )}
               />
 
-              <Button type="submit" className="w-full rounded-full">
-                Submit Application
+              <Button
+                type="submit"
+                disabled={isLoading}
+                className="w-full rounded-full disabled:opacity-50"
+              >
+                {isLoading ? (
+                  <>
+                    <Loader2 className="mr-2 w-4 h-4 animate-spin" />
+                    Submitting Application...
+                  </>
+                ) : (
+                  "Submit Application"
+                )}
               </Button>
             </form>
           </Form>

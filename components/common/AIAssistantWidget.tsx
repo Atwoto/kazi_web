@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { Bot, MessageSquare } from "lucide-react"; 
+import { Bot, MessageSquare, Loader2 } from "lucide-react"; 
 
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
@@ -34,6 +34,7 @@ const formSchema = z.object({
 
 export default function AIAssistantWidget() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -44,11 +45,19 @@ export default function AIAssistantWidget() {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log("AI Assistant Form Submitted:", values);
-    alert("Your question has been sent! We'll get back to you soon.");
-    form.reset();
-    setIsOpen(false);
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    setIsLoading(true);
+    try {
+      console.log("AI Assistant Form Submitted:", values);
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      alert("Your question has been sent! We'll get back to you soon.");
+      form.reset();
+      setIsOpen(false);
+    } catch (error) {
+      console.error("Submission error:", error);
+    } finally {
+      setIsLoading(false);
+    }
   }
 
   return (
@@ -122,8 +131,19 @@ export default function AIAssistantWidget() {
                   </FormItem>
                 )}
               />
-              <Button type="submit" className="w-full bg-slate-900 hover:bg-slate-800">
-                Send Question
+              <Button
+                type="submit"
+                disabled={isLoading}
+                className="w-full bg-slate-900 hover:bg-slate-800 disabled:opacity-50"
+              >
+                {isLoading ? (
+                  <>
+                    <Loader2 className="mr-2 w-4 h-4 animate-spin" />
+                    Sending...
+                  </>
+                ) : (
+                  "Send Question"
+                )}
               </Button>
             </form>
           </Form>

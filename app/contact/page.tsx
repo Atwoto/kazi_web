@@ -6,7 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import Link from "next/link";
 import { format } from "date-fns";
-import { CalendarIcon, CheckIcon, ChevronRight, ChevronLeft, ShieldCheck, Clock, CreditCard } from "lucide-react";
+import { CalendarIcon, CheckIcon, ChevronRight, ChevronLeft, ShieldCheck, Clock, CreditCard, Loader2 } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -75,6 +75,7 @@ const formSchema = z.object({
 
 export default function ContactPage() {
   const [currentStep, setCurrentStep] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
   const totalSteps = 4;
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -87,9 +88,17 @@ export default function ContactPage() {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
-    alert("Request submitted successfully! Check your email for confirmation.");
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    setIsLoading(true);
+    try {
+      console.log(values);
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      alert("Request submitted successfully! Check your email for confirmation.");
+    } catch (error) {
+      console.error("Submission error:", error);
+    } finally {
+      setIsLoading(false);
+    }
   }
 
   const nextStep = () => setCurrentStep((prev) => Math.min(prev + 1, totalSteps - 1));
@@ -139,7 +148,12 @@ export default function ContactPage() {
                 </FormItem>
               )}
             />
-            <Button type="button" onClick={nextStep} className="w-full h-12 rounded-full text-lg mt-4 bg-primary hover:bg-blue-700">
+            <Button
+              type="button"
+              onClick={nextStep}
+              disabled={isLoading}
+              className="w-full h-12 rounded-full text-lg mt-4 bg-primary hover:bg-blue-700 disabled:opacity-50"
+            >
               Next Step <ChevronRight className="ml-2 w-4 h-4" />
             </Button>
           </div>
@@ -182,10 +196,21 @@ export default function ContactPage() {
               )}
             />
             <div className="flex gap-4 mt-6">
-              <Button type="button" variant="outline" onClick={prevStep} className="w-1/3 h-12 rounded-full border-gray-200">
+              <Button
+                type="button"
+                variant="outline"
+                onClick={prevStep}
+                disabled={isLoading}
+                className="w-1/3 h-12 rounded-full border-gray-200 disabled:opacity-50"
+              >
                 Back
               </Button>
-              <Button type="button" onClick={nextStep} className="w-2/3 h-12 rounded-full bg-primary hover:bg-blue-700">
+              <Button
+                type="button"
+                onClick={nextStep}
+                disabled={isLoading}
+                className="w-2/3 h-12 rounded-full bg-primary hover:bg-blue-700 disabled:opacity-50"
+              >
                 Next Step <ChevronRight className="ml-2 w-4 h-4" />
               </Button>
             </div>
@@ -283,10 +308,21 @@ export default function ContactPage() {
               )}
             />
             <div className="flex gap-4 mt-6">
-              <Button type="button" variant="outline" onClick={prevStep} className="w-1/3 h-12 rounded-full border-gray-200">
+              <Button
+                type="button"
+                variant="outline"
+                onClick={prevStep}
+                disabled={isLoading}
+                className="w-1/3 h-12 rounded-full border-gray-200 disabled:opacity-50"
+              >
                 Back
               </Button>
-              <Button type="button" onClick={nextStep} className="w-2/3 h-12 rounded-full bg-primary hover:bg-blue-700">
+              <Button
+                type="button"
+                onClick={nextStep}
+                disabled={isLoading}
+                className="w-2/3 h-12 rounded-full bg-primary hover:bg-blue-700 disabled:opacity-50"
+              >
                 Next Step <ChevronRight className="ml-2 w-4 h-4" />
               </Button>
             </div>
@@ -350,11 +386,30 @@ export default function ContactPage() {
               )}
             />
             <div className="flex gap-4 mt-6">
-              <Button type="button" variant="outline" onClick={prevStep} className="w-1/3 h-12 rounded-full border-gray-200">
+              <Button
+                type="button"
+                variant="outline"
+                onClick={prevStep}
+                disabled={isLoading}
+                className="w-1/3 h-12 rounded-full border-gray-200 disabled:opacity-50"
+              >
                 Back
               </Button>
-              <Button type="submit" className="w-2/3 h-12 rounded-full bg-green-600 hover:bg-green-700 text-white shadow-lg">
-                Submit Request <CheckIcon className="ml-2 w-4 h-4" />
+              <Button
+                type="submit"
+                disabled={isLoading}
+                className="w-2/3 h-12 rounded-full bg-green-600 hover:bg-green-700 text-white shadow-lg disabled:opacity-50"
+              >
+                {isLoading ? (
+                  <>
+                    <Loader2 className="mr-2 w-4 h-4 animate-spin" />
+                    Submitting...
+                  </>
+                ) : (
+                  <>
+                    Submit Request <CheckIcon className="ml-2 w-4 h-4" />
+                  </>
+                )}
               </Button>
             </div>
           </div>
