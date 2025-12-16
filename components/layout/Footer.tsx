@@ -18,7 +18,7 @@ export default function Footer() {
              />
           </Link>
           <p className="text-sm text-gray-500 leading-relaxed">
-            Kazi connects skilled East African freelancers with clients in
+            Kazi connects skilled East African experts with clients in
             Europe, delivering excellence across borders.
           </p>
         </div>
