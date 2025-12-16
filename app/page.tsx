@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <>
       {/* Hero Section - Refactored for Clean, White, Split Layout */}
-      <section className="relative w-full pt-32 pb-20 md:pt-40 md:pb-32 bg-white overflow-hidden">
+      <section className="relative w-full pt-24 pb-20 md:pt-40 md:pb-32 bg-white overflow-hidden">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             

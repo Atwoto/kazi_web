@@ -13,7 +13,7 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
   return (
     <div className="bg-white">
       {/* Hero Section */}
-      <section className="relative w-full pt-32 pb-16 md:pt-40 md:pb-24">
+      <section className="relative w-full pt-24 pb-16 md:pt-40 md:pb-24">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>

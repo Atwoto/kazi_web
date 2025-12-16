@@ -365,15 +365,19 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
-      <div className="flex flex-col lg:flex-row min-h-screen">
+    <div className="min-h-screen bg-white pt-[72px] lg:pt-24">
+      <div className="flex flex-col lg:flex-row min-h-[calc(100vh-6rem)]">
         
         {/* Left Side: Value Props (Fixed Sidebar on Desktop) */}
-        <div className="lg:w-5/12 bg-slate-900 text-white p-8 lg:p-16 flex flex-col justify-center relative overflow-hidden">
+        <div className="lg:w-5/12 bg-slate-900 text-white p-8 lg:p-16 flex flex-col justify-center relative overflow-hidden order-first">
            {/* Background Decoration */}
            <div className="absolute top-0 left-0 w-full h-full bg-[url('/file.svg')] opacity-10 bg-cover bg-center" />
            
            <div className="relative z-10">
+             <Link href="/" className="inline-block mb-12">
+               <span className="text-3xl font-heading font-bold tracking-tight">Kazi</span>
+             </Link>
+             
              <h1 className="text-4xl lg:text-5xl font-heading font-bold mb-8 leading-tight">
                Let's build something <span className="text-blue-400">great</span> together.
              </h1>
@@ -433,34 +437,29 @@ export default function ContactPage() {
             {/* Progress Stepper */}
             <div className="mb-10 relative">
               <div className="flex justify-between items-center mb-4 text-sm font-medium text-gray-400 relative z-10">
-                <span className={cn("transition-colors duration-300", currentStep >= 0 && "text-primary font-bold")}>Basics</span>
-                <span className={cn("transition-colors duration-300", currentStep >= 1 && "text-primary font-bold")}>Details</span>
-                <span className={cn("transition-colors duration-300", currentStep >= 2 && "text-primary font-bold")}>Timeline</span>
-                <span className={cn("transition-colors duration-300", currentStep >= 3 && "text-primary font-bold")}>Submit</span>
+                <span className={cn("transition-colors duration-300", currentStep >= 0 && "text-blue-600 font-bold")}>Basics</span>
+                <span className={cn("transition-colors duration-300", currentStep >= 1 && "text-blue-600 font-bold")}>Details</span>
+                <span className={cn("transition-colors duration-300", currentStep >= 2 && "text-blue-600 font-bold")}>Timeline</span>
+                <span className={cn("transition-colors duration-300", currentStep >= 3 && "text-blue-600 font-bold")}>Submit</span>
               </div>
-
+              
               {/* Progress Track */}
-              <div className="h-2 w-full bg-gray-100 rounded-full overflow-hidden relative">
-                {/* Active Progress Fill with Animated Line Drawing */}
-                <div
-                  className="h-full bg-gradient-to-r from-blue-600 to-blue-700 rounded-full transition-all duration-700 ease-out absolute top-0 left-0 shadow-sm"
-                  style={{
-                    width: `${((currentStep) / (totalSteps - 1)) * 100}%`,
-                    transition: currentStep === 0 ? 'width 0ms' : 'width 700ms cubic-bezier(0.4, 0, 0.2, 1)',
-                  }}
+              <div className="h-1 w-full bg-gray-100 rounded-full overflow-hidden relative">
+                {/* Active Progress Fill */}
+                <div 
+                  className="h-full bg-blue-600 transition-all duration-500 ease-out absolute top-0 left-0" 
+                  style={{ width: `${((currentStep) / (totalSteps - 1)) * 100}%` }} 
                 />
               </div>
-
+              
               {/* Step Indicators (Dots) */}
-              <div className="flex justify-between absolute top-[28px] w-full px-1">
+              <div className="flex justify-between absolute top-[26px] w-full px-1">
                  {[0, 1, 2, 3].map((step) => (
-                   <div
-                     key={step}
+                   <div 
+                     key={step} 
                      className={cn(
-                       "w-4 h-4 rounded-full border-2 border-white transition-all duration-500",
-                       currentStep >= step
-                         ? "bg-primary shadow-lg scale-125 ring-2 ring-primary/30"
-                         : "bg-gray-200 shadow-sm"
+                       "w-3 h-3 rounded-full border-2 border-white transition-all duration-500",
+                       currentStep >= step ? "bg-blue-600 shadow-sm scale-110" : "bg-gray-200"
                      )}
                    />
                  ))}
