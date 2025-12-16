@@ -9,6 +9,7 @@ import { format } from "date-fns";
 import { CalendarIcon, CheckIcon, ChevronRight, ChevronLeft, ShieldCheck, Clock, CreditCard, Loader2 } from "lucide-react";
 
 import { cn } from "@/lib/utils";
+import ExitIntentPopup from "@/components/common/ExitIntentPopup";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -528,6 +529,13 @@ export default function ContactPage() {
           </div>
         </div>
       </div>
+
+      {/* Exit Intent Popup */}
+      <ExitIntentPopup
+        onEmailSubmit={(email) => {
+          console.log("Exit intent email:", email);
+        }}
+      />
     </div>
   );
 }

@@ -48,7 +48,7 @@ export default function Testimonials() {
 
       {/* Marquee Container */}
       <div className="relative w-full overflow-hidden">
-        <div className="flex w-max animate-marquee hover:pause gap-8">
+        <div className="flex w-max animate-marquee hover:pause gap-8 will-change-transform">
           {/* First Set */}
           {testimonials.map((item, i) => (
             <Card key={`1-${i}`} className="w-[350px] md:w-[450px] bg-card border-border flex-shrink-0">

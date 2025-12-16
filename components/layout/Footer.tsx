@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { Linkedin, Twitter, Instagram, Facebook, Youtube } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -97,6 +98,57 @@ export default function Footer() {
               </Link>
             </li>
           </ul>
+        </div>
+      </div>
+
+      {/* Social Media Icons */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8">
+        <div className="flex justify-center space-x-6">
+          <a
+            href="https://linkedin.com/company/kazi"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-400 hover:text-blue-600 transition-colors"
+            aria-label="LinkedIn"
+          >
+            <Linkedin className="h-6 w-6" />
+          </a>
+          <a
+            href="https://twitter.com/kazi"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-400 hover:text-blue-400 transition-colors"
+            aria-label="Twitter"
+          >
+            <Twitter className="h-6 w-6" />
+          </a>
+          <a
+            href="https://instagram.com/kazi"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-400 hover:text-pink-600 transition-colors"
+            aria-label="Instagram"
+          >
+            <Instagram className="h-6 w-6" />
+          </a>
+          <a
+            href="https://facebook.com/kazi"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-400 hover:text-blue-700 transition-colors"
+            aria-label="Facebook"
+          >
+            <Facebook className="h-6 w-6" />
+          </a>
+          <a
+            href="https://youtube.com/@kazi"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-400 hover:text-red-600 transition-colors"
+            aria-label="YouTube"
+          >
+            <Youtube className="h-6 w-6" />
+          </a>
         </div>
       </div>
 

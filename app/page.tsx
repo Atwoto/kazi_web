@@ -6,6 +6,8 @@ import HowItWorks from "@/components/home/HowItWorks";
 import TrustSection from "@/components/home/TrustSection";
 import SocialImpactSection from "@/components/home/SocialImpactSection";
 import Testimonials from "@/components/home/Testimonials";
+import AnimatedCounter from "@/components/common/AnimatedCounter";
+import ClientLogos from "@/components/common/ClientLogos";
 
 export default function Home() {
   return (
@@ -44,7 +46,10 @@ export default function Home() {
                    <div className="w-10 h-10 rounded-full border-2 border-background bg-gray-400 dark:bg-gray-500" />
                 </div>
                 <div className="text-sm text-muted-foreground">
-                  <span className="font-bold text-foreground">100+</span> projects delivered.
+                  <span className="font-bold text-foreground">
+                    <AnimatedCounter end={100} suffix="+" />
+                  </span>{" "}
+                  projects delivered.
                 </div>
               </div>
             </div>
@@ -79,12 +84,7 @@ export default function Home() {
       <section className="py-10 border-b border-border bg-background">
         <div className="container mx-auto px-4 text-center">
           <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest mb-6">Trusted by forward-thinking companies in Europe</p>
-          <div className="flex flex-wrap justify-center gap-8 md:gap-16">
-             <div className="h-8 w-24 bg-gray-400/50 dark:bg-gray-600 rounded" />
-             <div className="h-8 w-24 bg-gray-400/50 dark:bg-gray-600 rounded" />
-             <div className="h-8 w-24 bg-gray-400/50 dark:bg-gray-600 rounded" />
-             <div className="h-8 w-24 bg-gray-400/50 dark:bg-gray-600 rounded" />
-          </div>
+          <ClientLogos />
         </div>
       </section>
 
