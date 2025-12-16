@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
+import QuoteForm from "@/components/common/QuoteForm";
 
 export default function PricingPage() {
   const generalPricing = [
@@ -149,6 +150,11 @@ export default function PricingPage() {
               </Card>
             ))}
           </div>
+        </div>
+
+        {/* Get Quote Section */}
+        <div className="mt-24">
+          <QuoteForm />
         </div>
 
       </div>

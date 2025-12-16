@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { useChat } from "ai/react";
+import { useChat } from "@ai-sdk/react";
 import { Bot, MessageSquare, Send, X } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -106,7 +106,7 @@ export default function AIAssistantWidget() {
                 placeholder="Type your question..."
                 className="flex-1 bg-slate-50 border-slate-200 focus-visible:ring-blue-600"
               />
-              <Button type="submit" size="icon" className="bg-blue-600 hover:bg-blue-700 shrink-0" disabled={isLoading || !input.trim()}>
+              <Button type="submit" size="icon" className="bg-blue-600 hover:bg-blue-700 shrink-0" disabled={isLoading || !input?.trim()}>
                 <Send className="h-4 w-4" />
               </Button>
             </form>
