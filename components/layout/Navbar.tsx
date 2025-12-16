@@ -64,6 +64,9 @@ export default function Navbar() {
           <Link href="/" className={cn(navigationMenuTriggerStyle(), "bg-transparent hover:bg-accent hover:text-accent-foreground text-muted-foreground")}>
             Home
           </Link>
+          <Link href="/about" className={cn(navigationMenuTriggerStyle(), "bg-transparent hover:bg-accent hover:text-accent-foreground text-muted-foreground")}>
+            About
+          </Link>
 
           <NavigationMenu>
             <NavigationMenuList>
@@ -150,6 +153,9 @@ export default function Navbar() {
           </button>
           <Link href="/" className="text-xl font-semibold text-foreground border-b border-border pb-2" onClick={toggleMobileMenu}>
             Home
+          </Link>
+          <Link href="/about" className="text-xl font-semibold text-foreground border-b border-border pb-2" onClick={toggleMobileMenu}>
+            About
           </Link>
           <div className="space-y-3 border-b border-border pb-4">
             <p className="text-xl font-semibold text-foreground mb-2">Services</p>
