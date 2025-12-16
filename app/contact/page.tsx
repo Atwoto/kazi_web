@@ -371,60 +371,56 @@ export default function ContactPage() {
         {/* Left Side: Value Props (Fixed Sidebar on Desktop) */}
         <div className="lg:w-5/12 bg-slate-900 text-white p-8 lg:p-16 flex flex-col justify-center relative overflow-hidden order-first">
            {/* Background Decoration */}
-           <div className="absolute top-0 left-0 w-full h-full bg-[url('/next.svg')] opacity-20 bg-right-top bg-no-repeat bg-contain" />
-           
-           <div className="relative z-10 pt-24 lg:pt-0"> {/* Added pt-24 to push content below Navbar */}
-             <Link href="/" className="inline-block mb-12">
-               <span className="text-3xl font-heading font-bold tracking-tight">Kazi</span>
-             </Link>
-             
+           <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-blue-900/30 to-transparent" />
+
+           <div className="relative z-10 pt-24 lg:pt-0">
              <h1 className="text-4xl lg:text-5xl font-heading font-bold mb-8 leading-tight">
                Let's build something <span className="text-blue-400">great</span> together.
              </h1>
-             
+
              <div className="space-y-8 mt-12">
                <div className="flex gap-4">
                  <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0">
                    <CheckIcon className="w-6 h-6 text-green-400" />
                  </div>
                  <div>
-                   <h3 className="font-bold text-lg">Top 1% Vetted Talent</h3>
-                   <p className="text-slate-400 leading-relaxed">Access highly skilled East African professionals without the vetting headache.</p>
+                   <h3 className="font-bold text-lg text-white">Top 1% Vetted Talent</h3>
+                   <p className="text-slate-200 leading-relaxed">Access highly skilled East African professionals without the vetting headache.</p>
                  </div>
                </div>
-               
+
                <div className="flex gap-4">
                  <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0">
                    <ShieldCheck className="w-6 h-6 text-blue-400" />
                  </div>
                  <div>
-                   <h3 className="font-bold text-lg">100% Secure Payment</h3>
-                   <p className="text-slate-400 leading-relaxed">Your funds are protected. We only release payments upon your approval.</p>
+                   <h3 className="font-bold text-lg text-white">100% Secure Payment</h3>
+                   <p className="text-slate-200 leading-relaxed">Your funds are protected. We only release payments upon your approval.</p>
                  </div>
                </div>
-               
+
                <div className="flex gap-4">
                  <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0">
                    <Clock className="w-6 h-6 text-yellow-400" />
                  </div>
                  <div>
-                   <h3 className="font-bold text-lg">European Management</h3>
-                   <p className="text-slate-400 leading-relaxed">Your project is overseen by experienced managers ensuring European quality standards.</p>
+                   <h3 className="font-bold text-lg text-white">European Management</h3>
+                   <p className="text-slate-200 leading-relaxed">Your project is overseen by experienced managers ensuring European quality standards.</p>
                  </div>
                </div>
-               
+
                <div className="flex gap-4">
                  <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0">
                    <CreditCard className="w-6 h-6 text-purple-400" />
                  </div>
                  <div>
-                   <h3 className="font-bold text-lg">Transparent Pricing</h3>
-                   <p className="text-slate-400 leading-relaxed">No hidden fees. You get exactly what you pay for with clear quotes.</p>
+                   <h3 className="font-bold text-lg text-white">Transparent Pricing</h3>
+                   <p className="text-slate-200 leading-relaxed">No hidden fees. You get exactly what you pay for with clear quotes.</p>
                  </div>
                </div>
              </div>
-             
-             <p className="mt-16 text-sm text-slate-500 italic border-t border-slate-800 pt-6">
+
+             <p className="mt-16 text-sm text-slate-300 italic border-t border-slate-800 pt-6">
                "To protect quality and support, please keep all communication inside Kazi."
              </p>
            </div>
