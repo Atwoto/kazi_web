@@ -3,14 +3,15 @@ import { servicesData } from "@/lib/service-data";
 import ServicePageTemplate from "@/components/services/ServicePageTemplate";
 
 interface ServicePageProps {
-  params: {
+  params: Promise<{
     "service-slug": string;
-  };
+  }>;
 }
 
 export default async function ServicePage({ params }: ServicePageProps) {
+  const resolvedParams = await params;
   const service = servicesData.find(
-    (s) => s.slug === params["service-slug"]
+    (s) => s.slug === resolvedParams["service-slug"]
   );
 
   if (!service) {
