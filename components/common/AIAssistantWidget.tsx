@@ -52,7 +52,7 @@ export default function AIAssistantWidget() {
   }
 
   return (
-    <div className="fixed bottom-6 right-24 z-50 flex flex-col items-center gap-2 animate-in fade-in slide-in-from-bottom-4 duration-500">
+    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-center gap-2 animate-in fade-in slide-in-from-bottom-4 duration-500">
       {/* Floating Label */}
       <div className="bg-slate-900 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md mb-1 animate-bounce">
         AI Assistant
