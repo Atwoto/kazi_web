@@ -48,7 +48,7 @@ export default function Navbar() {
         scrolled ? "shadow-sm py-3" : "py-5"
       )}
     >
-      <div className="container mx-auto px-4 md:px-6 flex items-center justify-between relative">
+      <div className="container mx-auto px-4 md:px-6 flex items-center justify-between relative z-50">
         {/* Logo */}
         <Link href="/" className="flex items-center space-x-2 mr-8">
           <div className="bg-primary rounded-full p-1.5">
@@ -126,7 +126,7 @@ export default function Navbar() {
 
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 top-[70px] bg-white z-40 flex flex-col p-6 space-y-6 lg:hidden overflow-y-auto">
+        <div className="fixed inset-0 top-0 bg-white z-40 flex flex-col p-6 pt-28 space-y-6 lg:hidden overflow-y-auto h-screen">
           <Link href="/" className="text-xl font-semibold text-gray-800 border-b pb-2" onClick={toggleMobileMenu}>
             Home
           </Link>
@@ -150,7 +150,7 @@ export default function Navbar() {
           <Link href="/contact" className="text-xl font-semibold text-gray-800 border-b pb-2" onClick={toggleMobileMenu}>
             Contact
           </Link>
-          <Button asChild className="w-full rounded-full py-6 text-lg mt-4">
+          <Button asChild className="w-full rounded-full py-6 text-lg mt-4 bg-blue-600 hover:bg-blue-700 text-white">
             <Link href="/contact" onClick={toggleMobileMenu}>Get Started</Link>
           </Button>
         </div>
