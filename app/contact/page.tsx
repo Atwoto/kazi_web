@@ -374,7 +374,7 @@ export default function ContactPage() {
            <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-blue-900/30 to-transparent" />
 
            <div className="relative z-10 pt-24 lg:pt-0">
-             <h1 className="text-4xl lg:text-5xl font-heading font-bold mb-8 leading-tight">
+             <h1 className="text-4xl lg:text-5xl font-heading font-bold mb-8 leading-tight text-white">
                Let's build something <span className="text-blue-400">great</span> together.
              </h1>
 
