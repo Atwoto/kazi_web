@@ -1,69 +1,37 @@
 "use client";
 
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import * as z from "zod";
-import { Bot, MessageSquare, Loader2 } from "lucide-react"; 
+import { useState, useRef, useEffect } from "react";
+import { useChat } from "ai/react";
+import { Bot, MessageSquare, Send, X } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-
-const formSchema = z.object({
-  name: z.string().min(2, { message: "Name is required." }),
-  email: z.string().email({ message: "Invalid email address." }),
-  question: z.string().min(10, { message: "Question must be at least 10 characters." }),
-});
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 export default function AIAssistantWidget() {
   const [isOpen, setIsOpen] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
-
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      name: "",
-      email: "",
-      question: "",
-    },
+  const { messages, input, handleInputChange, handleSubmit, isLoading } = useChat({
+    api: "/api/chat",
   });
+  const scrollRef = useRef<HTMLDivElement>(null);
 
-  async function onSubmit(values: z.infer<typeof formSchema>) {
-    setIsLoading(true);
-    try {
-      console.log("AI Assistant Form Submitted:", values);
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      alert("Your question has been sent! We'll get back to you soon.");
-      form.reset();
-      setIsOpen(false);
-    } catch (error) {
-      console.error("Submission error:", error);
-    } finally {
-      setIsLoading(false);
+  useEffect(() => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
     }
-  }
+  }, [messages]);
 
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-center gap-2 animate-in fade-in slide-in-from-bottom-4 duration-500">
       {/* Floating Label */}
-      <div className="bg-slate-900 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md mb-1 animate-bounce">
+      <div className="bg-slate-900 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md mb-1 animate-bounce cursor-pointer" onClick={() => setIsOpen(true)}>
         AI Assistant
       </div>
       
@@ -76,77 +44,73 @@ export default function AIAssistantWidget() {
             <MessageSquare className="h-7 w-7 text-white" />
           </Button>
         </DialogTrigger>
-        <DialogContent className="sm:max-w-[425px]">
-          <DialogHeader>
-            <DialogTitle className="flex items-center">
-              <Bot className="h-6 w-6 mr-2 text-primary" />
-              AI Assistant (Help Chat)
+        <DialogContent className="sm:max-w-[400px] h-[600px] flex flex-col p-0 gap-0 overflow-hidden rounded-2xl border-slate-800">
+          <DialogHeader className="bg-slate-900 p-4 text-white shrink-0">
+            <DialogTitle className="flex items-center gap-3">
+              <div className="bg-blue-600 p-2 rounded-lg">
+                <Bot className="h-5 w-5 text-white" />
+              </div>
+              <div className="flex flex-col">
+                <span className="text-sm font-bold">Kazi Assistant</span>
+                <span className="text-[10px] text-slate-400 font-normal">Powered by Qwen AI</span>
+              </div>
             </DialogTitle>
-            <DialogDescription>
-              Ask us anything! We'll get back to you via email.
-            </DialogDescription>
           </DialogHeader>
-          <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-              <FormField
-                control={form.control}
-                name="name"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Your Name</FormLabel>
-                    <FormControl>
-                      <Input placeholder="John Doe" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
+          
+          <ScrollArea className="flex-1 p-4 bg-slate-50">
+            <div className="flex flex-col gap-4" ref={scrollRef}>
+              {messages.length === 0 && (
+                <div className="bg-white p-4 rounded-2xl rounded-tl-none shadow-sm border border-slate-100 max-w-[85%] self-start">
+                  <p className="text-sm text-slate-700">
+                    Hi! I'm Kazi's AI assistant. Ask me anything about our services, pricing, or how to get started!
+                  </p>
+                </div>
+              )}
+              {messages.map((m) => (
+                <div
+                  key={m.id}
+                  className={`flex ${
+                    m.role === "user" ? "justify-end" : "justify-start"
+                  }`}
+                >
+                  <div
+                    className={`max-w-[85%] p-3 text-sm rounded-2xl shadow-sm ${
+                      m.role === "user"
+                        ? "bg-blue-600 text-white rounded-tr-none"
+                        : "bg-white text-slate-700 border border-slate-100 rounded-tl-none"
+                    }`}
+                  >
+                    {m.content}
+                  </div>
+                </div>
+              ))}
+              {isLoading && (
+                <div className="flex justify-start">
+                  <div className="bg-white p-3 rounded-2xl rounded-tl-none shadow-sm border border-slate-100">
+                    <span className="flex gap-1">
+                      <span className="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce [animation-delay:-0.3s]"></span>
+                      <span className="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce [animation-delay:-0.15s]"></span>
+                      <span className="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce"></span>
+                    </span>
+                  </div>
+                </div>
+              )}
+            </div>
+          </ScrollArea>
+
+          <div className="p-4 bg-white border-t border-slate-100 shrink-0">
+            <form onSubmit={handleSubmit} className="flex gap-2">
+              <Input
+                value={input}
+                onChange={handleInputChange}
+                placeholder="Type your question..."
+                className="flex-1 bg-slate-50 border-slate-200 focus-visible:ring-blue-600"
               />
-              <FormField
-                control={form.control}
-                name="email"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Your Email</FormLabel>
-                    <FormControl>
-                      <Input type="email" placeholder="john.doe@example.com" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="question"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Your Question</FormLabel>
-                    <FormControl>
-                      <Textarea
-                        placeholder="Type your question here..."
-                        className="resize-y min-h-[100px]"
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <Button
-                type="submit"
-                disabled={isLoading}
-                className="w-full bg-slate-900 hover:bg-slate-800 disabled:opacity-50"
-              >
-                {isLoading ? (
-                  <>
-                    <Loader2 className="mr-2 w-4 h-4 animate-spin" />
-                    Sending...
-                  </>
-                ) : (
-                  "Send Question"
-                )}
+              <Button type="submit" size="icon" className="bg-blue-600 hover:bg-blue-700 shrink-0" disabled={isLoading || !input.trim()}>
+                <Send className="h-4 w-4" />
               </Button>
             </form>
-          </Form>
+          </div>
         </DialogContent>
       </Dialog>
     </div>
