@@ -2,7 +2,7 @@ import { Heart } from "lucide-react";
 
 export default function SocialImpactSection() {
   return (
-    <section className="py-16 bg-blue-50 border-t border-blue-100">
+    <section className="pt-16 pb-24 bg-blue-50 border-t border-blue-100">
       <div className="container mx-auto px-4 md:px-6 text-center">
         <div className="inline-flex items-center justify-center p-3 bg-white rounded-full shadow-sm mb-6">
           <Heart className="w-6 h-6 text-red-500 fill-current animate-pulse" />

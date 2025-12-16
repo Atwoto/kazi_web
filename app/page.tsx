@@ -24,9 +24,9 @@ export default function Home() {
               </div>
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-heading font-bold text-foreground leading-[1.1] tracking-tight">
                 Work delivered, <br />
-                <span className="text-muted-foreground/60">without the freelance hassle.</span>
+                <span className="text-muted-foreground">without the freelance hassle.</span>
               </h1>
-              <p className="text-xl text-muted-foreground max-w-xl leading-relaxed">
+              <p className="text-xl text-gray-600 dark:text-gray-300 max-w-xl leading-relaxed">
                 Kazi connects Europe to vetted East African talent. We handle the quality, payments, and delivery so you can focus on growth.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
@@ -45,7 +45,7 @@ export default function Home() {
                    <div className="w-10 h-10 rounded-full border-2 border-background bg-gray-300 dark:bg-gray-600" />
                    <div className="w-10 h-10 rounded-full border-2 border-background bg-gray-400 dark:bg-gray-500" />
                 </div>
-                <div className="text-sm text-muted-foreground">
+                <div className="text-sm text-gray-600 dark:text-gray-400">
                   <span className="font-bold text-foreground">
                     <AnimatedCounter end={100} suffix="+" />
                   </span>{" "}
