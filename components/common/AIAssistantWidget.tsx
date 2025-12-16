@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { Bot, MessageSquare } from "lucide-react"; // Using Bot and MessageSquare icons
+import { Bot, MessageSquare } from "lucide-react"; 
 
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
@@ -49,19 +49,22 @@ export default function AIAssistantWidget() {
     alert("Your question has been sent! We'll get back to you soon.");
     form.reset();
     setIsOpen(false);
-    // In a real application, you would send this to an email service or backend
   }
 
   return (
-    <div className="fixed bottom-4 right-4 z-50">
+    <div className="fixed bottom-6 right-24 z-50 flex flex-col items-center gap-2 animate-in fade-in slide-in-from-bottom-4 duration-500">
+      {/* Floating Label */}
+      <div className="bg-slate-900 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md mb-1 animate-bounce">
+        AI Assistant
+      </div>
+      
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
         <DialogTrigger asChild>
           <Button
-            className="rounded-full w-14 h-14 flex items-center justify-center shadow-xl bg-blue-600 hover:bg-blue-700 border-2 border-white transition-all duration-300 hover:scale-110 group"
+            className="w-14 h-14 rounded-2xl shadow-xl bg-slate-800 hover:bg-slate-700 transition-all duration-300 flex items-center justify-center border-2 border-slate-700"
             aria-label="Open AI Assistant"
-            style={{ boxShadow: "0 4px 20px rgba(59, 130, 246, 0.5)" }}
           >
-            <Bot className="h-7 w-7 text-white group-hover:rotate-12 transition-transform duration-300" />
+            <MessageSquare className="h-7 w-7 text-white" />
           </Button>
         </DialogTrigger>
         <DialogContent className="sm:max-w-[425px]">
@@ -119,7 +122,7 @@ export default function AIAssistantWidget() {
                   </FormItem>
                 )}
               />
-              <Button type="submit" className="w-full">
+              <Button type="submit" className="w-full bg-slate-900 hover:bg-slate-800">
                 Send Question
               </Button>
             </form>

@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import ServiceTiles from "@/components/home/ServiceTiles";
 import HowItWorks from "@/components/home/HowItWorks";
 import TrustSection from "@/components/home/TrustSection";
+import TestimonialsSection from "@/components/home/TestimonialsSection";
 import SocialImpactSection from "@/components/home/SocialImpactSection";
 
 export default function Home() {
@@ -90,6 +91,7 @@ export default function Home() {
       <ServiceTiles />
       <HowItWorks />
       <TrustSection />
+      <TestimonialsSection />
       <SocialImpactSection />
     </>
   );
