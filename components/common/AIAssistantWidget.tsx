@@ -57,8 +57,9 @@ export default function AIAssistantWidget() {
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
         <DialogTrigger asChild>
           <Button
-            className="rounded-full w-14 h-14 flex items-center justify-center shadow-lg bg-primary hover:bg-blue-600 transition-all duration-300 hover:scale-110 animate-pulse hover:animate-none group"
+            className="rounded-full w-14 h-14 flex items-center justify-center shadow-xl bg-blue-600 hover:bg-blue-700 border-2 border-white transition-all duration-300 hover:scale-110 group"
             aria-label="Open AI Assistant"
+            style={{ boxShadow: "0 4px 20px rgba(59, 130, 246, 0.5)" }}
           >
             <Bot className="h-7 w-7 text-white group-hover:rotate-12 transition-transform duration-300" />
           </Button>
