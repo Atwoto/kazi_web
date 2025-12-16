@@ -371,9 +371,9 @@ export default function ContactPage() {
         {/* Left Side: Value Props (Fixed Sidebar on Desktop) */}
         <div className="lg:w-5/12 bg-slate-900 text-white p-8 lg:p-16 flex flex-col justify-center relative overflow-hidden order-first">
            {/* Background Decoration */}
-           <div className="absolute top-0 left-0 w-full h-full bg-[url('/file.svg')] opacity-10 bg-cover bg-center" />
+           <div className="absolute top-0 left-0 w-full h-full bg-[url('/next.svg')] opacity-20 bg-right-top bg-no-repeat bg-contain" />
            
-           <div className="relative z-10">
+           <div className="relative z-10 pt-24 lg:pt-0"> {/* Added pt-24 to push content below Navbar */}
              <Link href="/" className="inline-block mb-12">
                <span className="text-3xl font-heading font-bold tracking-tight">Kazi</span>
              </Link>
