@@ -1,15 +1,23 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Quicksand, Inter } from "next/font/google"; // Import Quicksand for headings, Inter as a placeholder for Satoshi
 import "./globals.css";
+import Navbar from "@/components/layout/Navbar"; // Import the Navbar component
+import Footer from "@/components/layout/Footer"; // Import the Footer component
+import WhatsAppButton from "@/components/common/WhatsAppButton"; // Import WhatsAppButton
+import AIAssistantWidget from "@/components/common/AIAssistantWidget"; // Import AIAssistantWidget
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+// Define Quicksand for headings
+const quicksand = Quicksand({
   subsets: ["latin"],
+  variable: "--font-quicksand",
+  display: "swap", // Best practice for font loading
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+// Define Inter for body (placeholder for Satoshi)
+const inter = Inter({
   subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap", // Best practice for font loading
 });
 
 export const metadata: Metadata = {
@@ -24,10 +32,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className={`${quicksand.variable} ${inter.variable} flex flex-col min-h-screen`}>
+        <Navbar /> {/* Render the Navbar */}
+        <main className="flex-grow">{children}</main> {/* Main content area */}
+        <Footer /> {/* Render the Footer */}
+        <WhatsAppButton />
+        <AIAssistantWidget />
       </body>
     </html>
   );
