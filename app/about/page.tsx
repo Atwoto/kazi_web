@@ -1,273 +1,116 @@
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Heart, Users, Globe, Award, Target, CheckCircle } from "lucide-react";
+import { Check, Users, Globe, Shield } from "lucide-react";
 
 export default function AboutPage() {
-  const stats = [
-    { number: "100+", label: "Projects Delivered" },
-    { number: "50+", label: "Vetted Talents" },
-    { number: "6", label: "Countries Served" },
-    { number: "24hr", label: "Average Response Time" },
-  ];
-
-  const values = [
-    {
-      icon: CheckCircle,
-      title: "Quality First",
-      description: "We maintain strict quality standards with every project. Every deliverable goes through rigorous review before reaching you.",
-    },
-    {
-      icon: Users,
-      title: "Vetted Excellence",
-      description: "Our talent pool consists of only the top 1% of professionals, carefully vetted for skill, reliability, and communication.",
-    },
-    {
-      icon: Heart,
-      title: "Social Impact",
-      description: "We're committed to making a difference. Every project contributes to supporting children's homes in Kenya.",
-    },
-    {
-      icon: Globe,
-      title: "Cross-Border Trust",
-      description: "We bridge the gap between European businesses and African talent, building lasting professional relationships.",
-    },
-  ];
-
-  const team = [
-    {
-      name: "Sarah Johnson",
-      role: "Founder & CEO",
-      bio: "Former management consultant with 10+ years experience in outsourcing and talent acquisition across Africa.",
-      image: "/next.svg",
-    },
-    {
-      name: "James Mwangi",
-      role: "Head of Operations",
-      bio: "Ensures seamless project delivery and maintains quality standards across all our service offerings.",
-      image: "/next.svg",
-    },
-    {
-      name: "Amara Okafor",
-      role: "Talent Relations Manager",
-      bio: "Manages our network of vetted professionals and ensures consistent communication and support.",
-      image: "/next.svg",
-    },
-    {
-      name: "David Chen",
-      role: "Client Success Lead",
-      bio: "Dedicated to ensuring every client receives exceptional service and achieves their project goals.",
-      image: "/next.svg",
-    },
-  ];
-
   return (
     <div className="bg-white">
       {/* Hero Section */}
-      <section className="relative w-full pt-24 pb-16 md:pt-40 md:pb-24 bg-gradient-to-br from-blue-50 to-white">
+      <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-6xl font-heading font-bold text-gray-900 mb-6 leading-tight">
-              Connecting Europe to East African Excellence
+          <div className="max-w-3xl mx-auto text-center">
+            <div className="inline-flex items-center space-x-2 bg-blue-50 px-3 py-1 rounded-full mb-6">
+              <span className="text-xs font-bold text-blue-600 uppercase tracking-wide">Our Story</span>
+            </div>
+            <h1 className="text-4xl md:text-6xl font-heading font-bold text-gray-900 leading-tight mb-6">
+              The Quality of a European Agency. <br />
+              <span className="text-blue-600">The Agility of a Remote Team.</span>
             </h1>
-            <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-              We're on a mission to revolutionize how European businesses access world-class talent,
-              while creating positive social impact across East Africa.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Button asChild className="rounded-full px-8 py-6 text-lg bg-blue-600 hover:bg-blue-700">
-                <Link href="/contact">Work With Us</Link>
-              </Button>
-              <Button asChild variant="outline" className="rounded-full px-8 py-6 text-lg">
-                <Link href="/work-with-us">Join Our Network</Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="py-16 bg-white border-y border-gray-100">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="text-4xl md:text-5xl font-bold text-blue-600 mb-2">{stat.number}</div>
-                <div className="text-gray-600 font-medium">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Our Story Section */}
-      <section className="py-20 md:py-32 bg-white">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-6">Our Story</h2>
-            </div>
-            <div className="prose prose-lg mx-auto text-gray-600">
-              <p className="text-xl leading-relaxed mb-6">
-                Kazi was born from a simple observation: there exists incredible talent in East Africa,
-                yet many European businesses struggle to find reliable, high-quality freelance services
-                without the headaches of direct hiring.
-              </p>
-              <p className="leading-relaxed mb-6">
-                Founded in 2024, we recognized the untapped potential of connecting these two worlds.
-                Our founders, with extensive experience in management consulting and African markets,
-                saw an opportunity to create something meaningful – a platform that delivers exceptional
-                work while making a real difference in communities.
-              </p>
-              <p className="leading-relaxed mb-6">
-                Today, Kazi manages a network of over 50 vetted professionals across Kenya, Uganda,
-                Tanzania, and Rwanda. We've delivered 100+ projects for clients in Germany, Netherlands,
-                UK, France, and beyond. But we're just getting started.
-              </p>
-              <p className="leading-relaxed">
-                Every project with Kazi doesn't just deliver results – it contributes €0.50 to our
-                partnered children's homes in Kenya, creating a cycle of positive impact that extends
-                far beyond business.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Mission & Vision */}
-      <section className="py-20 md:py-32 bg-gray-50">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mx-auto">
-            <Card className="p-8 md:p-12 border-0 shadow-lg rounded-2xl bg-white">
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4">
-                  <Target className="w-6 h-6 text-blue-600" />
-                </div>
-                <h3 className="text-2xl md:text-3xl font-heading font-bold text-gray-900">Our Mission</h3>
-              </div>
-              <p className="text-gray-600 leading-relaxed text-lg">
-                To connect European businesses with exceptional East African talent through a managed
-                service model that guarantees quality, reliability, and positive social impact. We
-                handle the complexity so you can focus on growth.
-              </p>
-            </Card>
-
-            <Card className="p-8 md:p-12 border-0 shadow-lg rounded-2xl bg-white">
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center mr-4">
-                  <Award className="w-6 h-6 text-green-600" />
-                </div>
-                <h3 className="text-2xl md:text-3xl font-heading font-bold text-gray-900">Our Vision</h3>
-              </div>
-              <p className="text-gray-600 leading-relaxed text-lg">
-                To become the leading platform for cross-border creative and technical services,
-                setting new standards for quality and social responsibility in the gig economy.
-              </p>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Values */}
-      <section className="py-20 md:py-32 bg-white">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-6">Our Values</h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              These core principles guide every decision we make and every project we deliver.
+            <p className="text-xl text-gray-500 leading-relaxed mb-8">
+              Kazi isn't a marketplace. We are a managed service provider that connects forward-thinking European companies with the top 1% of East African talent, overseen by dedicated project managers.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            {values.map((value, index) => (
-              <Card key={index} className="p-8 border border-gray-100 hover:shadow-lg transition-shadow rounded-2xl">
+        </div>
+      </section>
+
+      {/* The Problem vs The Solution */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl font-heading font-bold text-gray-900 mb-6">
+                The Freelancer "Wild West" vs. The Kazi Way
+              </h2>
+              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+                Hiring directly from marketplaces is risky. Ghosting, quality inconsistency, and communication barriers can derail your projects. 
+              </p>
+              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                We solved this by adding a <strong>Management Layer</strong>. You don't manage the talent; we do. You get a single point of contact, guaranteed timelines, and European-standard quality control.
+              </p>
+              <div className="space-y-4">
                 <div className="flex items-start">
-                  <div className="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center mr-4 flex-shrink-0">
-                    <value.icon className="w-6 h-6 text-blue-600" />
-                  </div>
+                  <div className="bg-green-100 p-1 rounded-full mr-3 mt-1"><Check className="w-4 h-4 text-green-600" /></div>
                   <div>
-                    <h3 className="text-xl font-heading font-bold text-gray-900 mb-3">{value.title}</h3>
-                    <p className="text-gray-600 leading-relaxed">{value.description}</p>
+                    <h4 className="font-bold text-gray-900">Accountability</h4>
+                    <p className="text-sm text-gray-500">We take responsibility for the final output. No excuses.</p>
                   </div>
                 </div>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Team Section */}
-      <section className="py-20 md:py-32 bg-gray-50">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-6">Meet Our Team</h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              The people behind Kazi, dedicated to connecting talent and creating impact.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
-            {team.map((member, index) => (
-              <Card key={index} className="border-0 shadow-lg rounded-2xl overflow-hidden hover:shadow-xl transition-shadow">
-                <div className="relative w-full h-64 bg-gray-100">
-                  <Image
-                    src={member.image}
-                    alt={member.name}
-                    layout="fill"
-                    objectFit="cover"
-                    className="opacity-80"
-                  />
+                <div className="flex items-start">
+                  <div className="bg-green-100 p-1 rounded-full mr-3 mt-1"><Check className="w-4 h-4 text-green-600" /></div>
+                  <div>
+                    <h4 className="font-bold text-gray-900">Vetted Excellence</h4>
+                    <p className="text-sm text-gray-500">We recruit, test, and manage the best talent in Kenya.</p>
+                  </div>
                 </div>
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-heading font-bold text-gray-900 mb-1">{member.name}</h3>
-                  <p className="text-blue-600 font-semibold mb-3">{member.role}</p>
-                  <p className="text-gray-600 text-sm leading-relaxed">{member.bio}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Social Impact */}
-      <section className="py-20 md:py-32 bg-blue-600">
-        <div className="container mx-auto px-4 md:px-6 text-center">
-          <div className="max-w-3xl mx-auto text-white">
-            <div className="inline-flex items-center justify-center p-4 bg-white/10 rounded-full mb-8">
-              <Heart className="w-8 h-8 text-white fill-current" />
+                <div className="flex items-start">
+                  <div className="bg-green-100 p-1 rounded-full mr-3 mt-1"><Check className="w-4 h-4 text-green-600" /></div>
+                  <div>
+                    <h4 className="font-bold text-gray-900">Social Impact</h4>
+                    <p className="text-sm text-gray-500">Creating high-value careers in East Africa.</p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <h2 className="text-3xl md:text-4xl font-heading font-bold mb-6">
-              Creating Lasting Impact
-            </h2>
-            <p className="text-xl mb-8 leading-relaxed opacity-90">
-              For every project you start with Kazi, €0.50 goes directly to support our partnered
-              Children's Home in Kenya. Together, we're not just building businesses – we're changing lives.
-            </p>
-            <div className="inline-flex items-center gap-2 text-lg font-semibold bg-white/20 px-6 py-3 rounded-full">
-              <span>❤️ Making a difference, one project at a time</span>
+            <div className="relative h-[500px] bg-blue-600 rounded-3xl overflow-hidden shadow-2xl">
+               <Image
+                 src="/file.svg" // Placeholder for a team image
+                 alt="Kazi Management Team"
+                 layout="fill"
+                 objectFit="cover"
+                 className="opacity-50"
+               />
+               <div className="absolute inset-0 flex items-center justify-center">
+                 <span className="text-white font-heading font-bold text-3xl">Bridging Continents</span>
+               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* Stats / Values */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-6">
-              Ready to Work with Us?
-            </h2>
-            <p className="text-xl text-gray-600 mb-8">
-              Join the growing number of European businesses who trust Kazi for their creative and technical needs.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Button asChild className="rounded-full px-8 py-6 text-lg bg-blue-600 hover:bg-blue-700">
-                <Link href="/contact">Start Your Project</Link>
-              </Button>
-              <Button asChild variant="outline" className="rounded-full px-8 py-6 text-lg">
-                <Link href="/work-with-us">Join Our Talent Network</Link>
-              </Button>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <div className="p-8 rounded-2xl bg-gray-50 border border-gray-100">
+              <Users className="w-10 h-10 text-blue-600 mx-auto mb-4" />
+              <h3 className="text-4xl font-bold text-gray-900 mb-2">100+</h3>
+              <p className="text-gray-500">Projects Delivered</p>
+            </div>
+            <div className="p-8 rounded-2xl bg-gray-50 border border-gray-100">
+              <Globe className="w-10 h-10 text-blue-600 mx-auto mb-4" />
+              <h3 className="text-4xl font-bold text-gray-900 mb-2">24h</h3>
+              <p className="text-gray-500">Response Time</p>
+            </div>
+            <div className="p-8 rounded-2xl bg-gray-50 border border-gray-100">
+              <Shield className="w-10 h-10 text-blue-600 mx-auto mb-4" />
+              <h3 className="text-4xl font-bold text-gray-900 mb-2">100%</h3>
+              <p className="text-gray-500">Satisfaction Guarantee</p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-20 bg-blue-600 text-white text-center">
+        <div className="container mx-auto px-4 md:px-6">
+          <h2 className="text-3xl md:text-5xl font-heading font-bold mb-6">Ready to scale your operations?</h2>
+          <p className="text-xl text-blue-100 mb-10 max-w-2xl mx-auto">
+            Get the dedicated support you need without the overhead.
+          </p>
+          <Button asChild className="bg-white text-blue-600 hover:bg-gray-100 rounded-full px-10 py-7 text-lg font-bold shadow-lg">
+            <Link href="/contact">Get a Proposal</Link>
+          </Button>
         </div>
       </section>
     </div>
