@@ -32,17 +32,17 @@ export default function PricingTeaser() {
              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                <div className="bg-white/10 backdrop-blur border border-white/10 p-6 rounded-2xl">
                  <p className="text-slate-400 text-sm font-bold uppercase tracking-wider mb-2">Web Dev</p>
-                 <p className="text-3xl font-bold text-white mb-1">From €1,200</p>
+                 <p className="text-3xl font-bold text-white mb-1">From €25</p>
                  <p className="text-xs text-slate-400">Fixed project</p>
                </div>
                <div className="bg-white/10 backdrop-blur border border-white/10 p-6 rounded-2xl">
                  <p className="text-slate-400 text-sm font-bold uppercase tracking-wider mb-2">Video Editing</p>
-                 <p className="text-3xl font-bold text-white mb-1">From €150</p>
+                 <p className="text-3xl font-bold text-white mb-1">From €25</p>
                  <p className="text-xs text-slate-400">Per video</p>
                </div>
                <div className="bg-white/10 backdrop-blur border border-white/10 p-6 rounded-2xl">
                  <p className="text-slate-400 text-sm font-bold uppercase tracking-wider mb-2">Academic</p>
-                 <p className="text-3xl font-bold text-white mb-1">From €40</p>
+                 <p className="text-3xl font-bold text-white mb-1">From €25</p>
                  <p className="text-xs text-slate-400">Flat rate</p>
                </div>
                <div className="bg-blue-600 p-6 rounded-2xl flex flex-col justify-center items-center text-center cursor-pointer hover:bg-blue-500 transition-colors group">
