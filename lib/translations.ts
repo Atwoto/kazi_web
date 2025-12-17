@@ -471,7 +471,7 @@ export const translations = {
       emailLabel: "Email Us",
       whatsappLabel: "WhatsApp",
       hoursLabel: "Business Hours",
-      hoursValue: "Mon-Fri, 9am - 6pm (CET)",
+      hoursValue: "Mon-Saturday 9:00am-6:00pm",
       note: "\"To protect quality and support, please keep all communication inside Kazi.\"",
     },
     search: {
