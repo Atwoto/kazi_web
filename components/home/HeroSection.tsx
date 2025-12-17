@@ -57,7 +57,7 @@ export default function HeroSection() {
             {/* Main Image Container */}
             <div className="relative h-full w-full overflow-hidden">
               <Image
-                src="/hero-section.png"
+                src="/hero-section1.jpg"
                 alt="Developer working on laptop with code on screen"
                 fill
                 priority
