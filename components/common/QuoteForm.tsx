@@ -62,22 +62,14 @@ export default function QuoteForm({ className }: { className?: string }) {
 
   const formSchema = z.object({
     serviceType: z.enum(serviceTypes),
-    name: z.string().min(2, { message: t.forms.validation.required }),
-    email: z.string().email({ message: t.forms.validation.email }),
-    whatsapp: z.string().optional(),
-    country: z.string().optional(),
-    timezone: z.string().optional(),
     deadline: z.date({ required_error: t.forms.validation.required }),
     budgetRange: z.enum(budgetRanges),
-    description: z.string().min(20, { message: t.forms.validation.minLength.replace("{min}", "20") }),
     priority: z.enum(priorities),
-    fileUpload: z.any().optional(),
-    howDidYouHear: z.string().optional(),
-    consent: z.boolean().refine((val) => val === true, {
-      message: t.forms.validation.required,
-    }),
-
-    // Academic Support
+    
+    // Step 2: Specifics + Description
+    description: z.string().min(20, { message: t.forms.validation.minLength.replace("{min}", "20") }),
+    
+    // Academic
     documentType: z.string().optional(),
     wordCount: z.string().optional(),
     language: z.string().optional(),
@@ -87,7 +79,7 @@ export default function QuoteForm({ className }: { className?: string }) {
     trackedChanges: z.string().optional(),
     urgency: z.string().optional(),
 
-    // Graphic Design
+    // Graphic
     designType: z.string().optional(),
     deliverables: z.string().optional(),
     dimensions: z.string().optional(),
@@ -98,16 +90,28 @@ export default function QuoteForm({ className }: { className?: string }) {
     revisions: z.string().optional(),
     usage: z.string().optional(),
 
-    // Web Design & Development
+    // Web
     projectType: z.string().optional(),
     currentWebsite: z.string().optional(),
-    hasDomain: z.string().optional(),
+    domainHosting: z.string().optional(),
     pagesNeeded: z.string().optional(),
     features: z.string().optional(),
     contentReadiness: z.string().optional(),
     techPreference: z.string().optional(),
     launchDate: z.date().optional(),
     maintenance: z.string().optional(),
+
+    // Step 3: Contact & Upload
+    fileUpload: z.any().optional(),
+    name: z.string().min(2, { message: t.forms.validation.required }),
+    email: z.string().email({ message: t.forms.validation.email }),
+    whatsapp: z.string().optional(),
+    country: z.string().optional(),
+    timezone: z.string().optional(),
+    howDidYouHear: z.string().optional(),
+    consent: z.boolean().refine((val) => val === true, {
+      message: t.forms.validation.required,
+    }),
   });
 
   type FormData = z.infer<typeof formSchema>;
@@ -224,46 +228,48 @@ export default function QuoteForm({ className }: { className?: string }) {
               )}
             />
 
-            <FormField
-              control={form.control}
-              name="deadline"
-              render={({ field }) => (
-                <FormItem className="flex flex-col">
-                  <FormLabel>{t.forms.labels.deadline}</FormLabel>
-                  <Input
-                    type="date"
-                    className="h-12"
-                    {...field}
-                    value={field.value ? new Date(field.value).toISOString().split('T')[0] : ''}
-                    onChange={(e) => field.onChange(e.target.value ? new Date(e.target.value) : undefined)}
-                  />
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <FormField
+                control={form.control}
+                name="deadline"
+                render={({ field }) => (
+                  <FormItem className="flex flex-col">
+                    <FormLabel>{t.forms.labels.deadline}</FormLabel>
+                    <Input
+                      type="date"
+                      className="h-12"
+                      {...field}
+                      value={field.value ? new Date(field.value).toISOString().split('T')[0] : ''}
+                      onChange={(e) => field.onChange(e.target.value ? new Date(e.target.value) : undefined)}
+                    />
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
 
-            <FormField
-              control={form.control}
-              name="budgetRange"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>{t.forms.labels.budget}</FormLabel>
-                  <Select onValueChange={field.onChange} defaultValue={field.value}>
-                    <FormControl>
-                      <SelectTrigger className="h-12">
-                        <SelectValue placeholder={t.forms.placeholders.select} />
-                      </SelectTrigger>
-                    </FormControl>
-                    <SelectContent>
-                      {budgetRanges.map((range) => (
-                        <SelectItem key={range} value={range}>{range}</SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
+              <FormField
+                control={form.control}
+                name="budgetRange"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>{t.forms.labels.budget}</FormLabel>
+                    <Select onValueChange={field.onChange} defaultValue={field.value}>
+                      <FormControl>
+                        <SelectTrigger className="h-12">
+                          <SelectValue placeholder={t.forms.placeholders.select} />
+                        </SelectTrigger>
+                      </FormControl>
+                      <SelectContent>
+                        {budgetRanges.map((range) => (
+                          <SelectItem key={range} value={range}>{range}</SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
 
             <Button
               type="button"
@@ -284,14 +290,208 @@ export default function QuoteForm({ className }: { className?: string }) {
               <p className="text-sm text-gray-500">Tell us more about your project</p>
             </div>
 
-            {/* Service Specific Fields - Simplified for Brevity in this Refactor Step */}
-            {/* Keeping existing logic but wrapping in fragments */}
-            {watchServiceType && (
-               <div className="p-4 bg-blue-50 rounded-lg text-sm text-blue-800">
-                 Specific questions for <strong>{watchServiceType}</strong> will appear here.
-                 {/* Full implementation would map these too, but let's focus on the main structure first */}
-               </div>
+            {watchServiceType === "Academic Support" && (
+              <div className="space-y-4">
+                <FormField
+                  control={form.control}
+                  name="documentType"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>{t.forms.labels.documentType}</FormLabel>
+                      <Select onValueChange={field.onChange} defaultValue={field.value}>
+                        <FormControl><SelectTrigger><SelectValue placeholder={t.forms.placeholders.select} /></SelectTrigger></FormControl>
+                        <SelectContent>
+                          {["Essay", "Report", "Dissertation", "CV", "Cover Letter", "Presentation", "Other"].map(opt => <SelectItem key={opt} value={opt}>{opt}</SelectItem>)}
+                        </SelectContent>
+                      </Select>
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="wordCount"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>{t.forms.labels.wordCount}</FormLabel>
+                      <FormControl><Input placeholder={t.forms.placeholders.wordCount} {...field} /></FormControl>
+                    </FormItem>
+                  )}
+                />
+                <div className="grid grid-cols-2 gap-4">
+                  <FormField
+                    control={form.control}
+                    name="language"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>{t.forms.labels.language}</FormLabel>
+                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                          <FormControl><SelectTrigger><SelectValue placeholder={t.forms.placeholders.select} /></SelectTrigger></FormControl>
+                          <SelectContent>
+                            {["English", "Spanish", "Other"].map(opt => <SelectItem key={opt} value={opt}>{opt}</SelectItem>)}
+                          </SelectContent>
+                        </Select>
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name="level"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>{t.forms.labels.level}</FormLabel>
+                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                          <FormControl><SelectTrigger><SelectValue placeholder={t.forms.placeholders.select} /></SelectTrigger></FormControl>
+                          <SelectContent>
+                            {["High School", "Bachelor", "Master", "PhD", "Other"].map(opt => <SelectItem key={opt} value={opt}>{opt}</SelectItem>)}
+                          </SelectContent>
+                        </Select>
+                      </FormItem>
+                    )}
+                  />
+                </div>
+                <FormField
+                  control={form.control}
+                  name="helpType"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>{t.forms.labels.helpType}</FormLabel>
+                      <Select onValueChange={field.onChange} defaultValue={field.value}>
+                        <FormControl><SelectTrigger><SelectValue placeholder={t.forms.placeholders.select} /></SelectTrigger></FormControl>
+                        <SelectContent>
+                          {["Proofreading", "Clarity", "Structure", "Referencing", "Formatting", "Tutoring"].map(opt => <SelectItem key={opt} value={opt}>{opt}</SelectItem>)}
+                        </SelectContent>
+                      </Select>
+                    </FormItem>
+                  )}
+                />
+              </div>
             )}
+
+            {watchServiceType === "Graphic Design" && (
+              <div className="space-y-4">
+                <FormField
+                  control={form.control}
+                  name="designType"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>{t.forms.labels.designType}</FormLabel>
+                      <Select onValueChange={field.onChange} defaultValue={field.value}>
+                        <FormControl><SelectTrigger><SelectValue placeholder={t.forms.placeholders.select} /></SelectTrigger></FormControl>
+                        <SelectContent>
+                          {["Logo", "Social Posts", "Flyer", "Brand Kit", "Other"].map(opt => <SelectItem key={opt} value={opt}>{opt}</SelectItem>)}
+                        </SelectContent>
+                      </Select>
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="deliverables"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>{t.forms.labels.deliverables}</FormLabel>
+                      <Select onValueChange={field.onChange} defaultValue={field.value}>
+                        <FormControl><SelectTrigger><SelectValue placeholder={t.forms.placeholders.select} /></SelectTrigger></FormControl>
+                        <SelectContent>
+                          {["PNG", "JPG", "SVG", "PDF", "Print-ready"].map(opt => <SelectItem key={opt} value={opt}>{opt}</SelectItem>)}
+                        </SelectContent>
+                      </Select>
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="examplesLink"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>{t.forms.labels.examplesLink}</FormLabel>
+                      <FormControl><Input placeholder={t.forms.placeholders.examplesLink} {...field} /></FormControl>
+                    </FormItem>
+                  )}
+                />
+              </div>
+            )}
+
+            {watchServiceType === "Web Design & Development" && (
+              <div className="space-y-4">
+                <FormField
+                  control={form.control}
+                  name="projectType"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>{t.forms.labels.projectType}</FormLabel>
+                      <Select onValueChange={field.onChange} defaultValue={field.value}>
+                        <FormControl><SelectTrigger><SelectValue placeholder={t.forms.placeholders.select} /></SelectTrigger></FormControl>
+                        <SelectContent>
+                          {["Fix", "Landing Page", "Business Website", "E-commerce"].map(opt => <SelectItem key={opt} value={opt}>{opt}</SelectItem>)}
+                        </SelectContent>
+                      </Select>
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="currentWebsite"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>{t.forms.labels.currentWebsite}</FormLabel>
+                      <FormControl><Input placeholder="https://..." {...field} /></FormControl>
+                    </FormItem>
+                  )}
+                />
+                <div className="grid grid-cols-2 gap-4">
+                  <FormField
+                    control={form.control}
+                    name="domainHosting"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>{t.forms.labels.domainHosting}</FormLabel>
+                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                          <FormControl><SelectTrigger><SelectValue placeholder={t.forms.placeholders.select} /></SelectTrigger></FormControl>
+                          <SelectContent>
+                            <SelectItem value="yes">{t.forms.options.common.yes}</SelectItem>
+                            <SelectItem value="no">{t.forms.options.common.no}</SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name="pagesNeeded"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>{t.forms.labels.pagesNeeded}</FormLabel>
+                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                          <FormControl><SelectTrigger><SelectValue placeholder={t.forms.placeholders.select} /></SelectTrigger></FormControl>
+                          <SelectContent>
+                            {["1", "3-5", "6-10", "E-commerce"].map(opt => <SelectItem key={opt} value={opt}>{opt}</SelectItem>)}
+                          </SelectContent>
+                        </Select>
+                      </FormItem>
+                    )}
+                  />
+                </div>
+              </div>
+            )}
+
+            <FormField
+              control={form.control}
+              name="description"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>{t.forms.labels.description}</FormLabel>
+                  <FormControl>
+                    <Textarea
+                      placeholder={t.forms.placeholders.description}
+                      className="resize-y min-h-[120px]"
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
 
             <div className="flex gap-4 mt-6">
               <Button
@@ -322,24 +522,6 @@ export default function QuoteForm({ className }: { className?: string }) {
               <h3 className="text-xl font-semibold text-gray-900">{t.forms.steps.upload}</h3>
               <p className="text-sm text-gray-500">Upload files and provide contact details</p>
             </div>
-
-            <FormField
-              control={form.control}
-              name="description"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>{t.forms.labels.description}</FormLabel>
-                  <FormControl>
-                    <Textarea
-                      placeholder={t.forms.placeholders.description}
-                      className="resize-y min-h-[120px]"
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
 
             <FormField
               control={form.control}
@@ -424,6 +606,20 @@ export default function QuoteForm({ className }: { className?: string }) {
                 )}
               />
             </div>
+
+            <FormField
+              control={form.control}
+              name="timezone"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>{t.forms.labels.timeZone}</FormLabel>
+                  <FormControl>
+                    <Input placeholder={t.forms.placeholders.timeZone} {...field} className="h-12" />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
 
             <FormField
               control={form.control}
