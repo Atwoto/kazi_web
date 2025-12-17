@@ -1,4 +1,11 @@
-import ServiceTiles from "@/components/home/ServiceTiles";
+import type { Metadata } from "next";
+import ServiceHubGrid from "@/components/services/ServiceHubGrid";
+import { pageSEO } from "@/lib/seo";
+
+export const metadata: Metadata = {
+  title: pageSEO["/services"].title,
+  description: pageSEO["/services"].description,
+};
 
 export default function ServicesPage() {
   return (
@@ -9,7 +16,7 @@ export default function ServicesPage() {
           We handle the complexity. You get the results. Explore our end-to-end digital services.
         </p>
       </div>
-      <ServiceTiles />
+      <ServiceHubGrid />
     </div>
   );
 }

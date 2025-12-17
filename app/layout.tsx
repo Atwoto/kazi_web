@@ -7,6 +7,7 @@ import WhatsAppButton from "@/components/common/WhatsAppButton"; // Import Whats
 import AIAssistantWidget from "@/components/common/AIAssistantWidget"; // Import AIAssistantWidget
 import { LanguageProvider } from "@/context/LanguageContext"; // Import LanguageProvider
 import Analytics from "@/components/common/Analytics"; // Import Analytics component
+import { defaultSEO } from "@/lib/seo";
 
 // Define Quicksand for headings
 const quicksand = Quicksand({
@@ -23,8 +24,27 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Kazi - Premium Managed Services",
-  description: "Your dedicated remote operations team. European quality, managed delivery.",
+  title: {
+    default: defaultSEO.title,
+    template: "%s | Kazi",
+  },
+  description: defaultSEO.description,
+  keywords: defaultSEO.keywords,
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://kazi.com",
+    title: defaultSEO.title,
+    description: defaultSEO.description,
+    images: [
+      {
+        url: defaultSEO.ogImage || "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Kazi - Premium Managed Services",
+      },
+    ],
+  },
   icons: {
     icon: "/logo2.jpg",
   },

@@ -7,6 +7,10 @@ export interface Service {
   deliverables: string[];
   examples: { title: string; description: string; imageUrl: string }[];
   process: { step: string; description: string }[];
+  faqs: { question: string; answer: string }[];
+  targetAudience?: string;
+  startingPrice?: string;
+  turnaround?: string;
 }
 
 export const servicesData: Service[] = [
@@ -40,6 +44,14 @@ export const servicesData: Service[] = [
       { step: "Quality Assurance", description: "Rigorous testing to ensure European standards." },
       { step: "Launch & Handover", description: "Seamless deployment and full IP transfer." },
     ],
+    faqs: [
+      { question: "Do you provide hosting?", answer: "We can set up hosting for you on preferred providers like Vercel or AWS, but you will own the accounts." },
+      { question: "Will I be able to edit the content myself?", answer: "Yes, we typically build with a CMS (like Sanity or Strapi) so you can manage text and images easily." },
+      { question: "Do you offer maintenance?", answer: "We offer optional monthly maintenance packages for security updates and content changes." },
+    ],
+    targetAudience: "Startups & SMEs",
+    startingPrice: "€1,200",
+    turnaround: "2-4 Weeks"
   },
   {
     slug: "graphic-design",
@@ -50,6 +62,13 @@ export const servicesData: Service[] = [
     deliverables: ["Brand Strategy & Identity", "Marketing Collateral", "Social Media Suites", "Presentation Design"],
     examples: [],
     process: [],
+    faqs: [
+       { question: "What formats will I receive?", answer: "We provide all industry-standard formats: AI, EPS, PDF, JPG, and PNG." },
+       { question: "How many revisions are included?", answer: "Our standard packages include 2-3 rounds of revisions." },
+    ],
+    targetAudience: "Marketing Teams",
+    startingPrice: "€450",
+    turnaround: "3-7 Days"
   },
   {
     slug: "virtual-assistance",
@@ -60,6 +79,10 @@ export const servicesData: Service[] = [
     deliverables: ["Executive Inbox Management", "Complex Scheduling", "Operational Support", "Travel Logistics"],
     examples: [],
     process: [],
+    faqs: [],
+    targetAudience: "Busy Executives",
+    startingPrice: "€15/hr",
+    turnaround: "Ongoing"
   },
   {
     slug: "content-writing",
@@ -70,6 +93,10 @@ export const servicesData: Service[] = [
     deliverables: ["Thought Leadership Articles", "SEO-Driven Blog Content", "Website Copywriting", "Technical Documentation"],
     examples: [],
     process: [],
+    faqs: [],
+    targetAudience: "Digital Agencies",
+    startingPrice: "€0.08/word",
+    turnaround: "2-5 Days"
   },
   {
     slug: "data-entry",
@@ -80,6 +107,10 @@ export const servicesData: Service[] = [
     deliverables: ["Data Cleaning & Validation", "Lead Enrichment", "CRM Management", "Large-Scale Transcription"],
     examples: [],
     process: [],
+    faqs: [],
+    targetAudience: "Enterprise",
+    startingPrice: "Custom Quote",
+    turnaround: "Scope Dependent"
   },
   {
     slug: "customer-support",
@@ -90,6 +121,10 @@ export const servicesData: Service[] = [
     deliverables: ["Omni-channel Support", "L1/L2 Ticket Resolution", "Live Chat Management", "Knowledge Base Maintenance"],
     examples: [],
     process: [],
+    faqs: [],
+    targetAudience: "SaaS Companies",
+    startingPrice: "€1,500/mo",
+    turnaround: "Setup: 1 Week"
   },
   {
     slug: "video-editing",
@@ -100,6 +135,13 @@ export const servicesData: Service[] = [
     deliverables: ["Corporate Explainers", "Social Media Reels", "Ads & Promos", "Full Post-Production"],
     examples: [],
     process: [],
+    faqs: [
+        { question: "What is your typical turnaround?", answer: "Simple edits are often done in 48h. Complex projects depend on scope." },
+        { question: "How do I send large files?", answer: "We use Google Drive, Dropbox, or WeTransfer." },
+    ],
+    targetAudience: "Creators & Brands",
+    startingPrice: "€150",
+    turnaround: "48-72 Hours"
   },
   {
     slug: "photo-editing",
@@ -110,6 +152,12 @@ export const servicesData: Service[] = [
     deliverables: ["High-End Retouching", "E-commerce Standardization", "Color Correction", "Compositing"],
     examples: [],
     process: [],
+    faqs: [
+        { question: "Can you handle bulk orders?", answer: "Yes, our team is scalable to handle hundreds of images per day." },
+    ],
+    targetAudience: "E-commerce Stores",
+    startingPrice: "€2/image",
+    turnaround: "24-48 Hours"
   },
   {
     slug: "ai-services",
@@ -120,6 +168,12 @@ export const servicesData: Service[] = [
     deliverables: ["Workflow Automation", "Custom Chatbot Integration", "Data Analysis Models", "Process Optimization"],
     examples: [],
     process: [],
+    faqs: [
+        { question: "Is my data secure?", answer: "Yes, we prioritize data privacy and use secure, enterprise-grade APIs." },
+    ],
+    targetAudience: "Tech-Forward Biz",
+    startingPrice: "€2,000",
+    turnaround: "2-6 Weeks"
   },
   {
     slug: "academic-support",
@@ -130,5 +184,12 @@ export const servicesData: Service[] = [
     deliverables: ["Dissertation Proofreading", "Style Guide Formatting", "Structure & Flow Analysis", "Citation Compliance"],
     examples: [],
     process: [],
+    faqs: [
+        { question: "Do you write essays from scratch?", answer: "No. We provide editing, proofreading, and coaching. We do not engage in academic dishonesty." },
+        { question: "What referencing styles do you support?", answer: "We are experts in APA, Harvard, MLA, Chicago, and more." },
+    ],
+    targetAudience: "Students & Researchers",
+    startingPrice: "€40",
+    turnaround: "24h - 1 Week"
   },
 ];

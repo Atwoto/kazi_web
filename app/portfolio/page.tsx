@@ -1,9 +1,16 @@
 "use client";
 
+import type { Metadata } from "next";
 import { useState } from "react";
 import Image from "next/image";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { pageSEO } from "@/lib/seo";
+
+export const metadata: Metadata = {
+  title: pageSEO["/portfolio"].title,
+  description: pageSEO["/portfolio"].description,
+};
 
 interface PortfolioItem {
   id: number;

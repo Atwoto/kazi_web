@@ -1,13 +1,22 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import ServiceTiles from "@/components/home/ServiceTiles";
 import HowItWorks from "@/components/home/HowItWorks";
-import TrustSection from "@/components/home/TrustSection";
+import QualityControlSection from "@/components/home/QualityControlSection";
+import SamplesPreview from "@/components/home/SamplesPreview";
+import PricingTeaser from "@/components/home/PricingTeaser";
 import SocialImpactSection from "@/components/home/SocialImpactSection";
 import Testimonials from "@/components/home/Testimonials";
-import AnimatedCounter from "@/components/common/AnimatedCounter";
 import ClientLogos from "@/components/common/ClientLogos";
+import AnimatedCounter from "@/components/common/AnimatedCounter";
+import { pageSEO } from "@/lib/seo";
+
+export const metadata: Metadata = {
+  title: pageSEO["/"].title,
+  description: pageSEO["/"].description,
+};
 
 export default function Home() {
   return (
@@ -66,8 +75,10 @@ export default function Home() {
                       <span className="text-green-600 dark:text-green-400 text-xl">✓</span>
                     </div>
                     <div>
-                      <p className="font-bold text-gray-900 dark:text-gray-100">Project Delivered</p>
-                      <p className="text-sm text-gray-500 dark:text-gray-400">Web Development • On Time</p>
+                      <p className="font-bold text-gray-900 dark:text-gray-100 text-2xl">
+                        <AnimatedCounter end={100} suffix="+" duration={2500} />
+                      </p>
+                      <p className="text-sm text-gray-500 dark:text-gray-400">Projects Delivered</p>
                     </div>
                   </div>
                </div>
@@ -87,8 +98,10 @@ export default function Home() {
 
       <ServiceTiles />
       <HowItWorks />
+      <QualityControlSection />
+      <SamplesPreview />
+      <PricingTeaser />
       <Testimonials />
-      <TrustSection />
       <SocialImpactSection />
     </>
   );

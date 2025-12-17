@@ -1,8 +1,16 @@
 "use client";
 
+import type { Metadata } from "next";
 import Link from "next/link";
 import { CheckIcon, ShieldCheck, Clock, CreditCard } from "lucide-react";
 import QuoteForm from "@/components/common/QuoteForm";
+import ExitIntentPopup from "@/components/common/ExitIntentPopup";
+import { pageSEO } from "@/lib/seo";
+
+export const metadata: Metadata = {
+  title: pageSEO["/contact"].title,
+  description: pageSEO["/contact"].description,
+};
 
 export default function ContactPage() {
   return (
@@ -64,8 +72,23 @@ export default function ContactPage() {
                  </div>
                </div>
              </div>
+
+             <div className="mt-12 space-y-4 border-t border-slate-800 pt-8">
+                <div className="flex flex-col">
+                  <span className="text-sm text-slate-400 uppercase tracking-wider font-bold">Email Us</span>
+                  <a href="mailto:hello@kazi.com" className="text-white hover:text-blue-400 text-lg">hello@kazi.com</a>
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-sm text-slate-400 uppercase tracking-wider font-bold">WhatsApp</span>
+                  <a href="https://wa.me/1234567890" className="text-white hover:text-blue-400 text-lg">+1 (555) 123-4567</a>
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-sm text-slate-400 uppercase tracking-wider font-bold">Business Hours</span>
+                  <span className="text-white text-lg">Mon-Fri, 9am - 6pm (CET)</span>
+                </div>
+             </div>
              
-             <p className="mt-16 text-sm text-slate-300 italic border-t border-slate-800 pt-6">
+             <p className="mt-12 text-sm text-slate-300 italic">
                "To protect quality and support, please keep all communication inside Kazi."
              </p>
            </div>
@@ -82,6 +105,7 @@ export default function ContactPage() {
           </div>
         </div>
       </div>
+      <ExitIntentPopup />
     </div>
   );
 }

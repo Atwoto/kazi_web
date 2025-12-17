@@ -1,8 +1,13 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import { Linkedin, Instagram, Facebook } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Footer() {
+  const { t } = useLanguage();
+
   return (
     <footer className="bg-gray-100 text-gray-700 py-10 pb-32">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -18,41 +23,40 @@ export default function Footer() {
              />
           </Link>
           <p className="text-sm text-gray-500 leading-relaxed">
-            Kazi connects skilled East African experts with clients in
-            Europe, delivering excellence across borders.
+            {t.footer.blurb}
           </p>
         </div>
 
         {/* Services Links */}
         <div>
-          <h3 className="text-lg font-semibold mb-4 text-gray-900">Services</h3>
+          <h3 className="text-lg font-semibold mb-4 text-gray-900">{t.footer.servicesTitle}</h3>
           <ul className="space-y-2 text-sm">
-            <li><Link href="/services/video-editing" className="hover:text-primary transition-colors">Video Editing</Link></li>
-            <li><Link href="/services/photo-editing" className="hover:text-primary transition-colors">Photo Editing</Link></li>
-            <li><Link href="/services/web-design-development" className="hover:text-primary transition-colors">Web Design & Development</Link></li>
-            <li><Link href="/services/graphic-design" className="hover:text-primary transition-colors">Graphic Design</Link></li>
-            <li><Link href="/services/ai-services" className="hover:text-primary transition-colors">AI Services</Link></li>
-            <li><Link href="/services/academic-support" className="hover:text-primary transition-colors">Academic Support</Link></li>
+            <li><Link href="/services/video-editing" className="hover:text-primary transition-colors">{t.footer.serviceNames.videoEditing}</Link></li>
+            <li><Link href="/services/photo-editing" className="hover:text-primary transition-colors">{t.footer.serviceNames.photoEditing}</Link></li>
+            <li><Link href="/services/web-design-development" className="hover:text-primary transition-colors">{t.footer.serviceNames.webDev}</Link></li>
+            <li><Link href="/services/graphic-design" className="hover:text-primary transition-colors">{t.footer.serviceNames.graphicDesign}</Link></li>
+            <li><Link href="/services/ai-services" className="hover:text-primary transition-colors">{t.footer.serviceNames.aiServices}</Link></li>
+            <li><Link href="/services/academic-support" className="hover:text-primary transition-colors">{t.footer.serviceNames.academicSupport}</Link></li>
           </ul>
         </div>
 
         {/* Company Links */}
         <div>
-          <h3 className="text-lg font-semibold mb-4 text-gray-900">Company</h3>
+          <h3 className="text-lg font-semibold mb-4 text-gray-900">{t.footer.companyTitle}</h3>
           <ul className="space-y-2 text-sm">
-            <li><Link href="/about" className="hover:text-primary transition-colors">About Us</Link></li>
-            <li><Link href="/contact" className="hover:text-primary transition-colors">Contact</Link></li>
-            <li><Link href="/work-with-us" className="hover:text-primary transition-colors">Work with Us</Link></li>
+            <li><Link href="/about" className="hover:text-primary transition-colors">{t.footer.aboutUs}</Link></li>
+            <li><Link href="/contact" className="hover:text-primary transition-colors">{t.nav.contact}</Link></li>
+            <li><Link href="/work-with-us" className="hover:text-primary transition-colors">{t.footer.workWithUs}</Link></li>
           </ul>
         </div>
 
         {/* Legal Links */}
         <div>
-          <h3 className="text-lg font-semibold mb-4 text-gray-900">Legal</h3>
+          <h3 className="text-lg font-semibold mb-4 text-gray-900">{t.footer.legalTitle}</h3>
           <ul className="space-y-2 text-sm">
-            <li><Link href="/legal/privacy-policy" className="hover:text-primary transition-colors">Privacy Policy</Link></li>
-            <li><Link href="/legal/terms-of-service" className="hover:text-primary transition-colors">Terms of Service</Link></li>
-            <li><Link href="/legal/cookies" className="hover:text-primary transition-colors">Cookies</Link></li>
+            <li><Link href="/legal/privacy-policy" className="hover:text-primary transition-colors">{t.footer.privacyPolicy}</Link></li>
+            <li><Link href="/legal/terms-of-service" className="hover:text-primary transition-colors">{t.footer.termsOfService}</Link></li>
+            <li><Link href="/legal/cookies" className="hover:text-primary transition-colors">{t.footer.cookies}</Link></li>
           </ul>
         </div>
       </div>
@@ -61,7 +65,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-gray-200 relative z-50">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="text-sm text-gray-500">
-            © {new Date().getFullYear()} Kazi. All rights reserved.
+            © {new Date().getFullYear()} {t.footer.rights}
           </div>
 
           <div className="flex space-x-6 items-center">

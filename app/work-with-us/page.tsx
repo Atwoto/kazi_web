@@ -1,5 +1,6 @@
 "use client";
 
+import type { Metadata } from "next";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -27,6 +28,12 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { pageSEO } from "@/lib/seo";
+
+export const metadata: Metadata = {
+  title: pageSEO["/work-with-us"].title,
+  description: pageSEO["/work-with-us"].description,
+};
 
 const primarySkills = [
   "Video Editing",

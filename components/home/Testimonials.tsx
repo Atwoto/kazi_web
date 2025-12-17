@@ -1,5 +1,8 @@
+"use client";
+
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Star } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 const testimonials = [
   {
@@ -35,14 +38,16 @@ const testimonials = [
 ];
 
 export default function Testimonials() {
+  const { t } = useLanguage();
+
   return (
     <section className="py-24 bg-background overflow-hidden">
       <div className="container mx-auto px-4 mb-12 text-center">
         <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
-          Trusted by Global Teams
+          {t.home.testimonials.title}
         </h2>
         <p className="text-muted-foreground max-w-2xl mx-auto">
-          See why companies across Europe are switching to managed talent.
+          {t.home.testimonials.subtitle}
         </p>
       </div>
 

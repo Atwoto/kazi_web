@@ -1,8 +1,15 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
 import QuoteForm from "@/components/common/QuoteForm";
+import { pageSEO } from "@/lib/seo";
+
+export const metadata: Metadata = {
+  title: pageSEO["/pricing"].title,
+  description: pageSEO["/pricing"].description,
+};
 
 export default function PricingPage() {
   const generalPricing = [
@@ -120,6 +127,9 @@ export default function PricingPage() {
           {/* Disclaimer */}
           <div className="mt-8 p-6 bg-yellow-50 border border-yellow-100 rounded-xl text-yellow-800 text-sm italic text-center max-w-3xl mx-auto">
             {disclaimer}
+            <div className="mt-2 font-semibold not-italic text-yellow-900">
+              Payment Terms: 50% deposit to start, 50% on completion. 2 rounds of revisions included standard.
+            </div>
           </div>
         </div>
 
@@ -150,6 +160,25 @@ export default function PricingPage() {
               </Card>
             ))}
           </div>
+        </div>
+
+        {/* What Affects Price Section */}
+        <div className="mt-24 max-w-4xl mx-auto text-center">
+           <h2 className="text-2xl font-heading font-bold text-gray-900 mb-6">What Affects Your Quote?</h2>
+           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+              <div className="bg-gray-50 p-6 rounded-xl">
+                 <h3 className="font-bold text-gray-900 mb-2">Scope of Work</h3>
+                 <p className="text-sm text-gray-600">Volume of deliverables, number of pages, or footage length directly impacts hours required.</p>
+              </div>
+              <div className="bg-gray-50 p-6 rounded-xl">
+                 <h3 className="font-bold text-gray-900 mb-2">Deadline</h3>
+                 <p className="text-sm text-gray-600">Standard turnaround is most affordable. Rush delivery (24-48h) may incur a 20-50% surcharge.</p>
+              </div>
+              <div className="bg-gray-50 p-6 rounded-xl">
+                 <h3 className="font-bold text-gray-900 mb-2">Complexity</h3>
+                 <p className="text-sm text-gray-600">Advanced technical features, custom assets, or heavy research requirements increase value.</p>
+              </div>
+           </div>
         </div>
 
         {/* Get Quote Section */}

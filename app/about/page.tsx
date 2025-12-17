@@ -1,7 +1,15 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Check, Users, Globe, Shield } from "lucide-react";
+import AnimatedCounter from "@/components/common/AnimatedCounter";
+import { pageSEO } from "@/lib/seo";
+
+export const metadata: Metadata = {
+  title: pageSEO["/about"].title,
+  description: pageSEO["/about"].description,
+};
 
 export default function AboutPage() {
   return (
@@ -84,7 +92,9 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div className="p-8 rounded-2xl bg-gray-50 border border-gray-100">
               <Users className="w-10 h-10 text-blue-600 mx-auto mb-4" />
-              <h3 className="text-4xl font-bold text-gray-900 mb-2">100+</h3>
+              <h3 className="text-4xl font-bold text-gray-900 mb-2">
+                <AnimatedCounter end={100} suffix="+" duration={2000} />
+              </h3>
               <p className="text-gray-500">Projects Delivered</p>
             </div>
             <div className="p-8 rounded-2xl bg-gray-50 border border-gray-100">

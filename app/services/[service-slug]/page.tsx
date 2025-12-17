@@ -1,11 +1,30 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { servicesData } from "@/lib/service-data";
+import { defaultSEO } from "@/lib/seo";
 import ServicePageTemplate from "@/components/services/ServicePageTemplate";
 
 interface ServicePageProps {
   params: Promise<{
     "service-slug": string;
   }>;
+}
+
+export async function generateMetadata({ params }: ServicePageProps): Promise<Metadata> {
+  const resolvedParams = await params;
+  const service = servicesData.find((s) => s.slug === resolvedParams["service-slug"]);
+
+  if (!service) {
+    return {
+      title: defaultSEO.title,
+      description: defaultSEO.description,
+    };
+  }
+
+  return {
+    title: `${service.name} Services - Managed Offshoring | Kazi`,
+    description: service.oneLiner || defaultSEO.description,
+  };
 }
 
 export default async function ServicePage({ params }: ServicePageProps) {
