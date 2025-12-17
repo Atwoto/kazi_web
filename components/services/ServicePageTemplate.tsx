@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -11,12 +13,27 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface ServicePageTemplateProps {
   service: Service;
 }
 
 export default function ServicePageTemplate({ service }: ServicePageTemplateProps) {
+  const { t } = useLanguage();
+
+  // Get translated service data, fallback to English/default if not found or for fields not in translation
+  // We use 'as any' here because service.slug is a string, and t.services keys are specific strings.
+  const translatedData = (t.services as any)[service.slug] || {};
+  
+  const name = translatedData.name || service.name;
+  const oneLiner = translatedData.oneLiner || service.oneLiner;
+  const deliverables = translatedData.deliverables || service.deliverables;
+  const process = translatedData.process || service.process;
+  const faqs = translatedData.faqs || service.faqs;
+  // Examples are currently not in translation file, so we use the prop
+  const examples = service.examples; 
+
   return (
     <div className="bg-white">
       {/* Hero Section */}
@@ -25,27 +42,27 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <div className="inline-flex items-center space-x-2 bg-blue-50 px-3 py-1 rounded-full mb-6">
-                <span className="text-xs font-bold text-primary uppercase tracking-wide">Managed Service</span>
+                <span className="text-xs font-bold text-primary uppercase tracking-wide">{t.servicePage.managedService}</span>
               </div>
               <h1 className="text-4xl md:text-6xl font-heading font-bold text-gray-900 leading-tight mb-6">
-                {service.name}
+                {name}
               </h1>
               <p className="text-xl text-gray-500 mb-8 leading-relaxed max-w-lg">
-                {service.oneLiner}
+                {oneLiner}
               </p>
               <div className="flex gap-4">
                 <Button asChild className="rounded-full px-8 py-6 text-lg bg-blue-600 hover:bg-blue-700 shadow-lg shadow-blue-200">
-                  <Link href={service.ctaLink}>Start Your Project</Link>
+                  <Link href={service.ctaLink}>{t.servicePage.startProject}</Link>
                 </Button>
                 <Button asChild variant="ghost" className="rounded-full px-8 py-6 text-lg text-gray-600 hover:text-gray-900 hover:bg-gray-100">
-                  <Link href="#portfolio">View Portfolio</Link>
+                  <Link href="#portfolio">{t.servicePage.viewPortfolio}</Link>
                 </Button>
               </div>
               
               {/* Trust/Guarantee Icons */}
               <div className="flex gap-6 mt-8 text-sm text-gray-500 font-medium">
-                 <span className="flex items-center"><Check className="w-4 h-4 text-green-500 mr-2" /> Vetted Talent</span>
-                 <span className="flex items-center"><Check className="w-4 h-4 text-green-500 mr-2" /> Money-back Guarantee</span>
+                 <span className="flex items-center"><Check className="w-4 h-4 text-green-500 mr-2" /> {t.servicePage.vettedTalent}</span>
+                 <span className="flex items-center"><Check className="w-4 h-4 text-green-500 mr-2" /> {t.servicePage.guarantee}</span>
               </div>
             </div>
             
@@ -53,7 +70,7 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
             <div className="relative h-[400px] bg-gray-100 rounded-2xl overflow-hidden shadow-2xl border border-gray-100">
                <Image
                  src={service.heroImage}
-                 alt={service.name}
+                 alt={name}
                  layout="fill"
                  objectFit="cover"
                  className="opacity-80"
@@ -75,21 +92,25 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
              <div className="flex items-center space-x-4 bg-white p-4 rounded-xl shadow-sm border border-gray-100">
                 <div className="bg-blue-50 p-3 rounded-full text-primary"><Clock className="w-6 h-6" /></div>
                 <div>
-                  <p className="text-xs text-gray-400 font-bold uppercase">Typical Turnaround</p>
-                  <p className="font-heading font-bold text-gray-900">10-14 Days</p>
+                  <p className="text-xs text-gray-400 font-bold uppercase">{t.servicePage.turnaround}</p>
+                  <p className="font-heading font-bold text-gray-900">
+                    {service.turnaround || "10-14 Days"}
+                  </p>
                 </div>
              </div>
              <div className="flex items-center space-x-4 bg-white p-4 rounded-xl shadow-sm border border-gray-100">
                 <div className="bg-blue-50 p-3 rounded-full text-primary"><DollarSign className="w-6 h-6" /></div>
                 <div>
-                  <p className="text-xs text-gray-400 font-bold uppercase">Starts From</p>
-                  <p className="font-heading font-bold text-gray-900">$1,200</p>
+                  <p className="text-xs text-gray-400 font-bold uppercase">{t.servicePage.startsFrom}</p>
+                  <p className="font-heading font-bold text-gray-900">
+                    {service.startingPrice || "$1,200"}
+                  </p>
                 </div>
              </div>
              <div className="flex items-center space-x-4 bg-white p-4 rounded-xl shadow-sm border border-gray-100">
                 <div className="bg-blue-50 p-3 rounded-full text-primary"><RefreshCw className="w-6 h-6" /></div>
                 <div>
-                  <p className="text-xs text-gray-400 font-bold uppercase">Revisions Inc.</p>
+                  <p className="text-xs text-gray-400 font-bold uppercase">{t.servicePage.revisions}</p>
                   <p className="font-heading font-bold text-gray-900">2 Rounds</p>
                 </div>
              </div>
@@ -103,18 +124,18 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
           <Tabs defaultValue="overview" className="w-full">
             <div className="flex justify-center mb-12">
               <TabsList className="bg-gray-100 p-1 rounded-full">
-                <TabsTrigger value="overview" className="rounded-full px-8 py-3 data-[state=active]:bg-white data-[state=active]:shadow-md">Overview</TabsTrigger>
-                <TabsTrigger value="process" className="rounded-full px-8 py-3 data-[state=active]:bg-white data-[state=active]:shadow-md">Process</TabsTrigger>
-                <TabsTrigger value="samples" className="rounded-full px-8 py-3 data-[state=active]:bg-white data-[state=active]:shadow-md">Samples</TabsTrigger>
-                <TabsTrigger value="faq" className="rounded-full px-8 py-3 data-[state=active]:bg-white data-[state=active]:shadow-md">FAQ</TabsTrigger>
+                <TabsTrigger value="overview" className="rounded-full px-8 py-3 data-[state=active]:bg-white data-[state=active]:shadow-md">{t.servicePage.tabs.overview}</TabsTrigger>
+                <TabsTrigger value="process" className="rounded-full px-8 py-3 data-[state=active]:bg-white data-[state=active]:shadow-md">{t.servicePage.tabs.process}</TabsTrigger>
+                <TabsTrigger value="samples" className="rounded-full px-8 py-3 data-[state=active]:bg-white data-[state=active]:shadow-md">{t.servicePage.tabs.samples}</TabsTrigger>
+                <TabsTrigger value="faq" className="rounded-full px-8 py-3 data-[state=active]:bg-white data-[state=active]:shadow-md">{t.servicePage.tabs.faq}</TabsTrigger>
               </TabsList>
             </div>
 
             <TabsContent value="overview" className="animate-in fade-in slide-in-from-bottom-4 duration-500">
               <div className="max-w-4xl mx-auto">
-                <h2 className="text-3xl font-heading font-bold text-gray-900 mb-8 text-center">What You Get</h2>
+                <h2 className="text-3xl font-heading font-bold text-gray-900 mb-8 text-center">{t.servicePage.whatYouGet}</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {service.deliverables.map((item, index) => (
+                  {deliverables.map((item: string, index: number) => (
                     <div key={index} className="flex items-start bg-gray-50 p-6 rounded-2xl hover:bg-blue-50 transition-colors duration-300">
                       <div className="bg-blue-100 text-blue-600 rounded-full p-2 mt-0.5 mr-4 shrink-0">
                         <Check className="w-4 h-4" />
@@ -131,9 +152,9 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
 
             <TabsContent value="process" className="animate-in fade-in slide-in-from-bottom-4 duration-500">
               <div className="max-w-3xl mx-auto">
-                 <h2 className="text-3xl font-heading font-bold text-gray-900 mb-8 text-center">How It Works</h2>
+                 <h2 className="text-3xl font-heading font-bold text-gray-900 mb-8 text-center">{t.servicePage.howItWorks}</h2>
                  <div className="space-y-8 relative pl-8 border-l-2 border-gray-100 ml-4 md:ml-0">
-                   {service.process.length > 0 ? service.process.map((step, index) => (
+                   {process.length > 0 ? process.map((step: any, index: number) => (
                      <div key={index} className="relative pl-8">
                        <div className="absolute -left-[41px] top-0 bg-white border-4 border-blue-50 w-10 h-10 rounded-full flex items-center justify-center font-bold text-blue-600 z-10 shadow-sm">
                          {index + 1}
@@ -145,7 +166,7 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
                      </div>
                    )) : (
                      <div className="text-center py-12 bg-gray-50 rounded-2xl">
-                        <p className="text-gray-500 italic">Detailed process steps available upon request.</p>
+                        <p className="text-gray-500 italic">{t.servicePage.processPlaceholder}</p>
                      </div>
                    )}
                  </div>
@@ -154,10 +175,10 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
 
             <TabsContent value="samples" className="animate-in fade-in slide-in-from-bottom-4 duration-500">
                <div className="max-w-5xl mx-auto">
-                 <h2 className="text-3xl font-heading font-bold text-gray-900 mb-8 text-center">Recent Work</h2>
-                 {service.examples && service.examples.length > 0 ? (
+                 <h2 className="text-3xl font-heading font-bold text-gray-900 mb-8 text-center">{t.servicePage.recentWork}</h2>
+                 {examples && examples.length > 0 ? (
                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                     {service.examples.map((example, index) => (
+                     {examples.map((example, index) => (
                        <Card key={index} className="border-none shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden group bg-gray-50">
                          <div className="relative w-full h-64 bg-gray-200 overflow-hidden">
                            <Image
@@ -178,9 +199,9 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
                    </div>
                  ) : (
                     <div className="text-center py-16 bg-gray-50 rounded-3xl border-2 border-dashed border-gray-200">
-                       <p className="text-gray-500 text-lg mb-4">Portfolios are customized per client request to ensure relevance.</p>
+                       <p className="text-gray-500 text-lg mb-4">{t.servicePage.portfolioPlaceholder}</p>
                        <Button variant="outline" className="rounded-full" asChild>
-                         <Link href="/contact">Request Specific Samples</Link>
+                         <Link href="/contact">{t.servicePage.requestSamples}</Link>
                        </Button>
                     </div>
                  )}
@@ -189,25 +210,25 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
 
             <TabsContent value="faq" className="animate-in fade-in slide-in-from-bottom-4 duration-500">
               <div className="max-w-3xl mx-auto">
-                <h2 className="text-3xl font-heading font-bold text-gray-900 mb-8 text-center">Frequently Asked Questions</h2>
-                {service.faqs && service.faqs.length > 0 ? (
+                <h2 className="text-3xl font-heading font-bold text-gray-900 mb-8 text-center">{t.servicePage.faq}</h2>
+                {faqs && faqs.length > 0 ? (
                   <Accordion type="single" collapsible className="w-full space-y-4">
-                    {service.faqs.map((faq, index) => (
+                    {faqs.map((faq: any, index: number) => (
                       <AccordionItem value={`item-${index}`} key={index} className="border border-gray-100 rounded-xl px-6 bg-gray-50/50 data-[state=open]:bg-blue-50/50 data-[state=open]:border-blue-100 transition-colors">
                         <AccordionTrigger className="font-semibold text-lg text-left py-6 hover:no-underline text-gray-900">
-                          {faq.question}
+                          {faq.q || faq.question}
                         </AccordionTrigger>
                         <AccordionContent className="text-gray-600 pb-6 leading-relaxed text-base">
-                          {faq.answer}
+                          {faq.a || faq.answer}
                         </AccordionContent>
                       </AccordionItem>
                     ))}
                   </Accordion>
                 ) : (
                   <div className="text-center py-12 bg-gray-50 rounded-2xl">
-                    <p className="text-gray-500 italic mb-4">No specific FAQs for this service yet.</p>
+                    <p className="text-gray-500 italic mb-4">{t.servicePage.faqPlaceholder}</p>
                     <Link href="/faq" className="text-blue-600 hover:underline font-semibold flex items-center justify-center gap-2">
-                      View General FAQ <ChevronRight className="w-4 h-4" />
+                      {t.servicePage.viewGeneralFaq} <ChevronRight className="w-4 h-4" />
                     </Link>
                   </div>
                 )}

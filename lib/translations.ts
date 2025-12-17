@@ -146,6 +146,125 @@ export const translations = {
         ]
       }
     },
+    services: {
+      "web-design-development": {
+        name: "Web Development",
+        oneLiner: "Enterprise-grade websites and platforms, delivered fully managed.",
+        deliverables: ["Custom UI/UX Design", "Full-Stack Development (React/Next.js)", "CMS & E-commerce Integration", "QA Testing & Deployment"],
+        process: [
+          { step: "Discovery", description: "We align on your business goals and technical requirements." },
+          { step: "Development", description: "Our managed team builds your solution in agile sprints." },
+          { step: "Quality Assurance", description: "Rigorous testing to ensure European standards." },
+          { step: "Launch & Handover", description: "Seamless deployment and full IP transfer." }
+        ],
+        faqs: [
+          { q: "Do you provide hosting?", a: "We can set up hosting for you on preferred providers like Vercel or AWS, but you will own the accounts." },
+          { q: "Will I be able to edit the content myself?", a: "Yes, we typically build with a CMS (like Sanity or Strapi) so you can manage text and images easily." },
+          { q: "Do you offer maintenance?", a: "We offer optional monthly maintenance packages for security updates and content changes." }
+        ]
+      },
+      "graphic-design": {
+        name: "Graphic Design",
+        oneLiner: "Strategic visual identity and marketing assets for your brand.",
+        deliverables: ["Brand Strategy & Identity", "Marketing Collateral", "Social Media Suites", "Presentation Design"],
+        process: [],
+        faqs: [
+           { q: "What formats will I receive?", a: "We provide all industry-standard formats: AI, EPS, PDF, JPG, and PNG." },
+           { q: "How many revisions are included?", a: "Our standard packages include 2-3 rounds of revisions." },
+        ]
+      },
+      "video-editing": {
+        name: "Video Production",
+        oneLiner: "Post-production services for high-impact visual storytelling.",
+        deliverables: ["Corporate Explainers", "Social Media Reels", "Ads & Promos", "Full Post-Production"],
+        process: [],
+        faqs: [
+            { q: "What is your typical turnaround?", a: "Simple edits are often done in 48h. Complex projects depend on scope." },
+            { q: "How do I send large files?", a: "We use Google Drive, Dropbox, or WeTransfer." },
+        ]
+      },
+      "photo-editing": {
+        name: "Image Retouching",
+        oneLiner: "High-volume, high-quality retouching for e-commerce and media.",
+        deliverables: ["High-End Retouching", "E-commerce Standardization", "Color Correction", "Compositing"],
+        process: [],
+        faqs: [
+            { q: "Can you handle bulk orders?", a: "Yes, our team is scalable to handle hundreds of images per day." },
+        ]
+      },
+      "ai-services": {
+        name: "AI Solutions",
+        oneLiner: "Implementing practical AI workflows to future-proof your business.",
+        deliverables: ["Workflow Automation", "Custom Chatbot Integration", "Data Analysis Models", "Process Optimization"],
+        process: [],
+        faqs: [
+            { q: "Is my data secure?", a: "Yes, we prioritize data privacy and use secure, enterprise-grade APIs." },
+        ]
+      },
+      "academic-support": {
+        name: "Academic Editing",
+        oneLiner: "Professional editing and coaching for academic excellence.",
+        deliverables: ["Dissertation Proofreading", "Style Guide Formatting", "Structure & Flow Analysis", "Citation Compliance"],
+        process: [],
+        faqs: [
+            { q: "Do you write essays from scratch?", a: "No. We provide editing, proofreading, and coaching. We do not engage in academic dishonesty." },
+            { q: "What referencing styles do you support?", a: "We are experts in APA, Harvard, MLA, Chicago, and more." },
+        ]
+      },
+      "virtual-assistance": {
+        name: "Virtual Assistance",
+        oneLiner: "Managed administrative support to streamline your operations.",
+        deliverables: ["Executive Inbox Management", "Complex Scheduling", "Operational Support", "Travel Logistics"],
+        process: [],
+        faqs: []
+      },
+      "content-writing": {
+        name: "Content Writing",
+        oneLiner: "Professional copy and content strategies that drive engagement.",
+        deliverables: ["Thought Leadership Articles", "SEO-Driven Blog Content", "Website Copywriting", "Technical Documentation"],
+        process: [],
+        faqs: []
+      },
+      "data-entry": {
+        name: "Data Operations",
+        oneLiner: "Secure, accurate, and scalable data processing solutions.",
+        deliverables: ["Data Cleaning & Validation", "Lead Enrichment", "CRM Management", "Large-Scale Transcription"],
+        process: [],
+        faqs: []
+      },
+      "customer-support": {
+        name: "Customer Support",
+        oneLiner: "Dedicated support teams to enhance your customer experience.",
+        deliverables: ["Omni-channel Support", "L1/L2 Ticket Resolution", "Live Chat Management", "Knowledge Base Maintenance"],
+        process: [],
+        faqs: []
+      },
+    },
+    servicePage: {
+      managedService: "Managed Service",
+      startProject: "Start Your Project",
+      viewPortfolio: "View Portfolio",
+      vettedTalent: "Vetted Talent",
+      guarantee: "Money-back Guarantee",
+      turnaround: "Typical Turnaround",
+      startsFrom: "Starts From",
+      revisions: "Revisions Inc.",
+      whatYouGet: "What You Get",
+      howItWorks: "How It Works",
+      recentWork: "Recent Work",
+      faq: "Frequently Asked Questions",
+      tabs: {
+        overview: "Overview",
+        process: "Process",
+        samples: "Samples",
+        faq: "FAQ",
+      },
+      processPlaceholder: "Detailed process steps available upon request.",
+      faqPlaceholder: "No specific FAQs for this service yet.",
+      portfolioPlaceholder: "Portfolios are customized per client request to ensure relevance.",
+      requestSamples: "Request Specific Samples",
+      viewGeneralFaq: "View General FAQ",
+    },
     pricing: {
       pageTitle: "Transparent Pricing",
       pageSubtitle: "Simple, fixed prices for academic support and clear custom quotes for creative projects.",
@@ -457,6 +576,125 @@ export const translations = {
         ]
       }
     },
+    services: {
+      "web-design-development": {
+        name: "Diseño y Desarrollo Web",
+        oneLiner: "Sitios web y plataformas de nivel empresarial, entregados completamente gestionados.",
+        deliverables: ["Diseño UI/UX Personalizado", "Desarrollo Full-Stack (React/Next.js)", "Integración CMS y E-commerce", "Pruebas QA y Despliegue"],
+        process: [
+          { step: "Descubrimiento", description: "Nos alineamos con tus objetivos comerciales y requisitos técnicos." },
+          { step: "Desarrollo", description: "Nuestro equipo gestionado construye tu solución en sprints ágiles." },
+          { step: "Aseguramiento de Calidad", description: "Pruebas rigurosas para garantizar estándares europeos." },
+          { step: "Lanzamiento y Entrega", description: "Despliegue sin problemas y transferencia completa de IP." }
+        ],
+        faqs: [
+          { q: "¿Proporcionan alojamiento?", a: "Podemos configurar el alojamiento en proveedores preferidos como Vercel o AWS, pero tú serás el propietario de las cuentas." },
+          { q: "¿Podré editar el contenido yo mismo?", a: "Sí, normalmente construimos con un CMS (como Sanity o Strapi) para que puedas gestionar texto e imágenes fácilmente." },
+          { q: "¿Ofrecen mantenimiento?", a: "Ofrecemos paquetes de mantenimiento mensual opcionales para actualizaciones de seguridad y cambios de contenido." }
+        ]
+      },
+      "graphic-design": {
+        name: "Diseño Gráfico",
+        oneLiner: "Identidad visual estratégica y activos de marketing para tu marca.",
+        deliverables: ["Estrategia de Marca e Identidad", "Material de Marketing", "Suites para Redes Sociales", "Diseño de Presentaciones"],
+        process: [],
+        faqs: [
+           { q: "¿Qué formatos recibiré?", a: "Proporcionamos todos los formatos estándar de la industria: AI, EPS, PDF, JPG y PNG." },
+           { q: "¿Cuántas revisiones se incluyen?", a: "Nuestros paquetes estándar incluyen 2-3 rondas de revisiones." },
+        ]
+      },
+      "video-editing": {
+        name: "Producción de Video",
+        oneLiner: "Servicios de postproducción para narración visual de alto impacto.",
+        deliverables: ["Explicativos Corporativos", "Reels para Redes Sociales", "Anuncios y Promociones", "Postproducción Completa"],
+        process: [],
+        faqs: [
+            { q: "¿Cuál es su tiempo de respuesta típico?", a: "Las ediciones simples a menudo se hacen en 48h. Los proyectos complejos dependen del alcance." },
+            { q: "¿Cómo envío archivos grandes?", a: "Usamos Google Drive, Dropbox o WeTransfer." },
+        ]
+      },
+      "photo-editing": {
+        name: "Retoque de Imágenes",
+        oneLiner: "Retoque de alto volumen y alta calidad para comercio electrónico y medios.",
+        deliverables: ["Retoque de Alta Gama", "Estandarización E-commerce", "Corrección de Color", "Composición"],
+        process: [],
+        faqs: [
+            { q: "¿Pueden manejar pedidos a granel?", a: "Sí, nuestro equipo es escalable para manejar cientos de imágenes por día." },
+        ]
+      },
+      "ai-services": {
+        name: "Soluciones de IA",
+        oneLiner: "Implementación de flujos de trabajo de IA prácticos para preparar tu negocio para el futuro.",
+        deliverables: ["Automatización de Flujos de Trabajo", "Integración de Chatbots Personalizados", "Modelos de Análisis de Datos", "Optimización de Procesos"],
+        process: [],
+        faqs: [
+            { q: "¿Están seguros mis datos?", a: "Sí, priorizamos la privacidad de los datos y utilizamos API seguras de nivel empresarial." },
+        ]
+      },
+      "academic-support": {
+        name: "Edición Académica",
+        oneLiner: "Edición y coaching profesional para la excelencia académica.",
+        deliverables: ["Corrección de Disertaciones", "Formato de Guía de Estilo", "Análisis de Estructura y Flujo", "Cumplimiento de Citas"],
+        process: [],
+        faqs: [
+            { q: "¿Escriben ensayos desde cero?", a: "No. Proporcionamos edición, corrección y coaching. No participamos en deshonestidad académica." },
+            { q: "¿Qué estilos de referencia apoyan?", a: "Somos expertos en APA, Harvard, MLA, Chicago y más." },
+        ]
+      },
+      "virtual-assistance": {
+        name: "Asistencia Virtual",
+        oneLiner: "Soporte administrativo gestionado para optimizar tus operaciones.",
+        deliverables: ["Gestión de Bandeja de Entrada Ejecutiva", "Programación Compleja", "Soporte Operativo", "Logística de Viajes"],
+        process: [],
+        faqs: []
+      },
+      "content-writing": {
+        name: "Redacción de Contenidos",
+        oneLiner: "Estrategias profesionales de redacción y contenido que impulsan la participación.",
+        deliverables: ["Artículos de Liderazgo de Pensamiento", "Contenido de Blog Orientado a SEO", "Redacción de Sitios Web", "Documentación Técnica"],
+        process: [],
+        faqs: []
+      },
+      "data-entry": {
+        name: "Operaciones de Datos",
+        oneLiner: "Soluciones de procesamiento de datos seguras, precisas y escalables.",
+        deliverables: ["Limpieza y Validación de Datos", "Enriquecimiento de Clientes Potenciales", "Gestión de CRM", "Transcripción a Gran Escala"],
+        process: [],
+        faqs: []
+      },
+      "customer-support": {
+        name: "Atención al Cliente",
+        oneLiner: "Equipos de soporte dedicados para mejorar la experiencia de tu cliente.",
+        deliverables: ["Soporte Omnicanal", "Resolución de Tickets Nivel 1/2", "Gestión de Chat en Vivo", "Mantenimiento de Base de Conocimientos"],
+        process: [],
+        faqs: []
+      },
+    },
+    servicePage: {
+      managedService: "Servicio Gestionado",
+      startProject: "Iniciar Proyecto",
+      viewPortfolio: "Ver Portafolio",
+      vettedTalent: "Talento Verificado",
+      guarantee: "Garantía de Devolución",
+      turnaround: "Tiempo Típico",
+      startsFrom: "Desde",
+      revisions: "Revisiones Incl.",
+      whatYouGet: "Lo Que Obtienes",
+      howItWorks: "Cómo Funciona",
+      recentWork: "Trabajo Reciente",
+      faq: "Preguntas Frecuentes",
+      tabs: {
+        overview: "Resumen",
+        process: "Proceso",
+        samples: "Muestras",
+        faq: "FAQ",
+      },
+      processPlaceholder: "Pasos detallados del proceso disponibles bajo petición.",
+      faqPlaceholder: "Aún no hay preguntas frecuentes específicas para este servicio.",
+      portfolioPlaceholder: "Los portafolios se personalizan según la solicitud del cliente para garantizar relevancia.",
+      requestSamples: "Solicitar Muestras Específicas",
+      viewGeneralFaq: "Ver FAQ General",
+    },
     pricing: {
       pageTitle: "Precios Transparentes",
       pageSubtitle: "Precios fijos y simples para apoyo académico y cotizaciones claras para proyectos creativos.",
@@ -760,13 +998,132 @@ export const translations = {
         ],
         payments: [
           { q: "Com funcionen els pagaments?", a: "Fem servir un sistema de fites. Pagues un dipòsit inicial per començar el treball, i el saldo restant es paga només quan aproves la vista prèvia final. Per a clients a Espanya, acceptem Bizum, transferència bancària i targetes." },
-          { q: "Oferiu reemborsaments?", a: "Sí. Oferim un reemborsament gratuït fins a 5 dies després de completar el servei si el problema es deu a un error del freelancer que no podem arreglar." },
+          { q: "Oferiu reemborsaments?", a: "Sí. Oferim un reemborsament gratuït fins a 5 dies després de completar el servei si el problema es deu a un error del freelancer que no podemos arreglar." },
         ],
         privacy: [
           { q: "Com protegiu la confidencialitat?", a: "Els freelancers no veuen les teves dades personals més enllà del necessari per fer la feina. Tot el nostre talent signa acords de confidencialitat estrictes per protegir la teva propietat intel·lectual." },
           { q: "Què passa si desapareixo a meitat del projecte?", a: "Si no respons per un període perllongat, pausarem el projecte. Si no podem contactar-te després de múltiples intents, ens reservem el dret de tancar el projecte i facturar pel treball completat fins a la data." },
         ]
       }
+    },
+    services: {
+      "web-design-development": {
+        name: "Disseny i Desenvolupament Web",
+        oneLiner: "Llocs web i plataformes de nivell empresarial, lliurats completament gestionats.",
+        deliverables: ["Disseny UI/UX Personalitzat", "Desenvolupament Full-Stack (React/Next.js)", "Integració CMS i E-commerce", "Proves QA i Desplegament"],
+        process: [
+          { step: "Descobriment", description: "Ens alineem amb els teus objectius comercials i requisits tècnics." },
+          { step: "Desenvolupament", description: "El nostre equip gestionat construeix la teva solució en sprints àgils." },
+          { step: "Assegurament de Qualitat", description: "Proves rigoroses per garantir estàndards europeus." },
+          { step: "Llançament i Lliurament", description: "Desplegament sense problemes i transferència completa d'IP." }
+        ],
+        faqs: [
+          { q: "Proporcioneu allotjament?", a: "Podem configurar l'allotjament en proveïdors preferits com Vercel o AWS, però tu seràs el propietari dels comptes." },
+          { q: "Podré editar el contingut jo mateix?", a: "Sí, normalment construïm amb un CMS (com Sanity o Strapi) perquè puguis gestionar text i imatges fàcilment." },
+          { q: "Oferiu manteniment?", a: "Oferim paquets de manteniment mensual opcionals per a actualitzacions de seguretat i canvis de contingut." }
+        ]
+      },
+      "graphic-design": {
+        name: "Disseny Gràfic",
+        oneLiner: "Identitat visual estratègica i actius de màrqueting per a la teva marca.",
+        deliverables: ["Estratègia de Marca i Identitat", "Material de Màrqueting", "Suites per a Xarxes Socials", "Disseny de Presentacions"],
+        process: [],
+        faqs: [
+           { q: "Quins formats rebré?", a: "Proporcionem tots els formats estàndard de la indústria: AI, EPS, PDF, JPG i PNG." },
+           { q: "Quantes revisions s'inclouen?", a: "Els nostres paquets estàndard inclouen 2-3 rondes de revisions." }
+        ]
+      },
+      "video-editing": {
+        name: "Producció de Vídeo",
+        oneLiner: "Serveis de postproducció per a narració visual d'alt impacte.",
+        deliverables: ["Explicatius Corporatius", "Reels per a Xarxes Socials", "Anuncis i Promocions", "Postproducció Completa"],
+        process: [],
+        faqs: [
+            { q: "Quin és el vostre temps de resposta típic?", a: "Les edicions simples sovint es fan en 48h. Els projectes complexos depenen de l'abast." },
+            { q: "Com envio arxius grans?", a: "Fem servir Google Drive, Dropbox o WeTransfer." }
+        ]
+      },
+      "photo-editing": {
+        name: "Retoc d'Imatges",
+        oneLiner: "Retoc d'alt volum i alta qualitat per a comerç electrònic i mitjans.",
+        deliverables: ["Retoc d'Alta Gamma", "Estandardització E-commerce", "Correcció de Color", "Composició"],
+        process: [],
+        faqs: [
+            { q: "Podeu gestionar comandes a granel?", a: "Sí, el nostre equip és escalable per gestionar centenars d'imatges per dia." }
+        ]
+      },
+      "ai-services": {
+        name: "Solucions d'IA",
+        oneLiner: "Implementació de fluxos de treball d'IA pràctics per preparar el teu negoci per al futur.",
+        deliverables: ["Automatització de Fluxos de Treball", "Integració de Chatbots Personalitzats", "Models d'Anàlisi de Dades", "Optimització de Processos"],
+        process: [],
+        faqs: [
+            { q: "Estan segures les meves dades?", a: "Sí, prioritzem la privacitat de les dades i utilitzem API segures de nivell empresarial." }
+        ]
+      },
+      "academic-support": {
+        name: "Edició Acadèmica",
+        oneLiner: "Edició i coaching professional per a l'excel·lència acadèmica.",
+        deliverables: ["Correcció de Dissertacions", "Format de Guia d'Estil", "Anàlisi d'Estructura i Flux", "Compliment de Cites"],
+        process: [],
+        faqs: [
+            { q: "Escriviu assajos des de zero?", a: "No. Proporcionem edició, correcció i coaching. No participem en deshonestedat acadèmica." },
+            { q: "Quins estils de referència recolzeu?", a: "Som experts en APA, Harvard, MLA, Chicago i més." }
+        ]
+      },
+      "virtual-assistance": {
+        name: "Assistència Virtual",
+        oneLiner: "Suport administratiu gestionat per optimitzar les teves operacions.",
+        deliverables: ["Gestió de Safata d'Entrada Executiva", "Programació Complexa", "Suport Operatiu", "Logística de Viatges"],
+        process: [],
+        faqs: []
+      },
+      "content-writing": {
+        name: "Redacció de Continguts",
+        oneLiner: "Estratègies professionals de redacció i contingut que impulsen la participació.",
+        deliverables: ["Articles de Lideratge de Pensament", "Contingut de Blog Orientat a SEO", "Redacció de Llocs Web", "Documentació Tècnica"],
+        process: [],
+        faqs: []
+      },
+      "data-entry": {
+        name: "Operacions de Dades",
+        oneLiner: "Solucions de processament de dades segures, precises i escalables.",
+        deliverables: ["Neteja i Validació de Dades", "Enriquiment de Clients Potencials", "Gestió de CRM", "Transcripció a Gran Escala"],
+        process: [],
+        faqs: []
+      },
+      "customer-support": {
+        name: "Atenció al Client",
+        oneLiner: "Equips de suport dedicats per millorar l'experiència del teu client.",
+        deliverables: ["Suport Omnicanal", "Resolució de Tiquets Nivell 1/2", "Gestió de Xat en Viu", "Manteniment de Base de Coneixements"],
+        process: [],
+        faqs: []
+      },
+    },
+    servicePage: {
+      managedService: "Servei Gestionat",
+      startProject: "Començar Projecte",
+      viewPortfolio: "Veure Portafoli",
+      vettedTalent: "Talent Verificat",
+      guarantee: "Garantia de Devolució",
+      turnaround: "Temps Típic",
+      startsFrom: "Des de",
+      revisions: "Revisions Incl.",
+      whatYouGet: "El Que Obtens",
+      howItWorks: "Com Funciona",
+      recentWork: "Treball Recent",
+      faq: "Preguntes Freqüents",
+      tabs: {
+        overview: "Resum",
+        process: "Procés",
+        samples: "Mostres",
+        faq: "FAQ",
+      },
+      processPlaceholder: "Passos detallats del procés disponibles sota petició.",
+      faqPlaceholder: "Encara no hi ha preguntes freqüents específiques per a aquest servei.",
+      portfolioPlaceholder: "Els portafolis es personalitzen segons la sol·licitud del client per garantir rellevància.",
+      requestSamples: "Sol·licitar Mostres Específiques",
+      viewGeneralFaq: "Veure FAQ General",
     },
     pricing: {
       pageTitle: "Preus Transparents",
