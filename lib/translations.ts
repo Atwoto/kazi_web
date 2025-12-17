@@ -273,21 +273,21 @@ export const translations = {
     },
     pricing: {
       pageTitle: "Transparent Pricing",
-      pageSubtitle: "Simple, fixed prices for academic support and clear custom quotes for creative projects.",
+      pageSubtitle: "Simple, fixed prices for task-based work and clear custom quotes for larger projects.",
       academic: {
-        title: "Academic Support",
-        subtitle: "Expert editing and coaching packages.",
-        disclaimer: "Kazi provides editing, proofreading, formatting, and coaching. Kazi does NOT write student submissions on a client's behalf. It is mandatory for the client to review their work, and any repercussion does not fall on Kazi.",
+        title: "Task-Based Pricing",
+        subtitle: "Clear pricing based on estimated hours. Covers Design, Web, Academic, and AI tasks.",
+        disclaimer: "We categorize tasks by estimated time. If a task exceeds the tier limit due to scope expansion, we will notify you before proceeding.",
         disclaimerHighlight: "Payment Terms: 50% deposit to start, 50% on completion. 2 rounds of revisions included standard.",
         tiers: [
-          { tier: "Tier 1", hours: "1 to 3 hours", price: "€40", desc: "Proofread and edit up to a short report section.", examples: ["Fix grammar & clarity", "Structure suggestions", "Format references"] },
-          { tier: "Tier 2", hours: "3 to 6 hours", price: "€70", desc: "Edit and restructure a medium report.", examples: ["Improve argument flow", "Headings & citations", "Coaching notes"] },
-          { tier: "Tier 3", hours: "6 to 12 hours", price: "€110", desc: "Deep edit for longer reports.", examples: ["Consistency checks", "Referencing cleanup", "Formatting & coaching"] },
+          { tier: "Quick Tasks", hours: "1 to 3 hours", price: "€25", desc: "Quick fixes, simple designs, and basic editing.", examples: ["Logo & Business Cards", "Simple Web Fixes", "Proofreading & Editing", "AI/Plagiarism Check"] },
+          { tier: "Standard Tasks", hours: "3 to 6 hours", price: "€55", desc: "Social assets, updates, and document formatting.", examples: ["Social Graphics & Banners", "Standard Web Update", "AI Chatbot Setup", "Full Document Formatting"] },
+          { tier: "Complex Projects", hours: "6 to 12 hours", price: "€110", desc: "Builds, deep edits, and complex design.", examples: ["Building Websites", "Complex Graphic Design", "Long Video Editing", "Long Academic Formatting"] },
         ],
-        cta: "Book Support"
+        cta: "Book a Task"
       },
       general: {
-        title: "General Services",
+        title: "Project Packages",
         subtitle: "Video, Design, Web, and AI projects.",
         plans: [
           { title: "Basic Projects", price: "From €150", desc: "Simple tasks with clear deliverables.", features: ["Scope assessment", "Vetted freelancer", "Standard timeline", "Quality check"] },
@@ -785,21 +785,21 @@ export const translations = {
     },
     pricing: {
       pageTitle: "Precios Transparentes",
-      pageSubtitle: "Precios fijos y simples para apoyo académico y cotizaciones claras para proyectos creativos.",
+      pageSubtitle: "Precios fijos simples para trabajo basado en tareas y cotizaciones claras para proyectos más grandes.",
       academic: {
-        title: "Apoyo Académico",
-        subtitle: "Paquetes de edición y coaching experto.",
-        disclaimer: "Kazi proporciona edición, corrección, formato y coaching. Kazi NO escribe trabajos estudiantiles en nombre del cliente. Es obligatorio que el cliente revise su trabajo, y cualquier repercusión no recae en Kazi.",
+        title: "Precios por Tarea",
+        subtitle: "Precios claros basados en horas estimadas. Cubre Diseño, Web, Académico e IA.",
+        disclaimer: "Categorizamos tareas por tiempo estimado. Si una tarea excede el límite debido a la expansión del alcance, te notificaremos.",
         disclaimerHighlight: "Términos de Pago: 50% depósito inicial, 50% al finalizar. 2 rondas de revisión incluidas estándar.",
         tiers: [
-          { tier: "Nivel 1", hours: "1 a 3 horas", price: "€40", desc: "Corrección y edición de una sección corta.", examples: ["Gramática y claridad", "Sugerencias estructura", "Formato referencias"] },
-          { tier: "Nivel 2", hours: "3 a 6 horas", price: "€70", desc: "Edición y reestructuración de informe medio.", examples: ["Mejorar flujo argumentos", "Títulos y citas", "Notas de coaching"] },
-          { tier: "Nivel 3", hours: "6 a 12 horas", price: "€110", desc: "Edición profunda para informes largos.", examples: ["Chequeo consistencia", "Limpieza referencias", "Formato y coaching"] },
+          { tier: "Tareas Rápidas", hours: "1 a 3 horas", price: "€25", desc: "Arreglos rápidos, diseños simples y edición básica.", examples: ["Logotipos y Tarjetas", "Arreglos Web Simples", "Corrección y Edición", "Chequeo IA/Plagio"] },
+          { tier: "Tareas Estándar", hours: "3 a 6 horas", price: "€55", desc: "Activos sociales, actualizaciones y formato de documentos.", examples: ["Gráficos Sociales", "Actualización Web Estándar", "Configuración Chatbot IA", "Formato Documento Completo"] },
+          { tier: "Proyectos Complejos", hours: "6 a 12 horas", price: "€110", desc: "Construcciones, ediciones profundas y diseño complejo.", examples: ["Construcción Web", "Diseño Gráfico Complejo", "Edición Video Largo", "Formato Académico Largo"] },
         ],
-        cta: "Reservar Apoyo"
+        cta: "Reservar Tarea"
       },
       general: {
-        title: "Servicios Generales",
+        title: "Paquetes de Proyecto",
         subtitle: "Proyectos de Video, Diseño, Web e IA.",
         plans: [
           { title: "Proyectos Básicos", price: "Desde €150", desc: "Tareas simples con entregables claros.", features: ["Evaluación alcance", "Freelancer verificado", "Plazo estándar", "Control calidad"] },
@@ -1297,21 +1297,21 @@ export const translations = {
     },
     pricing: {
       pageTitle: "Preus Transparents",
-      pageSubtitle: "Preus fixos i simples per a suport acadèmic i pressupostos clars per a projectes creatius.",
+      pageSubtitle: "Preus fixos simples per a treball basat en tasques i pressupostos clars per a projectes més grans.",
       academic: {
-        title: "Suport Acadèmic",
-        subtitle: "Paquets d'edició i coaching expert.",
-        disclaimer: "Kazi proporciona edició, correcció, format i coaching. Kazi NO escriu treballs estudiantils en nom del client. És obligatori que el client revisi el seu treball, i qualsevol repercussió no recau en Kazi.",
+        title: "Preus per Tasca",
+        subtitle: "Preus clars basats en hores estimades. Cobreix Disseny, Web, Acadèmic i IA.",
+        disclaimer: "Categoritzem tasques per temps estimat. Si una tasca supera el límit a causa de l'expansió de l'abast, et notificarem.",
         disclaimerHighlight: "Termes de Pagament: 50% dipòsit inicial, 50% en finalitzar. 2 rondes de revisió incloses estàndard.",
         tiers: [
-          { tier: "Nivell 1", hours: "1 a 3 hores", price: "€40", desc: "Correcció i edició d'una secció curta.", examples: ["Gramàtica i claredat", "Suggeriments estructura", "Format referències"] },
-          { tier: "Nivell 2", hours: "3 a 6 hores", price: "€70", desc: "Edició i reestructuració d'informe mitjà.", examples: ["Millorar flux arguments", "Títols i cites", "Notes de coaching"] },
-          { tier: "Nivell 3", hours: "6 a 12 hores", price: "€110", desc: "Edició profunda per a informes llargs.", examples: ["Control consistència", "Neteja referències", "Format i coaching"] },
+          { tier: "Tasques Ràpides", hours: "1 a 3 hores", price: "€25", desc: "Arranjaments ràpids, dissenys simples i edició bàsica.", examples: ["Logotips i Targetes", "Arranjaments Web Simples", "Correcció i Edició", "Control IA/Plagi"] },
+          { tier: "Tasques Estàndard", hours: "3 a 6 hores", price: "€55", desc: "Actius socials, actualitzacions i format de documents.", examples: ["Gràfics Socials", "Actualització Web Estàndard", "Configuració Xatbot IA", "Format Document Complet"] },
+          { tier: "Projectes Complexos", hours: "6 a 12 hores", price: "€110", desc: "Construccions, edicions profundes i disseny complex.", examples: ["Construcció Web", "Disseny Gràfic Complex", "Edició Vídeo Llarg", "Format Acadèmic Llarg"] },
         ],
-        cta: "Reservar Suport"
+        cta: "Reservar Tasca"
       },
       general: {
-        title: "Serveis Generals",
+        title: "Paquets de Projecte",
         subtitle: "Projectes de Vídeo, Disseny, Web i IA.",
         plans: [
           { title: "Projectes Bàsics", price: "Des de €150", desc: "Tasques simples amb lliurables clars.", features: ["Avaluació abast", "Freelancer verificat", "Termini estàndard", "Control qualitat"] },
