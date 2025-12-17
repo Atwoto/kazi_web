@@ -50,27 +50,44 @@ export default function HeroSection() {
           </div>
 
           {/* Right Column: Hero Image */}
-          <div className="relative h-[500px] lg:h-[600px] w-full rounded-3xl overflow-hidden shadow-2xl bg-muted/20 dark:bg-slate-800/50 border border-border">
-             <Image 
-               src="/hero-section.jpeg" 
-               alt="Developer working on laptop with code on screen"
-               layout="fill"
-               objectFit="cover"
-               className="opacity-80" 
-             />
-             <div className="absolute bottom-8 left-8 right-8 bg-white/90 dark:bg-slate-900/90 backdrop-blur p-6 rounded-2xl shadow-lg border border-white/50 dark:border-slate-700">
-                <div className="flex items-center gap-4">
-                  <div className="h-12 w-12 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
-                    <span className="text-green-600 dark:text-green-400 text-xl">✓</span>
-                  </div>
-                  <div>
-                    <p className="font-bold text-gray-900 dark:text-gray-100 text-2xl">
-                      <AnimatedCounter end={100} suffix="+" duration={2500} />
-                    </p>
-                    <p className="text-sm text-gray-500 dark:text-gray-400">{t.about.stats.projects}</p>
-                  </div>
+          <div className="relative h-[400px] sm:h-[450px] md:h-[500px] lg:h-[650px] xl:h-[700px] w-full rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-slate-800 dark:to-slate-900 border border-border/50 group">
+            {/* Background gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/10 via-transparent to-purple-600/10 dark:from-blue-900/20 dark:to-purple-900/20 z-10" />
+
+            {/* Main Image Container */}
+            <div className="relative h-full w-full overflow-hidden">
+              <Image
+                src="/hero-section.jpeg"
+                alt="Developer working on laptop with code on screen"
+                fill
+                priority
+                quality={95}
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 600px"
+                className="object-cover object-center scale-105 group-hover:scale-110 transition-transform duration-700 ease-out"
+                style={{
+                  filter: 'brightness(0.95) contrast(1.05) saturate(1.1)',
+                }}
+              />
+            </div>
+
+            {/* Floating Stats Card */}
+            <div className="absolute bottom-6 left-6 right-6 sm:left-8 sm:right-8 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md p-5 rounded-2xl shadow-xl border border-white/60 dark:border-slate-700/60 transform hover:scale-105 transition-transform duration-300">
+              <div className="flex items-center gap-4">
+                <div className="h-12 w-12 rounded-full bg-gradient-to-br from-green-400 to-green-600 dark:from-green-500 dark:to-green-700 flex items-center justify-center shadow-lg">
+                  <span className="text-white text-xl">✓</span>
                 </div>
-             </div>
+                <div>
+                  <p className="font-bold text-gray-900 dark:text-gray-100 text-2xl">
+                    <AnimatedCounter end={100} suffix="+" duration={2500} />
+                  </p>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">{t.about.stats.projects}</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Decorative Elements */}
+            <div className="absolute top-6 right-6 w-24 h-24 bg-blue-400/20 dark:bg-blue-500/10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-500" />
+            <div className="absolute bottom-1/3 left-6 w-16 h-16 bg-purple-400/20 dark:bg-purple-500/10 rounded-full blur-xl group-hover:scale-125 transition-transform duration-500" />
           </div>
 
         </div>
