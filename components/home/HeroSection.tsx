@@ -63,10 +63,7 @@ export default function HeroSection() {
                 priority
                 quality={95}
                 sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 600px"
-                className="object-cover object-center scale-105 group-hover:scale-110 transition-transform duration-700 ease-out"
-                style={{
-                  filter: 'brightness(0.95) contrast(1.05) saturate(1.1)',
-                }}
+                className="object-cover object-center transition-transform duration-700 ease-out"
               />
             </div>
 
