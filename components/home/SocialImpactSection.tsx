@@ -11,13 +11,10 @@ export default function SocialImpactSection() {
           Work that Changes Lives
         </h2>
         <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed mb-8">
-          We believe in giving back. For every project you start with Kazi,{" "}
-          <span className="font-bold text-gray-900">€0.50</span> goes directly to support a 
-          partnered Children's Home in Kenya. Your business growth helps provide essential care 
-          and support to children in need.
+          For every project you start with Kazi, we donate <span className="font-bold text-gray-900">€1</span> to a children’s charity. We publish donation receipts every quarter.
         </p>
         <div className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 bg-blue-100 px-4 py-2 rounded-full">
-          <span>❤️ 50 cents = ~80 KES Impact</span>
+          <span>❤️ €1 = ~140 KES Impact</span>
         </div>
       </div>
     </section>

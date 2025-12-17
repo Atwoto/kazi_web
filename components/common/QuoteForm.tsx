@@ -104,7 +104,7 @@ const formSchema = z.object({
 
 type FormData = z.infer<typeof formSchema>;
 
-export default function QuoteForm() {
+export default function QuoteForm({ className }: { className?: string }) {
   const [currentStep, setCurrentStep] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const [submittedData, setSubmittedData] = useState<FormData | null>(null);
@@ -145,7 +145,7 @@ export default function QuoteForm() {
 
   if (submittedData) {
     return (
-      <Card className="p-8 rounded-xl shadow-lg bg-green-50 border-green-200">
+      <Card className={cn("p-8 rounded-xl shadow-lg bg-green-50 border-green-200", className)}>
         <div className="text-center">
           <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
             <Check className="h-8 w-8 text-white" />
@@ -1165,54 +1165,41 @@ export default function QuoteForm() {
   };
 
   return (
-    <div className="bg-white py-16 md:py-24">
-      <div className="container mx-auto px-4 max-w-2xl">
-        <div className="text-center mb-10">
-          <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-4">
-            Get a Quote
-          </h2>
-          <p className="text-lg text-gray-600">
-            Tell us about your project and we'll send you a detailed quote within 24 hours.
-          </p>
+    <Card className={cn("p-8 rounded-xl shadow-lg", className)}>
+      {/* Progress Stepper */}
+      <div className="mb-10 relative">
+        <div className="flex justify-between items-center mb-4 text-sm font-medium text-gray-400 relative z-10">
+          <span className={cn("transition-colors duration-300", currentStep >= 0 && "text-blue-600 font-bold")}>Basics</span>
+          <span className={cn("transition-colors duration-300", currentStep >= 1 && "text-blue-600 font-bold")}>Details</span>
+          <span className={cn("transition-colors duration-300", currentStep >= 2 && "text-blue-600 font-bold")}>Upload</span>
+          <span className={cn("transition-colors duration-300", currentStep >= 3 && "text-blue-600 font-bold")}>Review</span>
         </div>
 
-        {/* Progress Stepper */}
-        <div className="mb-10 relative">
-          <div className="flex justify-between items-center mb-4 text-sm font-medium text-gray-400 relative z-10">
-            <span className={cn("transition-colors duration-300", currentStep >= 0 && "text-blue-600 font-bold")}>Basics</span>
-            <span className={cn("transition-colors duration-300", currentStep >= 1 && "text-blue-600 font-bold")}>Details</span>
-            <span className={cn("transition-colors duration-300", currentStep >= 2 && "text-blue-600 font-bold")}>Upload</span>
-            <span className={cn("transition-colors duration-300", currentStep >= 3 && "text-blue-600 font-bold")}>Review</span>
-          </div>
+        <div className="h-1 w-full bg-gray-100 rounded-full overflow-hidden relative">
+          <div
+            className="h-full bg-blue-600 transition-all duration-500 ease-out absolute top-0 left-0"
+            style={{ width: `${(currentStep / (totalSteps - 1)) * 100}%`}}
+          />
+        </div>
 
-          <div className="h-1 w-full bg-gray-100 rounded-full overflow-hidden relative">
+        <div className="flex justify-between absolute top-[26px] w-full px-1">
+          {[0, 1, 2, 3].map((step) => (
             <div
-              className="h-full bg-blue-600 transition-all duration-500 ease-out absolute top-0 left-0"
-              style={{ width: `${(currentStep / (totalSteps - 1)) * 100}%`}}
+              key={step}
+              className={cn(
+                "w-3 h-3 rounded-full border-2 border-white transition-all duration-500",
+                currentStep >= step ? "bg-blue-600 shadow-sm scale-110" : "bg-gray-200"
+              )}
             />
-          </div>
-
-          <div className="flex justify-between absolute top-[26px] w-full px-1">
-            {[0, 1, 2, 3].map((step) => (
-              <div
-                key={step}
-                className={cn(
-                  "w-3 h-3 rounded-full border-2 border-white transition-all duration-500",
-                  currentStep >= step ? "bg-blue-600 shadow-sm scale-110" : "bg-gray-200"
-                )}
-              />
-            ))}
-          </div>
+          ))}
         </div>
-
-        <Card className="p-8 rounded-xl shadow-lg">
-          <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-              {renderStep()}
-            </form>
-          </Form>
-        </Card>
       </div>
-    </div>
+
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+          {renderStep()}
+        </form>
+      </Form>
+    </Card>
   );
 }

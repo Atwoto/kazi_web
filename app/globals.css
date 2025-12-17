@@ -71,7 +71,7 @@
   --secondary-foreground: oklch(0.205 0 0);
   
   --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0); /* Medium gray */
+  --muted-foreground: oklch(0.45 0 0); /* Darker gray for better contrast */
   
   --accent: oklch(0.97 0 0);
   --accent-foreground: oklch(0.205 0 0);
@@ -118,7 +118,7 @@
   --secondary-foreground: oklch(0.985 0 0);
   
   --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);    /* Lighter gray for muted text */
+  --muted-foreground: oklch(0.80 0 0);    /* Lighter gray for better contrast in dark mode */
   
   --accent: oklch(0.269 0 0);
   --accent-foreground: oklch(0.985 0 0);

@@ -18,10 +18,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   const serviceRoutes = [
-    "/services/video-editing",
-    "/services/photo-editing",
     "/services/web-design-development",
     "/services/graphic-design",
+    "/services/virtual-assistance",
+    "/services/content-writing",
+    "/services/data-entry",
+    "/services/customer-support",
+    "/services/video-editing",
+    "/services/photo-editing",
     "/services/ai-services",
     "/services/academic-support",
   ];

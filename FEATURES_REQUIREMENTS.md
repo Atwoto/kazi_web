@@ -9,7 +9,7 @@
 - Mission & Vision cards
 - Our Values with icons (4 values)
 - Team section (4 team member cards)
-- Social Impact section (€0.50 per project to children's home)
+- Social Impact section (€1 per project to children's charity)
 - CTA section
 
 ### 2. Testimonials Section (`/components/home/TestimonialsSection.tsx`)
