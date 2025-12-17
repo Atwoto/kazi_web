@@ -4,9 +4,11 @@ import { useState, useEffect } from "react";
 import { X, Gift } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function ExitIntentPopup() {
+  const { t } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const [email, setEmail] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -51,10 +53,10 @@ export default function ExitIntentPopup() {
             <Gift className="w-8 h-8 text-white animate-pulse" />
           </div>
           <DialogTitle className="text-2xl font-heading font-bold mb-2">
-            Wait! Don't miss this.
+            {t.exitIntent.title}
           </DialogTitle>
           <p className="text-blue-100">
-            Get <span className="font-bold text-white">5% OFF</span> your first project when you book a consultation today.
+            {t.exitIntent.text}
           </p>
           <button 
             onClick={() => setIsOpen(false)}
@@ -74,31 +76,31 @@ export default function ExitIntentPopup() {
               </div>
               <Input
                 type="email"
-                placeholder="Enter your email address"
+                placeholder={t.exitIntent.emailPlaceholder}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="h-12 bg-gray-50 border-gray-200"
                 required
               />
               <Button type="submit" className="w-full h-12 rounded-full bg-blue-600 hover:bg-blue-700 text-lg font-bold shadow-lg">
-                Claim My Discount
+                {t.exitIntent.button}
               </Button>
               <p className="text-xs text-center text-gray-400 mt-4">
-                No spam. Unsubscribe anytime.
+                {t.exitIntent.disclaimer}
               </p>
             </form>
           ) : (
             <div className="text-center py-8">
-              <h3 className="text-xl font-bold text-gray-900 mb-2">Discount Unlocked! 🎉</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">{t.exitIntent.successTitle}</h3>
               <p className="text-gray-600">
-                Check your inbox. We've sent your 5% discount code to <strong>{email}</strong>.
+                {t.exitIntent.successText} <strong>{email}</strong>.
               </p>
               <Button 
                 onClick={() => setIsOpen(false)}
                 className="mt-6 rounded-full" 
                 variant="outline"
               >
-                Close
+                {t.exitIntent.close}
               </Button>
             </div>
           )}

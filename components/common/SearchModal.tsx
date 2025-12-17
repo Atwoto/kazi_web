@@ -1,12 +1,13 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
-import { Search, X } from "lucide-react";
+import { useEffect, useState } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
+import { Search, Loader2, ArrowRight, FileText, Tag, Briefcase } from "lucide-react";
+import { searchContent, SearchResult } from "@/lib/search-data";
 import Link from "next/link";
-import { searchContent, SearchableItem } from "@/lib/search-data";
+import { Badge } from "@/components/ui/badge";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface SearchModalProps {
   isOpen: boolean;
@@ -14,120 +15,133 @@ interface SearchModalProps {
 }
 
 export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
+  const { t } = useLanguage();
   const [query, setQuery] = useState("");
-  const [results, setResults] = useState<SearchableItem[]>([]);
-  const router = useRouter();
+  const [results, setResults] = useState<SearchResult[]>([]);
+  const [isSearching, setIsSearching] = useState(false);
 
   useEffect(() => {
-    if (query.trim() === "") {
+    if (!isOpen) {
+      setQuery("");
       setResults([]);
-      return;
     }
+  }, [isOpen]);
 
-    const searchResults = searchContent(query);
-    setResults(searchResults.slice(0, 8)); // Limit to 8 results
+  useEffect(() => {
+    const handleSearch = async () => {
+      if (!query.trim()) {
+        setResults([]);
+        return;
+      }
+
+      setIsSearching(true);
+      
+      // Simulate network delay for better UX feel
+      await new Promise(resolve => setTimeout(resolve, 300));
+
+      const searchTerms = query.toLowerCase().split(" ");
+      
+      const filtered = searchContent.filter(item => {
+        const titleMatch = item.title.toLowerCase().includes(query.toLowerCase());
+        const descMatch = item.description.toLowerCase().includes(query.toLowerCase());
+        const tagMatch = item.tags.some(tag => tag.toLowerCase().includes(query.toLowerCase()));
+        
+        return titleMatch || descMatch || tagMatch;
+      });
+
+      setResults(filtered);
+      setIsSearching(false);
+    };
+
+    const debounce = setTimeout(handleSearch, 300);
+    return () => clearTimeout(debounce);
   }, [query]);
 
-  const handleResultClick = () => {
-    setQuery("");
-    setResults([]);
-    onClose();
-  };
-
-  const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === "Escape") {
-      onClose();
+  const getIcon = (type: SearchResult['type']) => {
+    switch (type) {
+      case 'service': return <Briefcase className="w-4 h-4" />;
+      case 'blog': return <FileText className="w-4 h-4" />;
+      default: return <ArrowRight className="w-4 h-4" />;
     }
   };
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-[600px] max-h-[80vh] flex flex-col p-0">
-        <DialogHeader className="px-6 py-4 border-b">
-          <div className="flex items-center gap-3">
-            <Search className="w-5 h-5 text-gray-400" />
-            <DialogTitle className="text-xl font-heading">Search</DialogTitle>
-            <button
-              onClick={onClose}
-              className="ml-auto p-1 hover:bg-gray-100 rounded-full transition-colors"
-            >
-              <X className="w-5 h-5" />
-            </button>
-          </div>
-        </DialogHeader>
-
-        <div className="p-6 border-b">
+      <DialogContent className="sm:max-w-[600px] p-0 gap-0 overflow-hidden bg-white">
+        <div className="p-4 border-b border-gray-100 flex items-center gap-3">
+          <Search className="w-5 h-5 text-gray-400" />
           <Input
-            type="text"
-            placeholder="Search for services, pages, or content..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            onKeyDown={handleKeyDown}
-            className="h-12 text-lg"
+            placeholder={t.search.placeholder}
+            className="border-none shadow-none focus-visible:ring-0 text-lg placeholder:text-gray-400 h-auto p-0"
             autoFocus
           />
+          {isSearching && <Loader2 className="w-4 h-4 animate-spin text-blue-600" />}
         </div>
 
-        <div className="flex-1 overflow-y-auto">
-          {query.trim() === "" ? (
-            <div className="p-6 text-center text-gray-500">
-              <Search className="w-12 h-12 mx-auto mb-3 opacity-30" />
-              <p>Start typing to search...</p>
-              <p className="text-sm mt-2">Search for services, pages, or any content</p>
+        <div className="max-h-[60vh] overflow-y-auto p-2">
+          {results.length > 0 ? (
+            <div className="space-y-1">
+              {results.map((result) => (
+                <Link
+                  key={result.id}
+                  href={result.url}
+                  onClick={onClose}
+                  className="flex items-start gap-4 p-3 rounded-lg hover:bg-gray-50 transition-colors group"
+                >
+                  <div className="mt-1 p-2 bg-blue-50 text-blue-600 rounded-md group-hover:bg-blue-100 transition-colors">
+                    {getIcon(result.type)}
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex items-center justify-between mb-1">
+                      <h4 className="font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">
+                        {result.title}
+                      </h4>
+                      <Badge variant="secondary" className="text-xs capitalize font-normal">
+                        {result.type}
+                      </Badge>
+                    </div>
+                    <p className="text-sm text-gray-500 line-clamp-2 mb-2">
+                      {result.description}
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {result.tags.map(tag => (
+                        <span key={tag} className="text-[10px] text-gray-400 bg-gray-100 px-2 py-0.5 rounded-full flex items-center gap-1">
+                          <Tag className="w-3 h-3" /> {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </Link>
+              ))}
             </div>
-          ) : results.length === 0 ? (
-            <div className="p-6 text-center text-gray-500">
-              <p>No results found for "{query}"</p>
-              <p className="text-sm mt-2">Try different keywords or browse our services</p>
+          ) : query ? (
+            <div className="p-8 text-center text-gray-500">
+              <p>{t.search.noResults}</p>
             </div>
           ) : (
             <div className="p-4">
-              <div className="space-y-2">
-                {results.map((result) => (
-                  <Link
-                    key={result.id}
-                    href={result.url}
-                    onClick={handleResultClick}
-                    className="block p-4 rounded-lg hover:bg-gray-50 transition-colors"
-                  >
-                    <div className="flex items-start gap-3">
-                      <div className="mt-1">
-                        {result.type === "service" && <div className="w-2 h-2 rounded-full bg-blue-500 mt-2" />}
-                        {result.type === "page" && <div className="w-2 h-2 rounded-full bg-green-500 mt-2" />}
-                        {result.type === "blog" && <div className="w-2 h-2 rounded-full bg-purple-500 mt-2" />}
-                        {result.type === "portfolio" && <div className="w-2 h-2 rounded-full bg-orange-500 mt-2" />}
-                      </div>
-                      <div className="flex-1">
-                        <div className="flex items-center gap-2">
-                          <h3 className="font-semibold text-gray-900">{result.title}</h3>
-                          <span className="text-xs px-2 py-0.5 bg-gray-100 text-gray-600 rounded-full capitalize">
-                            {result.type}
-                          </span>
-                        </div>
-                        <p className="text-sm text-gray-600 mt-1 line-clamp-2">{result.description}</p>
-                        {result.tags.length > 0 && (
-                          <div className="flex flex-wrap gap-1 mt-2">
-                            {result.tags.slice(0, 3).map((tag) => (
-                              <span key={tag} className="text-xs text-gray-500">
-                                #{tag}
-                              </span>
-                            ))}
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                  </Link>
-                ))}
+              <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">
+                {t.search.quickLinks}
+              </h3>
+              <div className="grid grid-cols-2 gap-2">
+                <Link href="/services" onClick={onClose} className="p-2 text-sm text-gray-600 hover:bg-gray-50 rounded-md">
+                  All Services
+                </Link>
+                <Link href="/pricing" onClick={onClose} className="p-2 text-sm text-gray-600 hover:bg-gray-50 rounded-md">
+                  Pricing
+                </Link>
+                <Link href="/contact" onClick={onClose} className="p-2 text-sm text-gray-600 hover:bg-gray-50 rounded-md">
+                  Contact Us
+                </Link>
+                <Link href="/faq" onClick={onClose} className="p-2 text-sm text-gray-600 hover:bg-gray-50 rounded-md">
+                  FAQ
+                </Link>
               </div>
             </div>
           )}
         </div>
-
-        {results.length > 0 && (
-          <div className="px-6 py-3 border-t bg-gray-50 text-sm text-gray-600">
-            Press <kbd className="px-1.5 py-0.5 bg-white rounded border">ESC</kbd> to close
-          </div>
-        )}
       </DialogContent>
     </Dialog>
   );
