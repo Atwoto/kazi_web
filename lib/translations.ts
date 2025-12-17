@@ -281,7 +281,7 @@ export const translations = {
         disclaimerHighlight: "Payment Terms: 50% deposit to start, 50% on completion. 2 rounds of revisions included standard.",
         tiers: [
           { tier: "Quick Tasks", hours: "1 to 3 hours", price: "€25", desc: "Quick fixes, simple designs, and basic editing.", examples: ["Logo & Business Cards", "Simple Web Fixes", "Proofreading & Editing", "AI/Plagiarism Check"] },
-          { tier: "Standard Tasks", hours: "3 to 6 hours", price: "€55", desc: "Social assets, updates, and document formatting.", examples: ["Social Graphics & Banners", "Standard Web Update", "AI Chatbot Setup", "Full Document Formatting"] },
+          { tier: "Standard Tasks", hours: "3 to 6 hours", price: "€75", desc: "Social assets, updates, and document formatting.", examples: ["Social Graphics & Banners", "Standard Web Update", "AI Chatbot Setup", "Full Document Formatting"] },
           { tier: "Complex Projects", hours: "6 to 12 hours", price: "€110", desc: "Builds, deep edits, and complex design.", examples: ["Building Websites", "Complex Graphic Design", "Long Video Editing", "Long Academic Formatting"] },
         ],
         cta: "Book a Task"
