@@ -469,7 +469,9 @@ export const translations = {
     contact: {
       sidebarTitle: "Let's build something great together.",
       emailLabel: "Email Us",
-      whatsappLabel: "WhatsApp",
+      emailAddress: "hello@kaziagency.es",
+      phoneLabel: "Direct Line",
+      phoneNumber: "+34 669171216",
       hoursLabel: "Business Hours",
       hoursValue: "Mon-Saturday 9:00am-6:00pm",
       note: "\"To protect quality and support, please keep all communication inside Kazi.\"",
@@ -981,9 +983,11 @@ export const translations = {
     contact: {
       sidebarTitle: "Construyamos algo genial juntos.",
       emailLabel: "Envíanos un Email",
-      whatsappLabel: "WhatsApp",
+      emailAddress: "hello@kaziagency.es",
+      phoneLabel: "Línea Directa",
+      phoneNumber: "+34 669171216",
       hoursLabel: "Horario Comercial",
-      hoursValue: "Lun-Vie, 9am - 6pm (CET)",
+      hoursValue: "Lun-Sábado 9:00am-6:00pm",
       note: "\"Para proteger la calidad y el soporte, por favor mantén toda la comunicación dentro de Kazi.\"",
     },
     search: {
@@ -1493,9 +1497,11 @@ export const translations = {
     contact: {
       sidebarTitle: "Construïm alguna cosa genial junts.",
       emailLabel: "Envia'ns un Email",
-      whatsappLabel: "WhatsApp",
+      emailAddress: "hello@kaziagency.es",
+      phoneLabel: "Línia Directa",
+      phoneNumber: "+34 669171216",
       hoursLabel: "Horari Comercial",
-      hoursValue: "Dll-Div, 9am - 6pm (CET)",
+      hoursValue: "Dll-Dissabte 9:00am-6:00pm",
       note: "\"Per protegir la qualitat i el suport, si us plau mantingues tota la comunicació dins de Kazi.\"",
     },
     search: {

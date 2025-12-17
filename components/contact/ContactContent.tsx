@@ -72,11 +72,11 @@ export default function ContactContent() {
              <div className="mt-12 space-y-4 border-t border-slate-800 pt-8">
                 <div className="flex flex-col">
                   <span className="text-sm text-slate-400 uppercase tracking-wider font-bold">{t.contact.emailLabel}</span>
-                  <a href="mailto:hello@kazi.com" className="text-white hover:text-blue-400 text-lg">hello@kazi.com</a>
+                  <a href={`mailto:${t.contact.emailAddress}`} className="text-white hover:text-blue-400 text-lg">{t.contact.emailAddress}</a>
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-sm text-slate-400 uppercase tracking-wider font-bold">{t.contact.whatsappLabel}</span>
-                  <a href="https://wa.me/1234567890" className="text-white hover:text-blue-400 text-lg">+1 (555) 123-4567</a>
+                  <span className="text-sm text-slate-400 uppercase tracking-wider font-bold">{t.contact.phoneLabel}</span>
+                  <a href={`https://wa.me/${t.contact.phoneNumber.replace(/\s/g, '')}`} className="text-white hover:text-blue-400 text-lg">{t.contact.phoneNumber}</a>
                 </div>
                 <div className="flex flex-col">
                   <span className="text-sm text-slate-400 uppercase tracking-wider font-bold">{t.contact.hoursLabel}</span>
