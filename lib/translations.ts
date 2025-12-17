@@ -65,7 +65,7 @@ export const translations = {
       impact: {
         title: "Work that Changes Lives",
         text: "For every project you start with Kazi, we donate €1 to a children’s charity. We publish donation receipts every quarter.",
-        badge: "❤️ €1 = ~140 KES Impact",
+        badge: "",
       },
       testimonials: {
         title: "Trusted by Global Teams",
@@ -264,6 +264,12 @@ export const translations = {
       portfolioPlaceholder: "Portfolios are customized per client request to ensure relevance.",
       requestSamples: "Request Specific Samples",
       viewGeneralFaq: "View General FAQ",
+      cta: {
+        title: "Ready to build something great?",
+        text: "Get a premium development team without the overhead. Start your project with Kazi today.",
+        button: "Get a Quote",
+        note: "No commitment required. Reply time: <4 hours."
+      }
     },
     pricing: {
       pageTitle: "Transparent Pricing",
@@ -495,7 +501,7 @@ export const translations = {
       impact: {
         title: "Trabajo que Cambia Vidas",
         text: "Por cada proyecto que inicias con Kazi, donamos 1 € a una organización benéfica para niños. Publicamos recibos de donación cada trimestre.",
-        badge: "❤️ 1 € = ~140 KES Impacto",
+        badge: "",
       },
       testimonials: {
         title: "Con la Confianza de Equipos Globales",
@@ -694,6 +700,12 @@ export const translations = {
       portfolioPlaceholder: "Los portafolios se personalizan según la solicitud del cliente para garantizar relevancia.",
       requestSamples: "Solicitar Muestras Específicas",
       viewGeneralFaq: "Ver FAQ General",
+      cta: {
+        title: "¿Listo para construir algo grandioso?",
+        text: "Obtén un equipo de desarrollo premium sin los gastos generales. Comienza tu proyecto con Kazi hoy.",
+        button: "Pedir Presupuesto",
+        note: "Sin compromiso. Tiempo de respuesta: <4 horas."
+      }
     },
     pricing: {
       pageTitle: "Precios Transparentes",
@@ -925,7 +937,7 @@ export const translations = {
       impact: {
         title: "Treball que Canvia Vides",
         text: "Per cada projecte que inicies amb Kazi, donem 1 € a una organització benèfica per a nens. Publiquem rebuts de donació cada trimestre.",
-        badge: "❤️ 1 € = ~140 KES Impacte",
+        badge: "",
       },
       testimonials: {
         title: "Amb la Confiança d'Equips Globals",
@@ -1124,6 +1136,12 @@ export const translations = {
       portfolioPlaceholder: "Els portafolis es personalitzen segons la sol·licitud del client per garantir rellevància.",
       requestSamples: "Sol·licitar Mostres Específiques",
       viewGeneralFaq: "Veure FAQ General",
+      cta: {
+        title: "A punt per construir alguna cosa gran?",
+        text: "Obté un equip de desenvolupament prèmium sense les despeses generals. Comença el teu projecte amb Kazi avui.",
+        button: "Demanar Pressupost",
+        note: "Sense compromís. Temps de resposta: <4 hores."
+      }
     },
     pricing: {
       pageTitle: "Preus Transparents",

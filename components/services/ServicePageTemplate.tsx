@@ -247,14 +247,14 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
             <div className="absolute top-0 left-0 w-full h-full bg-[url('/grid.svg')] opacity-10" />
             
             <div className="relative z-10">
-                <h2 className="text-3xl md:text-5xl font-heading font-bold mb-6">Ready to build something great?</h2>
+                <h2 className="text-3xl md:text-5xl font-heading font-bold mb-6">{t.servicePage.cta.title}</h2>
                 <p className="text-xl md:text-2xl text-blue-100 mb-10 max-w-2xl mx-auto">
-                  Get a premium development team without the overhead. Start your project with Kazi today.
+                  {t.servicePage.cta.text}
                 </p>
                 <Button asChild className="bg-white text-blue-600 hover:bg-gray-100 rounded-full px-10 py-7 text-lg font-bold shadow-lg transform hover:scale-105 transition-transform duration-200">
-                  <Link href={service.ctaLink}>Get a Quote</Link>
+                  <Link href={service.ctaLink}>{t.servicePage.cta.button}</Link>
                 </Button>
-                <p className="mt-6 text-sm text-blue-200 opacity-80">No commitment required. Reply time: &lt;4 hours.</p>
+                <p className="mt-6 text-sm text-blue-200 opacity-80">{t.servicePage.cta.note}</p>
             </div>
           </div>
         </div>

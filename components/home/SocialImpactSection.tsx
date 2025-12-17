@@ -18,9 +18,11 @@ export default function SocialImpactSection() {
         <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed mb-8">
           {t.home.impact.text}
         </p>
-        <div className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 bg-blue-100 px-4 py-2 rounded-full">
-          <span>{t.home.impact.badge}</span>
-        </div>
+        {t.home.impact.badge && (
+          <div className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 bg-blue-100 px-4 py-2 rounded-full">
+            <span>{t.home.impact.badge}</span>
+          </div>
+        )}
       </div>
     </section>
   );
