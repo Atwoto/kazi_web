@@ -52,11 +52,11 @@ export default function HeroSection() {
           {/* Right Column: Hero Image */}
           <div className="relative h-[500px] lg:h-[600px] w-full rounded-3xl overflow-hidden shadow-2xl bg-muted/20 dark:bg-slate-800/50 border border-border">
              <Image 
-               src="/next.svg" 
-               alt="Kazi Team Working"
+               src="/hero-section.jpeg" 
+               alt="Developer working on laptop with code on screen"
                layout="fill"
                objectFit="cover"
-               className="opacity-50 dark:opacity-30 dark:invert" 
+               className="opacity-80" 
              />
              <div className="absolute bottom-8 left-8 right-8 bg-white/90 dark:bg-slate-900/90 backdrop-blur p-6 rounded-2xl shadow-lg border border-white/50 dark:border-slate-700">
                 <div className="flex items-center gap-4">
