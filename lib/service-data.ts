@@ -5,7 +5,7 @@ export interface Service {
   heroImage: string;
   ctaLink: string;
   deliverables: string[];
-  examples: { title: string; description: string; imageUrl: string; documentUrl?: string }[];
+  examples: { title: string; description: string; imageUrl: string; documentUrl?: string; liveUrl?: string; gallery?: string[] }[];
   process: { step: string; description: string }[];
   faqs: { question: string; answer: string }[];
   targetAudience?: string;
@@ -28,14 +28,28 @@ export const servicesData: Service[] = [
     ],
     examples: [
       {
-        title: "FinTech Dashboard",
-        description: "Secure, scalable platform with real-time data visualization.",
-        imageUrl: "/file.svg",
+        title: "SokoBridge",
+        description: "Business platform helping clients source products from Europe to Kenya and manage trade/shipping logistics efficiently.",
+        imageUrl: "/samples/web/soko.jpg",
+        liveUrl: "https://www.sokobridge.com/",
       },
       {
-        title: "Corporate Identity Site",
-        description: "High-performance marketing site with CMS management.",
-        imageUrl: "/file.svg",
+        title: "Bills On Solar EA Limited",
+        description: "Kenyan renewable energy company providing solar solutions for residential, commercial, and off-grid use.",
+        imageUrl: "/samples/web/bill.jpg",
+        liveUrl: "https://billsonsolar.com/",
+      },
+      {
+        title: "Sambright Investment LTD",
+        description: "Home and office improvement company offering painting, gypsum installation, epoxy flooring, and waterproofing services.",
+        imageUrl: "/samples/web/sambright.jpg",
+        liveUrl: "https://www.sambrightinvestmentltd.com/",
+      },
+      {
+        title: "Mushosheke & Co Consultancy",
+        description: "Professional consultancy providing conference interpretation, translation services, and language solutions across East Africa.",
+        imageUrl: "/samples/web/mush.jpg",
+        liveUrl: "https://www.mushoshekeltd.co.ke/",
       },
     ],
     process: [
@@ -138,14 +152,29 @@ export const servicesData: Service[] = [
     deliverables: ["Workflow Automation", "Custom Chatbot Integration", "Data Analysis Models", "Process Optimization"],
     examples: [
       {
-        title: "Customer Support Chatbot",
-        description: "Custom AI agent trained on company data to handle L1 support queries.",
-        imageUrl: "/file.svg",
+        title: "Billson Solar AI Sales Chatbot",
+        description: "Intelligent AI assistant integrated into solar e-commerce platform, guiding customers through the entire buying journey.",
+        imageUrl: "/samples/AI/bill.jpg",
+        liveUrl: "https://billsonsolar.com/",
+        gallery: ["/samples/AI/bill.jpg", "/samples/AI/bill1.jpg", "/samples/AI/bill2.jpg"],
       },
       {
-        title: "Lead Scoring Automation",
-        description: "Automated workflow to qualify and route leads to the sales team.",
-        imageUrl: "/file.svg",
+        title: "WhatsApp Car Rental Automation",
+        description: "Full-stack WhatsApp automation system using Evolution API and Node.js for high-volume car rental bookings.",
+        imageUrl: "/samples/AI/chat.jpg",
+        gallery: ["/samples/AI/chat.jpg", "/samples/AI/chat1.jpg"],
+      },
+      {
+        title: "Personal Brand Automation Workflow",
+        description: "n8n automation workflow that generates personal branding content including LinkedIn posts and AI headshots.",
+        imageUrl: "/samples/AI/brand.jpg",
+        gallery: ["/samples/AI/brand.jpg", "/samples/AI/brand1.jpg"],
+      },
+      {
+        title: "Lead Gen Subscriber AI Agent",
+        description: "n8n automation that captures, validates, and enriches leads for AI marketing funnels with duplicate checking.",
+        imageUrl: "/samples/AI/lead.jpg",
+        gallery: ["/samples/AI/lead.jpg"],
       },
     ],
     process: [
