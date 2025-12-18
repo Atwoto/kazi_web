@@ -191,7 +191,7 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
                  <h2 className="text-3xl font-heading font-bold text-gray-900 mb-8 text-center">{t.servicePage.recentWork}</h2>
                  {examples && examples.length > 0 ? (
                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                     {examples.map((example, index) => (
+                     {examples.slice(0, 3).map((example, index) => (
                        service.slug === 'academic-support' ? (
                          // Document Card Design for Academic Support
                          <Card 
@@ -268,6 +268,13 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
                        )
                      ))}
                    </div>
+                   {examples.length > 3 && (
+                     <div className="mt-12 text-center">
+                       <Button asChild variant="outline" className="rounded-full px-8 border-2 hover:bg-blue-50 hover:text-blue-600 hover:border-blue-200 transition-all">
+                         <Link href="/portfolio">View Full Portfolio <ChevronRight className="w-4 h-4 ml-2" /></Link>
+                       </Button>
+                     </div>
+                   )}
                  ) : (
                     <div className="text-center py-16 bg-gray-50 rounded-3xl border-2 border-dashed border-gray-200">
                        <p className="text-gray-500 text-lg mb-4">{t.servicePage.portfolioPlaceholder}</p>
