@@ -30,30 +30,6 @@ const testimonials = [
     text: "Clean code, clear communication, delivered ahead of schedule. What more could you ask for? Already planning our next project with them.",
     rating: 5,
   },
-  {
-    name: "Elena Sánchez",
-    role: "Creative Director, Studio Barcelona",
-    text: "The video editors here just get it. No need to explain things twice. They took our rough footage and turned it into something beautiful.",
-    rating: 5,
-  },
-  {
-    name: "Javier López",
-    role: "Operations Manager, LogiTech",
-    text: "We've tried other agencies before, but the level of professionalism here is different. They treat our projects like their own.",
-    rating: 5,
-  },
-  {
-    name: "Isabella Fernández",
-    role: "Marketing Lead, BrandUp",
-    text: "Fast, reliable, and the results speak for themselves. Our social media content has never looked better. Thank you team!",
-    rating: 5,
-  },
-  {
-    name: "Miguel Torres",
-    role: "Startup Founder",
-    text: "From logo design to full website — they handled everything. Great value for money and the communication was excellent throughout.",
-    rating: 5,
-  },
 ];
 
 export default function Testimonials() {
@@ -92,40 +68,17 @@ export default function Testimonials() {
         </p>
       </div>
 
-      {/* Marquee Container */}
-      <div className="relative w-full group">
-        {/* Gradient Fade Left */}
-        <div className="absolute left-0 top-0 bottom-0 w-20 md:w-40 bg-gradient-to-r from-gray-50 to-transparent z-10 pointer-events-none" />
-
-        {/* Gradient Fade Right */}
-        <div className="absolute right-0 top-0 bottom-0 w-20 md:w-40 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
-
-        {/* First Row - Moving Left */}
-        <div className="flex mb-8 overflow-hidden">
-          <div className="flex animate-scroll-left min-w-max gap-6 pr-6 hover:[animation-play-state:paused]">
-            {[...testimonials, ...testimonials].map((item, i) => (
-              <TestimonialCard 
-                key={`row1-${i}`} 
-                {...item} 
-                index={i % testimonials.length} 
-                show={isVisible}
-              />
-            ))}
-          </div>
-        </div>
-
-        {/* Second Row - Moving Right (slower) */}
-        <div className="flex overflow-hidden">
-          <div className="flex animate-scroll-right min-w-max gap-6 pr-6 hover:[animation-play-state:paused]">
-            {[...testimonials.slice(4), ...testimonials.slice(0, 4), ...testimonials.slice(4), ...testimonials.slice(0, 4)].map((item, i) => (
-              <TestimonialCard 
-                key={`row2-${i}`} 
-                {...item} 
-                index={(i % testimonials.length) + 2} 
-                show={isVisible}
-              />
-            ))}
-          </div>
+      {/* Grid Container */}
+      <div className="container mx-auto px-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {testimonials.map((item, i) => (
+            <TestimonialCard 
+              key={i} 
+              {...item} 
+              index={i} 
+              show={isVisible}
+            />
+          ))}
         </div>
       </div>
     </section>
@@ -149,32 +102,32 @@ function TestimonialCard({
 }) {
   return (
     <Card 
-      className={`w-[320px] md:w-[380px] flex-shrink-0 bg-white border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-1000 rounded-2xl ${
+      className={`h-full bg-white border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-1000 rounded-2xl ${
         show ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
       }`}
       style={{ transitionDelay: `${index * 150}ms` }}
     >
-      <CardContent className="p-6">
+      <CardContent className="p-6 flex flex-col h-full">
         <div className="flex items-center gap-1 mb-4">
           {[...Array(rating)].map((_, i) => (
             <Star key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
           ))}
         </div>
 
-        <div className="relative mb-4">
+        <div className="relative mb-6 flex-grow">
           <Quote className="absolute -top-1 -left-1 w-6 h-6 text-blue-100" />
-          <p className="text-gray-600 text-sm md:text-base leading-relaxed pl-4">
+          <p className="text-gray-600 text-sm leading-relaxed pl-4">
             {text}
           </p>
         </div>
 
-        <div className="flex items-center gap-3 pt-4 border-t border-gray-100">
-          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center text-white font-bold text-sm">
+        <div className="flex items-center gap-3 pt-4 border-t border-gray-100 mt-auto">
+          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center text-white font-bold text-sm shrink-0">
             {name.split(' ').map(n => n[0]).join('')}
           </div>
-          <div>
-            <p className="font-semibold text-gray-900 text-sm">{name}</p>
-            <p className="text-xs text-gray-500">{role}</p>
+          <div className="min-w-0">
+            <p className="font-semibold text-gray-900 text-sm truncate">{name}</p>
+            <p className="text-xs text-gray-500 truncate">{role}</p>
           </div>
         </div>
       </CardContent>
