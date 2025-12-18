@@ -50,41 +50,31 @@ export default function HeroSection() {
           </div>
 
           {/* Right Column: Hero Image */}
-          <div className="relative h-[400px] sm:h-[450px] md:h-[500px] lg:h-[650px] xl:h-[700px] w-full rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-slate-800 dark:to-slate-900 border border-border/50 group">
-            {/* Background gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/10 via-transparent to-purple-600/10 dark:from-blue-900/20 dark:to-purple-900/20 z-10" />
-
-            {/* Main Image Container */}
-            <div className="relative h-full w-full overflow-hidden">
-              <Image
-                src="/hero-section1.jpeg"
-                alt="Developer working on laptop with code on screen"
-                fill
-                priority
-                quality={95}
-                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 600px"
-                className="object-cover object-center transition-transform duration-700 ease-out"
-              />
-            </div>
+          <div className="relative h-[400px] sm:h-[450px] md:h-[500px] lg:h-[550px] w-full rounded-2xl overflow-hidden shadow-2xl border border-gray-100 dark:border-slate-700 bg-gray-100 dark:bg-slate-800">
+            <Image
+              src="/hero-section.png"
+              alt="Professional team collaboration"
+              fill
+              priority
+              quality={95}
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 600px"
+              className="object-cover object-center"
+            />
 
             {/* Floating Stats Card */}
-            <div className="absolute bottom-6 left-6 right-6 sm:left-8 sm:right-8 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md p-5 rounded-2xl shadow-xl border border-white/60 dark:border-slate-700/60 transform hover:scale-105 transition-transform duration-300">
-              <div className="flex items-center gap-4">
-                <div className="h-12 w-12 rounded-full bg-gradient-to-br from-green-400 to-green-600 dark:from-green-500 dark:to-green-700 flex items-center justify-center shadow-lg">
-                  <span className="text-white text-xl">✓</span>
+            <div className="absolute bottom-6 left-6 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md p-4 rounded-xl shadow-xl border border-white/60 dark:border-slate-700/60">
+              <div className="flex items-center gap-3">
+                <div className="h-10 w-10 rounded-full bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center shadow-lg">
+                  <span className="text-white text-lg">✓</span>
                 </div>
                 <div>
-                  <p className="font-bold text-gray-900 dark:text-gray-100 text-2xl">
+                  <p className="font-bold text-gray-900 dark:text-gray-100 text-xl">
                     <AnimatedCounter end={100} suffix="+" duration={2500} />
                   </p>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">{t.about.stats.projects}</p>
+                  <p className="text-xs text-gray-600 dark:text-gray-400">{t.about.stats.projects}</p>
                 </div>
               </div>
             </div>
-
-            {/* Decorative Elements */}
-            <div className="absolute top-6 right-6 w-24 h-24 bg-blue-400/20 dark:bg-blue-500/10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-500" />
-            <div className="absolute bottom-1/3 left-6 w-16 h-16 bg-purple-400/20 dark:bg-purple-500/10 rounded-full blur-xl group-hover:scale-125 transition-transform duration-500" />
           </div>
 
         </div>
