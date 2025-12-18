@@ -105,16 +105,44 @@ const portfolioItems: PortfolioItem[] = [
       "Airtable data sync",
     ],
   },
-  // Other Projects
   {
     id: 9,
+    title: "Lead Gen Subscriber AI Agent",
+    categoryKey: "aiServices",
+    imageUrl: "/samples/AI/lead.jpg",
+    description: "n8n automation that captures, validates, and enriches leads for AI marketing funnels with duplicate checking, AI-powered insights, and CRM integration.",
+    gallery: ["/samples/AI/lead.jpg"],
+    highlights: [
+      "Webform data capture & cleaning",
+      "Duplicate checking via Airtable",
+      "AI-powered lead enrichment",
+      "Automatic CRM follow-ups",
+    ],
+  },
+  {
+    id: 10,
+    title: "AI Color Advisor Agent",
+    categoryKey: "aiServices",
+    imageUrl: "/samples/AI/sam.jpg",
+    description: "Vision-powered AI workflow that analyzes house images and generates professional color palettes with structured recommendations and 3D visual previews.",
+    gallery: ["/samples/AI/sam.jpg", "/samples/AI/sam1.jpg", "/samples/AI/sam2.jpg", "/samples/AI/sam3.jpg"],
+    highlights: [
+      "Gemini 2.5 Flash vision model",
+      "Structured JSON color palettes",
+      "Dynamic recommendations",
+      "3D preview generation",
+    ],
+  },
+  // Other Projects
+  {
+    id: 11,
     title: "EcoBrand Identity System",
     categoryKey: "graphicDesign",
     imageUrl: "/file.svg",
     description: "Complete visual identity and brand guidelines for a sustainable fashion label in Berlin.",
   },
   {
-    id: 10,
+    id: 12,
     title: "SaaS Launch Campaign",
     categoryKey: "videoEditing",
     imageUrl: "/file.svg",
@@ -122,7 +150,7 @@ const portfolioItems: PortfolioItem[] = [
   },
   // Academic Documents
   {
-    id: 11,
+    id: 13,
     title: "Communication with the Elderly",
     categoryKey: "academicSupport",
     imageUrl: "/file.svg",
@@ -130,7 +158,7 @@ const portfolioItems: PortfolioItem[] = [
     isDocument: true,
   },
   {
-    id: 12,
+    id: 14,
     title: "LSM-Trees: Write-Optimized Storage",
     categoryKey: "academicSupport",
     imageUrl: "/file.svg",
@@ -138,7 +166,7 @@ const portfolioItems: PortfolioItem[] = [
     isDocument: true,
   },
   {
-    id: 13,
+    id: 15,
     title: "Social Media Effects on Relationships",
     categoryKey: "academicSupport",
     imageUrl: "/file.svg",
@@ -146,7 +174,7 @@ const portfolioItems: PortfolioItem[] = [
     isDocument: true,
   },
   {
-    id: 14,
+    id: 16,
     title: "Food Waste Analysis at Greenleaf Grocery",
     categoryKey: "academicSupport",
     imageUrl: "/file.svg",
@@ -154,7 +182,7 @@ const portfolioItems: PortfolioItem[] = [
     isDocument: true,
   },
   {
-    id: 15,
+    id: 17,
     title: "The Optimal Global Population",
     categoryKey: "academicSupport",
     imageUrl: "/file.svg",
@@ -162,7 +190,7 @@ const portfolioItems: PortfolioItem[] = [
     isDocument: true,
   },
   {
-    id: 16,
+    id: 18,
     title: "Machine Vision for Medical Image Analysis",
     categoryKey: "academicSupport",
     imageUrl: "/file.svg",
