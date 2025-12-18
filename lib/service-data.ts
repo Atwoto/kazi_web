@@ -51,7 +51,7 @@ export const servicesData: Service[] = [
     ],
     targetAudience: "Startups & SMEs",
     startingPrice: "€25",
-    turnaround: "2-4 Weeks"
+    turnaround: "1-3 Weeks"
   },
   {
     slug: "graphic-design",
@@ -68,7 +68,7 @@ export const servicesData: Service[] = [
     ],
     targetAudience: "Marketing Teams",
     startingPrice: "€25",
-    turnaround: "3-7 Days"
+    turnaround: "1-3 Days"
   },
   {
     slug: "video-editing",
@@ -85,7 +85,7 @@ export const servicesData: Service[] = [
     ],
     targetAudience: "Creators & Brands",
     startingPrice: "€25",
-    turnaround: "48-72 Hours"
+    turnaround: "24-72 Hours"
   },
   {
     slug: "photo-editing",
@@ -117,7 +117,7 @@ export const servicesData: Service[] = [
     ],
     targetAudience: "Tech-Forward Biz",
     startingPrice: "€25",
-    turnaround: "2-6 Weeks"
+    turnaround: "1-2 Weeks"
   },
   {
     slug: "academic-support",
@@ -165,6 +165,6 @@ export const servicesData: Service[] = [
     ],
     targetAudience: "Students & Researchers",
     startingPrice: "€25",
-    turnaround: "24h - 1 Week"
+    turnaround: "6-72 Hours"
   },
 ];
