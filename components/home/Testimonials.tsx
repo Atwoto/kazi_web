@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState, useRef } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Star, Quote } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
@@ -57,14 +58,39 @@ const testimonials = [
 
 export default function Testimonials() {
   const { t } = useLanguage();
+  const [isVisible, setIsVisible] = useState(false);
+  const [startMarquee, setStartMarquee] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          // Start marquee after entrance animation (approx 2.5s)
+          setTimeout(() => setStartMarquee(true), 2500);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <section className="py-20 md:py-28 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
+    <section 
+      ref={sectionRef}
+      className="py-20 md:py-28 bg-gradient-to-b from-gray-50 to-white overflow-hidden"
+    >
       <div className="container mx-auto px-4 mb-12 md:mb-16 text-center">
-        <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-4">
+        <h2 className={`text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-4 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
           {t.home.testimonials.title}
         </h2>
-        <p className="text-gray-500 max-w-2xl mx-auto text-base md:text-lg">
+        <p className={`text-gray-500 max-w-2xl mx-auto text-base md:text-lg transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
           {t.home.testimonials.subtitle}
         </p>
       </div>
@@ -79,18 +105,34 @@ export default function Testimonials() {
 
         {/* First Row - Moving Left */}
         <div className="flex mb-6 overflow-hidden">
-          <div className="flex animate-scroll-left gap-6 pr-6">
+          <div 
+            className={`flex gap-6 pr-6 ${startMarquee ? 'animate-scroll-left' : ''}`}
+            style={{ animationPlayState: startMarquee ? 'running' : 'paused' }}
+          >
             {[...testimonials, ...testimonials].map((item, i) => (
-              <TestimonialCard key={`row1-${i}`} {...item} />
+              <TestimonialCard 
+                key={`row1-${i}`} 
+                {...item} 
+                index={i % testimonials.length} 
+                show={isVisible}
+              />
             ))}
           </div>
         </div>
 
         {/* Second Row - Moving Right (slower) */}
         <div className="flex overflow-hidden">
-          <div className="flex animate-scroll-right gap-6 pr-6">
+          <div 
+            className={`flex gap-6 pr-6 ${startMarquee ? 'animate-scroll-right' : ''}`}
+            style={{ animationPlayState: startMarquee ? 'running' : 'paused' }}
+          >
             {[...testimonials.slice(4), ...testimonials.slice(0, 4), ...testimonials.slice(4), ...testimonials.slice(0, 4)].map((item, i) => (
-              <TestimonialCard key={`row2-${i}`} {...item} />
+              <TestimonialCard 
+                key={`row2-${i}`} 
+                {...item} 
+                index={(i % testimonials.length) + 2} 
+                show={isVisible}
+              />
             ))}
           </div>
         </div>
@@ -99,9 +141,28 @@ export default function Testimonials() {
   );
 }
 
-function TestimonialCard({ name, role, text, rating }: { name: string; role: string; text: string; rating: number }) {
+function TestimonialCard({ 
+  name, 
+  role, 
+  text, 
+  rating, 
+  index, 
+  show 
+}: { 
+  name: string; 
+  role: string; 
+  text: string; 
+  rating: number; 
+  index: number;
+  show: boolean;
+}) {
   return (
-    <Card className="w-[320px] md:w-[380px] flex-shrink-0 bg-white border border-gray-100 shadow-sm hover:shadow-lg transition-shadow duration-300 rounded-2xl">
+    <Card 
+      className={`w-[320px] md:w-[380px] flex-shrink-0 bg-white border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-1000 rounded-2xl ${
+        show ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+      }`}
+      style={{ transitionDelay: `${index * 150}ms` }}
+    >
       <CardContent className="p-6">
         <div className="flex items-center gap-1 mb-4">
           {[...Array(rating)].map((_, i) => (
@@ -129,3 +190,4 @@ function TestimonialCard({ name, role, text, rating }: { name: string; role: str
     </Card>
   );
 }
+
