@@ -190,91 +190,93 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
                <div className="max-w-5xl mx-auto">
                  <h2 className="text-3xl font-heading font-bold text-gray-900 mb-8 text-center">{t.servicePage.recentWork}</h2>
                  {examples && examples.length > 0 ? (
-                   <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                     {examples.slice(0, 3).map((example, index) => (
-                       service.slug === 'academic-support' ? (
-                         // Document Card Design for Academic Support
-                         <Card 
-                           key={index} 
-                           className="rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border-none bg-gray-50 group flex flex-col h-full cursor-pointer"
-                           onClick={() => openPreview(example)}
-                         >
-                            <div className="relative w-full h-56 bg-slate-100 overflow-hidden flex items-center justify-center p-6 group-hover:bg-blue-50 transition-colors duration-500">
-                              {/* Decorative Background Elements */}
-                              <div className="absolute top-0 right-0 w-32 h-32 bg-blue-200/20 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
-                              <div className="absolute bottom-0 left-0 w-24 h-24 bg-purple-200/20 rounded-full blur-xl translate-y-1/2 -translate-x-1/2 pointer-events-none" />
-                              
-                              {/* Paper Simulation */}
-                              <div className="relative w-3/4 h-full bg-white shadow-xl shadow-slate-200/50 rounded-t-sm border-t-4 border-blue-600 p-5 flex flex-col items-center text-center transform group-hover:-translate-y-2 transition-transform duration-300">
-                                {/* Stacked Paper Effect */}
-                                <div className="absolute top-2 left-1 right-1 h-full bg-white border border-gray-100 rounded-t-sm -z-10 shadow-sm transform translate-y-1 scale-[0.98]" />
-                                <div className="absolute top-3 left-2 right-2 h-full bg-white border border-gray-100 rounded-t-sm -z-20 shadow-sm transform translate-y-2 scale-[0.96]" />
-
-                                {/* Content Preview */}
-                                <div className="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center mb-3">
-                                  <FileText className="w-4 h-4 text-blue-600" />
-                                </div>
-
-                                <h3 className="font-heading font-bold text-slate-800 text-sm leading-tight mb-1 line-clamp-3">
-                                  {example.title}
-                                </h3>
+                   <>
+                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                       {examples.slice(0, 3).map((example, index) => (
+                         service.slug === 'academic-support' ? (
+                           // Document Card Design for Academic Support
+                           <Card 
+                             key={index} 
+                             className="rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border-none bg-gray-50 group flex flex-col h-full cursor-pointer"
+                             onClick={() => openPreview(example)}
+                           >
+                              <div className="relative w-full h-56 bg-slate-100 overflow-hidden flex items-center justify-center p-6 group-hover:bg-blue-50 transition-colors duration-500">
+                                {/* Decorative Background Elements */}
+                                <div className="absolute top-0 right-0 w-32 h-32 bg-blue-200/20 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+                                <div className="absolute bottom-0 left-0 w-24 h-24 bg-purple-200/20 rounded-full blur-xl translate-y-1/2 -translate-x-1/2 pointer-events-none" />
                                 
-                                <div className="w-8 h-0.5 bg-blue-200 rounded-full mb-3" />
+                                {/* Paper Simulation */}
+                                <div className="relative w-3/4 h-full bg-white shadow-xl shadow-slate-200/50 rounded-t-sm border-t-4 border-blue-600 p-5 flex flex-col items-center text-center transform group-hover:-translate-y-2 transition-transform duration-300">
+                                  {/* Stacked Paper Effect */}
+                                  <div className="absolute top-2 left-1 right-1 h-full bg-white border border-gray-100 rounded-t-sm -z-10 shadow-sm transform translate-y-1 scale-[0.98]" />
+                                  <div className="absolute top-3 left-2 right-2 h-full bg-white border border-gray-100 rounded-t-sm -z-20 shadow-sm transform translate-y-2 scale-[0.96]" />
 
-                                {/* Abstract Text Lines */}
-                                <div className="w-full space-y-1.5 opacity-30 mt-auto pb-2">
-                                  <div className="w-full h-1 bg-slate-400 rounded-full" />
-                                  <div className="w-5/6 h-1 bg-slate-400 rounded-full mx-auto" />
-                                  <div className="w-full h-1 bg-slate-400 rounded-full" />
-                                  <div className="w-4/5 h-1 bg-slate-400 rounded-full mx-auto" />
-                                </div>
+                                  {/* Content Preview */}
+                                  <div className="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center mb-3">
+                                    <FileText className="w-4 h-4 text-blue-600" />
+                                  </div>
 
-                                {/* Badge */}
-                                <div className="absolute top-0 right-2">
-                                  <div className="w-4 h-6 bg-red-500 rounded-b-sm shadow-sm" title="A+ Quality" />
-                                </div>
+                                  <h3 className="font-heading font-bold text-slate-800 text-sm leading-tight mb-1 line-clamp-3">
+                                    {example.title}
+                                  </h3>
+                                  
+                                  <div className="w-8 h-0.5 bg-blue-200 rounded-full mb-3" />
 
-                                {/* Hover Overlay */}
-                                <div className="absolute inset-0 bg-white/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                                   <span className="flex items-center gap-2 text-blue-600 font-bold text-sm bg-blue-50 px-3 py-1.5 rounded-full shadow-sm">
-                                     <Eye className="w-4 h-4" /> Preview
-                                   </span>
+                                  {/* Abstract Text Lines */}
+                                  <div className="w-full space-y-1.5 opacity-30 mt-auto pb-2">
+                                    <div className="w-full h-1 bg-slate-400 rounded-full" />
+                                    <div className="w-5/6 h-1 bg-slate-400 rounded-full mx-auto" />
+                                    <div className="w-full h-1 bg-slate-400 rounded-full" />
+                                    <div className="w-4/5 h-1 bg-slate-400 rounded-full mx-auto" />
+                                  </div>
+
+                                  {/* Badge */}
+                                  <div className="absolute top-0 right-2">
+                                    <div className="w-4 h-6 bg-red-500 rounded-b-sm shadow-sm" title="A+ Quality" />
+                                  </div>
+
+                                  {/* Hover Overlay */}
+                                  <div className="absolute inset-0 bg-white/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                     <span className="flex items-center gap-2 text-blue-600 font-bold text-sm bg-blue-50 px-3 py-1.5 rounded-full shadow-sm">
+                                       <Eye className="w-4 h-4" /> Preview
+                                     </span>
+                                  </div>
                                 </div>
                               </div>
-                            </div>
-                            <CardHeader>
+                              <CardHeader>
+                                 <CardTitle className="font-heading text-lg font-bold">{example.title}</CardTitle>
+                                 <p className="text-xs text-gray-500 uppercase tracking-wider">{example.description}</p>
+                              </CardHeader>
+                           </Card>
+                         ) : (
+                           // Standard Image Card for other services
+                           <Card key={index} className="border-none shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden group bg-gray-50">
+                             <div className="relative w-full h-64 bg-gray-200 overflow-hidden">
+                               <Image
+                                 src={example.imageUrl}
+                                 alt={example.title}
+                                 layout="fill"
+                                 objectFit="cover"
+                                 className="group-hover:scale-110 transition-transform duration-700"
+                               />
+                               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
+                             </div>
+                             <CardHeader>
                                <CardTitle className="font-heading text-lg font-bold">{example.title}</CardTitle>
                                <p className="text-xs text-gray-500 uppercase tracking-wider">{example.description}</p>
-                            </CardHeader>
-                         </Card>
-                       ) : (
-                         // Standard Image Card for other services
-                         <Card key={index} className="border-none shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden group bg-gray-50">
-                           <div className="relative w-full h-64 bg-gray-200 overflow-hidden">
-                             <Image
-                               src={example.imageUrl}
-                               alt={example.title}
-                               layout="fill"
-                               objectFit="cover"
-                               className="group-hover:scale-110 transition-transform duration-700"
-                             />
-                             <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
-                           </div>
-                           <CardHeader>
-                             <CardTitle className="font-heading text-lg font-bold">{example.title}</CardTitle>
-                             <p className="text-xs text-gray-500 uppercase tracking-wider">{example.description}</p>
-                           </CardHeader>
-                         </Card>
-                       )
-                     ))}
-                   </div>
-                   {examples.length > 3 && (
-                     <div className="mt-12 text-center">
-                       <Button asChild variant="outline" className="rounded-full px-8 border-2 hover:bg-blue-50 hover:text-blue-600 hover:border-blue-200 transition-all">
-                         <Link href="/portfolio">View Full Portfolio <ChevronRight className="w-4 h-4 ml-2" /></Link>
-                       </Button>
+                             </CardHeader>
+                           </Card>
+                         )
+                       ))}
                      </div>
-                   )}
+                     {examples.length > 3 && (
+                       <div className="mt-12 text-center">
+                         <Button asChild variant="outline" className="rounded-full px-8 border-2 hover:bg-blue-50 hover:text-blue-600 hover:border-blue-200 transition-all">
+                           <Link href="/portfolio">View Full Portfolio <ChevronRight className="w-4 h-4 ml-2" /></Link>
+                         </Button>
+                       </div>
+                     )}
+                   </>
                  ) : (
                     <div className="text-center py-16 bg-gray-50 rounded-3xl border-2 border-dashed border-gray-200">
                        <p className="text-gray-500 text-lg mb-4">{t.servicePage.portfolioPlaceholder}</p>
