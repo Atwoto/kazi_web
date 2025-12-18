@@ -518,4 +518,7 @@ export default function PortfolioContent() {
           </div>
         </div>
       )}
+    </div>
+  );
+}
 
