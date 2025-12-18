@@ -31,9 +31,7 @@ import { useLanguage } from "@/context/LanguageContext";
 
 const serviceTypes = [
   "Academic Support",
-  "Graphic Design",
   "Web Design & Development",
-  "Video Editing",
   "Photo Editing",
   "AI Services",
 ] as const;

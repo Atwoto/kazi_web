@@ -173,7 +173,6 @@ export const translations = {
         name: "Graphic Design",
         oneLiner: "Strategic visual identity and marketing assets for your brand.",
         deliverables: ["Brand Strategy & Identity", "Marketing Collateral", "Social Media Suites", "Presentation Design"],
-        process: [],
         faqs: [
            { q: "What formats will I receive?", a: "We provide all industry-standard formats: AI, EPS, PDF, JPG, and PNG." },
            { q: "How many revisions are included?", a: "Our standard packages include 2-3 rounds of revisions." },
@@ -183,7 +182,6 @@ export const translations = {
         name: "Video Production",
         oneLiner: "Post-production services for high-impact visual storytelling.",
         deliverables: ["Corporate Explainers", "Social Media Reels", "Ads & Promos", "Full Post-Production"],
-        process: [],
         faqs: [
             { q: "What is your typical turnaround?", a: "Simple edits are often done in 48h. Complex projects depend on scope." },
             { q: "How do I send large files?", a: "We use Google Drive, Dropbox, or WeTransfer." },
@@ -193,7 +191,6 @@ export const translations = {
         name: "Image Retouching",
         oneLiner: "High-volume, high-quality retouching for e-commerce and media.",
         deliverables: ["High-End Retouching", "E-commerce Standardization", "Color Correction", "Compositing"],
-        process: [],
         faqs: [
             { q: "Can you handle bulk orders?", a: "Yes, our team is scalable to handle hundreds of images per day." },
         ]
@@ -202,7 +199,6 @@ export const translations = {
         name: "AI Solutions",
         oneLiner: "Implementing practical AI workflows to future-proof your business.",
         deliverables: ["Workflow Automation", "Custom Chatbot Integration", "Data Analysis Models", "Process Optimization"],
-        process: [],
         faqs: [
             { q: "Is my data secure?", a: "Yes, we prioritize data privacy and use secure, enterprise-grade APIs." },
         ]
@@ -211,7 +207,6 @@ export const translations = {
         name: "Academic Editing",
         oneLiner: "Professional editing and coaching for academic excellence.",
         deliverables: ["Dissertation Proofreading", "Style Guide Formatting", "Structure & Flow Analysis", "Citation Compliance"],
-        process: [],
         faqs: [
             { q: "Do you write essays from scratch?", a: "No. We provide editing, proofreading, and coaching. We do not engage in academic dishonesty." },
             { q: "What referencing styles do you support?", a: "We are experts in APA, Harvard, MLA, Chicago, and more." },
@@ -221,28 +216,24 @@ export const translations = {
         name: "Virtual Assistance",
         oneLiner: "Managed administrative support to streamline your operations.",
         deliverables: ["Executive Inbox Management", "Complex Scheduling", "Operational Support", "Travel Logistics"],
-        process: [],
         faqs: []
       },
       "content-writing": {
         name: "Content Writing",
         oneLiner: "Professional copy and content strategies that drive engagement.",
         deliverables: ["Thought Leadership Articles", "SEO-Driven Blog Content", "Website Copywriting", "Technical Documentation"],
-        process: [],
         faqs: []
       },
       "data-entry": {
         name: "Data Operations",
         oneLiner: "Secure, accurate, and scalable data processing solutions.",
         deliverables: ["Data Cleaning & Validation", "Lead Enrichment", "CRM Management", "Large-Scale Transcription"],
-        process: [],
         faqs: []
       },
       "customer-support": {
         name: "Customer Support",
         oneLiner: "Dedicated support teams to enhance your customer experience.",
         deliverables: ["Omni-channel Support", "L1/L2 Ticket Resolution", "Live Chat Management", "Knowledge Base Maintenance"],
-        process: [],
         faqs: []
       },
     },
@@ -693,7 +684,6 @@ export const translations = {
         name: "Diseño Gráfico",
         oneLiner: "Identidad visual estratégica y activos de marketing para tu marca.",
         deliverables: ["Estrategia de Marca e Identidad", "Material de Marketing", "Suites para Redes Sociales", "Diseño de Presentaciones"],
-        process: [],
         faqs: [
            { q: "¿Qué formatos recibiré?", a: "Proporcionamos todos los formatos estándar de la industria: AI, EPS, PDF, JPG y PNG." },
            { q: "¿Cuántas revisiones se incluyen?", a: "Nuestros paquetes estándar incluyen 2-3 rondas de revisiones." },
@@ -703,7 +693,6 @@ export const translations = {
         name: "Producción de Video",
         oneLiner: "Servicios de postproducción para narración visual de alto impacto.",
         deliverables: ["Explicativos Corporativos", "Reels para Redes Sociales", "Anuncios y Promociones", "Postproducción Completa"],
-        process: [],
         faqs: [
             { q: "¿Cuál es su tiempo de respuesta típico?", a: "Las ediciones simples a menudo se hacen en 48h. Los proyectos complejos dependen del alcance." },
             { q: "¿Cómo envío archivos grandes?", a: "Usamos Google Drive, Dropbox o WeTransfer." },
@@ -713,7 +702,6 @@ export const translations = {
         name: "Retoque de Imágenes",
         oneLiner: "Retoque de alto volumen y alta calidad para comercio electrónico y medios.",
         deliverables: ["Retoque de Alta Gama", "Estandarización E-commerce", "Corrección de Color", "Composición"],
-        process: [],
         faqs: [
             { q: "¿Pueden manejar pedidos a granel?", a: "Sí, nuestro equipo es escalable para manejar cientos de imágenes por día." },
         ]
@@ -722,7 +710,6 @@ export const translations = {
         name: "Soluciones de IA",
         oneLiner: "Implementación de flujos de trabajo de IA prácticos para preparar tu negocio para el futuro.",
         deliverables: ["Automatización de Flujos de Trabajo", "Integración de Chatbots Personalizados", "Modelos de Análisis de Datos", "Optimización de Procesos"],
-        process: [],
         faqs: [
             { q: "¿Están seguros mis datos?", a: "Sí, priorizamos la privacidad de los datos y utilizamos API seguras de nivel empresarial." },
         ]
@@ -731,7 +718,6 @@ export const translations = {
         name: "Edición Académica",
         oneLiner: "Edición y coaching profesional para la excelencia académica.",
         deliverables: ["Corrección de Disertaciones", "Formato de Guía de Estilo", "Análisis de Estructura y Flujo", "Cumplimiento de Citas"],
-        process: [],
         faqs: [
             { q: "¿Escriben ensayos desde cero?", a: "No. Proporcionamos edición, corrección y coaching. No participamos en deshonestidad académica." },
             { q: "¿Qué estilos de referencia apoyan?", a: "Somos expertos en APA, Harvard, MLA, Chicago y más." },
@@ -741,28 +727,24 @@ export const translations = {
         name: "Asistencia Virtual",
         oneLiner: "Soporte administrativo gestionado para optimizar tus operaciones.",
         deliverables: ["Gestión de Bandeja de Entrada Ejecutiva", "Programación Compleja", "Soporte Operativo", "Logística de Viajes"],
-        process: [],
         faqs: []
       },
       "content-writing": {
         name: "Redacción de Contenidos",
         oneLiner: "Estrategias profesionales de redacción y contenido que impulsan la participación.",
         deliverables: ["Artículos de Liderazgo de Pensamiento", "Contenido de Blog Orientado a SEO", "Redacción de Sitios Web", "Documentación Técnica"],
-        process: [],
         faqs: []
       },
       "data-entry": {
         name: "Operaciones de Datos",
         oneLiner: "Soluciones de procesamiento de datos seguras, precisas y escalables.",
         deliverables: ["Limpieza y Validación de Datos", "Enriquecimiento de Clientes Potenciales", "Gestión de CRM", "Transcripción a Gran Escala"],
-        process: [],
         faqs: []
       },
       "customer-support": {
         name: "Atención al Cliente",
         oneLiner: "Equipos de soporte dedicados para mejorar la experiencia de tu cliente.",
         deliverables: ["Soporte Omnicanal", "Resolución de Tickets Nivel 1/2", "Gestión de Chat en Vivo", "Mantenimiento de Base de Conocimientos"],
-        process: [],
         faqs: []
       },
     },
@@ -1213,7 +1195,6 @@ export const translations = {
         name: "Disseny Gràfic",
         oneLiner: "Identitat visual estratègica i actius de màrqueting per a la teva marca.",
         deliverables: ["Estratègia de Marca i Identitat", "Material de Màrqueting", "Suites per a Xarxes Socials", "Disseny de Presentacions"],
-        process: [],
         faqs: [
            { q: "Quins formats rebré?", a: "Proporcionem tots els formats estàndard de la indústria: AI, EPS, PDF, JPG i PNG." },
            { q: "Quantes revisions s'inclouen?", a: "Els nostres paquets estàndard inclouen 2-3 rondes de revisions." }
@@ -1223,7 +1204,6 @@ export const translations = {
         name: "Producció de Vídeo",
         oneLiner: "Serveis de postproducció per a narració visual d'alt impacte.",
         deliverables: ["Explicatius Corporatius", "Reels per a Xarxes Socials", "Anuncis i Promocions", "Postproducció Completa"],
-        process: [],
         faqs: [
             { q: "Quin és el vostre temps de resposta típic?", a: "Les edicions simples sovint es fan en 48h. Els projectes complexos depenen de l'abast." },
             { q: "Com envio arxius grans?", a: "Fem servir Google Drive, Dropbox o WeTransfer." }
@@ -1233,7 +1213,6 @@ export const translations = {
         name: "Retoc d'Imatges",
         oneLiner: "Retoc d'alt volum i alta qualitat per a comerç electrònic i mitjans.",
         deliverables: ["Retoc d'Alta Gamma", "Estandardització E-commerce", "Correcció de Color", "Composició"],
-        process: [],
         faqs: [
             { q: "Podeu gestionar comandes a granel?", a: "Sí, el nostre equip és escalable per gestionar centenars d'imatges per dia." }
         ]
@@ -1242,7 +1221,6 @@ export const translations = {
         name: "Solucions d'IA",
         oneLiner: "Implementació de fluxos de treball d'IA pràctics per preparar el teu negoci per al futur.",
         deliverables: ["Automatització de Fluxos de Treball", "Integració de Chatbots Personalitzats", "Models d'Anàlisi de Dades", "Optimització de Processos"],
-        process: [],
         faqs: [
             { q: "Estan segures les meves dades?", a: "Sí, prioritzem la privacitat de les dades i utilitzem API segures de nivell empresarial." }
         ]
@@ -1251,7 +1229,6 @@ export const translations = {
         name: "Edició Acadèmica",
         oneLiner: "Edició i coaching professional per a l'excel·lència acadèmica.",
         deliverables: ["Correcció de Dissertacions", "Format de Guia d'Estil", "Anàlisi d'Estructura i Flux", "Compliment de Cites"],
-        process: [],
         faqs: [
             { q: "Escriviu assajos des de zero?", a: "No. Proporcionem edició, correcció i coaching. No participem en deshonestedat acadèmica." },
             { q: "Quins estils de referència recolzeu?", a: "Som experts en APA, Harvard, MLA, Chicago i més." }
@@ -1261,28 +1238,24 @@ export const translations = {
         name: "Assistència Virtual",
         oneLiner: "Suport administratiu gestionat per optimitzar les teves operacions.",
         deliverables: ["Gestió de Safata d'Entrada Executiva", "Programació Complexa", "Suport Operatiu", "Logística de Viatges"],
-        process: [],
         faqs: []
       },
       "content-writing": {
         name: "Redacció de Continguts",
         oneLiner: "Estratègies professionals de redacció i contingut que impulsen la participació.",
         deliverables: ["Articles de Lideratge de Pensament", "Contingut de Blog Orientat a SEO", "Redacció de Llocs Web", "Documentació Tècnica"],
-        process: [],
         faqs: []
       },
       "data-entry": {
         name: "Operacions de Dades",
         oneLiner: "Solucions de processament de dades segures, precises i escalables.",
         deliverables: ["Neteja i Validació de Dades", "Enriquiment de Clients Potencials", "Gestió de CRM", "Transcripció a Gran Escala"],
-        process: [],
         faqs: []
       },
       "customer-support": {
         name: "Atenció al Client",
         oneLiner: "Equips de suport dedicats per millorar l'experiència del teu client.",
         deliverables: ["Suport Omnicanal", "Resolució de Tiquets Nivell 1/2", "Gestió de Xat en Viu", "Manteniment de Base de Coneixements"],
-        process: [],
         faqs: []
       },
     },
