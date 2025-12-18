@@ -4,7 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { FileText } from "lucide-react";
+import { FileText, ExternalLink } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 interface PortfolioItem {
@@ -14,47 +14,76 @@ interface PortfolioItem {
   imageUrl: string;
   description: string;
   isDocument?: boolean;
+  liveUrl?: string;
 }
 
 const portfolioItems: PortfolioItem[] = [
+  // Web Development Projects
   {
     id: 1,
-    title: "FinTech Platform Revamp",
+    title: "SokoBridge",
     categoryKey: "webDev",
-    imageUrl: "/file.svg",
-    description: "End-to-end redesign and development of a secure banking dashboard for a Swiss client.",
+    imageUrl: "/samples/web/soko.jpg",
+    description: "Business platform helping clients source products from Europe to Kenya and manage trade/shipping logistics efficiently.",
+    liveUrl: "https://www.sokobridge.com/",
   },
   {
     id: 2,
+    title: "Bills On Solar EA Limited",
+    categoryKey: "webDev",
+    imageUrl: "/samples/web/bill.jpg",
+    description: "Kenyan renewable energy company providing solar solutions for residential, commercial, and off-grid use.",
+    liveUrl: "https://billsonsolar.com/",
+  },
+  {
+    id: 3,
+    title: "Sambright Investment LTD",
+    categoryKey: "webDev",
+    imageUrl: "/samples/web/sambright.jpg",
+    description: "Home and office improvement company offering painting, gypsum installation, epoxy flooring, and waterproofing services.",
+    liveUrl: "https://www.sambrightinvestmentltd.com/",
+  },
+  {
+    id: 4,
+    title: "Mushosheke & Co Consultancy",
+    categoryKey: "webDev",
+    imageUrl: "/samples/web/mush.jpg",
+    description: "Professional consultancy providing conference interpretation, translation services, and language solutions across East Africa.",
+    liveUrl: "https://www.mushoshekeltd.co.ke/",
+  },
+  {
+    id: 5,
+    title: "Sambright Investment CRM",
+    categoryKey: "webDev",
+    imageUrl: "/samples/web/crm.jpg",
+    description: "Custom CRM web application for managing leads, sales, contacts, projects, and internal business workflows.",
+    liveUrl: "https://sambright-investment-crm.vercel.app/",
+  },
+  // Other Projects
+  {
+    id: 6,
     title: "EcoBrand Identity System",
     categoryKey: "graphicDesign",
     imageUrl: "/file.svg",
     description: "Complete visual identity and brand guidelines for a sustainable fashion label in Berlin.",
   },
   {
-    id: 3,
+    id: 7,
     title: "SaaS Launch Campaign",
     categoryKey: "videoEditing",
     imageUrl: "/file.svg",
     description: "Series of high-conversion explainer videos and social cuts for a B2B SaaS product.",
   },
   {
-    id: 4,
+    id: 8,
     title: "Legal Data Processing",
     categoryKey: "aiServices",
     imageUrl: "/file.svg",
     description: "Secure digitization and classification of 50,000+ legal documents with 99.9% accuracy.",
   },
-  {
-    id: 5,
-    title: "24/7 Support Operations",
-    categoryKey: "customerSupport",
-    imageUrl: "/file.svg",
-    description: "Established a dedicated support team for a UK e-commerce giant, reducing response time by 60%.",
-  },
   // Academic Documents
   {
-    id: 6,
+    id: 9,
     title: "Communication with the Elderly",
     categoryKey: "academicSupport",
     imageUrl: "/file.svg",
@@ -62,7 +91,7 @@ const portfolioItems: PortfolioItem[] = [
     isDocument: true,
   },
   {
-    id: 7,
+    id: 10,
     title: "LSM-Trees: Write-Optimized Storage",
     categoryKey: "academicSupport",
     imageUrl: "/file.svg",
@@ -70,7 +99,7 @@ const portfolioItems: PortfolioItem[] = [
     isDocument: true,
   },
   {
-    id: 8,
+    id: 11,
     title: "Social Media Effects on Relationships",
     categoryKey: "academicSupport",
     imageUrl: "/file.svg",
@@ -78,7 +107,7 @@ const portfolioItems: PortfolioItem[] = [
     isDocument: true,
   },
   {
-    id: 9,
+    id: 12,
     title: "Food Waste Analysis at Greenleaf Grocery",
     categoryKey: "academicSupport",
     imageUrl: "/file.svg",
@@ -86,7 +115,7 @@ const portfolioItems: PortfolioItem[] = [
     isDocument: true,
   },
   {
-    id: 10,
+    id: 13,
     title: "The Optimal Global Population",
     categoryKey: "academicSupport",
     imageUrl: "/file.svg",
@@ -94,7 +123,7 @@ const portfolioItems: PortfolioItem[] = [
     isDocument: true,
   },
   {
-    id: 11,
+    id: 14,
     title: "Machine Vision for Medical Image Analysis",
     categoryKey: "academicSupport",
     imageUrl: "/file.svg",
@@ -183,7 +212,17 @@ export default function PortfolioContent() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-600 text-sm leading-relaxed">{item.description}</p>
+                <p className="text-gray-600 text-sm leading-relaxed mb-4">{item.description}</p>
+                {item.liveUrl && (
+                  <a
+                    href={item.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:text-blue-700 transition-colors"
+                  >
+                    View Site <ExternalLink className="w-4 h-4" />
+                  </a>
+                )}
               </CardContent>
             </Card>
           ))}
