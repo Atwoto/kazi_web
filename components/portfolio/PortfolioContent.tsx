@@ -212,7 +212,7 @@ export default function PortfolioContent() {
       case "videoEditing": return t.footer.serviceNames.videoEditing;
       case "aiServices": return t.footer.serviceNames.aiServices;
       case "academicSupport": return t.footer.serviceNames.academicSupport;
-      case "customerSupport": return "Customer Support";
+      case "photoEditing": return t.footer.serviceNames.photoEditing;
       default: return key;
     }
   };
