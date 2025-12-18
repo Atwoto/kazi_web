@@ -1,39 +1,57 @@
 "use client";
 
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { Star } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Star, Quote } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 const testimonials = [
   {
-    name: "Sarah Jenkins",
-    role: "Marketing Director, TechFlow",
-    text: "Kazi completely changed how we handle our content. The quality is exceptional, and having a manager to talk to makes it feel like an in-house team.",
-    image: "", // Placeholder
+    name: "María García",
+    role: "Directora de Marketing, TechFlow",
+    text: "Honestly, I wasn't sure about outsourcing at first. But these guys delivered our website faster than expected and the quality was amazing. Highly recommend!",
+    rating: 5,
   },
   {
-    name: "David Ross",
-    role: "Founder, GreenLeaf",
-    text: "We were chasing freelancers, now we just deploy work. The design team they assigned to us is top notch.",
-    image: "",
+    name: "Carlos Rodríguez",
+    role: "Fundador, GreenLeaf Studio",
+    text: "Best decision we made this year. The design team understood exactly what we needed without endless back-and-forth. Super professional.",
+    rating: 5,
   },
   {
-    name: "Elena Rodriguez",
-    role: "Operations Lead, EduSmart",
-    text: "Academic support services are precise and timely. It's rare to find this level of professionalism in the gig economy.",
-    image: "",
+    name: "Ana Martínez",
+    role: "CEO, EduSmart",
+    text: "Their academic editing service saved my thesis. Quick turnaround, great attention to detail, and they actually understood the subject matter.",
+    rating: 5,
   },
   {
-    name: "Mark T.",
+    name: "David Thompson",
     role: "CTO, FinSaaS",
-    text: "The web development sprint was executed perfectly. Clean code, great communication, and delivered early.",
-    image: "",
+    text: "Clean code, clear communication, delivered ahead of schedule. What more could you ask for? Already planning our next project with them.",
+    rating: 5,
   },
   {
-    name: "Jessica Wu",
-    role: "Creative Lead, Studio 4",
-    text: "I was skeptical about offshoring, but Kazi's vetting is real. The video editors just 'get it' immediately.",
-    image: "",
+    name: "Elena Sánchez",
+    role: "Creative Director, Studio Barcelona",
+    text: "The video editors here just get it. No need to explain things twice. They took our rough footage and turned it into something beautiful.",
+    rating: 5,
+  },
+  {
+    name: "Javier López",
+    role: "Operations Manager, LogiTech",
+    text: "We've tried other agencies before, but the level of professionalism here is different. They treat our projects like their own.",
+    rating: 5,
+  },
+  {
+    name: "Isabella Fernández",
+    role: "Marketing Lead, BrandUp",
+    text: "Fast, reliable, and the results speak for themselves. Our social media content has never looked better. Thank you team!",
+    rating: 5,
+  },
+  {
+    name: "Miguel Torres",
+    role: "Startup Founder",
+    text: "From logo design to full website — they handled everything. Great value for money and the communication was excellent throughout.",
+    rating: 5,
   },
 ];
 
@@ -41,66 +59,73 @@ export default function Testimonials() {
   const { t } = useLanguage();
 
   return (
-    <section className="py-24 bg-background overflow-hidden">
-      <div className="container mx-auto px-4 mb-12 text-center">
-        <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
+    <section className="py-20 md:py-28 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
+      <div className="container mx-auto px-4 mb-12 md:mb-16 text-center">
+        <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-4">
           {t.home.testimonials.title}
         </h2>
-        <p className="text-muted-foreground max-w-2xl mx-auto">
+        <p className="text-gray-500 max-w-2xl mx-auto text-base md:text-lg">
           {t.home.testimonials.subtitle}
         </p>
       </div>
 
       {/* Marquee Container */}
-      <div className="relative w-full overflow-hidden">
-        <div className="flex w-max animate-marquee hover:pause gap-8 will-change-transform">
-          {/* First Set */}
-          {testimonials.map((item, i) => (
-            <Card key={`1-${i}`} className="w-[350px] md:w-[450px] bg-card border-border flex-shrink-0">
-              <CardHeader className="flex flex-row items-center gap-4 pb-2">
-                <div className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center font-bold text-primary text-xl">
-                  {item.name.charAt(0)}
-                </div>
-                <div>
-                  <p className="font-bold text-foreground">{item.name}</p>
-                  <p className="text-xs text-muted-foreground uppercase">{item.role}</p>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <div className="flex text-yellow-400 mb-3">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-current" />
-                  ))}
-                </div>
-                <p className="text-muted-foreground leading-relaxed">"{item.text}"</p>
-              </CardContent>
-            </Card>
-          ))}
-          
-          {/* Duplicate Set for Seamless Loop */}
-          {testimonials.map((item, i) => (
-            <Card key={`2-${i}`} className="w-[350px] md:w-[450px] bg-card border-border flex-shrink-0">
-              <CardHeader className="flex flex-row items-center gap-4 pb-2">
-                <div className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center font-bold text-primary text-xl">
-                  {item.name.charAt(0)}
-                </div>
-                <div>
-                  <p className="font-bold text-foreground">{item.name}</p>
-                  <p className="text-xs text-muted-foreground uppercase">{item.role}</p>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <div className="flex text-yellow-400 mb-3">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-current" />
-                  ))}
-                </div>
-                <p className="text-muted-foreground leading-relaxed">"{item.text}"</p>
-              </CardContent>
-            </Card>
-          ))}
+      <div className="relative w-full">
+        {/* Gradient Fade Left */}
+        <div className="absolute left-0 top-0 bottom-0 w-20 md:w-40 bg-gradient-to-r from-gray-50 to-transparent z-10 pointer-events-none" />
+
+        {/* Gradient Fade Right */}
+        <div className="absolute right-0 top-0 bottom-0 w-20 md:w-40 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+
+        {/* First Row - Moving Left */}
+        <div className="flex mb-6 overflow-hidden">
+          <div className="flex animate-scroll-left gap-6 pr-6">
+            {[...testimonials, ...testimonials].map((item, i) => (
+              <TestimonialCard key={`row1-${i}`} {...item} />
+            ))}
+          </div>
+        </div>
+
+        {/* Second Row - Moving Right (slower) */}
+        <div className="flex overflow-hidden">
+          <div className="flex animate-scroll-right gap-6 pr-6">
+            {[...testimonials.slice(4), ...testimonials.slice(0, 4), ...testimonials.slice(4), ...testimonials.slice(0, 4)].map((item, i) => (
+              <TestimonialCard key={`row2-${i}`} {...item} />
+            ))}
+          </div>
         </div>
       </div>
     </section>
+  );
+}
+
+function TestimonialCard({ name, role, text, rating }: { name: string; role: string; text: string; rating: number }) {
+  return (
+    <Card className="w-[320px] md:w-[380px] flex-shrink-0 bg-white border border-gray-100 shadow-sm hover:shadow-lg transition-shadow duration-300 rounded-2xl">
+      <CardContent className="p-6">
+        <div className="flex items-center gap-1 mb-4">
+          {[...Array(rating)].map((_, i) => (
+            <Star key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
+          ))}
+        </div>
+
+        <div className="relative mb-4">
+          <Quote className="absolute -top-1 -left-1 w-6 h-6 text-blue-100" />
+          <p className="text-gray-600 text-sm md:text-base leading-relaxed pl-4">
+            {text}
+          </p>
+        </div>
+
+        <div className="flex items-center gap-3 pt-4 border-t border-gray-100">
+          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center text-white font-bold text-sm">
+            {name.split(' ').map(n => n[0]).join('')}
+          </div>
+          <div>
+            <p className="font-semibold text-gray-900 text-sm">{name}</p>
+            <p className="text-xs text-gray-500">{role}</p>
+          </div>
+        </div>
+      </CardContent>
+    </Card>
   );
 }

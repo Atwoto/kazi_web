@@ -58,9 +58,19 @@ const config: Config = {
           from: { transform: "translateX(0)" },
           to: { transform: "translateX(-50%)" },
         },
+        "scroll-left": {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(-50%)" },
+        },
+        "scroll-right": {
+          from: { transform: "translateX(-50%)" },
+          to: { transform: "translateX(0)" },
+        },
       },
       animation: {
         marquee: "marquee 20s linear infinite",
+        "scroll-left": "scroll-left 40s linear infinite",
+        "scroll-right": "scroll-right 50s linear infinite",
       },
     },
   },

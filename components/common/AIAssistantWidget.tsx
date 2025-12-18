@@ -29,19 +29,28 @@ export default function AIAssistantWidget() {
   }, [messages]);
 
   return (
-    <div className="fixed bottom-24 right-6 z-40 flex flex-col items-center gap-2 animate-in fade-in slide-in-from-bottom-4 duration-500">
-      {/* Floating Label */}
-      <div className="bg-slate-900 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md mb-1 animate-bounce cursor-pointer" onClick={() => setIsOpen(true)}>
-        AI Assistant
-      </div>
-      
+    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2">
+      {/* Floating Label - only show when closed */}
+      {!isOpen && (
+        <div
+          className="bg-blue-600 text-white text-xs font-semibold px-3 py-1.5 rounded-full shadow-lg cursor-pointer hover:bg-blue-700 transition-colors"
+          onClick={() => setIsOpen(true)}
+        >
+          Need help?
+        </div>
+      )}
+
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
         <DialogTrigger asChild>
           <Button
-            className="w-14 h-14 rounded-2xl shadow-xl bg-slate-800 hover:bg-slate-700 transition-all duration-300 flex items-center justify-center border-2 border-slate-700"
+            className="w-14 h-14 rounded-full shadow-xl bg-blue-600 hover:bg-blue-700 transition-all duration-300 flex items-center justify-center hover:scale-105"
             aria-label="Open AI Assistant"
           >
-            <MessageSquare className="h-7 w-7 text-white" />
+            {isOpen ? (
+              <X className="h-6 w-6 text-white" />
+            ) : (
+              <MessageSquare className="h-6 w-6 text-white" />
+            )}
           </Button>
         </DialogTrigger>
         <DialogContent className="sm:max-w-[400px] h-[600px] flex flex-col p-0 gap-0 overflow-hidden rounded-2xl border-slate-800">
