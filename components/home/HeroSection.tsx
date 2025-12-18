@@ -32,7 +32,7 @@ export default function HeroSection() {
                 <Link href="/contact">{t.hero.ctaPrimary}</Link>
               </Button>
               <Button asChild variant="outline" className="h-12 px-8 rounded-full text-lg border-input text-foreground hover:bg-accent hover:text-accent-foreground transition-all">
-                <Link href="/how-it-works">{t.hero.ctaSecondary}</Link>
+                <Link href="/#how-it-works">{t.hero.ctaSecondary}</Link>
               </Button>
             </div>
             

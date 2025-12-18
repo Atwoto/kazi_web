@@ -55,7 +55,7 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
                   <Link href={service.ctaLink}>{t.servicePage.startProject}</Link>
                 </Button>
                 <Button asChild variant="ghost" className="rounded-full px-8 py-6 text-lg text-gray-600 hover:text-gray-900 hover:bg-gray-100">
-                  <Link href="#portfolio">{t.servicePage.viewPortfolio}</Link>
+                  <Link href="#samples">{t.servicePage.viewPortfolio}</Link>
                 </Button>
               </div>
               
@@ -119,7 +119,7 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
       </section>
 
       {/* Tabs Section: Overview, Process, Samples, FAQ */}
-      <section className="py-20">
+      <section id="samples" className="py-20">
         <div className="container mx-auto px-4 md:px-6">
           <Tabs defaultValue="overview" className="w-full">
             <div className="flex justify-center mb-12">

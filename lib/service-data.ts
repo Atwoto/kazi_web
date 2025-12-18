@@ -50,7 +50,7 @@ export const servicesData: Service[] = [
       { question: "Do you offer maintenance?", answer: "We offer optional monthly maintenance packages for security updates and content changes." },
     ],
     targetAudience: "Startups & SMEs",
-    startingPrice: "€1,200",
+    startingPrice: "€25",
     turnaround: "2-4 Weeks"
   },
   {
@@ -67,7 +67,7 @@ export const servicesData: Service[] = [
        { question: "How many revisions are included?", answer: "Our standard packages include 2-3 rounds of revisions." },
     ],
     targetAudience: "Marketing Teams",
-    startingPrice: "€450",
+    startingPrice: "€25",
     turnaround: "3-7 Days"
   },
   {
@@ -81,7 +81,7 @@ export const servicesData: Service[] = [
     process: [],
     faqs: [],
     targetAudience: "Busy Executives",
-    startingPrice: "€15/hr",
+    startingPrice: "€25",
     turnaround: "Ongoing"
   },
   {
@@ -95,7 +95,7 @@ export const servicesData: Service[] = [
     process: [],
     faqs: [],
     targetAudience: "Digital Agencies",
-    startingPrice: "€0.08/word",
+    startingPrice: "€25",
     turnaround: "2-5 Days"
   },
   {
@@ -123,7 +123,7 @@ export const servicesData: Service[] = [
     process: [],
     faqs: [],
     targetAudience: "SaaS Companies",
-    startingPrice: "€1,500/mo",
+    startingPrice: "€25",
     turnaround: "Setup: 1 Week"
   },
   {
@@ -140,7 +140,7 @@ export const servicesData: Service[] = [
         { question: "How do I send large files?", answer: "We use Google Drive, Dropbox, or WeTransfer." },
     ],
     targetAudience: "Creators & Brands",
-    startingPrice: "€150",
+    startingPrice: "€25",
     turnaround: "48-72 Hours"
   },
   {
@@ -156,7 +156,7 @@ export const servicesData: Service[] = [
         { question: "Can you handle bulk orders?", answer: "Yes, our team is scalable to handle hundreds of images per day." },
     ],
     targetAudience: "E-commerce Stores",
-    startingPrice: "€2/image",
+    startingPrice: "€25",
     turnaround: "24-48 Hours"
   },
   {
@@ -172,7 +172,7 @@ export const servicesData: Service[] = [
         { question: "Is my data secure?", answer: "Yes, we prioritize data privacy and use secure, enterprise-grade APIs." },
     ],
     targetAudience: "Tech-Forward Biz",
-    startingPrice: "€2,000",
+    startingPrice: "€25",
     turnaround: "2-6 Weeks"
   },
   {
@@ -189,7 +189,7 @@ export const servicesData: Service[] = [
         { question: "What referencing styles do you support?", answer: "We are experts in APA, Harvard, MLA, Chicago, and more." },
     ],
     targetAudience: "Students & Researchers",
-    startingPrice: "€40",
+    startingPrice: "€25",
     turnaround: "24h - 1 Week"
   },
 ];

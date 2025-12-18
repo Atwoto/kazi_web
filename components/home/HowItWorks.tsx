@@ -6,7 +6,7 @@ export default function HowItWorks() {
   const { t } = useLanguage();
 
   return (
-    <section className="py-24 bg-white">
+    <section id="how-it-works" className="py-24 bg-white">
       <div className="container mx-auto px-4 md:px-6">
         <h2 className="text-3xl md:text-4xl font-heading font-bold text-center mb-16 text-gray-900">
           {t.home.howItWorks.title}
