@@ -5,7 +5,7 @@ export interface Service {
   heroImage: string;
   ctaLink: string;
   deliverables: string[];
-  examples: { title: string; description: string; imageUrl: string }[];
+  examples: { title: string; description: string; imageUrl: string; documentUrl?: string }[];
   process: { step: string; description: string }[];
   faqs: { question: string; answer: string }[];
   targetAudience?: string;
@@ -173,21 +173,25 @@ export const servicesData: Service[] = [
         title: "Communication with the Elderly",
         description: "Academic report on barriers, skills & resources for effective elderly communication",
         imageUrl: "/file.svg",
+        documentUrl: "/samples/academic/report.docx"
       },
       {
         title: "LSM-Trees: Write-Optimized Storage",
         description: "Technical paper on storage engines, compaction strategies & performance analysis",
         imageUrl: "/file.svg",
+        documentUrl: "/samples/academic/LSM1.docx"
       },
       {
         title: "Social Media Effects on Relationships",
         description: "Research study with methodology, statistical analysis & literature review",
         imageUrl: "/file.svg",
+        documentUrl: "/samples/academic/20240324 3.0.docx"
       },
       {
         title: "Food Waste Analysis at Greenleaf Grocery",
         description: "Statistical analysis with ethical recommendations using Excel & regression models",
         imageUrl: "/file.svg",
+        documentUrl: "/samples/academic/Green leaf.docx"
       },
     ],
     process: [

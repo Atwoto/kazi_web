@@ -1,10 +1,11 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle } from "@/components/ui/card";
-import { Check, Clock, Euro, RefreshCw, ChevronRight, FileText } from "lucide-react";
+import { Check, Clock, Euro, RefreshCw, ChevronRight, FileText, X, ChevronLeft, Images, Eye } from "lucide-react";
 import { Service } from "@/lib/service-data";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
@@ -21,6 +22,8 @@ interface ServicePageTemplateProps {
 
 export default function ServicePageTemplate({ service }: ServicePageTemplateProps) {
   const { t } = useLanguage();
+  const [selectedItem, setSelectedItem] = useState<any | null>(null);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   // Get translated service data, fallback to English/default if not found or for fields not in translation
   // We use 'as any' here because service.slug is a string, and t.services keys are specific strings.
@@ -33,6 +36,16 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
   const faqs = translatedData.faqs || service.faqs;
   // Examples are currently not in translation file, so we use the prop
   const examples = service.examples; 
+
+  const openPreview = (item: any) => {
+    setSelectedItem(item);
+    setCurrentImageIndex(0);
+  };
+
+  const closePreview = () => {
+    setSelectedItem(null);
+    setCurrentImageIndex(0);
+  };
 
   return (
     <div className="bg-white">
@@ -181,7 +194,11 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
                      {examples.map((example, index) => (
                        service.slug === 'academic-support' ? (
                          // Document Card Design for Academic Support
-                         <Card key={index} className="rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border-none bg-gray-50 group flex flex-col h-full">
+                         <Card 
+                           key={index} 
+                           className="rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border-none bg-gray-50 group flex flex-col h-full cursor-pointer"
+                           onClick={() => openPreview(example)}
+                         >
                             <div className="relative w-full h-56 bg-slate-100 overflow-hidden flex items-center justify-center p-6 group-hover:bg-blue-50 transition-colors duration-500">
                               {/* Decorative Background Elements */}
                               <div className="absolute top-0 right-0 w-32 h-32 bg-blue-200/20 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
@@ -215,6 +232,13 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
                                 {/* Badge */}
                                 <div className="absolute top-0 right-2">
                                   <div className="w-4 h-6 bg-red-500 rounded-b-sm shadow-sm" title="A+ Quality" />
+                                </div>
+
+                                {/* Hover Overlay */}
+                                <div className="absolute inset-0 bg-white/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                   <span className="flex items-center gap-2 text-blue-600 font-bold text-sm bg-blue-50 px-3 py-1.5 rounded-full shadow-sm">
+                                     <Eye className="w-4 h-4" /> Preview
+                                   </span>
                                 </div>
                               </div>
                             </div>
@@ -306,6 +330,67 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
           </div>
         </div>
       </section>
+
+      {/* Gallery/Document Modal */}
+      {selectedItem && (
+        <div className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4" onClick={closePreview}>
+          <div className="relative max-w-5xl w-full max-h-[95vh] flex flex-col h-full" onClick={(e) => e.stopPropagation()}>
+            {/* Close Button */}
+            <button
+              onClick={closePreview}
+              className="absolute -top-10 right-0 md:-right-8 text-white hover:text-gray-300 transition-colors z-50"
+            >
+              <X className="w-8 h-8" />
+            </button>
+
+            {/* Content Container */}
+            <div className="relative w-full flex-grow bg-white md:rounded-t-2xl overflow-hidden flex flex-col">
+              
+              {selectedItem.documentUrl ? (
+                // DOCUMENT VIEWER
+                <div className="w-full h-full bg-slate-100 flex flex-col">
+                   <div className="bg-slate-900 text-white p-3 flex justify-between items-center shrink-0">
+                      <span className="font-medium truncate">{selectedItem.title}</span>
+                      <a 
+                        href={selectedItem.documentUrl} 
+                        download 
+                        className="text-xs bg-white/10 hover:bg-white/20 px-3 py-1 rounded transition-colors"
+                      >
+                        Download Original
+                      </a>
+                   </div>
+                   <div className="flex-grow w-full relative">
+                      <iframe 
+                        src={`https://docs.google.com/gview?url=${encodeURIComponent(
+                           typeof window !== 'undefined' ? `${window.location.origin}${selectedItem.documentUrl}` : selectedItem.documentUrl
+                        )}&embedded=true`} 
+                        className="w-full h-full border-none"
+                        title="Document Viewer"
+                      />
+                   </div>
+                </div>
+              ) : (
+                // IMAGE VIEWER
+                <div className="w-full h-full bg-gray-900 relative flex items-center justify-center">
+                  <Image
+                    src={selectedItem.imageUrl}
+                    alt={selectedItem.title}
+                    layout="fill"
+                    objectFit="contain"
+                    className="p-4"
+                  />
+                </div>
+              )}
+            </div>
+
+            {/* Project Info Footer */}
+            <div className="bg-white md:rounded-b-2xl p-6 shrink-0 max-h-[30vh] overflow-y-auto">
+              <h3 className="text-2xl font-heading font-bold text-gray-900 mb-2">{selectedItem.title}</h3>
+              <p className="text-gray-600 mb-4">{selectedItem.description}</p>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
