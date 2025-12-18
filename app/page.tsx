@@ -7,7 +7,6 @@ import SamplesPreview from "@/components/home/SamplesPreview";
 import PricingTeaser from "@/components/home/PricingTeaser";
 import SocialImpactSection from "@/components/home/SocialImpactSection";
 import Testimonials from "@/components/home/Testimonials";
-import ClientLogos from "@/components/common/ClientLogos";
 import { pageSEO } from "@/lib/seo";
 
 export const metadata: Metadata = {
@@ -19,15 +18,6 @@ export default function Home() {
   return (
     <>
       <HeroSection />
-
-      {/* Brand Logos / Trust Bar */}
-      <section className="py-10 border-b border-border bg-background">
-        <div className="container mx-auto px-4 text-center">
-          <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest mb-6">Trusted by forward-thinking companies in Europe</p>
-          <ClientLogos />
-        </div>
-      </section>
-
       <ServiceTiles />
       <HowItWorks />
       <QualityControlSection />

@@ -11,9 +11,9 @@ export default function SamplesPreview() {
 
   const samples = [
     {
-      title: "FinTech Platform",
+      title: "SokoBridge",
       category: "Web Development",
-      image: "/file.svg", // Placeholder
+      image: "/samples/web/soko.jpg",
     },
     {
       title: "EcoBrand Identity",
@@ -21,9 +21,9 @@ export default function SamplesPreview() {
       image: "/file.svg", // Placeholder
     },
     {
-      title: "SaaS Explainer",
-      category: "Video Editing",
-      image: "/file.svg", // Placeholder
+      title: "WhatsApp Car Rental Bot",
+      category: "AI Services",
+      image: "/samples/AI/chat.jpg",
     },
   ];
 
