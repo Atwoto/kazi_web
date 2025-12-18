@@ -273,16 +273,41 @@ export default function PortfolioContent() {
           {filteredItems.map(item => (
             <Card key={item.id} className="rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border-none bg-gray-50 group">
               {item.isDocument ? (
-                // Document Card Design
-                <div className="relative w-full h-56 bg-gradient-to-br from-blue-50 to-indigo-100 flex flex-col items-center justify-center">
-                  <div className="w-16 h-20 bg-white rounded-lg shadow-md flex flex-col items-center justify-center border border-gray-200 group-hover:scale-110 transition-transform duration-300">
-                    <FileText className="w-8 h-8 text-blue-600 mb-1" />
-                    <span className="text-[10px] font-bold text-blue-600 uppercase">DOCX</span>
-                  </div>
-                  <div className="absolute bottom-3 left-3 right-3">
-                    <span className="inline-block bg-blue-600 text-white text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-wide">
-                      Academic Paper
-                    </span>
+                // Document Card Design (Enhanced)
+                <div className="relative w-full h-56 bg-slate-100 overflow-hidden flex items-center justify-center p-6 group-hover:bg-blue-50 transition-colors duration-500">
+                  {/* Decorative Background Elements */}
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-blue-200/20 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+                  <div className="absolute bottom-0 left-0 w-24 h-24 bg-purple-200/20 rounded-full blur-xl translate-y-1/2 -translate-x-1/2 pointer-events-none" />
+                  
+                  {/* Paper Simulation */}
+                  <div className="relative w-3/4 h-full bg-white shadow-xl shadow-slate-200/50 rounded-t-sm border-t-4 border-blue-600 p-5 flex flex-col items-center text-center transform group-hover:-translate-y-2 transition-transform duration-300">
+                    {/* Stacked Paper Effect (Pseudo-elements simulation) */}
+                    <div className="absolute top-2 left-1 right-1 h-full bg-white border border-gray-100 rounded-t-sm -z-10 shadow-sm transform translate-y-1 scale-[0.98]" />
+                    <div className="absolute top-3 left-2 right-2 h-full bg-white border border-gray-100 rounded-t-sm -z-20 shadow-sm transform translate-y-2 scale-[0.96]" />
+
+                    {/* Content Preview */}
+                    <div className="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center mb-3">
+                      <FileText className="w-4 h-4 text-blue-600" />
+                    </div>
+
+                    <h3 className="font-heading font-bold text-slate-800 text-sm leading-tight mb-1 line-clamp-3">
+                      {item.title}
+                    </h3>
+                    
+                    <div className="w-8 h-0.5 bg-blue-200 rounded-full mb-3" />
+
+                    {/* Abstract Text Lines */}
+                    <div className="w-full space-y-1.5 opacity-30 mt-auto pb-2">
+                      <div className="w-full h-1 bg-slate-400 rounded-full" />
+                      <div className="w-5/6 h-1 bg-slate-400 rounded-full mx-auto" />
+                      <div className="w-full h-1 bg-slate-400 rounded-full" />
+                      <div className="w-4/5 h-1 bg-slate-400 rounded-full mx-auto" />
+                    </div>
+
+                    {/* Badge */}
+                    <div className="absolute top-0 right-2">
+                      <div className="w-4 h-6 bg-red-500 rounded-b-sm shadow-sm" title="A+ Quality" />
+                    </div>
                   </div>
                 </div>
               ) : item.gallery ? (
