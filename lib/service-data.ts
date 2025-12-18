@@ -182,7 +182,38 @@ export const servicesData: Service[] = [
     heroImage: "/academics.jpg",
     ctaLink: "/contact",
     deliverables: ["Dissertation Proofreading", "Style Guide Formatting", "Structure & Flow Analysis", "Citation Compliance"],
-    examples: [],
+    examples: [
+      {
+        title: "Communication with the Elderly",
+        description: "Academic report on barriers, skills & resources for effective elderly communication",
+        imageUrl: "/file.svg",
+      },
+      {
+        title: "LSM-Trees: Write-Optimized Storage",
+        description: "Technical paper on storage engines, compaction strategies & performance analysis",
+        imageUrl: "/file.svg",
+      },
+      {
+        title: "Social Media Effects on Relationships",
+        description: "Research study with methodology, statistical analysis & literature review",
+        imageUrl: "/file.svg",
+      },
+      {
+        title: "Food Waste Analysis at Greenleaf Grocery",
+        description: "Statistical analysis with ethical recommendations using Excel & regression models",
+        imageUrl: "/file.svg",
+      },
+      {
+        title: "The Optimal Global Population",
+        description: "Comprehensive research paper on population sustainability & policy implications",
+        imageUrl: "/file.svg",
+      },
+      {
+        title: "Machine Vision for Medical Image Analysis",
+        description: "Deep learning framework for medical imaging with CNN & explainable AI",
+        imageUrl: "/file.svg",
+      },
+    ],
     process: [],
     faqs: [
         { question: "Do you write essays from scratch?", answer: "No. We provide editing, proofreading, and coaching. We do not engage in academic dishonesty." },
