@@ -499,7 +499,7 @@ export const translations = {
       close: "Close",
     },
     footer: {
-      blurb: "Kazi connects skilled East African experts with clients in Europe, delivering excellence across borders.",
+      blurb: "Kazi is a digital service agency that matches your request to the right specialist, we manage the work, and we deliver a quality-checked result on time.",
       servicesTitle: "Services",
       companyTitle: "Company",
       legalTitle: "Legal",
@@ -1019,7 +1019,7 @@ export const translations = {
       close: "Cerrar",
     },
     footer: {
-      blurb: "Kazi conecta a expertos cualificados de África Oriental con clientes en Europa, entregando excelencia a través de fronteras.",
+      blurb: "Kazi es una agencia de servicios digitales que asigna tu solicitud al especialista adecuado, gestionamos el trabajo y entregamos un resultado con control de calidad y a tiempo.",
       servicesTitle: "Servicios",
       companyTitle: "Empresa",
       legalTitle: "Legal",
@@ -1539,7 +1539,7 @@ export const translations = {
       close: "Tancar",
     },
     footer: {
-      blurb: "Kazi connecta experts qualificats de l'Àfrica Oriental amb clients a Europa, lliurant excel·lència a través de fronteres.",
+      blurb: "Kazi és una agència de serveis digitals que assigna la teva sol·licitud a l'especialista adequat, gestionem la feina i lliurem un resultat amb control de qualitat i a temps.",
       servicesTitle: "Serveis",
       companyTitle: "Empresa",
       legalTitle: "Legal",

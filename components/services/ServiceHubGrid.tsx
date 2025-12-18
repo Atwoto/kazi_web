@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { servicesData } from "@/lib/service-data";
-import { Clock, DollarSign, ChevronRight } from "lucide-react";
+import { Clock, Euro, ChevronRight } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function ServiceHubGrid() {
@@ -71,7 +71,7 @@ export default function ServiceHubGrid() {
                 <div className="flex items-center gap-6 pt-4 border-t border-gray-100">
                    {service.startingPrice && (
                      <div className="flex items-center gap-2 text-sm text-gray-600 font-medium">
-                        <DollarSign className="w-4 h-4 text-green-500" />
+                        <Euro className="w-4 h-4 text-green-500" />
                         <span>{t.servicesHub.labels.from} {service.startingPrice}</span>
                      </div>
                    )}

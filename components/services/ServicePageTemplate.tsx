@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle } from "@/components/ui/card";
-import { Check, Clock, DollarSign, RefreshCw, ChevronRight } from "lucide-react";
+import { Check, Clock, Euro, RefreshCw, ChevronRight } from "lucide-react";
 import { Service } from "@/lib/service-data";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
@@ -99,11 +99,11 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
                 </div>
              </div>
              <div className="flex items-center space-x-4 bg-white p-4 rounded-xl shadow-sm border border-gray-100">
-                <div className="bg-blue-50 p-3 rounded-full text-primary"><DollarSign className="w-6 h-6" /></div>
+                <div className="bg-blue-50 p-3 rounded-full text-primary"><Euro className="w-6 h-6" /></div>
                 <div>
                   <p className="text-xs text-gray-400 font-bold uppercase">{t.servicePage.startsFrom}</p>
                   <p className="font-heading font-bold text-gray-900">
-                    {service.startingPrice || "$1,200"}
+                    {service.startingPrice || "€25"}
                   </p>
                 </div>
              </div>

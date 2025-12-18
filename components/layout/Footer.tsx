@@ -126,9 +126,9 @@ export default function Footer() {
               © {new Date().getFullYear()} Kazi. {t.footer.rights}
             </p>
             <div className="flex items-center gap-6 text-sm text-slate-500">
-              <a href="mailto:hello@kazi.work" className="hover:text-white transition-colors flex items-center gap-2">
+              <a href="mailto:hello@kaziagency.es" className="hover:text-white transition-colors flex items-center gap-2">
                 <Mail className="w-4 h-4" />
-                hello@kazi.work
+                hello@kaziagency.es
               </a>
             </div>
           </div>

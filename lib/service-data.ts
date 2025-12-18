@@ -61,7 +61,12 @@ export const servicesData: Service[] = [
     ctaLink: "/contact",
     deliverables: ["Brand Strategy & Identity", "Marketing Collateral", "Social Media Suites", "Presentation Design"],
     examples: [],
-    process: [],
+    process: [
+      { step: "Briefing", description: "We gather your brand assets, style preferences, and project goals." },
+      { step: "Concept Design", description: "Our designers create initial concepts for your review." },
+      { step: "Refinement", description: "We iterate based on your feedback to perfect the visuals." },
+      { step: "Delivery", description: "Final files provided in all required formats (AI, PNG, PDF)." },
+    ],
     faqs: [
        { question: "What formats will I receive?", answer: "We provide all industry-standard formats: AI, EPS, PDF, JPG, and PNG." },
        { question: "How many revisions are included?", answer: "Our standard packages include 2-3 rounds of revisions." },
@@ -78,7 +83,12 @@ export const servicesData: Service[] = [
     ctaLink: "/contact",
     deliverables: ["Corporate Explainers", "Social Media Reels", "Ads & Promos", "Full Post-Production"],
     examples: [],
-    process: [],
+    process: [
+      { step: "Footage Transfer", description: "You upload your raw footage and provide a creative brief." },
+      { step: "Editing & Assembly", description: "We cut, color grade, and add transitions/effects." },
+      { step: "Review Round", description: "You watch the draft and request timestamped changes." },
+      { step: "Final Polish", description: "We apply finishing touches and export in 4K/HD." },
+    ],
     faqs: [
         { question: "What is your typical turnaround?", answer: "Simple edits are often done in 48h. Complex projects depend on scope." },
         { question: "How do I send large files?", answer: "We use Google Drive, Dropbox, or WeTransfer." },
@@ -94,8 +104,24 @@ export const servicesData: Service[] = [
     heroImage: "/photo.jpg",
     ctaLink: "/contact",
     deliverables: ["High-End Retouching", "E-commerce Standardization", "Color Correction", "Compositing"],
-    examples: [],
-    process: [],
+    examples: [
+      {
+        title: "E-commerce Product Suite",
+        description: "Background removal and color correction for a catalog of 500+ items.",
+        imageUrl: "/file.svg",
+      },
+      {
+        title: "Real Estate Enhancement",
+        description: "HDR blending and sky replacement for luxury property listings.",
+        imageUrl: "/file.svg",
+      },
+    ],
+    process: [
+      { step: "Upload", description: "Submit your images and style guidelines." },
+      { step: "Retouching", description: "Our team processes the images to your specifications." },
+      { step: "Quality Check", description: "Internal review to ensure consistency." },
+      { step: "Delivery", description: "Download your high-res, ready-to-use images." },
+    ],
     faqs: [
         { question: "Can you handle bulk orders?", answer: "Yes, our team is scalable to handle hundreds of images per day." },
     ],
@@ -110,8 +136,24 @@ export const servicesData: Service[] = [
     heroImage: "/AI.jpg",
     ctaLink: "/contact",
     deliverables: ["Workflow Automation", "Custom Chatbot Integration", "Data Analysis Models", "Process Optimization"],
-    examples: [],
-    process: [],
+    examples: [
+      {
+        title: "Customer Support Chatbot",
+        description: "Custom AI agent trained on company data to handle L1 support queries.",
+        imageUrl: "/file.svg",
+      },
+      {
+        title: "Lead Scoring Automation",
+        description: "Automated workflow to qualify and route leads to the sales team.",
+        imageUrl: "/file.svg",
+      },
+    ],
+    process: [
+      { step: "Analysis", description: "We audit your current workflows to identify automation opportunities." },
+      { step: "Implementation", description: "We build and integrate the AI agents or automations." },
+      { step: "Testing", description: "Rigorous testing to ensure accuracy and reliability." },
+      { step: "Handover", description: "We train your team on how to use and monitor the new system." },
+    ],
     faqs: [
         { question: "Is my data secure?", answer: "Yes, we prioritize data privacy and use secure, enterprise-grade APIs." },
     ],
@@ -147,18 +189,13 @@ export const servicesData: Service[] = [
         description: "Statistical analysis with ethical recommendations using Excel & regression models",
         imageUrl: "/file.svg",
       },
-      {
-        title: "The Optimal Global Population",
-        description: "Comprehensive research paper on population sustainability & policy implications",
-        imageUrl: "/file.svg",
-      },
-      {
-        title: "Machine Vision for Medical Image Analysis",
-        description: "Deep learning framework for medical imaging with CNN & explainable AI",
-        imageUrl: "/file.svg",
-      },
     ],
-    process: [],
+    process: [
+      { step: "Draft Submission", description: "You send your current draft and the marking criteria." },
+      { step: "Review & Editing", description: "We correct grammar, flow, and formatting (no ghostwriting)." },
+      { step: "Feedback", description: "We provide comments on structure and clarity." },
+      { step: "Final Polish", description: "Your document is returned ready for submission." },
+    ],
     faqs: [
         { question: "Do you write essays from scratch?", answer: "No. We provide editing, proofreading, and coaching. We do not engage in academic dishonesty." },
         { question: "What referencing styles do you support?", answer: "We are experts in APA, Harvard, MLA, Chicago, and more." },

@@ -99,7 +99,7 @@ export default function PrivacyPolicyPage() {
             For more information about our privacy practices, if you have
             questions, or if you would like to make a complaint, please contact
             us by e-mail at{" "}
-            <a href="mailto:info@kazi.com" className="text-primary hover:underline">info@kazi.com</a> or by mail using the
+            <a href="mailto:hello@kaziagency.es" className="text-primary hover:underline">hello@kaziagency.es</a> or by mail using the
             details provided below:
           </p>
           <p>Kazi HQ, [Your Address Here], [Your City, Postal Code], [Your Country]</p>
