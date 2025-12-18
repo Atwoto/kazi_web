@@ -16,9 +16,9 @@ export default function SamplesPreview() {
       image: "/samples/web/soko.jpg",
     },
     {
-      title: "EcoBrand Identity",
-      category: "Graphic Design",
-      image: "/file.svg", // Placeholder
+      title: "Bills On Solar EA Limited",
+      category: "Web Development",
+      image: "/samples/web/bill.jpg",
     },
     {
       title: "WhatsApp Car Rental Bot",

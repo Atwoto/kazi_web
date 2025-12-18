@@ -4,7 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { FileText, ExternalLink, X, ChevronLeft, ChevronRight, Images } from "lucide-react";
+import { FileText, ExternalLink, X, ChevronLeft, ChevronRight, Images, Eye } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 interface PortfolioItem {
@@ -14,6 +14,7 @@ interface PortfolioItem {
   imageUrl: string;
   description: string;
   isDocument?: boolean;
+  documentUrl?: string; // URL for the document file
   liveUrl?: string;
   gallery?: string[];
   highlights?: string[];
@@ -133,21 +134,6 @@ const portfolioItems: PortfolioItem[] = [
       "3D preview generation",
     ],
   },
-  // Other Projects
-  {
-    id: 11,
-    title: "EcoBrand Identity System",
-    categoryKey: "graphicDesign",
-    imageUrl: "/file.svg",
-    description: "Complete visual identity and brand guidelines for a sustainable fashion label in Berlin.",
-  },
-  {
-    id: 12,
-    title: "SaaS Launch Campaign",
-    categoryKey: "videoEditing",
-    imageUrl: "/file.svg",
-    description: "Series of high-conversion explainer videos and social cuts for a B2B SaaS product.",
-  },
   // Academic Documents
   {
     id: 13,
@@ -156,6 +142,7 @@ const portfolioItems: PortfolioItem[] = [
     imageUrl: "/file.svg",
     description: "Academic report on barriers, skills & resources for effective elderly communication.",
     isDocument: true,
+    documentUrl: "/samples/academic/report.docx",
   },
   {
     id: 14,
@@ -164,6 +151,7 @@ const portfolioItems: PortfolioItem[] = [
     imageUrl: "/file.svg",
     description: "Technical paper on storage engines, compaction strategies & performance analysis.",
     isDocument: true,
+    documentUrl: "/samples/academic/LSM1.docx",
   },
   {
     id: 15,
@@ -172,6 +160,7 @@ const portfolioItems: PortfolioItem[] = [
     imageUrl: "/file.svg",
     description: "Research study with methodology, statistical analysis & literature review.",
     isDocument: true,
+    documentUrl: "/samples/academic/20240324 3.0.docx",
   },
   {
     id: 16,
@@ -180,6 +169,7 @@ const portfolioItems: PortfolioItem[] = [
     imageUrl: "/file.svg",
     description: "Statistical analysis with ethical recommendations using Excel & regression models.",
     isDocument: true,
+    documentUrl: "/samples/academic/Green leaf.docx",
   },
   {
     id: 17,
@@ -188,6 +178,7 @@ const portfolioItems: PortfolioItem[] = [
     imageUrl: "/file.svg",
     description: "Comprehensive research paper on population sustainability & policy implications.",
     isDocument: true,
+    documentUrl: "/samples/academic/05-03.docx",
   },
   {
     id: 18,
@@ -196,6 +187,7 @@ const portfolioItems: PortfolioItem[] = [
     imageUrl: "/file.svg",
     description: "Deep learning framework for medical imaging with CNN & explainable AI.",
     isDocument: true,
+    documentUrl: "/samples/academic/Machine Vision for Medical Image Analysis (1) (1).docx",
   },
 ];
 
@@ -221,7 +213,7 @@ export default function PortfolioContent() {
   const filteredItems = filter === "all" ? portfolioItems : portfolioItems.filter(item => item.categoryKey === filter);
 
   const openGallery = (item: PortfolioItem) => {
-    if (item.gallery && item.gallery.length > 0) {
+    if ((item.gallery && item.gallery.length > 0) || item.isDocument) {
       setSelectedItem(item);
       setCurrentImageIndex(0);
     }
@@ -271,10 +263,13 @@ export default function PortfolioContent() {
         {/* Portfolio Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredItems.map(item => (
-            <Card key={item.id} className="rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border-none bg-gray-50 group">
+            <Card key={item.id} className="rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border-none bg-gray-50 group flex flex-col h-full">
               {item.isDocument ? (
                 // Document Card Design (Enhanced)
-                <div className="relative w-full h-56 bg-slate-100 overflow-hidden flex items-center justify-center p-6 group-hover:bg-blue-50 transition-colors duration-500">
+                <div 
+                  className="relative w-full h-56 bg-slate-100 overflow-hidden flex items-center justify-center p-6 group-hover:bg-blue-50 transition-colors duration-500 cursor-pointer"
+                  onClick={() => openGallery(item)}
+                >
                   {/* Decorative Background Elements */}
                   <div className="absolute top-0 right-0 w-32 h-32 bg-blue-200/20 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
                   <div className="absolute bottom-0 left-0 w-24 h-24 bg-purple-200/20 rounded-full blur-xl translate-y-1/2 -translate-x-1/2 pointer-events-none" />
@@ -307,6 +302,13 @@ export default function PortfolioContent() {
                     {/* Badge */}
                     <div className="absolute top-0 right-2">
                       <div className="w-4 h-6 bg-red-500 rounded-b-sm shadow-sm" title="A+ Quality" />
+                    </div>
+
+                    {/* Hover Overlay */}
+                    <div className="absolute inset-0 bg-white/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                       <span className="flex items-center gap-2 text-blue-600 font-bold text-sm bg-blue-50 px-3 py-1.5 rounded-full shadow-sm">
+                         <Eye className="w-4 h-4" /> Preview
+                       </span>
                     </div>
                   </div>
                 </div>
@@ -353,9 +355,9 @@ export default function PortfolioContent() {
                   {getCategoryName(item.categoryKey)}
                 </CardDescription>
               </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 text-sm leading-relaxed mb-4">{item.description}</p>
-                <div className="flex flex-wrap gap-2">
+              <CardContent className="flex-grow flex flex-col">
+                <p className="text-gray-600 text-sm leading-relaxed mb-4 flex-grow">{item.description}</p>
+                <div className="flex flex-wrap gap-2 mt-auto">
                   {item.liveUrl && (
                     <a
                       href={item.liveUrl}
@@ -374,6 +376,14 @@ export default function PortfolioContent() {
                       View Gallery <Images className="w-4 h-4" />
                     </button>
                   )}
+                  {item.isDocument && item.documentUrl && (
+                    <button
+                      onClick={() => openGallery(item)}
+                      className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:text-blue-700 transition-colors"
+                    >
+                      Read Document <Eye className="w-4 h-4" />
+                    </button>
+                  )}
                 </div>
               </CardContent>
             </Card>
@@ -381,55 +391,85 @@ export default function PortfolioContent() {
         </div>
       </div>
 
-      {/* Gallery Modal */}
-      {selectedItem && selectedItem.gallery && (
+      {/* Gallery/Document Modal */}
+      {selectedItem && (
         <div className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4" onClick={closeGallery}>
-          <div className="relative max-w-5xl w-full max-h-[90vh] flex flex-col" onClick={(e) => e.stopPropagation()}>
+          <div className="relative max-w-5xl w-full max-h-[95vh] flex flex-col h-full" onClick={(e) => e.stopPropagation()}>
             {/* Close Button */}
             <button
               onClick={closeGallery}
-              className="absolute -top-12 right-0 text-white hover:text-gray-300 transition-colors"
+              className="absolute -top-10 right-0 md:-right-8 text-white hover:text-gray-300 transition-colors z-50"
             >
               <X className="w-8 h-8" />
             </button>
 
-            {/* Image Container */}
-            <div className="relative w-full h-[60vh] bg-gray-900 rounded-t-2xl overflow-hidden">
-              <Image
-                src={selectedItem.gallery[currentImageIndex]}
-                alt={`${selectedItem.title} - Image ${currentImageIndex + 1}`}
-                layout="fill"
-                objectFit="contain"
-              />
+            {/* Content Container */}
+            <div className="relative w-full flex-grow bg-white md:rounded-t-2xl overflow-hidden flex flex-col">
+              
+              {selectedItem.isDocument && selectedItem.documentUrl ? (
+                // DOCUMENT VIEWER
+                <div className="w-full h-full bg-slate-100 flex flex-col">
+                   <div className="bg-slate-900 text-white p-3 flex justify-between items-center shrink-0">
+                      <span className="font-medium truncate">{selectedItem.title}</span>
+                      <a 
+                        href={selectedItem.documentUrl} 
+                        download 
+                        className="text-xs bg-white/10 hover:bg-white/20 px-3 py-1 rounded transition-colors"
+                      >
+                        Download Original
+                      </a>
+                   </div>
+                   <div className="flex-grow w-full relative">
+                      <iframe 
+                        src={`https://docs.google.com/gview?url=${encodeURIComponent(
+                           typeof window !== 'undefined' ? `${window.location.origin}${selectedItem.documentUrl}` : selectedItem.documentUrl
+                        )}&embedded=true`} 
+                        className="w-full h-full border-none"
+                        title="Document Viewer"
+                      />
+                   </div>
+                </div>
+              ) : selectedItem.gallery ? (
+                // IMAGE GALLERY
+                <div className="w-full h-full bg-gray-900 relative">
+                  <Image
+                    src={selectedItem.gallery[currentImageIndex]}
+                    alt={`${selectedItem.title} - Image ${currentImageIndex + 1}`}
+                    layout="fill"
+                    objectFit="contain"
+                    className="p-4"
+                  />
 
-              {/* Navigation Arrows */}
-              {selectedItem.gallery.length > 1 && (
-                <>
-                  <button
-                    onClick={prevImage}
-                    className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 p-2 rounded-full transition-colors"
-                  >
-                    <ChevronLeft className="w-6 h-6 text-white" />
-                  </button>
-                  <button
-                    onClick={nextImage}
-                    className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 p-2 rounded-full transition-colors"
-                  >
-                    <ChevronRight className="w-6 h-6 text-white" />
-                  </button>
-                </>
-              )}
+                  {/* Navigation Arrows */}
+                  {selectedItem.gallery.length > 1 && (
+                    <>
+                      <button
+                        onClick={prevImage}
+                        className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 p-2 rounded-full transition-colors"
+                      >
+                        <ChevronLeft className="w-6 h-6 text-white" />
+                      </button>
+                      <button
+                        onClick={nextImage}
+                        className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 p-2 rounded-full transition-colors"
+                      >
+                        <ChevronRight className="w-6 h-6 text-white" />
+                      </button>
+                    </>
+                  )}
 
-              {/* Image Counter */}
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/60 px-4 py-2 rounded-full">
-                <span className="text-white text-sm font-medium">
-                  {currentImageIndex + 1} / {selectedItem.gallery.length}
-                </span>
-              </div>
+                  {/* Image Counter */}
+                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/60 px-4 py-2 rounded-full">
+                    <span className="text-white text-sm font-medium">
+                      {currentImageIndex + 1} / {selectedItem.gallery.length}
+                    </span>
+                  </div>
+                </div>
+              ) : null}
             </div>
 
-            {/* Project Info */}
-            <div className="bg-white rounded-b-2xl p-6">
+            {/* Project Info Footer */}
+            <div className="bg-white md:rounded-b-2xl p-6 shrink-0 max-h-[30vh] overflow-y-auto">
               <h3 className="text-2xl font-heading font-bold text-gray-900 mb-2">{selectedItem.title}</h3>
               <p className="text-gray-600 mb-4">{selectedItem.description}</p>
 
@@ -447,7 +487,7 @@ export default function PortfolioContent() {
                 </div>
               )}
 
-              {selectedItem.liveUrl && (
+              {selectedItem.liveUrl && !selectedItem.isDocument && (
                 <a
                   href={selectedItem.liveUrl}
                   target="_blank"
@@ -457,27 +497,25 @@ export default function PortfolioContent() {
                   Visit Live Site <ExternalLink className="w-4 h-4" />
                 </a>
               )}
+              
+              {/* Thumbnail Strip (Only for Gallery) */}
+              {selectedItem.gallery && selectedItem.gallery.length > 1 && (
+                <div className="flex gap-2 mt-4 justify-center">
+                  {selectedItem.gallery.map((img, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => setCurrentImageIndex(idx)}
+                      className={`relative w-16 h-16 rounded-lg overflow-hidden border-2 transition-all ${
+                        idx === currentImageIndex ? 'border-white scale-110' : 'border-transparent opacity-60 hover:opacity-100'
+                      }`}
+                    >
+                      <Image src={img} alt={`Thumbnail ${idx + 1}`} layout="fill" objectFit="cover" />
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
-
-            {/* Thumbnail Strip */}
-            {selectedItem.gallery.length > 1 && (
-              <div className="flex gap-2 mt-4 justify-center">
-                {selectedItem.gallery.map((img, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => setCurrentImageIndex(idx)}
-                    className={`relative w-16 h-16 rounded-lg overflow-hidden border-2 transition-all ${
-                      idx === currentImageIndex ? 'border-white scale-110' : 'border-transparent opacity-60 hover:opacity-100'
-                    }`}
-                  >
-                    <Image src={img} alt={`Thumbnail ${idx + 1}`} layout="fill" objectFit="cover" />
-                  </button>
-                ))}
-              </div>
-            )}
           </div>
         </div>
       )}
-    </div>
-  );
-}
+
