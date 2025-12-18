@@ -59,7 +59,6 @@ const testimonials = [
 export default function Testimonials() {
   const { t } = useLanguage();
   const [isVisible, setIsVisible] = useState(false);
-  const [startMarquee, setStartMarquee] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -67,8 +66,6 @@ export default function Testimonials() {
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
-          // Start marquee after entrance animation (approx 2.5s)
-          setTimeout(() => setStartMarquee(true), 2500);
         }
       },
       { threshold: 0.1 }
@@ -96,7 +93,7 @@ export default function Testimonials() {
       </div>
 
       {/* Marquee Container */}
-      <div className="relative w-full">
+      <div className="relative w-full group">
         {/* Gradient Fade Left */}
         <div className="absolute left-0 top-0 bottom-0 w-20 md:w-40 bg-gradient-to-r from-gray-50 to-transparent z-10 pointer-events-none" />
 
@@ -104,11 +101,8 @@ export default function Testimonials() {
         <div className="absolute right-0 top-0 bottom-0 w-20 md:w-40 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
 
         {/* First Row - Moving Left */}
-        <div className="flex mb-6 overflow-hidden">
-          <div 
-            className={`flex gap-6 pr-6 ${startMarquee ? 'animate-scroll-left' : ''}`}
-            style={{ animationPlayState: startMarquee ? 'running' : 'paused' }}
-          >
+        <div className="flex mb-8 overflow-hidden">
+          <div className="flex animate-scroll-left min-w-max gap-6 pr-6 hover:[animation-play-state:paused]">
             {[...testimonials, ...testimonials].map((item, i) => (
               <TestimonialCard 
                 key={`row1-${i}`} 
@@ -122,10 +116,7 @@ export default function Testimonials() {
 
         {/* Second Row - Moving Right (slower) */}
         <div className="flex overflow-hidden">
-          <div 
-            className={`flex gap-6 pr-6 ${startMarquee ? 'animate-scroll-right' : ''}`}
-            style={{ animationPlayState: startMarquee ? 'running' : 'paused' }}
-          >
+          <div className="flex animate-scroll-right min-w-max gap-6 pr-6 hover:[animation-play-state:paused]">
             {[...testimonials.slice(4), ...testimonials.slice(0, 4), ...testimonials.slice(4), ...testimonials.slice(0, 4)].map((item, i) => (
               <TestimonialCard 
                 key={`row2-${i}`} 
