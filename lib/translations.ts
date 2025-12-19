@@ -808,6 +808,21 @@ export const translations = {
         note: "Sin compromiso. Tiempo de respuesta: <4 horas."
       }
     },
+    pricing: {
+      pageTitle: "Precios Transparentes",
+      pageSubtitle: "Precios fijos simples para trabajo basado en tareas y cotizaciones claras para proyectos más grandes.",
+      academic: {
+        title: "Precios por Tarea",
+        subtitle: "Precios claros basados en horas estimadas. Cubre Diseño, Web, Académico e IA.",
+        disclaimer: "Categorizamos tareas por tiempo estimado. Si una tarea excede el límite debido a la expansión del alcance, te notificaremos.",
+        disclaimerHighlight: "Términos de Pago: 50% depósito inicial, 50% al finalizar. 2 rondas de revisión incluidas estándar.",
+        tiers: [
+          { tier: "Tareas Rápidas", hours: "1 a 3 horas", price: "€25", desc: "Arreglos rápidos, diseños simples y edición básica.", examples: ["Logotipos y Tarjetas", "Arreglos Web Simples", "Corrección y Edición", "Chequeo IA/Plagio"] },
+          { tier: "Tareas Estándar", hours: "3 a 6 horas", price: "€55", desc: "Activos sociales, actualizaciones y formato de documentos.", examples: ["Gráficos Sociales", "Actualización Web Estándar", "Configuración Chatbot IA", "Formato Documento Completo"] },
+          { tier: "Proyectos Complejos", hours: "6 a 12 horas", price: "€110", desc: "Construcciones, ediciones profundas y diseño complejo.", examples: ["Construcción Web", "Diseño Gráfico Complejo", "Edición Video Largo", "Formato Académico Largo"] },
+        ],
+        cta: "Reservar Tarea"
+      },
       general: {
         title: "Paquetes de Proyecto",
         subtitle: "Paquetes de Video, Diseño, Web e IA.",
