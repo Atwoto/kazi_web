@@ -21,16 +21,18 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://kaziagency.es'),
+  applicationName: 'Kazi Agency',
   title: {
     default: defaultSEO.title,
-    template: "%s | Kazi",
+    template: "%s | Kazi Agency",
   },
   description: defaultSEO.description,
   keywords: defaultSEO.keywords,
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://kazi.com",
+    url: "https://kaziagency.es",
     title: defaultSEO.title,
     description: defaultSEO.description,
     images: [
@@ -38,9 +40,16 @@ export const metadata: Metadata = {
         url: defaultSEO.ogImage || "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Kazi - Premium Managed Services",
+        alt: "Kazi Agency - Premium Managed Services",
       },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: defaultSEO.title,
+    description: defaultSEO.description,
+    images: [defaultSEO.ogImage || "/og-image.jpg"],
+    url: "https://kaziagency.es",
   },
   icons: {
     icon: "/logo2.jpg",

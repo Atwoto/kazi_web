@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://kazi.com";
+  const baseUrl = "https://kaziagency.es";
 
   const routes = [
     "",
