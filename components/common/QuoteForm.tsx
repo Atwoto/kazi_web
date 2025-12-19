@@ -238,7 +238,7 @@ export default function QuoteForm({ className }: { className?: string }) {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>{t.forms.labels.serviceType}</FormLabel>
-                  <Select onValueChange={field.onChange} value={field.value}>
+                  <Select onValueChange={field.onChange} value={field.value || ""}>
                     <FormControl>
                       <SelectTrigger className="h-12">
                         <SelectValue placeholder={t.forms.placeholders.select} />
@@ -261,7 +261,7 @@ export default function QuoteForm({ className }: { className?: string }) {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>{t.forms.labels.priority}</FormLabel>
-                  <Select onValueChange={field.onChange} value={field.value}>
+                  <Select onValueChange={field.onChange} value={field.value || ""}>
                     <FormControl>
                       <SelectTrigger className="h-12">
                         <SelectValue placeholder={t.forms.placeholders.select} />
@@ -306,7 +306,7 @@ export default function QuoteForm({ className }: { className?: string }) {
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>{t.forms.labels.budget}</FormLabel>
-                    <Select onValueChange={field.onChange} value={field.value}>
+                    <Select onValueChange={field.onChange} value={field.value || ""}>
                       <FormControl>
                         <SelectTrigger className="h-12">
                           <SelectValue placeholder={t.forms.placeholders.select} />
@@ -351,7 +351,7 @@ export default function QuoteForm({ className }: { className?: string }) {
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>{t.forms.labels.documentType}</FormLabel>
-                      <Select onValueChange={field.onChange} value={field.value}>
+                      <Select onValueChange={field.onChange} value={field.value || ""}>
                         <FormControl><SelectTrigger><SelectValue placeholder={t.forms.placeholders.select} /></SelectTrigger></FormControl>
                         <SelectContent>
                           {["Essay", "Report", "Dissertation", "CV", "Cover Letter", "Presentation", "Other"].map(opt => <SelectItem key={opt} value={opt}>{opt}</SelectItem>)}
@@ -366,7 +366,7 @@ export default function QuoteForm({ className }: { className?: string }) {
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>{t.forms.labels.wordCount}</FormLabel>
-                      <FormControl><Input placeholder={t.forms.placeholders.wordCount} {...field} /></FormControl>
+                      <FormControl><Input placeholder={t.forms.placeholders.wordCount} {...field} value={field.value || ""} /></FormControl>
                     </FormItem>
                   )}
                 />
@@ -377,7 +377,7 @@ export default function QuoteForm({ className }: { className?: string }) {
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel>{t.forms.labels.language}</FormLabel>
-                        <Select onValueChange={field.onChange} value={field.value}>
+                        <Select onValueChange={field.onChange} value={field.value || ""}>
                           <FormControl><SelectTrigger><SelectValue placeholder={t.forms.placeholders.select} /></SelectTrigger></FormControl>
                           <SelectContent>
                             {["English", "Spanish", "Other"].map(opt => <SelectItem key={opt} value={opt}>{opt}</SelectItem>)}
@@ -392,7 +392,7 @@ export default function QuoteForm({ className }: { className?: string }) {
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel>{t.forms.labels.level}</FormLabel>
-                        <Select onValueChange={field.onChange} value={field.value}>
+                        <Select onValueChange={field.onChange} value={field.value || ""}>
                           <FormControl><SelectTrigger><SelectValue placeholder={t.forms.placeholders.select} /></SelectTrigger></FormControl>
                           <SelectContent>
                             {["High School", "Bachelor", "Master", "PhD", "Other"].map(opt => <SelectItem key={opt} value={opt}>{opt}</SelectItem>)}
@@ -408,7 +408,7 @@ export default function QuoteForm({ className }: { className?: string }) {
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>{t.forms.labels.helpType}</FormLabel>
-                      <Select onValueChange={field.onChange} value={field.value}>
+                      <Select onValueChange={field.onChange} value={field.value || ""}>
                         <FormControl><SelectTrigger><SelectValue placeholder={t.forms.placeholders.select} /></SelectTrigger></FormControl>
                         <SelectContent>
                           {["Proofreading", "Clarity", "Structure", "Referencing", "Formatting", "Tutoring"].map(opt => <SelectItem key={opt} value={opt}>{opt}</SelectItem>)}
@@ -428,7 +428,7 @@ export default function QuoteForm({ className }: { className?: string }) {
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>{t.forms.labels.designType}</FormLabel>
-                      <Select onValueChange={field.onChange} value={field.value}>
+                      <Select onValueChange={field.onChange} value={field.value || ""}>
                         <FormControl><SelectTrigger><SelectValue placeholder={t.forms.placeholders.select} /></SelectTrigger></FormControl>
                         <SelectContent>
                           {["Logo", "Social Posts", "Flyer", "Brand Kit", "Other"].map(opt => <SelectItem key={opt} value={opt}>{opt}</SelectItem>)}
@@ -443,7 +443,7 @@ export default function QuoteForm({ className }: { className?: string }) {
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>{t.forms.labels.deliverables}</FormLabel>
-                      <Select onValueChange={field.onChange} value={field.value}>
+                      <Select onValueChange={field.onChange} value={field.value || ""}>
                         <FormControl><SelectTrigger><SelectValue placeholder={t.forms.placeholders.select} /></SelectTrigger></FormControl>
                         <SelectContent>
                           {["PNG", "JPG", "SVG", "PDF", "Print-ready"].map(opt => <SelectItem key={opt} value={opt}>{opt}</SelectItem>)}
@@ -458,7 +458,7 @@ export default function QuoteForm({ className }: { className?: string }) {
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>{t.forms.labels.examplesLink}</FormLabel>
-                      <FormControl><Input placeholder={t.forms.placeholders.examplesLink} {...field} /></FormControl>
+                      <FormControl><Input placeholder={t.forms.placeholders.examplesLink} {...field} value={field.value || ""} /></FormControl>
                     </FormItem>
                   )}
                 />
@@ -473,7 +473,7 @@ export default function QuoteForm({ className }: { className?: string }) {
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>{t.forms.labels.projectType}</FormLabel>
-                      <Select onValueChange={field.onChange} value={field.value}>
+                      <Select onValueChange={field.onChange} value={field.value || ""}>
                         <FormControl><SelectTrigger><SelectValue placeholder={t.forms.placeholders.select} /></SelectTrigger></FormControl>
                         <SelectContent>
                           {["Fix", "Landing Page", "Business Website", "E-commerce"].map(opt => <SelectItem key={opt} value={opt}>{opt}</SelectItem>)}
@@ -488,7 +488,7 @@ export default function QuoteForm({ className }: { className?: string }) {
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>{t.forms.labels.currentWebsite}</FormLabel>
-                      <FormControl><Input placeholder="https://..." {...field} /></FormControl>
+                      <FormControl><Input placeholder="https://..." {...field} value={field.value || ""} /></FormControl>
                     </FormItem>
                   )}
                 />
@@ -499,7 +499,7 @@ export default function QuoteForm({ className }: { className?: string }) {
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel>{t.forms.labels.domainHosting}</FormLabel>
-                        <Select onValueChange={field.onChange} value={field.value}>
+                        <Select onValueChange={field.onChange} value={field.value || ""}>
                           <FormControl><SelectTrigger><SelectValue placeholder={t.forms.placeholders.select} /></SelectTrigger></FormControl>
                           <SelectContent>
                             <SelectItem value="yes">{t.forms.options.common.yes}</SelectItem>
@@ -515,7 +515,7 @@ export default function QuoteForm({ className }: { className?: string }) {
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel>{t.forms.labels.pagesNeeded}</FormLabel>
-                        <Select onValueChange={field.onChange} value={field.value}>
+                        <Select onValueChange={field.onChange} value={field.value || ""}>
                           <FormControl><SelectTrigger><SelectValue placeholder={t.forms.placeholders.select} /></SelectTrigger></FormControl>
                           <SelectContent>
                             {["1", "3-5", "6-10", "E-commerce"].map(opt => <SelectItem key={opt} value={opt}>{opt}</SelectItem>)}
