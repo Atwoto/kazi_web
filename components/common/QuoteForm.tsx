@@ -65,7 +65,7 @@ export default function QuoteForm({ className }: { className?: string }) {
     priority: z.enum(priorities),
     
     // Step 2: Specifics + Description
-    description: z.string().min(20, { message: t.forms.validation.minLength.replace("{min}", "20") }),
+    description: z.string().min(10, { message: t.forms.validation.minLength.replace("{min}", "10") }),
     
     // Academic
     documentType: z.string().optional(),
@@ -164,6 +164,35 @@ export default function QuoteForm({ className }: { className?: string }) {
 
   const onError = (errors: any) => {
     console.error("Form validation errors:", errors);
+    const errorFields = Object.keys(errors);
+    
+    // Check which step the first error belongs to
+    if (errorFields.some(field => ["serviceType", "deadline", "budgetRange", "priority"].includes(field))) {
+      setCurrentStep(0);
+      alert("Please check the 'Basics' step for errors.");
+      return;
+    }
+    
+    // Check step 1 fields (description is the main one, others depend on service type but all in step 1)
+    if (errorFields.some(field => ["description", "documentType", "wordCount", "designType", "projectType"].includes(field))) {
+      setCurrentStep(1);
+      alert("Please check the 'Project Details' step for errors.");
+      return;
+    }
+
+    // Check step 2 fields
+    if (errorFields.some(field => ["name", "email", "whatsapp", "country", "timezone", "fileUpload"].includes(field))) {
+      setCurrentStep(2);
+      alert("Please check the 'Upload & Contact' step for errors.");
+      return;
+    }
+    
+    // Check step 3 (consent)
+    if (errorFields.includes("consent")) {
+      // Already on step 3 usually, but just in case
+      setCurrentStep(3);
+      alert("You must agree to the terms to submit.");
+    }
   };
 
   const nextStep = async () => {
@@ -727,6 +756,10 @@ export default function QuoteForm({ className }: { className?: string }) {
               </div>
               <div>
                 <span className="font-semibold">{t.forms.labels.email}:</span> {formValues.email}
+              </div>
+              <div>
+                <span className="font-semibold">{t.forms.labels.description}:</span> 
+                <p className="text-sm text-gray-600 mt-1 line-clamp-3">{formValues.description}</p>
               </div>
             </div>
 
