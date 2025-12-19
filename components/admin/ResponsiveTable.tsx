@@ -21,11 +21,7 @@ export function ResponsiveTable({ headers, children }: ResponsiveTableProps) {
   );
 }
 
-interface TableHeaderProps {
-  children: ReactNode;
-}
-
-export function TableHeader({ children }: TableHeaderProps) {
+function TableHeader({ children }: { children: ReactNode }) {
   return (
     <thead className="bg-slate-50/50 hidden lg:table-header-group">
       {children}
@@ -33,11 +29,7 @@ export function TableHeader({ children }: TableHeaderProps) {
   );
 }
 
-interface TableBodyProps {
-  children: ReactNode;
-}
-
-export function TableBody({ children }: TableBodyProps) {
+function TableBody({ children }: { children: ReactNode }) {
   return (
     <tbody className="hidden lg:table-row-group">
       {children}
@@ -45,12 +37,7 @@ export function TableBody({ children }: TableBodyProps) {
   );
 }
 
-interface TableRowProps {
-  children: ReactNode;
-  className?: string;
-}
-
-export function TableRow({ children, className = "" }: TableRowProps) {
+function TableRow({ children, className = "" }: { children: ReactNode; className?: string }) {
   return (
     <>
       {/* Desktop Row */}
@@ -70,13 +57,7 @@ export function TableRow({ children, className = "" }: TableRowProps) {
   );
 }
 
-interface TableCellProps {
-  children: ReactNode;
-  className?: string;
-  label?: string;
-}
-
-export function TableCell({ children, className = "", label }: TableCellProps) {
+function TableCell({ children, className = "", label }: { children: ReactNode; className?: string; label?: string }) {
   return (
     <>
       {/* Desktop Cell */}
@@ -96,3 +77,6 @@ export function TableCell({ children, className = "", label }: TableCellProps) {
     </>
   );
 }
+
+// Export as named exports for use in tables
+export { TableHeader, TableBody, TableRow, TableCell };
