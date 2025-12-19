@@ -131,7 +131,7 @@ export default function QuoteForm({ className }: { className?: string }) {
   const watchServiceType = form.watch("serviceType");
 
   async function onSubmit(values: FormData) {
-    console.log("Form submitted with values:", values);
+    console.log("Attempting submission...", values);
     setIsLoading(true);
     try {
       const response = await fetch('/api/quotes', {
@@ -154,13 +154,17 @@ export default function QuoteForm({ className }: { className?: string }) {
       const result = await response.json();
       console.log("Quote submitted successfully:", result);
       setSubmittedData(values);
-    } catch (error) {
+    } catch (error: any) {
       console.error("Submission error:", error);
       alert(`Error submitting form: ${error.message}`);
     } finally {
       setIsLoading(false);
     }
   }
+
+  const onError = (errors: any) => {
+    console.error("Form validation errors:", errors);
+  };
 
   const nextStep = async () => {
     const fields = getStepFields(currentStep);
@@ -826,8 +830,10 @@ export default function QuoteForm({ className }: { className?: string }) {
       </div>
 
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-          {renderStep()}
+        <form onSubmit={form.handleSubmit(onSubmit, onError)} className="space-y-6">
+          <fieldset disabled={isLoading} className="contents group">
+            {renderStep()}
+          </fieldset>
         </form>
       </Form>
     </Card>
