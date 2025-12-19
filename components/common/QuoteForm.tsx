@@ -563,7 +563,7 @@ export default function QuoteForm({ className }: { className?: string }) {
                 type="button"
                 onClick={nextStep}
                 disabled={isLoading}
-                className="w-2/3 h-12 bg-slate-900 hover:bg-slate-800 disabled:opacity-50"
+                className="w-2/3 h-12 bg-blue-600 hover:bg-blue-700 text-white disabled:opacity-50"
               >
                 {t.forms.buttons.next} <ChevronRight className="ml-2 w-4 h-4" />
               </Button>
@@ -705,7 +705,7 @@ export default function QuoteForm({ className }: { className?: string }) {
                 type="button"
                 onClick={nextStep}
                 disabled={isLoading}
-                className="w-2/3 h-12 bg-slate-900 hover:bg-slate-800 disabled:opacity-50"
+                className="w-2/3 h-12 bg-blue-600 hover:bg-blue-700 text-white disabled:opacity-50"
               >
                 {t.forms.buttons.next} <ChevronRight className="ml-2 w-4 h-4" />
               </Button>
