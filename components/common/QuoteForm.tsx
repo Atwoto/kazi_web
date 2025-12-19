@@ -116,6 +116,8 @@ export default function QuoteForm({ className }: { className?: string }) {
 
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
+    shouldUnregister: false,
+    mode: "onChange",
     defaultValues: {
       name: "",
       email: "",
