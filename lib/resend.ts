@@ -2,8 +2,17 @@ import { Resend } from 'resend';
 
 const resendApiKey = process.env.RESEND_API_KEY;
 
-if (!resendApiKey && process.env.NODE_ENV === 'production') {
-  console.warn("Missing RESEND_API_KEY environment variable");
+let resend: Resend;
+
+if (resendApiKey) {
+  resend = new Resend(resendApiKey);
+} else {
+  // Create a dummy client for build time - will fail at runtime if used without env vars
+  resend = new Proxy({} as Resend, {
+    get() {
+      throw new Error("Missing RESEND_API_KEY environment variable");
+    },
+  });
 }
 
-export const resend = new Resend(resendApiKey);
+export { resend };
