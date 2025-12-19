@@ -13,6 +13,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { BarChart, PieChart, LineChart } from "@/components/admin/Charts";
 import { ActivityTimeline } from "@/components/admin/ActivityTimeline";
 
+export const dynamic = 'force-dynamic';
+
 export default async function AdminDashboard() {
   // Fetch real-time stats from Supabase
   const { count: quotesCount } = await supabase.from('quotes').select('*', { count: 'exact', head: true });
@@ -153,17 +155,17 @@ export default async function AdminDashboard() {
       </div>
 
       {/* Stats Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-10">
         {stats.map((stat, i) => (
           <Card key={i} className="border-none shadow-sm bg-white overflow-hidden group hover:shadow-md transition-shadow">
-            <CardContent className="p-6">
+            <CardContent className="p-4 sm:p-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm font-semibold text-slate-500 uppercase tracking-wider">{stat.title}</p>
-                  <h3 className="text-4xl font-bold text-slate-900 mt-2">{stat.value}</h3>
+                  <p className="text-xs sm:text-sm font-semibold text-slate-500 uppercase tracking-wider">{stat.title}</p>
+                  <h3 className="text-2xl sm:text-4xl font-bold text-slate-900 mt-2">{stat.value}</h3>
                 </div>
-                <div className={`${stat.bg} ${stat.color} p-4 rounded-2xl group-hover:scale-110 transition-transform`}>
-                  <stat.icon className="w-8 h-8" />
+                <div className={`${stat.bg} ${stat.color} p-3 sm:p-4 rounded-xl sm:rounded-2xl group-hover:scale-110 transition-transform`}>
+                  <stat.icon className="w-6 h-6 sm:w-8 sm:h-8" />
                 </div>
               </div>
             </CardContent>
@@ -202,34 +204,34 @@ export default async function AdminDashboard() {
       )}
 
       {/* Analytics Charts */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-10">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 mb-8 sm:mb-10">
         <BarChart data={serviceData} title="Quotes by Service Type" color="#3b82f6" />
         <PieChart data={quoteStatusData} title="Quote Status Distribution" />
       </div>
 
-      <div className="mb-10">
+      <div className="mb-8 sm:mb-10">
         <LineChart data={monthlyQuotes} title="Monthly Quote Trends" color="#10b981" />
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-8">
         {/* Recent Quotes */}
         <Card className="border-none shadow-sm">
-          <CardHeader className="p-6 border-b border-slate-50">
-            <CardTitle className="text-lg font-bold flex items-center gap-2">
-              <Clock className="w-5 h-5 text-blue-500" />
+          <CardHeader className="p-4 sm:p-6 border-b border-slate-50">
+            <CardTitle className="text-base sm:text-lg font-bold flex items-center gap-2">
+              <Clock className="w-4 h-4 sm:w-5 sm:h-5 text-blue-500" />
               Recent Project Inquiries
             </CardTitle>
           </CardHeader>
           <CardContent className="p-0">
             <div className="divide-y divide-slate-50">
               {recentQuotes?.map((quote) => (
-                <div key={quote.id} className="p-4 flex items-center justify-between hover:bg-slate-50/50 transition-colors">
-                  <div>
-                    <p className="font-bold text-slate-900">{quote.name}</p>
-                    <p className="text-sm text-slate-500">{quote.service_type}</p>
+                <div key={quote.id} className="p-3 sm:p-4 flex items-center justify-between hover:bg-slate-50/50 transition-colors">
+                  <div className="min-w-0 flex-1">
+                    <p className="font-bold text-slate-900 truncate">{quote.name}</p>
+                    <p className="text-sm text-slate-500 truncate">{quote.service_type}</p>
                   </div>
-                  <div className="text-right">
-                    <p className="text-sm font-semibold text-blue-600">{quote.budget_range}</p>
+                  <div className="text-right ml-2 sm:ml-4 flex-shrink-0">
+                    <p className="text-xs sm:text-sm font-semibold text-blue-600">{quote.budget_range}</p>
                     <p className="text-xs text-slate-400">
                       {new Date(quote.created_at).toLocaleDateString()}
                     </p>
@@ -237,7 +239,7 @@ export default async function AdminDashboard() {
                 </div>
               ))}
               {(!recentQuotes || recentQuotes.length === 0) && (
-                <div className="p-10 text-center text-slate-400 italic">No inquiries yet.</div>
+                <div className="p-6 sm:p-10 text-center text-slate-400 italic text-sm">No inquiries yet.</div>
               )}
             </div>
           </CardContent>
@@ -249,37 +251,37 @@ export default async function AdminDashboard() {
         </div>
       </div>
 
-      <div className="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <div className="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-8">
         {/* Business Health / Tips */}
-        <div className="space-y-6">
-          <div className="bg-slate-900 text-white p-8 rounded-3xl relative overflow-hidden shadow-xl">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-blue-600/20 rounded-full blur-3xl" />
+        <div className="space-y-4 sm:space-y-6">
+          <div className="bg-slate-900 text-white p-6 sm:p-8 rounded-2xl sm:rounded-3xl relative overflow-hidden shadow-xl">
+            <div className="absolute top-0 right-0 w-24 h-24 sm:w-32 sm:h-32 bg-blue-600/20 rounded-full blur-3xl" />
             <div className="relative z-10">
-              <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
-                <TrendingUp className="w-6 h-6 text-blue-400" />
+              <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 flex items-center gap-2">
+                <TrendingUp className="w-5 h-5 sm:w-6 sm:h-6 text-blue-400" />
                 Pro Tip: Response Time
               </h3>
-              <p className="text-slate-300 leading-relaxed mb-6 text-sm">
+              <p className="text-slate-300 leading-relaxed mb-4 sm:mb-6 text-xs sm:text-sm">
                 Clients who receive a response within 4 hours are 70% more likely to book. Try to keep your "New" queue clear!
               </p>
-              <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full font-semibold transition-colors">
+              <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 sm:px-6 py-2 rounded-full font-semibold transition-colors text-sm">
                 View All Leads
               </button>
             </div>
           </div>
 
-          <div className="bg-green-50 border border-green-100 p-6 rounded-2xl">
-            <div className="flex items-center gap-3 mb-3">
-              <CheckCircle2 className="w-6 h-6 text-green-600" />
-              <h4 className="font-bold text-green-900">System Status</h4>
+          <div className="bg-green-50 border border-green-100 p-4 sm:p-6 rounded-xl sm:rounded-2xl">
+            <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
+              <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6 text-green-600" />
+              <h4 className="font-bold text-green-900 text-sm sm:text-base">System Status</h4>
             </div>
-            <p className="text-sm text-green-700">Supabase Database: Online</p>
-            <p className="text-sm text-green-700 mt-1">Email Provider: Connected</p>
+            <p className="text-xs sm:text-sm text-green-700">Supabase Database: Online</p>
+            <p className="text-xs sm:text-sm text-green-700 mt-1">Email Provider: Connected</p>
           </div>
         </div>
 
         {/* Spacer for layout */}
-        <div></div>
+        <div className="hidden lg:block"></div>
       </div>
     </div>
   );

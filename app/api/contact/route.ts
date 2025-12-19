@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { supabase } from '@/lib/supabase';
 import { resend } from '@/lib/resend';
+import { revalidatePath } from 'next/cache';
 
 export async function POST(request: Request) {
   try {
@@ -24,6 +25,10 @@ export async function POST(request: Request) {
       console.error('Supabase error:', error);
       return NextResponse.json({ error: 'Failed to save message' }, { status: 500 });
     }
+
+    // Trigger revalidation
+    revalidatePath('/admin');
+    revalidatePath('/admin/messages');
 
     // 2. Send Admin Notification Email
     const adminEmail = process.env.ADMIN_EMAIL;

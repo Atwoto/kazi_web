@@ -25,6 +25,7 @@ import { StatusToggle } from "@/components/admin/StatusToggle";
 import { DetailModal } from "@/components/admin/DetailModal";
 import { TableSkeleton } from "@/components/admin/LoadingSkeleton";
 import { ExportButtons } from "@/components/admin/ExportButtons";
+import { ResponsiveTable, TableHeader, TableBody, TableRow, TableCell } from "@/components/admin/ResponsiveTable";
 import { supabase } from "@/lib/supabase";
 
 export default function QuotesTable() {
@@ -154,7 +155,7 @@ export default function QuotesTable() {
           {/* Search and Filter Controls */}
           <Card>
             <CardContent className="p-4">
-              <div className="flex flex-col md:flex-row gap-4">
+              <div className="flex flex-col gap-4">
                 <div className="flex-1">
                   <div className="relative">
                     <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-slate-400" />
@@ -166,48 +167,50 @@ export default function QuotesTable() {
                     />
                   </div>
                 </div>
-                <Select value={statusFilter} onValueChange={setStatusFilter}>
-                  <SelectTrigger className="w-[180px]">
-                    <Filter className="w-4 h-4 mr-2" />
-                    <SelectValue placeholder="Filter by status" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="all">All Statuses</SelectItem>
-                    {statusOptions.map((status) => (
-                      <SelectItem key={status} value={status}>
-                        {status}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-                <Select value={serviceFilter} onValueChange={setServiceFilter}>
-                  <SelectTrigger className="w-[180px]">
-                    <Filter className="w-4 h-4 mr-2" />
-                    <SelectValue placeholder="Filter by service" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="all">All Services</SelectItem>
-                    {uniqueServices.map((service) => (
-                      <SelectItem key={service} value={service}>
-                        {service}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-                {(searchTerm || statusFilter !== "all" || serviceFilter !== "all") && (
-                  <Button
-                    variant="ghost"
-                    onClick={() => {
-                      setSearchTerm("");
-                      setStatusFilter("all");
-                      setServiceFilter("all");
-                    }}
-                    className="text-slate-600"
-                  >
-                    <X className="w-4 h-4 mr-2" />
-                    Clear
-                  </Button>
-                )}
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                  <Select value={statusFilter} onValueChange={setStatusFilter}>
+                    <SelectTrigger>
+                      <Filter className="w-4 h-4 mr-2" />
+                      <SelectValue placeholder="Filter by status" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="all">All Statuses</SelectItem>
+                      {statusOptions.map((status) => (
+                        <SelectItem key={status} value={status}>
+                          {status}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                  <Select value={serviceFilter} onValueChange={setServiceFilter}>
+                    <SelectTrigger>
+                      <Filter className="w-4 h-4 mr-2" />
+                      <SelectValue placeholder="Filter by service" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="all">All Services</SelectItem>
+                      {uniqueServices.map((service) => (
+                        <SelectItem key={service} value={service}>
+                          {service}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                  {(searchTerm || statusFilter !== "all" || serviceFilter !== "all") && (
+                    <Button
+                      variant="ghost"
+                      onClick={() => {
+                        setSearchTerm("");
+                        setStatusFilter("all");
+                        setServiceFilter("all");
+                      }}
+                      className="text-slate-600"
+                    >
+                      <X className="w-4 h-4 mr-2" />
+                      Clear
+                    </Button>
+                  )}
+                </div>
               </div>
             </CardContent>
           </Card>
@@ -215,9 +218,18 @@ export default function QuotesTable() {
 
         <Card className="border-none shadow-sm overflow-hidden bg-white">
           <CardContent className="p-0">
-            <Table>
-              <TableHeader className="bg-slate-50/50">
-                <TableRow className="border-slate-100">
+            <ResponsiveTable
+              headers={[
+                { label: "Client", key: "name" },
+                { label: "Service", key: "service_type" },
+                { label: "Budget", key: "budget_range" },
+                { label: "Deadline", key: "deadline" },
+                { label: "Status", key: "status" },
+                { label: "Actions", key: "actions" },
+              ]}
+            >
+              <TableHeader>
+                <TableRow>
                   <TableHead
                     className="font-bold text-slate-700 py-4 cursor-pointer hover:bg-slate-100/50 transition-colors"
                     onClick={() => handleSort("name")}
@@ -251,78 +263,77 @@ export default function QuotesTable() {
               <TableBody>
                 {loading ? (
                   <TableRow>
-                    <TableCell colSpan={6} className="p-0">
+                    <TableCell className="p-0">
                       <TableSkeleton />
                     </TableCell>
                   </TableRow>
                 ) : (
                   paginatedQuotes.map((quote) => (
-                  <TableRow
-                    key={quote.id}
-                    className="hover:bg-slate-50/50 transition-colors border-slate-50"
-                  >
-                    <TableCell className="py-5">
-                      <div className="font-bold text-slate-900">{quote.name}</div>
-                      <div className="text-sm text-slate-500 flex items-center gap-1 mt-0.5">
-                        <Mail className="w-3 h-3 text-slate-400" /> {quote.email}
-                      </div>
-                    </TableCell>
-                    <TableCell>
-                      <Badge
-                        variant="secondary"
-                        className="bg-blue-50 text-blue-700 hover:bg-blue-100 border-none px-3 py-1 font-medium"
-                      >
-                        {quote.service_type}
-                      </Badge>
-                    </TableCell>
-                    <TableCell className="font-semibold text-slate-700">
-                      {quote.budget_range}
-                    </TableCell>
-                    <TableCell className="text-slate-600">{quote.deadline}</TableCell>
-                    <TableCell>
-                      <StatusToggle
-                        id={quote.id}
-                        initialStatus={quote.status}
-                        table="quotes"
-                        options={statusOptions}
-                      />
-                    </TableCell>
-                    <TableCell className="text-right pr-8">
-                      <div className="flex justify-end gap-2">
-                        <Button
-                          variant="ghost"
-                          size="sm"
-                          onClick={() => openModal(quote)}
-                          className="hover:bg-blue-50 text-blue-600"
-                          title="View Details"
+                    <TableRow key={quote.id}>
+                      <TableCell label="Client" className="py-5">
+                        <div className="font-bold text-slate-900">{quote.name}</div>
+                        <div className="text-sm text-slate-500 flex items-center gap-1 mt-0.5">
+                          <Mail className="w-3 h-3 text-slate-400" /> {quote.email}
+                        </div>
+                      </TableCell>
+                      <TableCell label="Service">
+                        <Badge
+                          variant="secondary"
+                          className="bg-blue-50 text-blue-700 hover:bg-blue-100 border-none px-3 py-1 font-medium"
                         >
-                          <Eye className="w-4 h-4" />
-                        </Button>
-                        {quote.whatsapp && (
-                          <a
-                            href={`https://wa.me/${quote.whatsapp.replace(/[^0-9]/g, "")}`}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="p-2 hover:bg-green-50 text-green-600 rounded-lg transition-colors border border-transparent hover:border-green-100 shadow-sm"
-                            title="WhatsApp Client"
+                          {quote.service_type}
+                        </Badge>
+                      </TableCell>
+                      <TableCell label="Budget" className="font-semibold text-slate-700">
+                        {quote.budget_range}
+                      </TableCell>
+                      <TableCell label="Deadline" className="text-slate-600">
+                        {quote.deadline}
+                      </TableCell>
+                      <TableCell label="Status">
+                        <StatusToggle
+                          id={quote.id}
+                          initialStatus={quote.status}
+                          table="quotes"
+                          options={statusOptions}
+                        />
+                      </TableCell>
+                      <TableCell label="Actions" className="text-right">
+                        <div className="flex justify-end gap-2">
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            onClick={() => openModal(quote)}
+                            className="hover:bg-blue-50 text-blue-600"
+                            title="View Details"
                           >
-                            <MessageCircle className="w-5 h-5" />
-                          </a>
-                        )}
-                        <button className="p-2 hover:bg-slate-100 text-slate-400 rounded-lg transition-colors border border-transparent hover:border-slate-200">
-                          <MoreVertical className="w-5 h-5" />
-                        </button>
-                      </div>
-                    </TableCell>
-                  </TableRow>
+                            <Eye className="w-4 h-4" />
+                          </Button>
+                          {quote.whatsapp && (
+                            <a
+                              href={`https://wa.me/${quote.whatsapp.replace(/[^0-9]/g, "")}`}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="p-2 hover:bg-green-50 text-green-600 rounded-lg transition-colors border border-transparent hover:border-green-100 shadow-sm"
+                              title="WhatsApp Client"
+                            >
+                              <MessageCircle className="w-5 h-5" />
+                            </a>
+                          )}
+                          <button className="p-2 hover:bg-slate-100 text-slate-400 rounded-lg transition-colors border border-transparent hover:border-slate-200">
+                            <MoreVertical className="w-5 h-5" />
+                          </button>
+                        </div>
+                      </TableCell>
+                    </TableRow>
                   ))
                 )}
                 {paginatedQuotes.length === 0 && !loading && (
                   <TableRow>
-                    <TableCell colSpan={6} className="h-48 text-center text-slate-400">
-                      <div className="flex flex-col items-center gap-2">
+                    <TableCell>
+                      <div className="flex flex-col items-center gap-2 h-48">
                         <Mail className="w-8 h-8 opacity-20" />
-                        <p className="italic">
+                        <p className="italic text-slate-400">
                           {quotes.length === 0
                             ? "No inquiries found. Check back later!"
                             : "No quotes match your filters."}
@@ -332,26 +343,27 @@ export default function QuotesTable() {
                   </TableRow>
                 )}
               </TableBody>
-            </Table>
+            </ResponsiveTable>
           </CardContent>
         </Card>
 
         {/* Pagination */}
         {totalPages > 1 && (
-          <div className="flex items-center justify-between mt-6">
-            <div className="text-sm text-slate-600">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mt-6">
+            <div className="text-sm text-slate-600 text-center sm:text-left">
               Showing {startIndex + 1} to{" "}
               {Math.min(startIndex + itemsPerPage, filteredQuotes.length)} of{" "}
               {filteredQuotes.length} entries
             </div>
-            <div className="flex gap-2">
+            <div className="flex gap-1 sm:gap-2 overflow-x-auto pb-2 sm:pb-0">
               <Button
                 variant="outline"
                 size="sm"
                 onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
                 disabled={currentPage === 1}
+                className="flex-shrink-0"
               >
-                Previous
+                Prev
               </Button>
               <div className="flex gap-1">
                 {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
@@ -360,7 +372,7 @@ export default function QuotesTable() {
                     variant={currentPage === page ? "default" : "outline"}
                     size="sm"
                     onClick={() => setCurrentPage(page)}
-                    className="w-10"
+                    className="w-10 flex-shrink-0"
                   >
                     {page}
                   </Button>
@@ -371,6 +383,7 @@ export default function QuotesTable() {
                 size="sm"
                 onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
                 disabled={currentPage === totalPages}
+                className="flex-shrink-0"
               >
                 Next
               </Button>

@@ -1,36 +1,43 @@
-import { NextResponse } from 'next/server';
-import { supabase } from '@/lib/supabase';
-import { resend } from '@/lib/resend';
+import { revalidatePath } from "next/cache";
+import { resend } from "@/lib/resend";
+import { supabase } from "@/lib/supabase";
+import { NextResponse } from "next/server";
 
-export async function POST(request: Request) {
+export async function POST(req: Request) {
   try {
-    const body = await request.json();
-    const { name, email, whatsapp, serviceType, budgetRange, deadline, description } = body;
+    const body = await req.json();
+    const {
+      name, email, whatsapp, serviceType, budgetRange,
+      deadline, description, priority, ...otherDetails
+    } = body;
 
-    // 1. Insert into Supabase
+    // 1. Save to Supabase
     const { data, error } = await supabase
       .from('quotes')
       .insert([
-        { 
-          name, 
-          email, 
-          whatsapp, 
-          service_type: serviceType, 
-          budget_range: budgetRange, 
-          deadline, 
-          description 
-        },
+        {
+          name,
+          email,
+          whatsapp,
+          service_type: serviceType,
+          budget_range: budgetRange,
+          deadline,
+          description: `Priority: ${priority}\n\n${description}\n\nDetails: ${JSON.stringify(otherDetails, null, 2)}`,
+          status: 'New'
+        }
       ])
       .select();
 
     if (error) {
-      console.error('Supabase error:', error);
-      return NextResponse.json({ error: 'Failed to save quote' }, { status: 500 });
+      console.error("Supabase error:", error);
+      return NextResponse.json({ error: error.message }, { status: 500 });
     }
 
-    // 2. Send Admin Notification Email
-    const adminEmail = process.env.ADMIN_EMAIL;
-    if (adminEmail && process.env.RESEND_API_KEY) {
+    // Trigger revalidation of the admin dashboard
+    revalidatePath('/admin');
+
+    // 2. Send Email Notification
+    const adminEmail = process.env.ADMIN_EMAIL;    if (adminEmail && process.env.RESEND_API_KEY) {
       await resend.emails.send({
         from: 'Kazi Web <notifications@resend.dev>', // Update with your verified domain
         to: adminEmail,

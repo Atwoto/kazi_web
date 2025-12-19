@@ -9,7 +9,10 @@ import {
 } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { Mail, Calendar } from "lucide-react";
+import { Mail, Calendar, Reply } from "lucide-react";
+import { Button } from "@/components/ui/button";
+
+export const dynamic = 'force-dynamic';
 
 export default async function MessagesPage() {
   const { data: messages } = await supabase
@@ -35,6 +38,7 @@ export default async function MessagesPage() {
                 <TableHead className="font-bold text-slate-700">Subject</TableHead>
                 <TableHead className="font-bold text-slate-700">Message</TableHead>
                 <TableHead className="font-bold text-slate-700 text-right whitespace-nowrap">Date Received</TableHead>
+                <TableHead className="font-bold text-slate-700 text-right">Actions</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -60,11 +64,18 @@ export default async function MessagesPage() {
                       {new Date(msg.created_at).toLocaleDateString()}
                     </div>
                   </TableCell>
+                  <TableCell className="text-right align-top">
+                     <Button asChild size="sm" variant="outline" className="gap-2 text-blue-600 hover:text-blue-700 border-blue-200 hover:bg-blue-50">
+                        <a href={`mailto:${msg.email}?subject=Re: ${msg.subject || "Your inquiry to Kazi"}`}>
+                          <Reply className="w-4 h-4" /> Reply
+                        </a>
+                     </Button>
+                  </TableCell>
                 </TableRow>
               ))}
               {(!messages || messages.length === 0) && (
                 <TableRow>
-                  <TableCell colSpan={4} className="h-32 text-center text-slate-400 italic">
+                  <TableCell colSpan={5} className="h-32 text-center text-slate-400 italic">
                     Inbox is empty.
                   </TableCell>
                 </TableRow>
