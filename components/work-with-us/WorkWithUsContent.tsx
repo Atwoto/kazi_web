@@ -12,7 +12,6 @@ import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Card } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import {
   Form,
   FormControl,
@@ -792,27 +791,31 @@ export default function WorkWithUsContent() {
                   )}
 
                   <div className="space-y-4">
-                    <FormLabel>Rate Preference *</FormLabel>
                     <FormField
                       control={form.control}
                       name="rateType"
                       render={({ field }) => (
                         <FormItem>
+                          <FormLabel>Rate Preference *</FormLabel>
                           <FormControl>
-                            <RadioGroup
-                              onValueChange={field.onChange}
-                              defaultValue={field.value}
-                              className="flex gap-4"
-                            >
-                              <div className="flex items-center space-x-2">
-                                <RadioGroupItem value="hourly" id="hourly" />
-                                <Label htmlFor="hourly">Hourly Rate (EUR)</Label>
-                              </div>
-                              <div className="flex items-center space-x-2">
-                                <RadioGroupItem value="project" id="project" />
-                                <Label htmlFor="project">Per Project</Label>
-                              </div>
-                            </RadioGroup>
+                            <div className="flex gap-3">
+                              <Button
+                                type="button"
+                                variant={field.value === "hourly" ? "default" : "outline"}
+                                className="flex-1"
+                                onClick={() => field.onChange("hourly")}
+                              >
+                                Hourly Rate (EUR)
+                              </Button>
+                              <Button
+                                type="button"
+                                variant={field.value === "project" ? "default" : "outline"}
+                                className="flex-1"
+                                onClick={() => field.onChange("project")}
+                              >
+                                Per Project
+                              </Button>
+                            </div>
                           </FormControl>
                           <FormMessage />
                         </FormItem>
