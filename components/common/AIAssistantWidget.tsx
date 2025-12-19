@@ -53,7 +53,7 @@ export default function AIAssistantWidget() {
             )}
           </Button>
         </DialogTrigger>
-        <DialogContent className="sm:max-w-[400px] h-[600px] flex flex-col p-0 gap-0 overflow-hidden rounded-2xl border-slate-800">
+        <DialogContent className="sm:max-w-[400px] h-[600px] flex flex-col p-0 gap-0 overflow-hidden rounded-2xl border-slate-800" aria-describedby="chatbot-description">
           <DialogHeader className="bg-slate-900 p-4 text-white shrink-0">
             <DialogTitle className="flex items-center gap-3">
               <div className="bg-blue-600 p-2 rounded-lg">
@@ -64,6 +64,7 @@ export default function AIAssistantWidget() {
                 <span className="text-[10px] text-slate-400 font-normal">Powered by Qwen AI</span>
               </div>
             </DialogTitle>
+            <p id="chatbot-description" className="sr-only">Chat with our AI assistant about services and pricing</p>
           </DialogHeader>
           
           <ScrollArea className="flex-1 p-4 bg-slate-50">
