@@ -2,7 +2,6 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { formatDistanceToNow } from "date-fns";
 
 interface Activity {
   id: string;
@@ -83,7 +82,7 @@ export function ActivityTimeline({ activities }: ActivityTimelineProps) {
                   </div>
                   <p className="text-sm text-slate-600 mt-0.5">{activity.subtitle}</p>
                   <p className="text-xs text-slate-400 mt-1">
-                    {formatDistanceToNow(new Date(activity.timestamp), { addSuffix: true })}
+                    {new Date(activity.timestamp).toLocaleDateString()}
                   </p>
                 </div>
               </div>
