@@ -65,7 +65,7 @@ export default function QuoteForm({ className }: { className?: string }) {
     priority: z.enum(priorities),
     
     // Step 2: Specifics + Description
-    description: z.string().min(10, { message: t.forms.validation.minLength.replace("{min}", "10") }),
+    description: z.string().optional(),
     
     // Academic
     documentType: z.string().optional(),
