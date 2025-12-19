@@ -162,7 +162,29 @@ export default function QuoteForm({ className }: { className?: string }) {
     }
   }
 
-  const nextStep = () => setCurrentStep((prev) => Math.min(prev + 1, totalSteps - 1));
+  const nextStep = async () => {
+    const fields = getStepFields(currentStep);
+    const isValid = await form.trigger(fields as any);
+    if (isValid) {
+      setCurrentStep((prev) => Math.min(prev + 1, totalSteps - 1));
+    }
+  };
+
+  const getStepFields = (step: number): (keyof FormData)[] => {
+    switch (step) {
+      case 0: return ["serviceType", "priority", "deadline", "budgetRange"];
+      case 1: 
+        const basic: (keyof FormData)[] = ["description"];
+        const service = form.getValues("serviceType");
+        if (service === "Academic Support") return [...basic, "documentType", "wordCount", "language", "level", "helpType"];
+        if (service === "Graphic Design") return [...basic, "designType", "deliverables", "examplesLink"];
+        if (service === "Web Design & Development") return [...basic, "projectType", "currentWebsite", "domainHosting", "pagesNeeded"];
+        return basic;
+      case 2: return ["name", "email", "whatsapp", "country", "timezone", "howDidYouHear"];
+      default: return [];
+    }
+  };
+
   const prevStep = () => setCurrentStep((prev) => Math.max(prev - 1, 0));
 
   if (submittedData) {
@@ -746,24 +768,9 @@ export default function QuoteForm({ className }: { className?: string }) {
                 <ChevronLeft className="mr-2 w-4 h-4" /> {t.forms.buttons.back}
               </Button>
               <div className="w-2/3 relative">
-                {!form.formState.isValid && (
-                  <div className="absolute -top-8 left-0 right-0 text-xs text-red-600 text-center font-medium">
-                    Please check the consent box to enable submit
-                  </div>
-                )}
                 <Button
                   type="submit"
-                  disabled={isLoading || !form.formState.isValid}
-                  onClick={() => {
-                    console.log('Submit button clicked!', {
-                      isValid: form.formState.isValid,
-                      errors: form.formState.errors,
-                      isLoading,
-                    });
-                    if (!form.formState.isValid) {
-                      console.log('Form is invalid:', form.formState.errors);
-                    }
-                  }}
+                  disabled={isLoading}
                   className="w-full h-12 rounded-full bg-green-600 hover:bg-green-700 text-white shadow-lg disabled:opacity-50"
                 >
                   {isLoading ? (
