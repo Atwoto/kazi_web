@@ -25,46 +25,32 @@ export default function ContactContent() {
                <div className="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center font-bold text-xl shadow-lg shadow-blue-500/30 group-hover:scale-105 transition-transform">
                  K
                </div>
-               <span className="text-2xl font-heading font-bold tracking-tight text-white group-hover:text-blue-200 transition-colors">Kazi</span>
+               <span className="text-2xl font-heading font-bold tracking-tight text-white group-hover:text-blue-200 transition-colors">{t.contact.sidebar.logoText}</span>
              </Link>
              
              <h1 className="text-4xl lg:text-5xl font-heading font-bold mb-6 leading-tight text-white drop-shadow-sm">
                {t.contact.sidebarTitle}
              </h1>
              <p className="text-lg text-blue-100 mb-12 max-w-md">
-               Join 100+ European companies scaling with our managed talent.
+               {t.contact.sidebar.subtitle}
              </p>
              
              <div className="space-y-8">
-               <div className="flex gap-5 group">
-                 <div className="w-12 h-12 rounded-2xl bg-white/10 border border-white/10 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-600/20 group-hover:border-blue-500/50 transition-all duration-300 shadow-sm">
-                   <CheckIcon className="w-6 h-6 text-green-400 group-hover:text-green-300 transition-colors" />
-                 </div>
-                 <div>
-                   <h3 className="font-bold text-lg text-white group-hover:text-blue-100 transition-colors">Top 1% Vetted Talent</h3>
-                   <p className="text-slate-300 text-sm leading-relaxed mt-1">Access highly skilled East African professionals without the vetting headache.</p>
-                 </div>
-               </div>
-               
-               <div className="flex gap-5 group">
-                 <div className="w-12 h-12 rounded-2xl bg-white/10 border border-white/10 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-600/20 group-hover:border-blue-500/50 transition-all duration-300 shadow-sm">
-                   <ShieldCheck className="w-6 h-6 text-blue-400 group-hover:text-blue-300 transition-colors" />
-                 </div>
-                 <div>
-                   <h3 className="font-bold text-lg text-white group-hover:text-blue-100 transition-colors">100% Secure Payment</h3>
-                   <p className="text-slate-300 text-sm leading-relaxed mt-1">Your funds are protected. We only release payments upon your approval.</p>
-                 </div>
-               </div>
-               
-               <div className="flex gap-5 group">
-                 <div className="w-12 h-12 rounded-2xl bg-white/10 border border-white/10 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-600/20 group-hover:border-blue-500/50 transition-all duration-300 shadow-sm">
-                   <Clock className="w-6 h-6 text-yellow-400 group-hover:text-yellow-300 transition-colors" />
-                 </div>
-                 <div>
-                   <h3 className="font-bold text-lg text-white group-hover:text-blue-100 transition-colors">European Management</h3>
-                   <p className="text-slate-300 text-sm leading-relaxed mt-1">Your project is overseen by experienced managers ensuring European quality standards.</p>
-                 </div>
-               </div>
+              {(t.contact.sidebar.valueProps || []).map((prop, index) => {
+                const Icon = [CheckIcon, ShieldCheck, Clock][index];
+                const iconColor = ["text-green-400 group-hover:text-green-300", "text-blue-400 group-hover:text-blue-300", "text-yellow-400 group-hover:text-yellow-300"][index];
+                return (
+                  <div key={index} className="flex gap-5 group">
+                    <div className="w-12 h-12 rounded-2xl bg-white/10 border border-white/10 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-600/20 group-hover:border-blue-500/50 transition-all duration-300 shadow-sm">
+                      <Icon className={`w-6 h-6 ${iconColor} transition-colors`} />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-lg text-white group-hover:text-blue-100 transition-colors">{prop.title}</h3>
+                      <p className="text-slate-300 text-sm leading-relaxed mt-1">{prop.description}</p>
+                    </div>
+                  </div>
+                );
+              })}
              </div>
 
              <div className="mt-16 bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">

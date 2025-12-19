@@ -60,7 +60,7 @@ export default function AIAssistantWidget() {
                 <Bot className="h-5 w-5 text-white" />
               </div>
               <div className="flex flex-col">
-                <span className="text-sm font-bold">Kazi Assistant</span>
+                <span className="text-sm font-bold">Kazi Agency Assistant</span>
                 <span className="text-[10px] text-slate-400 font-normal">Powered by Qwen AI</span>
               </div>
             </DialogTitle>
@@ -71,7 +71,7 @@ export default function AIAssistantWidget() {
               {messages.length === 0 && (
                 <div className="bg-white p-4 rounded-2xl rounded-tl-none shadow-sm border border-slate-100 max-w-[85%] self-start">
                   <p className="text-sm text-slate-700">
-                    Hi! I'm Kazi's AI assistant. Ask me anything about our services, pricing, or how to get started!
+                    Hi! I'm Kazi Agency's AI assistant. Ask me anything about our services, pricing, or how to get started!
                   </p>
                 </div>
               )}

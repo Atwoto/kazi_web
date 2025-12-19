@@ -59,12 +59,12 @@ export default function Navbar() {
           <Link href="/" className="flex items-center space-x-2 mr-8">
             <Image 
               src="/logo.jpg" 
-              alt="Kazi Logo" 
+              alt="Kazi Agency Logo" 
               width={40} 
               height={40} 
               className="rounded-full" 
             />
-            <span className="text-2xl font-heading font-bold text-foreground tracking-tight">Kazi</span>
+            <span className="text-2xl font-heading font-bold text-foreground tracking-tight">Kazi Agency</span>
           </Link>
 
           {/* Desktop Navigation Links - Centered */}

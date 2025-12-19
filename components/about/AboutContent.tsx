@@ -55,17 +55,13 @@ export default function AboutContent() {
                 ))}
               </div>
             </div>
-            <div className="relative h-[500px] bg-blue-600 rounded-3xl overflow-hidden shadow-2xl">
+            <div className="relative h-[500px] rounded-3xl overflow-hidden shadow-2xl">
                <Image
-                 src="/file.svg" // Placeholder for a team image
-                 alt="Kazi Management Team"
-                 layout="fill"
-                 objectFit="cover"
-                 className="opacity-50"
+                 src="/about.jpg"
+                 alt="Kazi Agency Management Team"
+                 fill
+                 className="object-cover"
                />
-               <div className="absolute inset-0 flex items-center justify-center">
-                 <span className="text-white font-heading font-bold text-3xl">Bridging Continents</span>
-               </div>
             </div>
           </div>
         </div>
