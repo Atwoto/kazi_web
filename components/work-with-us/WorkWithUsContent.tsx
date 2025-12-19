@@ -153,6 +153,7 @@ export default function WorkWithUsContent() {
         <Card className="p-8 rounded-xl shadow-lg bg-white">
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+              <fieldset disabled={isLoading} className="contents">
               {/* Personal Information */}
               <h2 className="text-2xl font-heading font-bold mb-4">
                 {t.workWithUs.sections.personal}
@@ -453,6 +454,7 @@ export default function WorkWithUsContent() {
                   t.workWithUs.submit
                 )}
               </Button>
+              </fieldset>
             </form>
           </Form>
         </Card>

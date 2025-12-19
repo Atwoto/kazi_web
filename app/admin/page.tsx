@@ -1,20 +1,34 @@
 import { supabase } from "@/lib/supabase";
-import { 
-  Briefcase, 
-  Users, 
-  MessageSquare, 
+import Link from "next/link";
+import {
+  Briefcase,
+  Users,
+  MessageSquare,
   TrendingUp,
   Clock,
-  CheckCircle2
+  CheckCircle2,
+  Activity
 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { BarChart, PieChart, LineChart } from "@/components/admin/Charts";
+import { ActivityTimeline } from "@/components/admin/ActivityTimeline";
 
 export default async function AdminDashboard() {
   // Fetch real-time stats from Supabase
   const { count: quotesCount } = await supabase.from('quotes').select('*', { count: 'exact', head: true });
   const { count: applicantsCount } = await supabase.from('applicants').select('*', { count: 'exact', head: true });
   const { count: messagesCount } = await supabase.from('messages').select('*', { count: 'exact', head: true });
-  
+
+  const { data: quotes } = await supabase
+    .from('quotes')
+    .select('*')
+    .order('created_at', { ascending: false });
+
+  const { data: applicants } = await supabase
+    .from('applicants')
+    .select('*')
+    .order('created_at', { ascending: false });
+
   const { data: recentQuotes } = await supabase
     .from('quotes')
     .select('*')
@@ -32,6 +46,52 @@ export default async function AdminDashboard() {
     .select('*')
     .eq('status', 'Applied')
     .limit(3);
+
+  // Prepare activity timeline data
+  const activities = [
+    ...(quotes || []).slice(0, 5).map((quote) => ({
+      id: `quote-${quote.id}`,
+      type: 'quote' as const,
+      action: 'New quote',
+      title: `${quote.name} requested ${quote.service_type}`,
+      subtitle: quote.email,
+      timestamp: quote.created_at,
+      status: quote.status,
+    })),
+    ...(applicants || []).slice(0, 5).map((app) => ({
+      id: `applicant-${app.id}`,
+      type: 'applicant' as const,
+      action: 'New application',
+      title: `${app.full_name} applied`,
+      subtitle: app.primary_skill,
+      timestamp: app.created_at,
+      status: app.status,
+    })),
+  ].sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()).slice(0, 10);
+
+  // Prepare chart data
+  const statusCounts = quotes?.reduce((acc: any, quote) => {
+    acc[quote.status] = (acc[quote.status] || 0) + 1;
+    return acc;
+  }, {}) || {};
+
+  const serviceCounts = quotes?.reduce((acc: any, quote) => {
+    acc[quote.service_type] = (acc[quote.service_type] || 0) + 1;
+    return acc;
+  }, {}) || {};
+
+  const quoteStatusData = Object.entries(statusCounts).map(([label, value]) => ({
+    label,
+    value: value as number,
+    color: getStatusColor(label),
+  }));
+
+  const serviceData = Object.entries(serviceCounts).map(([label, value]) => ({
+    label,
+    value: value as number,
+  }));
+
+  const monthlyQuotes = getMonthlyData(quotes || []);
 
   const stats = [
     {
@@ -56,6 +116,34 @@ export default async function AdminDashboard() {
       bg: "bg-green-50"
     }
   ];
+
+  function getStatusColor(status: string) {
+    const colors: { [key: string]: string } = {
+      'New': '#10b981',
+      'Contacted': '#3b82f6',
+      'In Progress': '#f59e0b',
+      'Won': '#8b5cf6',
+      'Lost': '#ef4444',
+      'Archived': '#6b7280',
+    };
+    return colors[status] || '#94a3b8';
+  }
+
+  function getMonthlyData(data: any[]) {
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const counts = new Array(12).fill(0);
+
+    data.forEach(item => {
+      const date = new Date(item.created_at);
+      const monthIndex = date.getMonth();
+      counts[monthIndex]++;
+    });
+
+    return months.map((month, index) => ({
+      label: month,
+      value: counts[index],
+    }));
+  }
 
   return (
     <div className="p-8">
@@ -113,7 +201,17 @@ export default async function AdminDashboard() {
         </div>
       )}
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      {/* Analytics Charts */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-10">
+        <BarChart data={serviceData} title="Quotes by Service Type" color="#3b82f6" />
+        <PieChart data={quoteStatusData} title="Quote Status Distribution" />
+      </div>
+
+      <div className="mb-10">
+        <LineChart data={monthlyQuotes} title="Monthly Quote Trends" color="#10b981" />
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Recent Quotes */}
         <Card className="border-none shadow-sm">
           <CardHeader className="p-6 border-b border-slate-50">
@@ -145,6 +243,13 @@ export default async function AdminDashboard() {
           </CardContent>
         </Card>
 
+        {/* Activity Timeline - Takes 2 columns */}
+        <div className="lg:col-span-2">
+          <ActivityTimeline activities={activities} />
+        </div>
+      </div>
+
+      <div className="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Business Health / Tips */}
         <div className="space-y-6">
           <div className="bg-slate-900 text-white p-8 rounded-3xl relative overflow-hidden shadow-xl">
@@ -172,6 +277,9 @@ export default async function AdminDashboard() {
             <p className="text-sm text-green-700 mt-1">Email Provider: Connected</p>
           </div>
         </div>
+
+        {/* Spacer for layout */}
+        <div></div>
       </div>
     </div>
   );

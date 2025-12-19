@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Search, Loader2, ArrowRight, FileText, Tag, Briefcase } from "lucide-react";
-import { searchContent, SearchResult } from "@/lib/search-data";
+import { searchData, SearchableItem } from "@/lib/search-data";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { useLanguage } from "@/context/LanguageContext";
@@ -17,7 +17,7 @@ interface SearchModalProps {
 export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
   const { t } = useLanguage();
   const [query, setQuery] = useState("");
-  const [results, setResults] = useState<SearchResult[]>([]);
+  const [results, setResults] = useState<SearchableItem[]>([]);
   const [isSearching, setIsSearching] = useState(false);
 
   useEffect(() => {
@@ -38,10 +38,8 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
       
       // Simulate network delay for better UX feel
       await new Promise(resolve => setTimeout(resolve, 300));
-
-      const searchTerms = query.toLowerCase().split(" ");
       
-      const filtered = searchContent.filter(item => {
+      const filtered = searchData.filter(item => {
         const titleMatch = item.title.toLowerCase().includes(query.toLowerCase());
         const descMatch = item.description.toLowerCase().includes(query.toLowerCase());
         const tagMatch = item.tags.some(tag => tag.toLowerCase().includes(query.toLowerCase()));
@@ -57,7 +55,7 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
     return () => clearTimeout(debounce);
   }, [query]);
 
-  const getIcon = (type: SearchResult['type']) => {
+  const getIcon = (type: SearchableItem['type']) => {
     switch (type) {
       case 'service': return <Briefcase className="w-4 h-4" />;
       case 'blog': return <FileText className="w-4 h-4" />;

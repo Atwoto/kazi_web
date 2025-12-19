@@ -790,7 +790,9 @@ export default function QuoteForm({ className }: { className?: string }) {
 
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-          {renderStep()}
+          <fieldset disabled={isLoading} className="contents group">
+            {renderStep()}
+          </fieldset>
         </form>
       </Form>
     </Card>

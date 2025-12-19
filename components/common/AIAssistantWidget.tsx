@@ -112,8 +112,9 @@ export default function AIAssistantWidget() {
               <Input
                 value={input}
                 onChange={handleInputChange}
-                placeholder="Type your question..."
-                className="flex-1 bg-slate-50 border-slate-200 focus-visible:ring-blue-600"
+                placeholder={isLoading ? "Waiting for response..." : "Type your question..."}
+                disabled={isLoading}
+                className="flex-1 bg-slate-50 border-slate-200 focus-visible:ring-blue-600 disabled:opacity-50"
               />
               <Button type="submit" size="icon" className="bg-blue-600 hover:bg-blue-700 shrink-0" disabled={isLoading || !input?.trim()}>
                 <Send className="h-4 w-4" />
