@@ -56,6 +56,7 @@ const availabilityHours = [
 export default function WorkWithUsContent() {
   const { t } = useLanguage();
   const [isLoading, setIsLoading] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
   const formSchema = z.object({
     fullName: z.string().min(2, { message: t.forms.validation.required }),
@@ -96,14 +97,47 @@ export default function WorkWithUsContent() {
   async function onSubmit(values: FormData) {
     setIsLoading(true);
     try {
-      console.log(values);
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      alert("Application submitted successfully!");
+      const response = await fetch('/api/applicants', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...values,
+          yearsExp: values.yearsOfExperience, // Map to API field name
+          portfolioUrl: values.portfolioLinks, // Map to API field name
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to submit application');
+      }
+
+      setSubmitted(true);
     } catch (error) {
       console.error("Submission error:", error);
     } finally {
       setIsLoading(false);
     }
+  }
+
+  if (submitted) {
+    return (
+      <div className="py-16 md:py-24 bg-gray-50 flex items-center justify-center min-h-[60vh]">
+        <Card className="p-12 text-center max-w-lg mx-auto rounded-3xl shadow-xl bg-white border-none">
+          <div className="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </div>
+          <h2 className="text-3xl font-heading font-bold text-slate-900 mb-4">Application Sent!</h2>
+          <p className="text-lg text-slate-600 mb-8">
+            Thank you for applying. Our team will review your portfolio and get back to you if there&apos;s a fit for our current projects.
+          </p>
+          <Button asChild className="rounded-full px-8 py-6 bg-slate-900 hover:bg-slate-800">
+            <Link href="/">Return Home</Link>
+          </Button>
+        </Card>
+      </div>
+    );
   }
 
   return (

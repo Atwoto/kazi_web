@@ -133,11 +133,27 @@ export default function QuoteForm({ className }: { className?: string }) {
   async function onSubmit(values: FormData) {
     setIsLoading(true);
     try {
-      console.log("Quote form submitted:", values);
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+      const response = await fetch('/api/quotes', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...values,
+          deadline: values.deadline.toISOString(), // Format date for API
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to submit quote');
+      }
+
+      const result = await response.json();
+      console.log("Quote submitted successfully:", result);
       setSubmittedData(values);
     } catch (error) {
       console.error("Submission error:", error);
+      // You could add a toast notification here for the error
     } finally {
       setIsLoading(false);
     }
