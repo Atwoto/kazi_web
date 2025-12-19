@@ -9,7 +9,7 @@ export default function PrivacyPolicyPage() {
           <p>
             This Privacy Policy describes how Kazi collects, uses, and
             discloses your personal information when you visit or make a
-            purchase from kazi.com (the "Site").
+            purchase from kaziagency.es (the "Site").
           </p>
 
           <h2>Information We Collect</h2>

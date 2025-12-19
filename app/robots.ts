@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://kazi.com/sitemap.xml",
+    sitemap: "https://kaziagency.es/sitemap.xml",
   };
 }

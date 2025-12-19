@@ -64,7 +64,7 @@ export const translations = {
       },
       impact: {
         title: "Work that Changes Lives",
-        text: "For every project you start with Kazi, we donate €1 to a children’s charity. We publish donation receipts every quarter.",
+        text: "For every project you start with Kazi Agency, we donate €1 to a children’s charity. We publish donation receipts every quarter.",
         badge: "",
       },
       testimonials: {
