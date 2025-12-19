@@ -94,9 +94,9 @@ export default function HeroSection() {
                 src="/hero-section.png"
                 alt="Professional team collaboration"
                 fill
-                priority
-                quality={95}
-                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 600px"
+                priority={true}
+                quality={90}
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover object-center"
               />
 
