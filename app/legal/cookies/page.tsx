@@ -7,82 +7,74 @@ export default function CookiesPage() {
         </h1>
         <div className="prose lg:prose-lg mx-auto text-gray-700">
           <p>
-            This Cookies Policy explains what cookies are, how Kazi uses cookies,
-            how third-parties we may partner with may use cookies on the
-            Service, your choices regarding cookies and further information
-            about cookies.
+            This Cookies Policy explains what cookies are, how Kazi Agency uses cookies on kaziagency.es, and your choices regarding cookies.
           </p>
 
           <h2>What are cookies?</h2>
           <p>
-            Cookies are small pieces of text sent by your web browser by a
-            website you visit. A cookie file is stored in your web browser and
-            allows the Service or a third-party to recognize you and make your
-            next visit easier and the Service more useful to you.
-          </p>
-          <p>
-            Cookies can be "persistent" or "session" cookies. Persistent
-            cookies remain on your personal computer or mobile device when you
-            go offline, while session cookies are deleted as soon as you close
-            your web browser.
+            Cookies are small text files that are stored on your device when you visit a website. They help the website remember information about your visit, which can make your next visit easier and the site more useful to you.
           </p>
 
-          <h2>How Kazi uses cookies</h2>
+          <h2>How Kazi Agency uses cookies</h2>
           <p>
-            When you use and access the Service, we may place a number of
-            cookies files in your web browser.
-          </p>
-          <p>
-            We use cookies for the following purposes:
+            We use cookies to:
           </p>
           <ul>
-            <li>To enable certain functions of the Service</li>
-            <li>To provide analytics</li>
-            <li>To store your preferences</li>
-            <li>To enable advertisements delivery, including behavioral advertising</li>
+            <li>Ensure the website functions properly</li>
+            <li>Understand how visitors use our website (analytics)</li>
+            <li>Remember your language preference</li>
+            <li>Improve user experience</li>
           </ul>
-          <p>
-            We use both session and persistent cookies on the Service and we use
-            different types of cookies to run the Service:
-          </p>
+
+          <h2>Types of cookies we use</h2>
           <ul>
             <li>
-              <strong>Essential cookies.</strong> We may use essential cookies
-              to authenticate users and prevent fraudulent use of user accounts.
+              <strong>Essential Cookies:</strong> These cookies are necessary for the website to function properly. They cannot be switched off in our systems.
             </li>
             <li>
-              <strong>Analytics cookies.</strong> We may use analytics cookies
-              to track information how the Service is used so that we can make
-              improvements. We may also use analytics cookies to test new
-              advertisements, pages, features or new functionality of the Service
-              to see how our users react to them.
+              <strong>Analytics Cookies:</strong> These cookies help us understand how visitors interact with our website by collecting and reporting information anonymously. We use this information to improve our website.
+            </li>
+            <li>
+              <strong>Functional Cookies:</strong> These cookies enable enhanced functionality and personalization, such as remembering your language preference.
             </li>
           </ul>
 
-          <h2>Third-party cookies</h2>
+          <h2>Third-party services</h2>
           <p>
-            In addition to our own cookies, we may also use various third-parties
-            cookies to report usage statistics of the Service, deliver
-            advertisements on and through the Service, and so on.
+            We may use third-party services that set their own cookies:
+          </p>
+          <ul>
+            <li>
+              <strong>Analytics Services:</strong> We may use Google Analytics or similar services to understand website usage. You can opt out of Google Analytics cookies by visiting{" "}
+              <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer">
+                Google Analytics Opt-out
+              </a>
+            </li>
+          </ul>
+
+          <h2>Your cookie choices</h2>
+          <p>
+            You can control and manage cookies in various ways:
+          </p>
+          <ul>
+            <li>
+              <strong>Browser Settings:</strong> Most web browsers allow you to control cookies through their settings preferences. However, limiting cookies may impact your experience of our website.
+            </li>
+            <li>
+              <strong>Opting Out:</strong> You can opt out of targeted advertising cookies by visiting{" "}
+              <a href="http://www.youronlinechoices.eu/" target="_blank" rel="noopener noreferrer">
+                Your Online Choices
+              </a>
+            </li>
+          </ul>
+
+          <p>
+            Please note that if you choose to block all cookies, you may not be able to access all or parts of our site, or some functionality may be limited.
           </p>
 
-          <h2>What are your choices regarding cookies?</h2>
+          <h2>More information</h2>
           <p>
-            If you'd like to delete cookies or instruct your web browser to
-            delete or refuse cookies, please visit the help pages of your web
-            browser.
-          </p>
-          <p>
-            Please note, however, that if you delete cookies or refuse to accept
-            them, you might not be able to use all of the features we offer, you
-            may not be able to store your preferences, and some of our pages
-            might not display properly.
-          </p>
-
-          <h2>Where can you find more information about cookies?</h2>
-          <p>
-            You can learn more about cookies and the following third-party
-            websites:
+            To learn more about cookies and how they work, please visit:
           </p>
           <ul>
             <li>
@@ -91,13 +83,13 @@ export default function CookiesPage() {
                 https://www.allaboutcookies.org/
               </a>
             </li>
-            <li>
-              Network Advertising Initiative:{" "}
-              <a href="https://www.networkadvertising.org/" target="_blank" rel="noopener noreferrer">
-                https://www.networkadvertising.org/
-              </a>
-            </li>
           </ul>
+
+          <h2>Contact us</h2>
+          <p>
+            If you have any questions about our use of cookies, please contact us at{" "}
+            <a href="mailto:hello@kaziagency.es" className="text-primary hover:underline">hello@kaziagency.es</a>
+          </p>
         </div>
       </div>
     </div>

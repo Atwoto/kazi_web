@@ -51,10 +51,10 @@ export const translations = {
         titleHighlight: "Guaranteed.",
         subtitle: "We bridge the gap between cost-efficiency and premium quality. Here is how we ensure your project succeeds every time.",
         checks: [
-          { title: "Vetted Talent Only", description: "We only work with the top 1% of applicants. Rigorous testing for skills and communication." },
+          { title: "Vetted Talent Only", description: "All specialists pass skills tests and trial tasks before joining our network." },
           { title: "Dedicated Project Managers", description: "You don't manage the freelancer. Your European PM ensures quality and timelines." },
           { title: "Double-Check Review", description: "Every deliverable is reviewed by a senior expert before it reaches your inbox." },
-          { title: "Money-Back Guarantee", description: "If we miss the agreed scope or quality standards, you get a full refund." },
+          { title: "Quality Assurance", description: "Every deliverable undergoes internal QA before reaching your inbox." },
         ],
       },
       samples: {
@@ -248,7 +248,7 @@ export const translations = {
       startProject: "Start Your Project",
       viewPortfolio: "View Portfolio",
       vettedTalent: "Vetted Talent",
-      guarantee: "Money-back Guarantee",
+      guarantee: "Quality Assurance",
       turnaround: "Typical Turnaround",
       startsFrom: "Starts From",
       revisions: "Revisions Inc.",
@@ -678,10 +678,10 @@ export const translations = {
       sidebarTitle: "Let's build something great together.",
       sidebar: {
         logoText: "Kazi Agency",
-        subtitle: "Join 100+ European companies scaling with our managed talent.",
+        subtitle: "European project management meets East African talent.",
         valueProps: [
           {
-            title: "Top 1% Vetted Talent",
+            title: "Vetted Talent",
             description: "Access highly skilled East African professionals without the vetting headache."
           },
           {
@@ -1419,10 +1419,10 @@ export const translations = {
       sidebarTitle: "Construyamos algo genial juntos.",
       sidebar: {
         logoText: "Kazi Agency",
-        subtitle: "Join 100+ European companies scaling with our managed talent.",
+        subtitle: "European project management meets East African talent.",
         valueProps: [
           {
-            title: "Top 1% Vetted Talent",
+            title: "Vetted Talent",
             description: "Access highly skilled East African professionals without the vetting headache."
           },
           {
@@ -2160,10 +2160,10 @@ export const translations = {
       sidebarTitle: "Construïm alguna cosa genial junts.",
       sidebar: {
         logoText: "Kazi Agency",
-        subtitle: "Join 100+ European companies scaling with our managed talent.",
+        subtitle: "European project management meets East African talent.",
         valueProps: [
           {
-            title: "Top 1% Vetted Talent",
+            title: "Vetted Talent",
             description: "Access highly skilled East African professionals without the vetting headache."
           },
           {

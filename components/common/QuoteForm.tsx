@@ -203,9 +203,9 @@ export default function QuoteForm({ className }: { className?: string }) {
 
   if (submittedData) {
     return (
-      <Card className={cn("p-8 rounded-xl shadow-lg bg-green-50 border-green-200", className)}>
+      <Card className={cn("p-8 border border-slate-200 bg-white", className)}>
         <div className="text-center">
-          <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+          <div className="w-16 h-16 bg-slate-900 rounded-full flex items-center justify-center mx-auto mb-4">
             <Check className="h-8 w-8 text-white" />
           </div>
           <h3 className="text-2xl font-heading font-bold text-gray-900 mb-2">
@@ -226,10 +226,10 @@ export default function QuoteForm({ className }: { className?: string }) {
     switch (currentStep) {
       case 0:
         return (
-          <div className="space-y-6 animate-in fade-in slide-in-from-right-4 duration-300">
+          <div className="space-y-6">
             <div className="space-y-2">
-              <h3 className="text-xl font-semibold text-gray-900">{t.forms.steps.basics}</h3>
-              <p className="text-sm text-gray-500">Let&apos;s start with the basics</p>
+              <h3 className="text-xl font-semibold text-slate-900">{t.forms.steps.basics}</h3>
+              <p className="text-sm text-slate-500">Let&apos;s start with the basics</p>
             </div>
 
             <FormField
@@ -240,7 +240,7 @@ export default function QuoteForm({ className }: { className?: string }) {
                   <FormLabel>{t.forms.labels.serviceType}</FormLabel>
                   <Select onValueChange={field.onChange} value={field.value || ""}>
                     <FormControl>
-                      <SelectTrigger className="h-12">
+                      <SelectTrigger className="h-12 border-slate-300">
                         <SelectValue placeholder={t.forms.placeholders.select} />
                       </SelectTrigger>
                     </FormControl>
@@ -263,7 +263,7 @@ export default function QuoteForm({ className }: { className?: string }) {
                   <FormLabel>{t.forms.labels.priority}</FormLabel>
                   <Select onValueChange={field.onChange} value={field.value || ""}>
                     <FormControl>
-                      <SelectTrigger className="h-12">
+                      <SelectTrigger className="h-12 border-slate-300">
                         <SelectValue placeholder={t.forms.placeholders.select} />
                       </SelectTrigger>
                     </FormControl>
@@ -308,7 +308,7 @@ export default function QuoteForm({ className }: { className?: string }) {
                     <FormLabel>{t.forms.labels.budget}</FormLabel>
                     <Select onValueChange={field.onChange} value={field.value || ""}>
                       <FormControl>
-                        <SelectTrigger className="h-12">
+                        <SelectTrigger className="h-12 border-slate-300">
                           <SelectValue placeholder={t.forms.placeholders.select} />
                         </SelectTrigger>
                       </FormControl>
@@ -337,10 +337,10 @@ export default function QuoteForm({ className }: { className?: string }) {
 
       case 1:
         return (
-          <div className="space-y-6 animate-in fade-in slide-in-from-right-4 duration-300">
+          <div className="space-y-6">
             <div className="space-y-2">
-              <h3 className="text-xl text-gray-900 font-semibold">{t.forms.steps.details}</h3>
-              <p className="text-sm text-gray-500">Tell us more about your project</p>
+              <h3 className="text-xl font-semibold text-slate-900">{t.forms.steps.details}</h3>
+              <p className="text-sm text-slate-500">Tell us more about your project</p>
             </div>
 
             {watchServiceType === "Academic Support" && (
@@ -366,7 +366,7 @@ export default function QuoteForm({ className }: { className?: string }) {
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>{t.forms.labels.wordCount}</FormLabel>
-                      <FormControl><Input placeholder={t.forms.placeholders.wordCount} {...field} value={field.value || ""} /></FormControl>
+                      <FormControl><Input {...field} value={field.value || ""} /></FormControl>
                     </FormItem>
                   )}
                 />
@@ -458,7 +458,7 @@ export default function QuoteForm({ className }: { className?: string }) {
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>{t.forms.labels.examplesLink}</FormLabel>
-                      <FormControl><Input placeholder={t.forms.placeholders.examplesLink} {...field} value={field.value || ""} /></FormControl>
+                      <FormControl><Input {...field} value={field.value || ""} /></FormControl>
                     </FormItem>
                   )}
                 />
@@ -488,7 +488,7 @@ export default function QuoteForm({ className }: { className?: string }) {
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>{t.forms.labels.currentWebsite}</FormLabel>
-                      <FormControl><Input placeholder="https://..." {...field} value={field.value || ""} /></FormControl>
+                      <FormControl><Input {...field} value={field.value || ""} /></FormControl>
                     </FormItem>
                   )}
                 />
@@ -536,8 +536,7 @@ export default function QuoteForm({ className }: { className?: string }) {
                   <FormLabel>{t.forms.labels.description} *</FormLabel>
                   <FormControl>
                     <Textarea
-                      placeholder={t.forms.placeholders.description}
-                      className="resize-y min-h-[120px]"
+                      className="resize-y min-h-[120px] border-slate-300"
                       {...field}
                       value={field.value || ""}
                     />
@@ -564,7 +563,7 @@ export default function QuoteForm({ className }: { className?: string }) {
                 type="button"
                 onClick={nextStep}
                 disabled={isLoading}
-                className="w-2/3 h-12 rounded-full bg-blue-600 hover:bg-blue-700 disabled:opacity-50"
+                className="w-2/3 h-12 bg-slate-900 hover:bg-slate-800 disabled:opacity-50"
               >
                 {t.forms.buttons.next} <ChevronRight className="ml-2 w-4 h-4" />
               </Button>
@@ -574,10 +573,10 @@ export default function QuoteForm({ className }: { className?: string }) {
 
       case 2:
         return (
-          <div className="space-y-6 animate-in fade-in slide-in-from-right-4 duration-300">
+          <div className="space-y-6">
             <div className="space-y-2">
-              <h3 className="text-xl font-semibold text-gray-900">{t.forms.steps.upload}</h3>
-              <p className="text-sm text-gray-500">Upload files and provide contact details</p>
+              <h3 className="text-xl font-semibold text-slate-900">{t.forms.steps.upload}</h3>
+              <p className="text-sm text-slate-500">Upload files and provide contact details</p>
             </div>
 
             <FormField
@@ -612,7 +611,7 @@ export default function QuoteForm({ className }: { className?: string }) {
                   <FormItem>
                     <FormLabel>{t.forms.labels.name} *</FormLabel>
                     <FormControl>
-                      <Input placeholder={t.forms.placeholders.name} {...field} className="h-12" />
+                      <Input {...field} className="h-12 border-slate-300" />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -642,7 +641,7 @@ export default function QuoteForm({ className }: { className?: string }) {
                   <FormItem>
                     <FormLabel>{t.forms.labels.whatsapp}</FormLabel>
                     <FormControl>
-                      <Input placeholder={t.forms.placeholders.whatsapp} {...field} className="h-12" />
+                      <Input {...field} className="h-12 border-slate-300" />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -656,7 +655,7 @@ export default function QuoteForm({ className }: { className?: string }) {
                   <FormItem>
                     <FormLabel>{t.forms.labels.country}</FormLabel>
                     <FormControl>
-                      <Input placeholder="Your country" {...field} className="h-12" />
+                      <Input {...field} className="h-12 border-slate-300" />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -671,7 +670,7 @@ export default function QuoteForm({ className }: { className?: string }) {
                 <FormItem>
                   <FormLabel>{t.forms.labels.timeZone}</FormLabel>
                   <FormControl>
-                    <Input placeholder={t.forms.placeholders.timeZone} {...field} className="h-12" />
+                    <Input {...field} className="h-12 border-slate-300" />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -685,7 +684,7 @@ export default function QuoteForm({ className }: { className?: string }) {
                 <FormItem>
                   <FormLabel>{t.forms.labels.howHear}</FormLabel>
                   <FormControl>
-                    <Input placeholder="Google, social media, etc." {...field} className="h-12" />
+                    <Input {...field} className="h-12 border-slate-300" />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -706,7 +705,7 @@ export default function QuoteForm({ className }: { className?: string }) {
                 type="button"
                 onClick={nextStep}
                 disabled={isLoading}
-                className="w-2/3 h-12 rounded-full bg-blue-600 hover:bg-blue-700 disabled:opacity-50"
+                className="w-2/3 h-12 bg-slate-900 hover:bg-slate-800 disabled:opacity-50"
               >
                 {t.forms.buttons.next} <ChevronRight className="ml-2 w-4 h-4" />
               </Button>
@@ -717,34 +716,34 @@ export default function QuoteForm({ className }: { className?: string }) {
       case 3:
         const formValues = form.getValues();
         return (
-          <div className="space-y-6 animate-in fade-in slide-in-from-right-4 duration-300">
+          <div className="space-y-6">
             <div className="space-y-2">
-              <h3 className="text-xl font-semibold text-gray-900">{t.forms.steps.review}</h3>
-              <p className="text-sm text-gray-500">Please review your details before submitting</p>
+              <h3 className="text-xl font-semibold text-slate-900">{t.forms.steps.review}</h3>
+              <p className="text-sm text-slate-500">Please review your details before submitting</p>
             </div>
 
-            <div className="bg-gray-50 p-6 rounded-lg space-y-3">
-              <div>
+            <div className="bg-slate-50 p-6 rounded-lg space-y-3 border border-slate-200">
+              <div className="text-slate-900">
                 <span className="font-semibold">{t.forms.labels.serviceType}:</span> {formValues.serviceType}
               </div>
-              <div>
+              <div className="text-slate-900">
                 <span className="font-semibold">{t.forms.labels.priority}:</span> {formValues.priority}
               </div>
-              <div>
+              <div className="text-slate-900">
                 <span className="font-semibold">{t.forms.labels.budget}:</span> {formValues.budgetRange}
               </div>
-              <div>
+              <div className="text-slate-900">
                 <span className="font-semibold">{t.forms.labels.deadline}:</span> {formValues.deadline ? new Date(formValues.deadline).toLocaleDateString() : "Not set"}
               </div>
-              <div>
+              <div className="text-slate-900">
                 <span className="font-semibold">{t.forms.labels.name}:</span> {formValues.name}
               </div>
-              <div>
+              <div className="text-slate-900">
                 <span className="font-semibold">{t.forms.labels.email}:</span> {formValues.email}
               </div>
-              <div>
-                <span className="font-semibold">{t.forms.labels.description}:</span> 
-                <p className="text-sm text-gray-600 mt-1 line-clamp-3">{formValues.description}</p>
+              <div className="text-slate-900">
+                <span className="font-semibold">{t.forms.labels.description}:</span>
+                <p className="text-sm text-slate-600 mt-1 line-clamp-3">{formValues.description}</p>
               </div>
             </div>
 
@@ -753,8 +752,7 @@ export default function QuoteForm({ className }: { className?: string }) {
               name="consent"
               render={({ field }) => (
                 <FormItem className={cn(
-                  "flex flex-row items-start space-x-3 space-y-0 rounded-lg border p-4 shadow-sm transition-all",
-                  field.value ? "bg-green-50 border-green-200" : "bg-gray-50 border-gray-200"
+                  "flex flex-row items-start space-x-3 space-y-0 rounded-lg border p-4 bg-slate-50 border-slate-200"
                 )}>
                   <FormControl>
                     <Checkbox
@@ -793,7 +791,7 @@ export default function QuoteForm({ className }: { className?: string }) {
                 <Button
                   type="submit"
                   disabled={isLoading}
-                  className="w-full h-12 rounded-full bg-green-600 hover:bg-green-700 text-white shadow-lg disabled:opacity-50"
+                  className="w-full h-12 bg-slate-900 hover:bg-slate-800 text-white disabled:opacity-50"
                 >
                   {isLoading ? (
                     <>
@@ -817,33 +815,21 @@ export default function QuoteForm({ className }: { className?: string }) {
   };
 
   return (
-    <Card className={cn("p-8 rounded-xl shadow-lg", className)}>
+    <Card className={cn("p-6 lg:p-8 border border-slate-200 bg-white", className)}>
       {/* Progress Stepper */}
-      <div className="mb-10 relative">
-        <div className="flex justify-between items-center mb-4 text-sm font-medium text-gray-400 relative z-10">
-          <span className={cn("transition-colors duration-300", currentStep >= 0 && "text-blue-600 font-bold")}>{t.forms.steps.basics}</span>
-          <span className={cn("transition-colors duration-300", currentStep >= 1 && "text-blue-600 font-bold")}>{t.forms.steps.details}</span>
-          <span className={cn("transition-colors duration-300", currentStep >= 2 && "text-blue-600 font-bold")}>{t.forms.steps.upload}</span>
-          <span className={cn("transition-colors duration-300", currentStep >= 3 && "text-blue-600 font-bold")}>{t.forms.steps.review}</span>
-        </div>
-
-        <div className="h-1 w-full bg-gray-100 rounded-full overflow-hidden relative">
+      <div className="mb-8">
+        <div className="h-1 w-full bg-slate-200 rounded-full overflow-hidden mb-8">
           <div
-            className="h-full bg-blue-600 transition-all duration-500 ease-out absolute top-0 left-0"
+            className="h-full bg-slate-900 transition-all duration-500 ease-out"
             style={{ width: `${(currentStep / (totalSteps - 1)) * 100}%`}}
           />
         </div>
 
-        <div className="flex justify-between absolute top-[26px] w-full px-1">
-          {[0, 1, 2, 3].map((step) => (
-            <div
-              key={step}
-              className={cn(
-                "w-3 h-3 rounded-full border-2 border-white transition-all duration-500",
-                currentStep >= step ? "bg-blue-600 shadow-sm scale-110" : "bg-gray-200"
-              )}
-            />
-          ))}
+        <div className="flex justify-between items-center text-xs font-medium">
+          <span className={cn("transition-colors", currentStep >= 0 ? "text-slate-900" : "text-slate-400")}>{t.forms.steps.basics}</span>
+          <span className={cn("transition-colors", currentStep >= 1 ? "text-slate-900" : "text-slate-400")}>{t.forms.steps.details}</span>
+          <span className={cn("transition-colors", currentStep >= 2 ? "text-slate-900" : "text-slate-400")}>{t.forms.steps.upload}</span>
+          <span className={cn("transition-colors", currentStep >= 3 ? "text-slate-900" : "text-slate-400")}>{t.forms.steps.review}</span>
         </div>
       </div>
 

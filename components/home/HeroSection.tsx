@@ -113,54 +113,46 @@ export default function HeroSection() {
             
             
             
-                          {/* Floating Stats Card - Top Right */}
-            
+                          {/* Floating Trust Badge - Top Right */}
+
                           <div className="absolute top-8 right-8 bg-white/90 backdrop-blur-md p-4 pr-6 rounded-2xl shadow-xl border border-white/50 flex items-center gap-4 animate-in fade-in slide-in-from-top-4 duration-1000 delay-300">
-            
+
                             <div className="h-12 w-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
-            
+
                               <Briefcase className="w-6 h-6" />
-            
+
                             </div>
-            
+
                             <div>
-            
-                              <p className="font-bold text-slate-900 text-2xl leading-none">
-            
-                                <AnimatedCounter end={100} suffix="+" duration={2000} />
-            
-                              </p>
-            
-                              <p className="text-xs font-semibold text-slate-500 uppercase tracking-wide mt-1">{t.hero.stats.projects}</p>
-            
+
+                              <p className="font-bold text-slate-900 text-lg leading-tight">European PM</p>
+
+                              <p className="text-xs font-semibold text-slate-500 uppercase tracking-wide mt-1">Project Management</p>
+
                             </div>
-            
+
                           </div>
-            
-            
-            
-                          {/* Floating Stats Card - Bottom Left */}
-            
+
+
+
+                          {/* Floating Trust Badge - Bottom Left */}
+
                           <div className="absolute bottom-8 left-8 bg-white/90 backdrop-blur-md p-4 pr-6 rounded-2xl shadow-xl border border-white/50 flex items-center gap-4 animate-in fade-in slide-in-from-bottom-4 duration-1000">
-            
+
                             <div className="h-12 w-12 rounded-full bg-green-100 flex items-center justify-center text-green-600">
-            
+
                               <CheckCircle2 className="w-6 h-6" />
-            
+
                             </div>
-            
+
                             <div>
-            
-                              <p className="font-bold text-slate-900 text-2xl leading-none">
-            
-                                <AnimatedCounter end={98} suffix="%" duration={2000} />
-            
-                              </p>
-            
-                              <p className="text-xs font-semibold text-slate-500 uppercase tracking-wide mt-1">{t.hero.stats.retention}</p>
-            
+
+                              <p className="font-bold text-slate-900 text-lg leading-tight">24h Response</p>
+
+                              <p className="text-xs font-semibold text-slate-500 uppercase tracking-wide mt-1">Business Days</p>
+
                             </div>
-            
+
                           </div>
             
                         </div>

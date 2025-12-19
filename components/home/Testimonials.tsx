@@ -7,27 +7,27 @@ import { useLanguage } from "@/context/LanguageContext";
 
 const testimonials = [
   {
-    name: "María García",
-    role: "Directora de Marketing, TechFlow",
-    text: "Honestly, I wasn't sure about outsourcing at first. But these guys delivered our website faster than expected and the quality was amazing. Highly recommend!",
+    name: "Client Case Study",
+    role: "E-commerce Website",
+    text: "Delivered a fully functional e-commerce platform in 3 weeks with custom payment integration and inventory management system.",
     rating: 5,
   },
   {
-    name: "Carlos Rodríguez",
-    role: "Fundador, GreenLeaf Studio",
-    text: "Best decision we made this year. The design team understood exactly what we needed without endless back-and-forth. Super professional.",
+    name: "Client Case Study",
+    role: "Academic Paper",
+    text: "Edited and reviewed a 10,000-word research paper on environmental science, achieving publication-ready quality within 5 days.",
     rating: 5,
   },
   {
-    name: "Ana Martínez",
-    role: "CEO, EduSmart",
-    text: "Their academic editing service saved my thesis. Quick turnaround, great attention to detail, and they actually understood the subject matter.",
+    name: "Client Case Study",
+    role: "Brand Identity",
+    text: "Created a complete brand identity package including logo, color palette, and style guide for a growing tech startup.",
     rating: 5,
   },
   {
-    name: "David Thompson",
-    role: "CTO, FinSaaS",
-    text: "Clean code, clear communication, delivered ahead of schedule. What more could you ask for? Already planning our next project with them.",
+    name: "Client Case Study",
+    role: "Video Production",
+    text: "Produced a 2-minute promotional video with motion graphics and professional voiceover for product launch campaign.",
     rating: 5,
   },
 ];

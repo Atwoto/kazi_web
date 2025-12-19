@@ -7,102 +7,109 @@ export default function PrivacyPolicyPage() {
         </h1>
         <div className="prose lg:prose-lg mx-auto text-gray-700">
           <p>
-            This Privacy Policy describes how Kazi collects, uses, and
-            discloses your personal information when you visit or make a
-            purchase from kaziagency.es (the "Site").
+            This Privacy Policy describes how Kazi Agency collects, uses, and
+            discloses your personal information when you visit or contact us through kaziagency.es (the "Site").
           </p>
 
           <h2>Information We Collect</h2>
           <p>
-            When you visit the Site, we collect certain information about your
-            device, your interaction with the Site, and information necessary to
-            process your purchases. We may also collect additional information
-            if you contact us for customer support. In this Privacy Policy, we
-            refer to any information that can uniquely identify an individual
-            (including the information below) as "Personal Information". See
-            the list below for more information about what Personal
-            Information
-            we collect and why.
+            When you visit the Site or contact us for services, we collect information necessary to:
           </p>
+          <ul>
+            <li>Respond to your inquiries and service requests</li>
+            <li>Provide quotes and proposals</li>
+            <li>Manage ongoing projects and client relationships</li>
+            <li>Comply with legal and regulatory requirements</li>
+          </ul>
 
-          <h3>Device information</h3>
+          <h3>Types of Information Collected</h3>
           <ul>
             <li>
-              <strong>Examples of Personal Information collected:</strong>{" "}
-              version of web browser, IP address, time zone, cookie information,
-              what sites or products you view, search terms, and how you
-              interact with the Site.
+              <strong>Contact Information:</strong> Name, email address, phone number, company name
             </li>
             <li>
-              <strong>Purpose of collection:</strong> to load the Site accurately
-              for you, and to perform analytics on Site usage to optimize our
-              Site.
+              <strong>Project Information:</strong> Project details, requirements, deadlines, budget
             </li>
             <li>
-              <strong>Source of collection:</strong> Collected automatically
-              when you access our Site using cookies, log files, web beacons,
-              tags, or pixels.
+              <strong>Technical Information:</strong> IP address, browser type, device information, cookies (if enabled)
+            </li>
+            <li>
+              <strong>Communication Records:</strong> Correspondence history, meeting notes, project files
             </li>
           </ul>
 
-          <h2>Sharing Personal Information</h2>
+          <h2>How We Use Your Information</h2>
+          <p>We use your information for the following purposes:</p>
+          <ul>
+            <li>To provide and maintain our services</li>
+            <li>To communicate with you about projects and services</li>
+            <li>To process payments and manage contracts</li>
+            <li>To improve our website and services</li>
+            <li>To comply with legal obligations</li>
+          </ul>
+
+          <h2>Data Sharing and Disclosure</h2>
           <p>
-            We share your Personal Information with service providers to help us
-            provide our services and fulfill our contracts with you, as
-            described above. For example:
+            We do not sell your personal information. We may share information with:
           </p>
           <ul>
             <li>
-              We use Google Analytics to help us understand how our customers
-              use the Site. You can read more about how Google uses your
-              Personal Information here:{" "}
-              <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">
-                https://policies.google.com/privacy
-              </a>
-              .
+              <strong>Service Providers:</strong> Third-party services that help us operate our business (e.g., cloud storage, payment processing, email services)
             </li>
             <li>
-              We may share your Personal Information to comply with applicable
-              laws and regulations, to respond to a subpoena, search warrant or
-              other lawful request for information we receive, or to otherwise
-              protect our rights.
+              <strong>Legal Requirements:</strong> When required by law or to protect our rights and safety
+            </li>
+            <li>
+              <strong>Business Transfers:</strong> In connection with a merger, sale, or reorganization (you would be notified)
             </li>
           </ul>
 
-          <h2>Your Rights</h2>
+          <h2>Data Retention</h2>
           <p>
-            If you are a European resident, you have the right to access the
-            Personal Information we hold about you and to ask that your Personal
-            Information be corrected, updated, or deleted. If you would like to
-            exercise this right, please contact us through the contact
-            information below.
-          </p>
-          <p>
-            Additionally, if you are a European resident we note that we are
-            processing your information in order to fulfill contracts we might
-            have with you (for example if you make an order through the Site),
-            or otherwise to pursue our legitimate business interests listed
-            above. Additionally, please note that your information will be
-            transferred outside of Europe, including to Canada and the United
-            States.
+            We retain your information for as long as necessary to provide services and maintain business records as required by law. Client project files are typically retained for 7 years for tax and legal purposes.
           </p>
 
-          <h2>Changes</h2>
+          <h2>Your Rights (EU Residents)</h2>
           <p>
-            We may update this Privacy Policy from time to time in order to
-            reflect, for example, changes to our practices or for other
-            operational, legal, or regulatory reasons.
+            Under the General Data Protection Regulation (GDPR), you have the right to:
+          </p>
+          <ul>
+            <li>Access your personal data</li>
+            <li>Correct inaccurate data</li>
+            <li>Request deletion of your data</li>
+            <li>Restrict or object to processing</li>
+            <li>Data portability</li>
+            <li>Withdraw consent at any time</li>
+          </ul>
+          <p>
+            To exercise these rights, contact us at hello@kaziagency.es
+          </p>
+
+          <h2>Data Security</h2>
+          <p>
+            We implement appropriate technical and organizational security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction.
+          </p>
+
+          <h2>International Transfers</h2>
+          <p>
+            Your information may be transferred to and processed in countries outside the EU. We ensure appropriate safeguards are in place for such transfers.
+          </p>
+
+          <h2>Changes to This Policy</h2>
+          <p>
+            We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated revision date.
           </p>
 
           <h2>Contact Us</h2>
           <p>
-            For more information about our privacy practices, if you have
-            questions, or if you would like to make a complaint, please contact
-            us by e-mail at{" "}
-            <a href="mailto:hello@kaziagency.es" className="text-primary hover:underline">hello@kaziagency.es</a> or by mail using the
-            details provided below:
+            For questions about this Privacy Policy or our data practices, contact us:
           </p>
-          <p>Kazi HQ, [Your Address Here], [Your City, Postal Code], [Your Country]</p>
+          <p>Email: <a href="mailto:hello@kaziagency.es" className="text-primary hover:underline">hello@kaziagency.es</a></p>
+          <p>
+            Data Controller: Kazi Agency<br />
+            Website: kaziagency.es<br />
+            Email: hello@kaziagency.es
+          </p>
         </div>
       </div>
     </div>

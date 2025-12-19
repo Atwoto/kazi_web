@@ -366,7 +366,7 @@ export default function WorkWithUsContent() {
                       <FormItem>
                         <FormLabel>Full Name *</FormLabel>
                         <FormControl>
-                          <Input placeholder="John Doe" {...field} />
+                          <Input {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -395,7 +395,7 @@ export default function WorkWithUsContent() {
                         <FormItem>
                           <FormLabel>Phone / WhatsApp *</FormLabel>
                           <FormControl>
-                            <Input type="tel" placeholder="+254 700 123456" {...field} />
+                            <Input type="tel" {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -411,7 +411,7 @@ export default function WorkWithUsContent() {
                         <FormItem>
                           <FormLabel>Country *</FormLabel>
                           <FormControl>
-                            <Input placeholder="Kenya" {...field} />
+                            <Input {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -425,7 +425,7 @@ export default function WorkWithUsContent() {
                         <FormItem>
                           <FormLabel>City *</FormLabel>
                           <FormControl>
-                            <Input placeholder="Nairobi" {...field} />
+                            <Input {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -523,7 +523,7 @@ export default function WorkWithUsContent() {
                         <FormItem>
                           <FormLabel>Other Language(s)</FormLabel>
                           <FormControl>
-                            <Input placeholder="e.g., Portuguese, German" {...field} />
+                            <Input {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -548,7 +548,7 @@ export default function WorkWithUsContent() {
                           Behance, Dribbble, GitHub, personal site, Google Drive folder, YouTube, or Vimeo
                         </FormDescription>
                         <FormControl>
-                          <Input placeholder="https://..." {...field} />
+                          <Input {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -566,7 +566,6 @@ export default function WorkWithUsContent() {
                         </FormDescription>
                         <FormControl>
                           <Textarea
-                            placeholder="https://example1.com, https://example2.com"
                             className="resize-y"
                             {...field}
                           />
@@ -620,7 +619,7 @@ export default function WorkWithUsContent() {
                         <FormItem>
                           <FormLabel>Other Tools</FormLabel>
                           <FormControl>
-                            <Input placeholder="e.g., Blender, DaVinci Resolve" {...field} />
+                            <Input {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -782,7 +781,7 @@ export default function WorkWithUsContent() {
                         <FormItem>
                           <FormLabel>Please explain</FormLabel>
                           <FormControl>
-                            <Input placeholder="Describe your typical turnaround..." {...field} />
+                            <Input {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -829,7 +828,6 @@ export default function WorkWithUsContent() {
                         <FormItem>
                           <FormControl>
                             <Input
-                              placeholder={form.watch("rateType") === "hourly" ? "e.g., 15" : "e.g., 100-500"}
                               {...field}
                             />
                           </FormControl>
@@ -897,7 +895,6 @@ export default function WorkWithUsContent() {
                         </FormDescription>
                         <FormControl>
                           <Textarea
-                            placeholder="I specialize in..."
                             className="resize-y min-h-[100px]"
                             {...field}
                           />
@@ -918,7 +915,6 @@ export default function WorkWithUsContent() {
                         <FormLabel>Why Kazi Agency? *</FormLabel>
                         <FormControl>
                           <Textarea
-                            placeholder="I want to join Kazi because..."
                             className="resize-y"
                             {...field}
                           />
@@ -1093,7 +1089,7 @@ export default function WorkWithUsContent() {
                           <FormItem>
                             <FormLabel>LinkedIn Profile</FormLabel>
                             <FormControl>
-                              <Input placeholder="https://linkedin.com/in/yourprofile" {...field} />
+                              <Input {...field} />
                             </FormControl>
                           </FormItem>
                         )}
