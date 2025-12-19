@@ -17,8 +17,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 
 export default function AIAssistantWidget() {
   const [isOpen, setIsOpen] = useState(false);
-  const [localInput, setLocalInput] = useState("");
-  const { messages, handleSubmit, isLoading } = useChat({
+  const { messages, input, handleInputChange, handleSubmit, isLoading } = useChat({
     api: "/api/chat",
   });
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -109,19 +108,10 @@ export default function AIAssistantWidget() {
           </ScrollArea>
 
           <div className="p-4 bg-white border-t border-slate-100 shrink-0">
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                if (localInput.trim()) {
-                  handleSubmit(e, { data: { input: localInput } });
-                  setLocalInput("");
-                }
-              }}
-              className="flex gap-2"
-            >
+            <form onSubmit={handleSubmit} className="flex gap-2">
               <Input
-                value={localInput}
-                onChange={(e) => setLocalInput(e.target.value)}
+                value={input}
+                onChange={handleInputChange}
                 placeholder={isLoading ? "Waiting for response..." : "Type your question..."}
                 disabled={isLoading}
                 className="flex-1 bg-slate-50 border-slate-200 focus-visible:ring-blue-600 disabled:opacity-50"
@@ -130,7 +120,7 @@ export default function AIAssistantWidget() {
                 type="submit"
                 size="icon"
                 className="bg-blue-600 hover:bg-blue-700 shrink-0"
-                disabled={isLoading || !localInput.trim()}
+                disabled={isLoading || !input?.trim()}
               >
                 <Send className="h-4 w-4" />
               </Button>

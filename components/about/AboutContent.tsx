@@ -3,8 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Check, Users, Globe, Shield } from "lucide-react";
-import AnimatedCounter from "@/components/common/AnimatedCounter";
+import { Check, Users, Globe, Shield, Clock } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function AboutContent() {
@@ -72,20 +71,18 @@ export default function AboutContent() {
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div className="p-8 rounded-2xl bg-gray-50 border border-gray-100">
-              <Users className="w-10 h-10 text-blue-600 mx-auto mb-4" />
-              <h3 className="text-4xl font-bold text-gray-900 mb-2">
-                <AnimatedCounter end={100} suffix="+" duration={2000} />
-              </h3>
+              <Globe className="w-10 h-10 text-blue-600 mx-auto mb-4" />
+              <h3 className="text-3xl font-bold text-gray-900 mb-2">EU Timezone</h3>
               <p className="text-gray-500">{t.about.stats.projects}</p>
             </div>
             <div className="p-8 rounded-2xl bg-gray-50 border border-gray-100">
-              <Globe className="w-10 h-10 text-blue-600 mx-auto mb-4" />
-              <h3 className="text-4xl font-bold text-gray-900 mb-2">24h</h3>
+              <Clock className="w-10 h-10 text-blue-600 mx-auto mb-4" />
+              <h3 className="text-3xl font-bold text-gray-900 mb-2">24h Response</h3>
               <p className="text-gray-500">{t.about.stats.response}</p>
             </div>
             <div className="p-8 rounded-2xl bg-gray-50 border border-gray-100">
               <Shield className="w-10 h-10 text-blue-600 mx-auto mb-4" />
-              <h3 className="text-4xl font-bold text-gray-900 mb-2">100%</h3>
+              <h3 className="text-3xl font-bold text-gray-900 mb-2">QA Checked</h3>
               <p className="text-gray-500">{t.about.stats.satisfaction}</p>
             </div>
           </div>
