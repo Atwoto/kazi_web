@@ -133,7 +133,6 @@ export default function QuoteForm({ className }: { className?: string }) {
   const watchServiceType = form.watch("serviceType");
 
   async function onSubmit(values: FormData) {
-    console.log("Attempting submission...", values);
     setIsLoading(true);
     try {
       const response = await fetch('/api/quotes', {
@@ -149,12 +148,10 @@ export default function QuoteForm({ className }: { className?: string }) {
 
       if (!response.ok) {
         const errorText = await response.text();
-        console.error('Response not ok:', response.status, errorText);
         throw new Error(`Failed to submit quote: ${response.status}`);
       }
 
       const result = await response.json();
-      console.log("Quote submitted successfully:", result);
       setSubmittedData(values);
     } catch (error: any) {
       console.error("Submission error:", error);
@@ -165,35 +162,17 @@ export default function QuoteForm({ className }: { className?: string }) {
   }
 
   const onError = (errors: any) => {
-    console.error("Form validation errors:", errors);
     const errorFields = Object.keys(errors);
-    
-    // Check which step the first error belongs to
+
+    // Check which step the first error belongs to and navigate there
     if (errorFields.some(field => ["serviceType", "deadline", "budgetRange", "priority"].includes(field))) {
       setCurrentStep(0);
-      alert("Please check the 'Basics' step for errors.");
-      return;
-    }
-    
-    // Check step 1 fields (description is the main one, others depend on service type but all in step 1)
-    if (errorFields.some(field => ["description", "documentType", "wordCount", "designType", "projectType"].includes(field))) {
+    } else if (errorFields.some(field => ["description", "documentType", "wordCount", "designType", "projectType"].includes(field))) {
       setCurrentStep(1);
-      alert("Please check the 'Project Details' step for errors.");
-      return;
-    }
-
-    // Check step 2 fields
-    if (errorFields.some(field => ["name", "email", "whatsapp", "country", "timezone", "fileUpload"].includes(field))) {
+    } else if (errorFields.some(field => ["name", "email", "whatsapp", "country", "timezone", "fileUpload"].includes(field))) {
       setCurrentStep(2);
-      alert("Please check the 'Upload & Contact' step for errors.");
-      return;
-    }
-    
-    // Check step 3 (consent)
-    if (errorFields.includes("consent")) {
-      // Already on step 3 usually, but just in case
+    } else if (errorFields.includes("consent")) {
       setCurrentStep(3);
-      alert("You must agree to the terms to submit.");
     }
   };
 
@@ -357,20 +336,11 @@ export default function QuoteForm({ className }: { className?: string }) {
         );
 
       case 1:
-        const currentValues = form.getValues();
-        console.log("Step 1 - Current form values:", currentValues);
         return (
           <div className="space-y-6 animate-in fade-in slide-in-from-right-4 duration-300">
             <div className="space-y-2">
               <h3 className="text-xl text-gray-900 font-semibold">{t.forms.steps.details}</h3>
               <p className="text-sm text-gray-500">Tell us more about your project</p>
-            </div>
-
-            {/* Debug info - remove in production */}
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 text-xs">
-              <p className="font-bold text-blue-800">Debug Info:</p>
-              <p>Description: "{currentValues.description || 'EMPTY'}"</p>
-              <p>Service Type: {currentValues.serviceType || 'NOT SET'}</p>
             </div>
 
             {watchServiceType === "Academic Support" && (
@@ -568,14 +538,8 @@ export default function QuoteForm({ className }: { className?: string }) {
                     <Textarea
                       placeholder={t.forms.placeholders.description}
                       className="resize-y min-h-[120px]"
+                      {...field}
                       value={field.value || ""}
-                      onChange={(e) => {
-                        field.onChange(e);
-                        console.log("Description changed:", e.target.value);
-                      }}
-                      onBlur={field.onBlur}
-                      name={field.name}
-                      ref={field.ref}
                     />
                   </FormControl>
                   <FormDescription>
