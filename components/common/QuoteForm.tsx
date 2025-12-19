@@ -131,6 +131,7 @@ export default function QuoteForm({ className }: { className?: string }) {
   const watchServiceType = form.watch("serviceType");
 
   async function onSubmit(values: FormData) {
+    console.log("Form submitted with values:", values);
     setIsLoading(true);
     try {
       const response = await fetch('/api/quotes', {
@@ -140,12 +141,14 @@ export default function QuoteForm({ className }: { className?: string }) {
         },
         body: JSON.stringify({
           ...values,
-          deadline: values.deadline.toISOString(), // Format date for API
+          deadline: values.deadline ? values.deadline.toISOString() : null,
         }),
       });
 
       if (!response.ok) {
-        throw new Error('Failed to submit quote');
+        const errorText = await response.text();
+        console.error('Response not ok:', response.status, errorText);
+        throw new Error(`Failed to submit quote: ${response.status}`);
       }
 
       const result = await response.json();
@@ -153,7 +156,7 @@ export default function QuoteForm({ className }: { className?: string }) {
       setSubmittedData(values);
     } catch (error) {
       console.error("Submission error:", error);
-      // You could add a toast notification here for the error
+      alert(`Error submitting form: ${error.message}`);
     } finally {
       setIsLoading(false);
     }
@@ -734,7 +737,17 @@ export default function QuoteForm({ className }: { className?: string }) {
               </Button>
               <Button
                 type="submit"
-                disabled={isLoading}
+                disabled={isLoading || !form.formState.isValid}
+                onClick={() => {
+                  console.log('Submit button clicked!', {
+                    isValid: form.formState.isValid,
+                    errors: form.formState.errors,
+                    isLoading,
+                  });
+                  if (!form.formState.isValid) {
+                    console.log('Form is invalid:', form.formState.errors);
+                  }
+                }}
                 className="w-2/3 h-12 rounded-full bg-green-600 hover:bg-green-700 text-white shadow-lg disabled:opacity-50"
               >
                 {isLoading ? (
@@ -790,9 +803,7 @@ export default function QuoteForm({ className }: { className?: string }) {
 
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-          <fieldset disabled={isLoading} className="contents group">
-            {renderStep()}
-          </fieldset>
+          {renderStep()}
         </form>
       </Form>
     </Card>
