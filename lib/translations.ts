@@ -289,7 +289,7 @@ export const translations = {
         plans: [
           { 
             title: "STANDARD PACKAGE", 
-            price: "From €150", 
+            price: "From €25", 
             desc: "Best for single deliverables, quick turnaround, low complexity.", 
             features: [
               "Scope confirmation, one short call or chat to confirm requirements",
@@ -829,7 +829,7 @@ export const translations = {
         plans: [
           { 
             title: "PAQUETE ESTÁNDAR", 
-            price: "Desde €150", 
+            price: "Desde €25", 
             desc: "Ideal para entregables únicos, entrega rápida, baja complejidad.", 
             features: [
               "Confirmación del alcance, una llamada o chat breve para confirmar requisitos",
@@ -1369,7 +1369,7 @@ export const translations = {
         plans: [
           { 
             title: "PAQUET ESTÀNDARD", 
-            price: "Des de €150", 
+            price: "Des de €25", 
             desc: "Ideal per a lliurables únics, lliurament ràpid, baixa complexitat.", 
             features: [
               "Confirmació de l'abast, una trucada o xat breu per confirmar requisits",
