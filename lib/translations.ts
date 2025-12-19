@@ -283,12 +283,41 @@ export const translations = {
         ],
         cta: "Book a Task"
       },
-      general: {
+    general: {
         title: "Project Packages",
         subtitle: "Video, Design, Web, and AI projects.",
         plans: [
-          { title: "Basic Projects", price: "From €150", desc: "Simple tasks with clear deliverables.", features: ["Scope assessment", "Vetted freelancer", "Standard timeline", "Quality check"] },
-          { title: "Complex Projects", price: "Custom Quote", desc: "For specialized or large-scale needs.", features: ["Dedicated Project Manager", "Milestone payments", "Priority support", "Multiple revisions"] },
+          { 
+            title: "STANDARD PACKAGE", 
+            price: "From €150", 
+            desc: "Best for single deliverables, quick turnaround, low complexity.", 
+            features: [
+              "Scope confirmation, one short call or chat to confirm requirements",
+              "Assigned vetted specialist, plus one point of contact from Kazi",
+              "Standard timeline agreed upfront",
+              "Up to 2 revision rounds within scope",
+              "Quality check before delivery",
+              "Final delivery in agreed formats",
+              "Basic handover notes, what was done and how to use it",
+              "Basic support window, 7 days for minor fixes or questions"
+            ] 
+          },
+          { 
+            title: "COMPLEX PACKAGE", 
+            price: "Custom Quote", 
+            desc: "Best for multi-page websites, brand systems, long videos, or anything with multiple stakeholders.", 
+            features: [
+              "Discovery and planning, requirements doc or mini brief",
+              "Dedicated project manager, you talk to one person, not the whole team",
+              "Milestone payments, deposit then pay as we hit agreed checkpoints",
+              "Priority support, faster responses and scheduling",
+              "More revision rounds, up to 4 or agreed per milestone",
+              "Deeper QA, functional testing, mobile testing, link checks, export checks",
+              "Staged delivery, preview links and drafts at each milestone",
+              "Handover bundle, files, documentation, and next steps",
+              "Post-launch support window, 14 to 30 days for fixes depending on project type"
+            ] 
+          },
         ],
         cta: "Request Quote"
       },
@@ -779,27 +808,41 @@ export const translations = {
         note: "Sin compromiso. Tiempo de respuesta: <4 horas."
       }
     },
-    pricing: {
-      pageTitle: "Precios Transparentes",
-      pageSubtitle: "Precios fijos simples para trabajo basado en tareas y cotizaciones claras para proyectos más grandes.",
-      academic: {
-        title: "Precios por Tarea",
-        subtitle: "Precios claros basados en horas estimadas. Cubre Diseño, Web, Académico e IA.",
-        disclaimer: "Categorizamos tareas por tiempo estimado. Si una tarea excede el límite debido a la expansión del alcance, te notificaremos.",
-        disclaimerHighlight: "Términos de Pago: 50% depósito inicial, 50% al finalizar. 2 rondas de revisión incluidas estándar.",
-        tiers: [
-          { tier: "Tareas Rápidas", hours: "1 a 3 horas", price: "€25", desc: "Arreglos rápidos, diseños simples y edición básica.", examples: ["Logotipos y Tarjetas", "Arreglos Web Simples", "Corrección y Edición", "Chequeo IA/Plagio"] },
-          { tier: "Tareas Estándar", hours: "3 a 6 horas", price: "€55", desc: "Activos sociales, actualizaciones y formato de documentos.", examples: ["Gráficos Sociales", "Actualización Web Estándar", "Configuración Chatbot IA", "Formato Documento Completo"] },
-          { tier: "Proyectos Complejos", hours: "6 a 12 horas", price: "€110", desc: "Construcciones, ediciones profundas y diseño complejo.", examples: ["Construcción Web", "Diseño Gráfico Complejo", "Edición Video Largo", "Formato Académico Largo"] },
-        ],
-        cta: "Reservar Tarea"
-      },
       general: {
         title: "Paquetes de Proyecto",
-        subtitle: "Proyectos de Video, Diseño, Web e IA.",
+        subtitle: "Paquetes de Video, Diseño, Web e IA.",
         plans: [
-          { title: "Proyectos Básicos", price: "Desde €150", desc: "Tareas simples con entregables claros.", features: ["Evaluación alcance", "Freelancer verificado", "Plazo estándar", "Control calidad"] },
-          { title: "Proyectos Complejos", price: "Cotización", desc: "Para necesidades especializadas o a gran escala.", features: ["Project Manager Dedicado", "Pagos por hitos", "Soporte prioritario", "Múltiples revisiones"] },
+          { 
+            title: "PAQUETE ESTÁNDAR", 
+            price: "Desde €150", 
+            desc: "Ideal para entregables únicos, entrega rápida, baja complejidad.", 
+            features: [
+              "Confirmación del alcance, una llamada o chat breve para confirmar requisitos",
+              "Especialista verificado asignado, más un punto de contacto de Kazi",
+              "Cronograma estándar acordado por adelantado",
+              "Hasta 2 rondas de revisión dentro del alcance",
+              "Control de calidad antes de la entrega",
+              "Entrega final en los formatos acordados",
+              "Notas de entrega básicas, qué se hizo y cómo usarlo",
+              "Ventana de soporte básico, 7 días para correcciones menores o preguntas"
+            ] 
+          },
+          { 
+            title: "PAQUETE COMPLEJO", 
+            price: "Cotización Personalizada", 
+            desc: "Ideal para sitios web de varias páginas, sistemas de marca, videos largos o cualquier cosa con múltiples partes interesadas.", 
+            features: [
+              "Descubrimiento y planificación, documento de requisitos o mini brief",
+              "Gestor de proyectos dedicado, hablas con una persona, no con todo el equipo",
+              "Pagos por hitos, depósito y luego pago a medida que alcanzamos los puntos de control acordados",
+              "Soporte prioritario, respuestas y programación más rápidas",
+              "Más rondas de revisión, hasta 4 o acordadas por hito",
+              "QA más profundo, pruebas funcionales, pruebas móviles, verificación de enlaces, verificaciones de exportación",
+              "Entrega por etapas, enlaces de vista previa y borradores en cada hito",
+              "Paquete de entrega, archivos, documentación y próximos pasos",
+              "Ventana de soporte post-lanzamiento, de 14 a 30 días para correcciones según el tipo de proyecto"
+            ] 
+          },
         ],
         cta: "Pedir Presupuesto"
       },
@@ -1307,10 +1350,39 @@ export const translations = {
       },
       general: {
         title: "Paquets de Projecte",
-        subtitle: "Projectes de Vídeo, Disseny, Web i IA.",
+        subtitle: "Paquets de Vídeo, Disseny, Web i IA.",
         plans: [
-          { title: "Projectes Bàsics", price: "Des de €150", desc: "Tasques simples amb lliurables clars.", features: ["Avaluació abast", "Freelancer verificat", "Termini estàndard", "Control qualitat"] },
-          { title: "Projectes Complexos", price: "Pressupost", desc: "Per a necessitats especialitzades o a gran escala.", features: ["Project Manager Dedicat", "Pagaments per fites", "Suport prioritari", "Múltiples revisions"] },
+          { 
+            title: "PAQUET ESTÀNDARD", 
+            price: "Des de €150", 
+            desc: "Ideal per a lliurables únics, lliurament ràpid, baixa complexitat.", 
+            features: [
+              "Confirmació de l'abast, una trucada o xat breu per confirmar requisits",
+              "Especialista verificat assignat, més un punt de contacte de Kazi",
+              "Cronograma estàndard acordat per endavant",
+              "Fins a 2 rondes de revisió dins de l'abast",
+              "Control de qualitat abans del lliurament",
+              "Lliurament final en els formats acordats",
+              "Notes de lliurament bàsiques, què s'ha fet i com fer-ho servir",
+              "Finestra de suport bàsic, 7 dies per a correccions menors o preguntes"
+            ] 
+          },
+          { 
+            title: "PAQUET COMPLEX", 
+            price: "Pressupost Personalitzat", 
+            desc: "Ideal per a llocs web de diverses pàgines, sistemes de marca, vídeos llargs o qualsevol cosa amb múltiples parts interessades.", 
+            features: [
+              "Descoberta i planificació, document de requisits o mini brief",
+              "Gestor de projectes dedicat, parles amb una persona, no amb tot l'equip",
+              "Pagaments per fites, dipòsit i després pagament a mesura que assolim els punts de control acordats",
+              "Suport prioritari, respostes i programació més ràpides",
+              "Més rondes de revisió, fins a 4 o acordades per fita",
+              "QA més profund, proves funcionals, proves mòbils, verificació d'enllaços, verificacions d'exportació",
+              "Lliurament per etapes, enllaços de vista prèvia i esborranys en cada fita",
+              "Paquet de lliurament, fitxers, documentació i propers passos",
+              "Finestra de suport post-llançament, de 14 a 30 dies per a correccions segons el tipus de projecte"
+            ] 
+          },
         ],
         cta: "Demanar Pressupost"
       },
