@@ -91,7 +91,7 @@ export default function HeroSection() {
             
             <div className="relative h-[450px] md:h-[550px] w-full rounded-[2rem] overflow-hidden shadow-2xl shadow-blue-900/10 border border-white/50 bg-white transform transition-transform duration-500 hover:scale-[1.01]">
               <Image
-                src="/hero-sec.png"
+                src="/hero-section.png"
                 alt="Professional team collaboration"
                 fill
                 priority
