@@ -319,23 +319,38 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
         </div>
       </section>
 
-      {/* Bottom CTA */}
-      <section className="py-20 md:py-32 border-t border-gray-100">
+      {/* Examples of Service We Handle (Replaces CTA) */}
+      <section className="py-20 md:py-24 border-t border-gray-100 bg-gray-50">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="bg-blue-600 rounded-3xl p-10 md:p-16 text-center text-white shadow-2xl shadow-blue-200 relative overflow-hidden">
-            {/* Background pattern */}
-            <div className="absolute top-0 left-0 w-full h-full bg-[url('/grid.svg')] opacity-10" />
-            
-            <div className="relative z-10">
-                <h2 className="text-3xl md:text-5xl font-heading font-bold mb-6">{t.servicePage.cta.title}</h2>
-                <p className="text-xl md:text-2xl text-blue-100 mb-10 max-w-2xl mx-auto">
-                  {t.servicePage.cta.text}
-                </p>
-                <Button asChild className="bg-white text-blue-600 hover:bg-gray-100 rounded-full px-10 py-7 text-lg font-bold shadow-lg transform hover:scale-105 transition-transform duration-200">
-                  <Link href={service.ctaLink}>{t.servicePage.cta.button}</Link>
-                </Button>
-                <p className="mt-6 text-sm text-blue-200 opacity-80">{t.servicePage.cta.note}</p>
-            </div>
+          <h2 className="text-3xl md:text-4xl font-heading font-bold text-center mb-12 text-gray-900">
+            Examples of {name} we handle
+          </h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {deliverables.map((item: string, index: number) => (
+              <Card key={index} className="bg-white border-none shadow-md hover:shadow-xl transition-all duration-300 group">
+                <CardHeader className="flex flex-row items-start space-y-0 p-6">
+                  <div className="bg-blue-50 text-blue-600 rounded-xl p-3 mr-4 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
+                    <Check className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <CardTitle className="text-lg font-bold text-gray-900 mb-2 leading-tight group-hover:text-blue-600 transition-colors">
+                      {item}
+                    </CardTitle>
+                    <p className="text-sm text-gray-500 font-medium">Professional Delivery</p>
+                  </div>
+                </CardHeader>
+              </Card>
+            ))}
+          </div>
+
+          <div className="mt-16 text-center">
+             <Button asChild className="rounded-full px-10 py-7 text-lg bg-blue-600 hover:bg-blue-700 shadow-lg shadow-blue-200 transform hover:scale-105 transition-transform">
+                <Link href={service.ctaLink}>{t.servicePage.startProject}</Link>
+             </Button>
+             <p className="mt-4 text-sm text-gray-400 font-medium">
+               {t.servicePage.cta.note}
+             </p>
           </div>
         </div>
       </section>
