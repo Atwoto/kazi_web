@@ -708,17 +708,27 @@ export default function QuoteForm({ className }: { className?: string }) {
               control={form.control}
               name="consent"
               render={({ field }) => (
-                <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-lg border p-4 shadow-sm bg-gray-50">
+                <FormItem className={cn(
+                  "flex flex-row items-start space-x-3 space-y-0 rounded-lg border p-4 shadow-sm transition-all",
+                  field.value ? "bg-green-50 border-green-200" : "bg-gray-50 border-gray-200"
+                )}>
                   <FormControl>
                     <Checkbox
                       checked={field.value}
                       onCheckedChange={field.onChange}
+                      className="mt-1"
                     />
                   </FormControl>
                   <div className="space-y-1 leading-none">
-                    <FormLabel className="text-gray-700">
-                      {t.forms.labels.consent}
+                    <FormLabel className={cn(
+                      "text-gray-700 font-medium",
+                      !field.value && "text-red-600"
+                    )}>
+                      {t.forms.labels.consent} {!field.value && <span className="text-red-500">*</span>}
                     </FormLabel>
+                    <p className="text-xs text-gray-500">
+                      You must agree to the terms to submit your request
+                    </p>
                     <FormMessage />
                   </div>
                 </FormItem>
@@ -735,32 +745,39 @@ export default function QuoteForm({ className }: { className?: string }) {
               >
                 <ChevronLeft className="mr-2 w-4 h-4" /> {t.forms.buttons.back}
               </Button>
-              <Button
-                type="submit"
-                disabled={isLoading || !form.formState.isValid}
-                onClick={() => {
-                  console.log('Submit button clicked!', {
-                    isValid: form.formState.isValid,
-                    errors: form.formState.errors,
-                    isLoading,
-                  });
-                  if (!form.formState.isValid) {
-                    console.log('Form is invalid:', form.formState.errors);
-                  }
-                }}
-                className="w-2/3 h-12 rounded-full bg-green-600 hover:bg-green-700 text-white shadow-lg disabled:opacity-50"
-              >
-                {isLoading ? (
-                  <>
-                    <Loader2 className="mr-2 w-4 h-4 animate-spin" />
-                    {t.forms.buttons.submitting}
-                  </>
-                ) : (
-                  <>
-                    {t.forms.buttons.submit} <Check className="ml-2 w-4 h-4" />
-                  </>
+              <div className="w-2/3 relative">
+                {!form.formState.isValid && (
+                  <div className="absolute -top-8 left-0 right-0 text-xs text-red-600 text-center font-medium">
+                    Please check the consent box to enable submit
+                  </div>
                 )}
-              </Button>
+                <Button
+                  type="submit"
+                  disabled={isLoading || !form.formState.isValid}
+                  onClick={() => {
+                    console.log('Submit button clicked!', {
+                      isValid: form.formState.isValid,
+                      errors: form.formState.errors,
+                      isLoading,
+                    });
+                    if (!form.formState.isValid) {
+                      console.log('Form is invalid:', form.formState.errors);
+                    }
+                  }}
+                  className="w-full h-12 rounded-full bg-green-600 hover:bg-green-700 text-white shadow-lg disabled:opacity-50"
+                >
+                  {isLoading ? (
+                    <>
+                      <Loader2 className="mr-2 w-4 h-4 animate-spin" />
+                      {t.forms.buttons.submitting}
+                    </>
+                  ) : (
+                    <>
+                      {t.forms.buttons.submit} <Check className="ml-2 w-4 h-4" />
+                    </>
+                  )}
+                </Button>
+              </div>
             </div>
           </div>
         );
