@@ -1,12 +1,9 @@
 import type { Metadata } from "next";
-import { Quicksand, Inter } from "next/font/google"; // Import Quicksand for headings, Inter as a placeholder for Satoshi
+import { Quicksand, Inter } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/layout/Navbar"; // Import the Navbar component
-import Footer from "@/components/layout/Footer"; // Import the Footer component
-import WhatsAppButton from "@/components/common/WhatsAppButton"; // Import WhatsAppButton
-import AIAssistantWidget from "@/components/common/AIAssistantWidget"; // Import AIAssistantWidget
-import { LanguageProvider } from "@/context/LanguageContext"; // Import LanguageProvider
-import Analytics from "@/components/common/Analytics"; // Import Analytics component
+import LayoutWrapper from "@/components/layout/LayoutWrapper";
+import { LanguageProvider } from "@/context/LanguageContext";
+import Analytics from "@/components/common/Analytics";
 import { defaultSEO } from "@/lib/seo";
 
 // Define Quicksand for headings
@@ -60,11 +57,7 @@ export default function RootLayout({
       <body className={`${quicksand.variable} ${inter.variable} flex flex-col min-h-screen`}>
         <Analytics />
         <LanguageProvider>
-          <Navbar /> {/* Render the Navbar */}
-          <main className="flex-grow">{children}</main> {/* Main content area */}
-          <Footer /> {/* Render the Footer */}
-          <WhatsAppButton />
-          <AIAssistantWidget />
+          <LayoutWrapper>{children}</LayoutWrapper>
         </LanguageProvider>
       </body>
     </html>
