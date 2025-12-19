@@ -357,11 +357,20 @@ export default function QuoteForm({ className }: { className?: string }) {
         );
 
       case 1:
+        const currentValues = form.getValues();
+        console.log("Step 1 - Current form values:", currentValues);
         return (
           <div className="space-y-6 animate-in fade-in slide-in-from-right-4 duration-300">
             <div className="space-y-2">
               <h3 className="text-xl text-gray-900 font-semibold">{t.forms.steps.details}</h3>
               <p className="text-sm text-gray-500">Tell us more about your project</p>
+            </div>
+
+            {/* Debug info - remove in production */}
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 text-xs">
+              <p className="font-bold text-blue-800">Debug Info:</p>
+              <p>Description: "{currentValues.description || 'EMPTY'}"</p>
+              <p>Service Type: {currentValues.serviceType || 'NOT SET'}</p>
             </div>
 
             {watchServiceType === "Academic Support" && (
@@ -554,14 +563,24 @@ export default function QuoteForm({ className }: { className?: string }) {
               name="description"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>{t.forms.labels.description}</FormLabel>
+                  <FormLabel>{t.forms.labels.description} *</FormLabel>
                   <FormControl>
                     <Textarea
                       placeholder={t.forms.placeholders.description}
                       className="resize-y min-h-[120px]"
-                      {...field}
+                      value={field.value || ""}
+                      onChange={(e) => {
+                        field.onChange(e);
+                        console.log("Description changed:", e.target.value);
+                      }}
+                      onBlur={field.onBlur}
+                      name={field.name}
+                      ref={field.ref}
                     />
                   </FormControl>
+                  <FormDescription>
+                    Please provide at least 10 characters describing your project
+                  </FormDescription>
                   <FormMessage />
                 </FormItem>
               )}
