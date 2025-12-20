@@ -14,7 +14,7 @@ export default function ContactContent() {
       <div className="flex flex-col lg:flex-row min-h-[calc(100vh-6rem)]">
         
         {/* Left Side: Value Props (Fixed Sidebar on Desktop) */}
-        <div className="lg:w-5/12 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white p-8 lg:p-16 flex flex-col justify-center relative overflow-hidden order-first">
+        <div className="lg:w-5/12 bg-gradient-to-br from-slate-900 via-blue-600 to-slate-900 text-white p-8 lg:p-16 flex flex-col justify-center relative overflow-hidden order-first">
            
            {/* Abstract Glow Effects */}
            <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-blue-600/20 rounded-full blur-[100px] pointer-events-none" />

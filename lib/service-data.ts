@@ -118,18 +118,7 @@ export const servicesData: Service[] = [
     heroImage: "/photo.jpg",
     ctaLink: "/pricing",
     deliverables: ["High-End Retouching", "E-commerce Standardization", "Color Correction", "Compositing"],
-    examples: [
-      {
-        title: "E-commerce Product Suite",
-        description: "Background removal and color correction for a catalog of 500+ items.",
-        imageUrl: "/file.svg",
-      },
-      {
-        title: "Real Estate Enhancement",
-        description: "HDR blending and sky replacement for luxury property listings.",
-        imageUrl: "/file.svg",
-      },
-    ],
+    examples: [],
     process: [
       { step: "Upload", description: "Submit your images and style guidelines." },
       { step: "Retouching", description: "Our team processes the images to your specifications." },

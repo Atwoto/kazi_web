@@ -80,24 +80,24 @@ export default function HeroSection() {
               />
 
               {/* Floating Trust Badge - Top Right */}
-              <div className="absolute top-4 right-4 md:top-6 md:right-6 bg-white/90 backdrop-blur-md p-2 pr-4 md:p-3 md:pr-5 rounded-xl md:rounded-2xl shadow-xl border border-white/50 flex items-center gap-2 md:gap-3 animate-in fade-in slide-in-from-top-4 duration-1000 delay-300">
-                <div className="h-8 w-8 md:h-10 md:w-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
-                  <Briefcase className="w-4 h-4 md:w-5 md:h-5" />
+              <div className="absolute top-4 right-4 md:top-6 md:right-6 bg-white/90 backdrop-blur-md p-1.5 pr-3 md:p-2 md:pr-4 rounded-xl md:rounded-2xl shadow-xl border border-white/50 flex items-center gap-1.5 md:gap-2 animate-in fade-in slide-in-from-top-4 duration-1000 delay-300">
+                <div className="h-6 w-6 md:h-8 md:w-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
+                  <Briefcase className="w-3 h-3 md:w-4 md:h-4" />
                 </div>
                 <div>
-                  <p className="font-bold text-slate-900 text-sm md:text-base leading-tight">European PM</p>
-                  <p className="text-[10px] md:text-xs font-semibold text-slate-500 uppercase tracking-wide mt-0.5">Project Management</p>
+                  <p className="font-bold text-slate-900 text-xs md:text-sm leading-tight">European PM</p>
+                  <p className="text-[9px] md:text-[10px] font-semibold text-slate-500 uppercase tracking-wide mt-0.5">Project Management</p>
                 </div>
               </div>
 
               {/* Floating Trust Badge - Bottom Left */}
-              <div className="absolute bottom-4 left-4 md:bottom-6 md:left-6 bg-white/90 backdrop-blur-md p-2 pr-4 md:p-3 md:pr-5 rounded-xl md:rounded-2xl shadow-xl border border-white/50 flex items-center gap-2 md:gap-3 animate-in fade-in slide-in-from-bottom-4 duration-1000">
-                <div className="h-8 w-8 md:h-10 md:w-10 rounded-full bg-green-100 flex items-center justify-center text-green-600">
-                  <CheckCircle2 className="w-4 h-4 md:w-5 md:h-5" />
+              <div className="absolute bottom-4 left-4 md:bottom-6 md:left-6 bg-white/90 backdrop-blur-md p-1.5 pr-3 md:p-2 md:pr-4 rounded-xl md:rounded-2xl shadow-xl border border-white/50 flex items-center gap-1.5 md:gap-2 animate-in fade-in slide-in-from-bottom-4 duration-1000">
+                <div className="h-6 w-6 md:h-8 md:w-8 rounded-full bg-green-100 flex items-center justify-center text-green-600">
+                  <CheckCircle2 className="w-3 h-3 md:w-4 md:h-4" />
                 </div>
                 <div>
-                  <p className="font-bold text-slate-900 text-sm md:text-base leading-tight">24h Response</p>
-                  <p className="text-[10px] md:text-xs font-semibold text-slate-500 uppercase tracking-wide mt-0.5">Business Days</p>
+                  <p className="font-bold text-slate-900 text-xs md:text-sm leading-tight">24h Response</p>
+                  <p className="text-[9px] md:text-[10px] font-semibold text-slate-500 uppercase tracking-wide mt-0.5">Business Days</p>
                 </div>
               </div>
             </div>
