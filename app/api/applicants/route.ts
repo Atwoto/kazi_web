@@ -94,7 +94,7 @@ export async function POST(request: Request) {
     if (process.env.RESEND_API_KEY) {
       try {
         await resend.emails.send({
-          from: 'Kazi Agency <notifications@kaziagency.es>',
+          from: 'Kazi Agency <hello@kaziagency.es>',
           to: email,
           subject: 'We received your application',
           html: `
@@ -135,7 +135,7 @@ export async function POST(request: Request) {
     if (adminEmail && process.env.RESEND_API_KEY) {
       try {
         await resend.emails.send({
-          from: 'Kazi Agency <notifications@kaziagency.es>',
+          from: 'Kazi Agency <hello@kaziagency.es>',
           to: adminEmail,
           subject: `New Application: ${role} - ${fullName}`,
           html: `

@@ -33,22 +33,59 @@ export async function POST(request: Request) {
     // 2. Send Admin Notification Email
     const adminEmail = process.env.ADMIN_EMAIL;
     if (adminEmail && process.env.RESEND_API_KEY) {
-      await resend.emails.send({
-        from: 'Kazi Contact <notifications@resend.dev>',
-        to: adminEmail,
-        subject: `New Contact Message: ${subject || 'No Subject'} from ${name}`,
-        html: `
-          <h1>New Message Received</h1>
-          <p><strong>Name:</strong> ${name}</p>
-          <p><strong>Email:</strong> ${email}</p>
-          <p><strong>Subject:</strong> ${subject || 'N/A'}</p>
-          <p><strong>Message:</strong></p>
-          <p>${message}</p>
-          <br/>
-          <hr/>
-          <p>Manage messages in your <a href="${process.env.NEXT_PUBLIC_SITE_URL || ''}/admin">Admin Panel</a></p>
-        `,
-      });
+      try {
+        await resend.emails.send({
+          from: 'Kazi Agency <hello@kaziagency.es>',
+          to: adminEmail,
+          subject: `New Contact Message: ${subject || 'No Subject'} from ${name}`,
+          html: `
+            <!DOCTYPE html>
+            <html>
+            <head>
+              <meta charset="utf-8">
+            </head>
+            <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px;">
+              <div style="background: #1e293b; padding: 20px 30px; border-radius: 12px 12px 0 0;">
+                <h1 style="color: white; margin: 0; font-size: 20px;">New Contact Message</h1>
+              </div>
+              <div style="background: #f8fafc; padding: 30px; border-radius: 0 0 12px 12px; border: 1px solid #e2e8f0; border-top: none;">
+                <table style="width: 100%; border-collapse: collapse;">
+                  <tr>
+                    <td style="padding: 10px 0; border-bottom: 1px solid #e2e8f0;">
+                      <strong style="color: #64748b; font-size: 12px; uppercase;">From</strong><br/>
+                      <span style="font-size: 16px; font-weight: 600;">${name}</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 10px 0; border-bottom: 1px solid #e2e8f0;">
+                      <strong style="color: #64748b; font-size: 12px; uppercase;">Email</strong><br/>
+                      <a href="mailto:${email}" style="color: #2563eb; text-decoration: none;">${email}</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 10px 0; border-bottom: 1px solid #e2e8f0;">
+                      <strong style="color: #64748b; font-size: 12px; uppercase;">Subject</strong><br/>
+                      <span>${subject || 'No Subject'}</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 10px 0;">
+                      <strong style="color: #64748b; font-size: 12px; uppercase;">Message</strong><br/>
+                      <p style="margin: 5px 0; white-space: pre-wrap;">${message}</p>
+                    </td>
+                  </tr>
+                </table>
+                <div style="margin-top: 30px; text-align: center;">
+                  <a href="${process.env.NEXT_PUBLIC_SITE_URL || ''}/admin/messages" style="background: #1e293b; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; display: inline-block;">View in Admin Panel</a>
+                </div>
+              </div>
+            </body>
+            </html>
+          `,
+        });
+      } catch (emailError) {
+        console.error('Failed to send contact notification email:', emailError);
+      }
     }
 
     return NextResponse.json({ success: true, data });

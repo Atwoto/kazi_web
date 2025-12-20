@@ -54,6 +54,10 @@ const config: Config = {
         heading: ["var(--font-quicksand)"],
       },
       keyframes: {
+        shimmer: {
+          "0%": { backgroundPosition: "0% 50%" },
+          "100%": { backgroundPosition: "200% 50%" },
+        },
         marquee: {
           from: { transform: "translateX(0)" },
           to: { transform: "translateX(-50%)" },
@@ -68,6 +72,7 @@ const config: Config = {
         },
       },
       animation: {
+        shimmer: "shimmer 3s linear infinite",
         marquee: "marquee 20s linear infinite",
         "scroll-left": "scroll-left 40s linear infinite",
         "scroll-right": "scroll-right 50s linear infinite",

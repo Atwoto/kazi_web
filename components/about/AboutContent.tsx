@@ -64,12 +64,13 @@ export default function AboutContent() {
               </ScrollAnimation>
             </div>
             <ScrollAnimation animation="fade-left" delay={200}>
-              <div className="relative h-[500px] rounded-3xl overflow-hidden shadow-2xl">
+              <div className="relative h-[500px] rounded-3xl overflow-hidden shadow-2xl group cursor-pointer">
+                 <div className="absolute inset-0 bg-blue-900/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
                  <Image
                    src="/about.jpg"
                    alt="Kazi Agency Management Team"
                    fill
-                   className="object-cover"
+                   className="object-cover transform transition-transform duration-1000 group-hover:scale-110"
                  />
               </div>
             </ScrollAnimation>

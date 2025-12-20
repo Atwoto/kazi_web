@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import ScrollAnimation from "@/components/common/ScrollAnimation";
+import ShimmerText from "@/components/common/ShimmerText";
 import { useLanguage } from "@/context/LanguageContext";
 import { ArrowRight, CheckCircle2, Briefcase } from "lucide-react";
 
@@ -38,9 +39,9 @@ export default function HeroSection() {
             <ScrollAnimation animation="fade-up" delay={200}>
               <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-heading font-bold text-slate-900 leading-[1.05] tracking-tight">
                 {t.hero.titleLg} <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
+                <ShimmerText>
                   {t.hero.titleSm}
-                </span>
+                </ShimmerText>
               </h1>
             </ScrollAnimation>
             
@@ -67,11 +68,11 @@ export default function HeroSection() {
             
           {/* Right Column: Hero Image */}
           <ScrollAnimation animation="zoom-in" delay={500} duration={800}>
-            <div className="relative group perspective-1000">
+            <div className="relative group perspective-1000 cursor-pointer">
               {/* Glow Effect */}
-              <div className="absolute -inset-4 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-[2.5rem] blur-2xl opacity-20 group-hover:opacity-30 transition-opacity duration-500" />
+              <div className="absolute -inset-4 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-[2.5rem] blur-2xl opacity-20 group-hover:opacity-40 transition-opacity duration-500" />
               
-              <div className="relative h-[300px] md:h-[380px] lg:h-[450px] w-full rounded-[2rem] overflow-hidden shadow-2xl shadow-blue-900/10 border border-white/50 bg-white transform transition-transform duration-500 hover:scale-[1.01]">
+              <div className="relative h-[300px] md:h-[380px] lg:h-[450px] w-full rounded-[2rem] overflow-hidden shadow-2xl shadow-blue-900/10 border border-white/50 bg-white transform transition-all duration-700 group-hover:scale-[1.02] group-hover:rotate-1">
                 <Image
                   src="/hero.jpg"
                   alt="Professional team collaboration"
@@ -79,11 +80,14 @@ export default function HeroSection() {
                   priority={true}
                   quality={90}
                   sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover object-center"
+                  className="object-cover object-center transform transition-transform duration-700 group-hover:scale-110"
                 />
+                
+                {/* Shine effect overlay */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/10 to-white/0 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
                 {/* Floating Trust Badge - Top Right */}
-                <div className="absolute top-4 right-4 md:top-6 md:right-6 bg-white/90 backdrop-blur-md p-1.5 pr-3 md:p-2 md:pr-4 rounded-xl md:rounded-2xl shadow-xl border border-white/50 flex items-center gap-1.5 md:gap-2">
+                <div className="absolute top-4 right-4 md:top-6 md:right-6 bg-white/90 backdrop-blur-md p-1.5 pr-3 md:p-2 md:pr-4 rounded-xl md:rounded-2xl shadow-xl border border-white/50 flex items-center gap-1.5 md:gap-2 z-20 transition-transform duration-500 group-hover:translate-x-2 group-hover:-translate-y-2">
                   <div className="h-6 w-6 md:h-8 md:w-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
                     <Briefcase className="w-3 h-3 md:w-4 md:h-4" />
                   </div>
@@ -94,7 +98,7 @@ export default function HeroSection() {
                 </div>
 
                 {/* Floating Trust Badge - Bottom Left */}
-                <div className="absolute bottom-4 left-4 md:bottom-6 md:left-6 bg-white/90 backdrop-blur-md p-1.5 pr-3 md:p-2 md:pr-4 rounded-xl md:rounded-2xl shadow-xl border border-white/50 flex items-center gap-1.5 md:gap-2">
+                <div className="absolute bottom-4 left-4 md:bottom-6 md:left-6 bg-white/90 backdrop-blur-md p-1.5 pr-3 md:p-2 md:pr-4 rounded-xl md:rounded-2xl shadow-xl border border-white/50 flex items-center gap-1.5 md:gap-2 z-20 transition-transform duration-500 group-hover:-translate-x-2 group-hover:translate-y-2">
                   <div className="h-6 w-6 md:h-8 md:w-8 rounded-full bg-green-100 flex items-center justify-center text-green-600">
                     <CheckCircle2 className="w-3 h-3 md:w-4 md:h-4" />
                   </div>
