@@ -1,6 +1,7 @@
 "use client";
 
-import { ReactNode } from "react";
+import { ReactNode, Children, isValidElement } from "react";
+import { TableHead } from "@/components/ui/table";
 
 interface ResponsiveTableProps {
   headers: { label: string; key: string }[];
@@ -38,6 +39,15 @@ function TableBody({ children }: { children: ReactNode }) {
 }
 
 function TableRow({ children, className = "" }: { children: ReactNode; className?: string }) {
+  // Filter out TableHead components for mobile view
+  const mobileChildren = Children.toArray(children).filter((child) => {
+    if (isValidElement(child)) {
+      // Check if it's a TableHead component by checking the displayName or type
+      return child.type !== TableHead;
+    }
+    return true;
+  });
+
   return (
     <>
       {/* Desktop Row */}
@@ -45,11 +55,11 @@ function TableRow({ children, className = "" }: { children: ReactNode; className
         {children}
       </tr>
 
-      {/* Mobile Card */}
+      {/* Mobile Card - Only render non-TableHead children */}
       <tr className="lg:hidden">
         <td colSpan={12} className="p-0">
           <div className="bg-white rounded-lg shadow-sm border border-slate-200 p-4 space-y-3">
-            {children}
+            {mobileChildren}
           </div>
         </td>
       </tr>

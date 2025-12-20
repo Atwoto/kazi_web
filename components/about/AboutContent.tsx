@@ -97,7 +97,7 @@ export default function AboutContent() {
             {t.about.cta.subtitle}
           </p>
           <Button asChild className="bg-white text-blue-600 hover:bg-gray-100 rounded-full px-10 py-7 text-lg font-bold shadow-lg">
-            <Link href="/contact">{t.about.cta.button}</Link>
+            <Link href="/pricing">{t.about.cta.button}</Link>
           </Button>
         </div>
       </section>

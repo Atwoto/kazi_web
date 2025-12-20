@@ -19,7 +19,7 @@ export const servicesData: Service[] = [
     name: "Web Development",
     oneLiner: "Enterprise-grade websites and platforms, delivered fully managed.",
     heroImage: "/web.png",
-    ctaLink: "/contact",
+    ctaLink: "/pricing",
     deliverables: [
       "Custom UI/UX Design",
       "Full-Stack Development (React/Next.js)",
@@ -72,7 +72,7 @@ export const servicesData: Service[] = [
     name: "Graphic Design",
     oneLiner: "Strategic visual identity and marketing assets for your brand.",
     heroImage: "/graphics.jpg",
-    ctaLink: "/contact",
+    ctaLink: "/pricing",
     deliverables: ["Brand Strategy & Identity", "Marketing Collateral", "Social Media Suites", "Presentation Design"],
     examples: [],
     process: [
@@ -94,7 +94,7 @@ export const servicesData: Service[] = [
     name: "Video Production",
     oneLiner: "Post-production services for high-impact visual storytelling.",
     heroImage: "/video.jpg",
-    ctaLink: "/contact",
+    ctaLink: "/pricing",
     deliverables: ["Corporate Explainers", "Social Media Reels", "Ads & Promos", "Full Post-Production"],
     examples: [],
     process: [
@@ -116,7 +116,7 @@ export const servicesData: Service[] = [
     name: "Image Retouching",
     oneLiner: "High-volume, high-quality retouching for e-commerce and media.",
     heroImage: "/photo.jpg",
-    ctaLink: "/contact",
+    ctaLink: "/pricing",
     deliverables: ["High-End Retouching", "E-commerce Standardization", "Color Correction", "Compositing"],
     examples: [
       {
@@ -148,7 +148,7 @@ export const servicesData: Service[] = [
     name: "AI Solutions",
     oneLiner: "Implementing practical AI workflows to future-proof your business.",
     heroImage: "/AI.jpg",
-    ctaLink: "/contact",
+    ctaLink: "/pricing",
     deliverables: ["Workflow Automation", "Custom Chatbot Integration", "Data Analysis Models", "Process Optimization"],
     examples: [
       {
@@ -195,7 +195,7 @@ export const servicesData: Service[] = [
     name: "Academic Editing",
     oneLiner: "Professional editing and coaching for academic excellence.",
     heroImage: "/academics.jpg",
-    ctaLink: "/contact",
+    ctaLink: "/pricing",
     deliverables: ["Dissertation Proofreading", "Style Guide Formatting", "Structure & Flow Analysis", "Citation Compliance"],
     examples: [
       {

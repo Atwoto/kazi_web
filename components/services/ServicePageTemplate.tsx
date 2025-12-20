@@ -281,7 +281,7 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
                     <div className="text-center py-16 bg-gray-50 rounded-3xl border-2 border-dashed border-gray-200">
                        <p className="text-gray-500 text-lg mb-4">{t.servicePage.portfolioPlaceholder}</p>
                        <Button variant="outline" className="rounded-full" asChild>
-                         <Link href="/contact">{t.servicePage.requestSamples}</Link>
+                         <Link href="/pricing">{t.servicePage.requestSamples}</Link>
                        </Button>
                     </div>
                  )}

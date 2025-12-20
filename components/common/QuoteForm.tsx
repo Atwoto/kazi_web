@@ -60,12 +60,12 @@ export default function QuoteForm({ className }: { className?: string }) {
 
   const formSchema = z.object({
     serviceType: z.enum(serviceTypes),
-    deadline: z.date({ required_error: t.forms.validation.required }),
+    deadline: z.date(),
     budgetRange: z.enum(budgetRanges),
     priority: z.enum(priorities),
     
     // Step 2: Specifics + Description
-    description: z.string().optional(),
+    description: z.string().min(10, { message: "Description must be at least 10 characters" }),
     
     // Academic
     documentType: z.string().optional(),
@@ -191,7 +191,7 @@ export default function QuoteForm({ className }: { className?: string }) {
         const basic: (keyof FormData)[] = ["description"];
         const service = form.getValues("serviceType");
         if (service === "Academic Support") return [...basic, "documentType", "wordCount", "language", "level", "helpType"];
-        if (service === "Graphic Design") return [...basic, "designType", "deliverables", "examplesLink"];
+        if (service === "Photo Editing") return [...basic, "designType", "deliverables", "examplesLink"];
         if (service === "Web Design & Development") return [...basic, "projectType", "currentWebsite", "domainHosting", "pagesNeeded"];
         return basic;
       case 2: return ["name", "email", "whatsapp", "country", "timezone", "howDidYouHear"];
@@ -223,14 +223,14 @@ export default function QuoteForm({ className }: { className?: string }) {
   }
 
   const renderStep = () => {
-    switch (currentStep) {
-      case 0:
-        return (
-          <div className="space-y-6">
-            <div className="space-y-2">
-              <h3 className="text-xl font-semibold text-slate-900">{t.forms.steps.basics}</h3>
-              <p className="text-sm text-slate-500">Let&apos;s start with the basics</p>
-            </div>
+    return (
+      <>
+        {/* Step 0: Basics */}
+        <div className={cn("space-y-6", currentStep !== 0 && "hidden")}>
+          <div className="space-y-2">
+            <h3 className="text-xl font-semibold text-slate-900">{t.forms.steps.basics}</h3>
+            <p className="text-sm text-slate-500">Let&apos;s start with the basics</p>
+          </div>
 
             <FormField
               control={form.control}
@@ -324,27 +324,25 @@ export default function QuoteForm({ className }: { className?: string }) {
               />
             </div>
 
-            <Button
-              type="button"
-              onClick={nextStep}
-              disabled={!watchServiceType}
-              className="w-full h-12 rounded-full bg-blue-600 hover:bg-blue-700"
-            >
-              {t.forms.buttons.next} <ChevronRight className="ml-2 w-4 h-4" />
-            </Button>
+          <Button
+            type="button"
+            onClick={nextStep}
+            disabled={!watchServiceType}
+            className="w-full h-12 rounded-full bg-blue-600 hover:bg-blue-700"
+          >
+            {t.forms.buttons.next} <ChevronRight className="ml-2 w-4 h-4" />
+          </Button>
+        </div>
+
+        {/* Step 1: Details */}
+        <div className={cn("space-y-6", currentStep !== 1 && "hidden")}>
+          <div className="space-y-2">
+            <h3 className="text-xl font-semibold text-slate-900">{t.forms.steps.details}</h3>
+            <p className="text-sm text-slate-500">Tell us more about your project</p>
           </div>
-        );
 
-      case 1:
-        return (
-          <div className="space-y-6">
-            <div className="space-y-2">
-              <h3 className="text-xl font-semibold text-slate-900">{t.forms.steps.details}</h3>
-              <p className="text-sm text-slate-500">Tell us more about your project</p>
-            </div>
-
-            {watchServiceType === "Academic Support" && (
-              <div className="space-y-4">
+          {watchServiceType === "Academic Support" && (
+            <div className="space-y-4">
                 <FormField
                   control={form.control}
                   name="documentType"
@@ -417,11 +415,11 @@ export default function QuoteForm({ className }: { className?: string }) {
                     </FormItem>
                   )}
                 />
-              </div>
-            )}
+            </div>
+          )}
 
-            {watchServiceType === "Graphic Design" && (
-              <div className="space-y-4">
+          {watchServiceType === "Photo Editing" && (
+            <div className="space-y-4">
                 <FormField
                   control={form.control}
                   name="designType"
@@ -462,11 +460,11 @@ export default function QuoteForm({ className }: { className?: string }) {
                     </FormItem>
                   )}
                 />
-              </div>
-            )}
+            </div>
+          )}
 
-            {watchServiceType === "Web Design & Development" && (
-              <div className="space-y-4">
+          {watchServiceType === "Web Design & Development" && (
+            <div className="space-y-4">
                 <FormField
                   control={form.control}
                   name="projectType"
@@ -525,10 +523,10 @@ export default function QuoteForm({ className }: { className?: string }) {
                     )}
                   />
                 </div>
-              </div>
-            )}
+            </div>
+          )}
 
-            <FormField
+          <FormField
               control={form.control}
               name="description"
               render={({ field }) => (
@@ -537,8 +535,8 @@ export default function QuoteForm({ className }: { className?: string }) {
                   <FormControl>
                     <Textarea
                       className="resize-y min-h-[120px] border-slate-300"
+                      placeholder="Describe your project in detail..."
                       {...field}
-                      value={field.value || ""}
                     />
                   </FormControl>
                   <FormDescription>
@@ -549,126 +547,65 @@ export default function QuoteForm({ className }: { className?: string }) {
               )}
             />
 
-            <div className="flex gap-4 mt-6">
-              <Button
-                type="button"
-                variant="outline"
-                onClick={prevStep}
-                disabled={isLoading}
-                className="w-1/3 h-12 rounded-full border-gray-200 disabled:opacity-50"
-              >
-                <ChevronLeft className="mr-2 w-4 h-4" /> {t.forms.buttons.back}
-              </Button>
-              <Button
-                type="button"
-                onClick={nextStep}
-                disabled={isLoading}
-                className="w-2/3 h-12 bg-blue-600 hover:bg-blue-700 text-white disabled:opacity-50"
-              >
-                {t.forms.buttons.next} <ChevronRight className="ml-2 w-4 h-4" />
-              </Button>
-            </div>
+          <div className="flex gap-4 mt-6">
+            <Button
+              type="button"
+              variant="outline"
+              onClick={prevStep}
+              disabled={isLoading}
+              className="w-1/3 h-12 rounded-full border-gray-200 disabled:opacity-50"
+            >
+              <ChevronLeft className="mr-2 w-4 h-4" /> {t.forms.buttons.back}
+            </Button>
+            <Button
+              type="button"
+              onClick={nextStep}
+              disabled={isLoading}
+              className="w-2/3 h-12 bg-blue-600 hover:bg-blue-700 text-white disabled:opacity-50"
+            >
+              {t.forms.buttons.next} <ChevronRight className="ml-2 w-4 h-4" />
+            </Button>
           </div>
-        );
+        </div>
 
-      case 2:
-        return (
-          <div className="space-y-6">
-            <div className="space-y-2">
-              <h3 className="text-xl font-semibold text-slate-900">{t.forms.steps.upload}</h3>
-              <p className="text-sm text-slate-500">Upload files and provide contact details</p>
-            </div>
+        {/* Step 2: Upload & Contact */}
+        <div className={cn("space-y-6", currentStep !== 2 && "hidden")}>
+          <div className="space-y-2">
+            <h3 className="text-xl font-semibold text-slate-900">{t.forms.steps.upload}</h3>
+            <p className="text-sm text-slate-500">Upload files and provide contact details</p>
+          </div>
 
+          <FormField
+            control={form.control}
+            name="fileUpload"
+            render={({ field: { value, onChange, ...fieldProps } }) => (
+              <FormItem>
+                <FormLabel>{t.forms.labels.upload}</FormLabel>
+                <FormControl>
+                  <Input
+                    {...fieldProps}
+                    type="file"
+                    className="h-12 pt-2"
+                    onChange={(event) => {
+                      onChange(event.target.files && event.target.files[0]);
+                    }}
+                  />
+                </FormControl>
+                <FormDescription>
+                  Upload any relevant files (max 5MB)
+                </FormDescription>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <FormField
               control={form.control}
-              name="fileUpload"
-              render={({ field: { value, onChange, ...fieldProps } }) => (
-                <FormItem>
-                  <FormLabel>{t.forms.labels.upload}</FormLabel>
-                  <FormControl>
-                    <Input
-                      {...fieldProps}
-                      type="file"
-                      className="h-12 pt-2"
-                      onChange={(event) => {
-                        onChange(event.target.files && event.target.files[0]);
-                      }}
-                    />
-                  </FormControl>
-                  <FormDescription>
-                    Upload any relevant files (max 5MB)
-                  </FormDescription>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <FormField
-                control={form.control}
-                name="name"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>{t.forms.labels.name} *</FormLabel>
-                    <FormControl>
-                      <Input {...field} className="h-12 border-slate-300" />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-
-              <FormField
-                control={form.control}
-                name="email"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>{t.forms.labels.email} *</FormLabel>
-                    <FormControl>
-                      <Input type="email" placeholder={t.forms.placeholders.email} {...field} className="h-12" />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <FormField
-                control={form.control}
-                name="whatsapp"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>{t.forms.labels.whatsapp}</FormLabel>
-                    <FormControl>
-                      <Input {...field} className="h-12 border-slate-300" />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-
-              <FormField
-                control={form.control}
-                name="country"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>{t.forms.labels.country}</FormLabel>
-                    <FormControl>
-                      <Input {...field} className="h-12 border-slate-300" />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-            </div>
-
-            <FormField
-              control={form.control}
-              name="timezone"
+              name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>{t.forms.labels.timeZone}</FormLabel>
+                  <FormLabel>{t.forms.labels.name} *</FormLabel>
                   <FormControl>
                     <Input {...field} className="h-12 border-slate-300" />
                   </FormControl>
@@ -679,10 +616,26 @@ export default function QuoteForm({ className }: { className?: string }) {
 
             <FormField
               control={form.control}
-              name="howDidYouHear"
+              name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>{t.forms.labels.howHear}</FormLabel>
+                  <FormLabel>{t.forms.labels.email} *</FormLabel>
+                  <FormControl>
+                    <Input type="email" placeholder={t.forms.placeholders.email} {...field} className="h-12" />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <FormField
+              control={form.control}
+              name="whatsapp"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>{t.forms.labels.whatsapp}</FormLabel>
                   <FormControl>
                     <Input {...field} className="h-12 border-slate-300" />
                   </FormControl>
@@ -691,127 +644,172 @@ export default function QuoteForm({ className }: { className?: string }) {
               )}
             />
 
-            <div className="flex gap-4 mt-6">
-              <Button
-                type="button"
-                variant="outline"
-                onClick={prevStep}
-                disabled={isLoading}
-                className="w-1/3 h-12 rounded-full border-gray-200 disabled:opacity-50"
-              >
-                <ChevronLeft className="mr-2 w-4 h-4" /> {t.forms.buttons.back}
-              </Button>
-              <Button
-                type="button"
-                onClick={nextStep}
-                disabled={isLoading}
-                className="w-2/3 h-12 bg-blue-600 hover:bg-blue-700 text-white disabled:opacity-50"
-              >
-                {t.forms.buttons.next} <ChevronRight className="ml-2 w-4 h-4" />
-              </Button>
-            </div>
-          </div>
-        );
-
-      case 3:
-        const formValues = form.getValues();
-        return (
-          <div className="space-y-6">
-            <div className="space-y-2">
-              <h3 className="text-xl font-semibold text-slate-900">{t.forms.steps.review}</h3>
-              <p className="text-sm text-slate-500">Please review your details before submitting</p>
-            </div>
-
-            <div className="bg-slate-50 p-6 rounded-lg space-y-3 border border-slate-200">
-              <div className="text-slate-900">
-                <span className="font-semibold">{t.forms.labels.serviceType}:</span> {formValues.serviceType}
-              </div>
-              <div className="text-slate-900">
-                <span className="font-semibold">{t.forms.labels.priority}:</span> {formValues.priority}
-              </div>
-              <div className="text-slate-900">
-                <span className="font-semibold">{t.forms.labels.budget}:</span> {formValues.budgetRange}
-              </div>
-              <div className="text-slate-900">
-                <span className="font-semibold">{t.forms.labels.deadline}:</span> {formValues.deadline ? new Date(formValues.deadline).toLocaleDateString() : "Not set"}
-              </div>
-              <div className="text-slate-900">
-                <span className="font-semibold">{t.forms.labels.name}:</span> {formValues.name}
-              </div>
-              <div className="text-slate-900">
-                <span className="font-semibold">{t.forms.labels.email}:</span> {formValues.email}
-              </div>
-              <div className="text-slate-900">
-                <span className="font-semibold">{t.forms.labels.description}:</span>
-                <p className="text-sm text-slate-600 mt-1 line-clamp-3">{formValues.description}</p>
-              </div>
-            </div>
-
             <FormField
               control={form.control}
-              name="consent"
+              name="country"
               render={({ field }) => (
-                <FormItem className={cn(
-                  "flex flex-row items-start space-x-3 space-y-0 rounded-lg border p-4 bg-slate-50 border-slate-200"
-                )}>
+                <FormItem>
+                  <FormLabel>{t.forms.labels.country}</FormLabel>
                   <FormControl>
-                    <Checkbox
-                      checked={field.value}
-                      onCheckedChange={field.onChange}
-                      className="mt-1"
-                    />
+                    <Input {...field} className="h-12 border-slate-300" />
                   </FormControl>
-                  <div className="space-y-1 leading-none">
-                    <FormLabel className={cn(
-                      "text-gray-700 font-medium",
-                      !field.value && "text-red-600"
-                    )}>
-                      {t.forms.labels.consent} {!field.value && <span className="text-red-500">*</span>}
-                    </FormLabel>
-                    <p className="text-xs text-gray-500">
-                      You must agree to the terms to submit your request
-                    </p>
-                    <FormMessage />
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
+
+          <FormField
+            control={form.control}
+            name="timezone"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>{t.forms.labels.timeZone}</FormLabel>
+                <FormControl>
+                  <Input {...field} className="h-12 border-slate-300" />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="howDidYouHear"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>{t.forms.labels.howHear}</FormLabel>
+                <FormControl>
+                  <Input {...field} className="h-12 border-slate-300" />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <div className="flex gap-4 mt-6">
+            <Button
+              type="button"
+              variant="outline"
+              onClick={prevStep}
+              disabled={isLoading}
+              className="w-1/3 h-12 rounded-full border-gray-200 disabled:opacity-50"
+            >
+              <ChevronLeft className="mr-2 w-4 h-4" /> {t.forms.buttons.back}
+            </Button>
+            <Button
+              type="button"
+              onClick={nextStep}
+              disabled={isLoading}
+              className="w-2/3 h-12 bg-blue-600 hover:bg-blue-700 text-white disabled:opacity-50"
+            >
+              {t.forms.buttons.next} <ChevronRight className="ml-2 w-4 h-4" />
+            </Button>
+          </div>
+        </div>
+
+        {/* Step 3: Review & Submit */}
+        <div className={cn("space-y-6", currentStep !== 3 && "hidden")}>
+          <div className="space-y-2">
+            <h3 className="text-xl font-semibold text-slate-900">{t.forms.steps.review}</h3>
+            <p className="text-sm text-slate-500">Please review your details before submitting</p>
+          </div>
+
+          <div className="bg-slate-50 p-6 rounded-lg space-y-3 border border-slate-200">
+            {(() => {
+              const formValues = form.getValues();
+              return (
+                <>
+                  <div className="text-slate-900">
+                    <span className="font-semibold">{t.forms.labels.serviceType}:</span> {formValues.serviceType}
                   </div>
-                </FormItem>
-              )}
-            />
+                  <div className="text-slate-900">
+                    <span className="font-semibold">{t.forms.labels.priority}:</span> {formValues.priority}
+                  </div>
+                  <div className="text-slate-900">
+                    <span className="font-semibold">{t.forms.labels.budget}:</span> {formValues.budgetRange}
+                  </div>
+                  <div className="text-slate-900">
+                    <span className="font-semibold">{t.forms.labels.deadline}:</span> {formValues.deadline ? new Date(formValues.deadline).toLocaleDateString() : "Not set"}
+                  </div>
+                  <div className="text-slate-900">
+                    <span className="font-semibold">{t.forms.labels.name}:</span> {formValues.name}
+                  </div>
 
-            <div className="flex gap-4 mt-6">
+                  <div className="text-slate-900">
+                    <span className="font-semibold">{t.forms.labels.email}:</span> {formValues.email}
+                  </div>
+                  <div className="text-slate-900">
+                    <span className="font-semibold">{t.forms.labels.description}:</span>
+                    <p className="text-sm text-slate-600 mt-1 line-clamp-3">{formValues.description}</p>
+                  </div>
+                </>
+              );
+            })()}
+          </div>
+
+          <FormField
+            control={form.control}
+            name="consent"
+            render={({ field }) => (
+              <FormItem className={cn(
+                "flex flex-row items-start space-x-3 space-y-0 rounded-lg border p-4 bg-slate-50 border-slate-200"
+              )}>
+                <FormControl>
+                  <Checkbox
+                    checked={field.value}
+                    onCheckedChange={field.onChange}
+                    className="mt-1"
+                  />
+                </FormControl>
+                <div className="space-y-1 leading-none">
+                  <FormLabel className={cn(
+                    "text-gray-700 font-medium",
+                    !field.value && "text-red-600"
+                  )}>
+                    {t.forms.labels.consent} {!field.value && <span className="text-red-500">*</span>}
+                  </FormLabel>
+                  <p className="text-xs text-gray-500">
+                    You must agree to the terms to submit your request
+                  </p>
+                  <FormMessage />
+                </div>
+              </FormItem>
+            )}
+          />
+
+          <div className="flex gap-4 mt-6">
+            <Button
+              type="button"
+              variant="outline"
+              onClick={prevStep}
+              disabled={isLoading}
+              className="w-1/3 h-12 rounded-full border-gray-200 disabled:opacity-50"
+            >
+              <ChevronLeft className="mr-2 w-4 h-4" /> {t.forms.buttons.back}
+            </Button>
+            <div className="w-2/3 relative">
               <Button
-                type="button"
-                variant="outline"
-                onClick={prevStep}
+                type="submit"
                 disabled={isLoading}
-                className="w-1/3 h-12 rounded-full border-gray-200 disabled:opacity-50"
+                className="w-full h-12 bg-slate-900 hover:bg-slate-800 text-white disabled:opacity-50"
               >
-                <ChevronLeft className="mr-2 w-4 h-4" /> {t.forms.buttons.back}
+                {isLoading ? (
+                  <>
+                    <Loader2 className="mr-2 w-4 h-4 animate-spin" />
+                    {t.forms.buttons.submitting}
+                  </>
+                ) : (
+                  <>
+                    {t.forms.buttons.submit} <Check className="ml-2 w-4 h-4" />
+                  </>
+                )}
               </Button>
-              <div className="w-2/3 relative">
-                <Button
-                  type="submit"
-                  disabled={isLoading}
-                  className="w-full h-12 bg-slate-900 hover:bg-slate-800 text-white disabled:opacity-50"
-                >
-                  {isLoading ? (
-                    <>
-                      <Loader2 className="mr-2 w-4 h-4 animate-spin" />
-                      {t.forms.buttons.submitting}
-                    </>
-                  ) : (
-                    <>
-                      {t.forms.buttons.submit} <Check className="ml-2 w-4 h-4" />
-                    </>
-                  )}
-                </Button>
-              </div>
             </div>
           </div>
-        );
-
-      default:
-        return null;
-    }
+        </div>
+      </>
+    );
   };
 
   return (

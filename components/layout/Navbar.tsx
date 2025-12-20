@@ -133,7 +133,7 @@ export default function Navbar() {
             </Button>
             <LanguageSwitcher />
             <Button asChild className="hidden sm:flex rounded-full px-6 bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm shadow-lg shadow-blue-500/20">
-              <Link href="/contact">{t.nav.getStarted}</Link>
+              <Link href="/pricing">{t.nav.getStarted}</Link>
             </Button>
             
             {/* Mobile Menu Button */}
@@ -170,7 +170,7 @@ export default function Navbar() {
               {t.nav.contact}
             </Link>
             <Button asChild className="w-full rounded-full py-6 text-lg mt-4 bg-blue-600 hover:bg-blue-700 text-white">
-              <Link href="/contact" onClick={toggleMobileMenu}>{t.nav.getStarted}</Link>
+              <Link href="/pricing" onClick={toggleMobileMenu}>{t.nav.getStarted}</Link>
             </Button>
           </div>
         )}

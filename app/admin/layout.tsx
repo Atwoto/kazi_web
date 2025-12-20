@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import { useRouter, usePathname } from "next/navigation";
 import {
   LayoutDashboard,
   FileText,
@@ -12,7 +13,10 @@ import {
   Settings,
   Menu,
   X,
+  LogOut,
 } from "lucide-react";
+import { checkAuth, logout } from "@/lib/auth";
+import { Button } from "@/components/ui/button";
 
 export default function AdminLayout({
   children,
@@ -20,6 +24,56 @@ export default function AdminLayout({
   children: React.ReactNode;
 }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const router = useRouter();
+  const pathname = usePathname();
+
+  useEffect(() => {
+    async function verifyAuth() {
+      // Skip auth check for login and signup pages
+      if (pathname === "/admin/login" || pathname === "/admin/signup") {
+        setLoading(false);
+        return;
+      }
+
+      const session = await checkAuth();
+      if (!session) {
+        router.push("/admin/login");
+      } else {
+        setIsAuthenticated(true);
+      }
+      setLoading(false);
+    }
+
+    verifyAuth();
+  }, [pathname, router]);
+
+  const handleLogout = async () => {
+    const success = await logout();
+    if (success) {
+      router.push("/admin/login");
+    }
+  };
+
+  // Show loading state
+  if (loading) {
+    return (
+      <div className="flex h-screen items-center justify-center bg-gray-50">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+      </div>
+    );
+  }
+
+  // Show login/signup pages without layout
+  if (pathname === "/admin/login" || pathname === "/admin/signup") {
+    return <>{children}</>;
+  }
+
+  // Don't render admin content if not authenticated
+  if (!isAuthenticated) {
+    return null;
+  }
 
   return (
     <div className="flex h-screen bg-gray-50">
@@ -96,7 +150,15 @@ export default function AdminLayout({
           </Link>
         </nav>
 
-        <div className="p-4 border-t border-slate-800">
+        <div className="p-4 border-t border-slate-800 space-y-2">
+          <Button
+            onClick={handleLogout}
+            variant="ghost"
+            className="w-full justify-start text-slate-400 hover:text-white hover:bg-slate-800"
+          >
+            <LogOut className="w-4 h-4 mr-3" />
+            <span>Logout</span>
+          </Button>
           <Link
             href="/"
             className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800 transition-colors text-slate-400 hover:text-white text-sm"

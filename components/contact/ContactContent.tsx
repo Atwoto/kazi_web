@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { CheckIcon, ShieldCheck, Clock, CreditCard, ArrowRight } from "lucide-react";
-import QuoteForm from "@/components/common/QuoteForm";
+import ContactForm from "@/components/common/ContactForm";
 import ExitIntentPopup from "@/components/common/ExitIntentPopup";
 import { useLanguage } from "@/context/LanguageContext";
 
@@ -81,11 +81,20 @@ export default function ContactContent() {
           </div>
 
           <div className="max-w-2xl mx-auto w-full relative z-10">
-            <h2 className="text-3xl font-heading font-bold mb-3 text-gray-900">{t.pricing.getQuote.title}</h2>
-            <p className="text-gray-500 mb-8 text-lg">{t.pricing.getQuote.subtitle}</p>
+            <h2 className="text-3xl font-heading font-bold mb-3 text-gray-900">Get in Touch</h2>
+            <p className="text-gray-500 mb-8 text-lg">Have a question or want to discuss a project? Send us a message.</p>
 
-            {/* Reusable Quote Form */}
-            <QuoteForm className="border border-gray-100 shadow-xl rounded-2xl bg-white" />
+            {/* Simple Contact Form */}
+            <ContactForm className="border border-gray-100 shadow-xl rounded-2xl bg-white" />
+            
+            <div className="mt-6 text-center">
+              <p className="text-sm text-slate-500">
+                Need a detailed project quote?{" "}
+                <Link href="/pricing" className="text-blue-600 hover:text-blue-700 font-semibold underline">
+                  Get a Quote →
+                </Link>
+              </p>
+            </div>
           </div>
         </div>
       </div>
