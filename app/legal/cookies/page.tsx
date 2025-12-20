@@ -5,7 +5,7 @@ import { translations } from "@/lib/translations";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
-import { ArrowLeft, Cookie, Info, Settings, ShieldCheck, Mail } from "lucide-react";
+import { ArrowLeft, Cookie, Info, Settings, ShieldCheck, Mail, AlertCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function CookiesPage() {
