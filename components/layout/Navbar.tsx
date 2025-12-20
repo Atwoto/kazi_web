@@ -125,19 +125,19 @@ export default function Navbar() {
             <Button
               variant="ghost"
               size="icon"
-              className="text-muted-foreground hover:text-foreground"
+              className="text-muted-foreground hover:text-foreground transition-colors"
               onClick={() => setIsSearchOpen(true)}
               aria-label="Search"
             >
               <Search className="h-5 w-5" />
             </Button>
             <LanguageSwitcher />
-            <Button asChild className="hidden sm:flex rounded-full px-6 bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm shadow-lg shadow-blue-500/20">
+            <Button asChild className="hidden sm:flex rounded-full px-6 bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm shadow-lg shadow-blue-500/20 transition-all hover:scale-105">
               <Link href="/pricing">{t.nav.getStarted}</Link>
             </Button>
             
             {/* Mobile Menu Button */}
-            <button className="lg:hidden p-2 text-muted-foreground hover:text-foreground" onClick={toggleMobileMenu} aria-label="Toggle mobile menu">
+            <button className="lg:hidden p-2 text-muted-foreground hover:text-foreground transition-colors" onClick={toggleMobileMenu} aria-label="Toggle mobile menu">
               {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
           </div>

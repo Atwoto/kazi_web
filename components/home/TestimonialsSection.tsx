@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 import { Star, Quote } from "lucide-react";
+import ScrollAnimation from "@/components/common/ScrollAnimation";
 
 interface Testimonial {
   id: number;
@@ -87,93 +88,98 @@ export default function TestimonialsSection() {
   return (
     <section className="py-24 bg-white">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-6">
-            What Our Clients Say
-          </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Don't just take our word for it. Here's what European businesses say about working with Kazi.
-          </p>
-        </div>
+        <ScrollAnimation animation="fade-up">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-6">
+              What Our Clients Say
+            </h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Don't just take our word for it. Here's what European businesses say about working with Kazi.
+            </p>
+          </div>
+        </ScrollAnimation>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {testimonials.map((testimonial) => (
-            <Card
-              key={testimonial.id}
-              className="border border-gray-100 shadow-lg hover:shadow-xl transition-all duration-300 rounded-2xl overflow-hidden group hover:-translate-y-1"
-            >
-              <CardContent className="p-6">
-                {/* Quote Icon */}
-                <div className="mb-4">
-                  <Quote className="w-8 h-8 text-blue-100" />
-                </div>
-
-                {/* Rating */}
-                <div className="flex items-center mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
-                  ))}
-                </div>
-
-                {/* Quote */}
-                <p className="text-gray-700 mb-6 leading-relaxed italic">
-                  "{testimonial.quote}"
-                </p>
-
-                {/* Project Type Badge */}
-                <div className="mb-4">
-                  <span className="inline-block px-3 py-1 bg-blue-50 text-blue-600 text-xs font-semibold rounded-full">
-                    {testimonial.projectType}
-                  </span>
-                </div>
-
-                {/* Author */}
-                <div className="flex items-center">
-                  <div className="relative w-12 h-12 rounded-full overflow-hidden bg-gray-100 mr-4 flex-shrink-0">
-                    <Image
-                      src={testimonial.image}
-                      alt={testimonial.name}
-                      layout="fill"
-                      objectFit="cover"
-                      className="opacity-80"
-                    />
+          {testimonials.map((testimonial, index) => (
+            <ScrollAnimation key={testimonial.id} animation="fade-up" delay={index * 100}>
+              <Card
+                className="border border-gray-100 shadow-lg hover:shadow-xl transition-all duration-300 rounded-2xl overflow-hidden group hover:-translate-y-1 h-full"
+              >
+                <CardContent className="p-6">
+                  {/* Quote Icon */}
+                  <div className="mb-4">
+                    <Quote className="w-8 h-8 text-blue-100" />
                   </div>
-                  <div>
-                    <h4 className="font-bold text-gray-900">{testimonial.name}</h4>
-                    <p className="text-sm text-gray-600">
-                      {testimonial.role} • {testimonial.company}
-                    </p>
-                    <p className="text-xs text-gray-400">{testimonial.country}</p>
+
+                  {/* Rating */}
+                  <div className="flex items-center mb-4">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
+                    ))}
                   </div>
-                </div>
-              </CardContent>
-            </Card>
+
+                  {/* Quote */}
+                  <p className="text-gray-700 mb-6 leading-relaxed italic">
+                    "{testimonial.quote}"
+                  </p>
+
+                  {/* Project Type Badge */}
+                  <div className="mb-4">
+                    <span className="inline-block px-3 py-1 bg-blue-50 text-blue-600 text-xs font-semibold rounded-full">
+                      {testimonial.projectType}
+                    </span>
+                  </div>
+
+                  {/* Author */}
+                  <div className="flex items-center">
+                    <div className="relative w-12 h-12 rounded-full overflow-hidden bg-gray-100 mr-4 flex-shrink-0">
+                      <Image
+                        src={testimonial.image}
+                        alt={testimonial.name}
+                        fill
+                        className="object-cover opacity-80"
+                      />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-gray-900">{testimonial.name}</h4>
+                      <p className="text-sm text-gray-600">
+                        {testimonial.role} • {testimonial.company}
+                      </p>
+                      <p className="text-xs text-gray-400">{testimonial.country}</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </ScrollAnimation>
           ))}
         </div>
 
         {/* Trust Indicators */}
         <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-          <div className="p-6">
-            <div className="text-4xl font-bold text-blue-600 mb-2">4.9/5</div>
-            <div className="text-gray-600 mb-2">Average Rating</div>
-            <div className="flex justify-center">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
-              ))}
-            </div>
-          </div>
-          <div className="p-6">
-            <div className="text-4xl font-bold text-blue-600 mb-2">100+</div>
-            <div className="text-gray-600 mb-2">Happy Clients</div>
-            <div className="text-sm text-gray-500">Across 6 European countries</div>
-          </div>
-          <div className="p-6">
-            <div className="text-4xl font-bold text-blue-600 mb-2">98%</div>
-            <div className="text-gray-600 mb-2">Client Retention</div>
-            <div className="text-sm text-gray-500">Clients come back for more</div>
-          </div>
+          {[
+            { label: "Average Rating", val: "4.9/5", sub: "Based on 100+ reviews" },
+            { label: "Happy Clients", val: "100+", sub: "Across 6 European countries" },
+            { label: "Client Retention", val: "98%", sub: "Clients come back for more" },
+          ].map((item, i) => (
+            <ScrollAnimation key={i} animation="fade-up" delay={600 + (i * 100)}>
+              <div className="p-6">
+                <div className="text-4xl font-bold text-blue-600 mb-2">{item.val}</div>
+                <div className="text-gray-600 mb-2 font-semibold">{item.label}</div>
+                {i === 0 ? (
+                  <div className="flex justify-center">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
+                    ))}
+                  </div>
+                ) : (
+                  <div className="text-sm text-gray-500">{item.sub}</div>
+                )}
+              </div>
+            </ScrollAnimation>
+          ))}
         </div>
       </div>
     </section>
   );
 }
+
