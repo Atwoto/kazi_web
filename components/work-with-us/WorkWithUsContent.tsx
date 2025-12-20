@@ -28,6 +28,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useLanguage } from "@/context/LanguageContext";
 
 // Constants
 const ROLES = [
@@ -123,20 +124,21 @@ const formSchema = z.object({
 
 type FormData = z.infer<typeof formSchema>;
 
-const STEPS = [
-  { title: "Identity & Role", description: "Tell us who you are" },
-  { title: "Skills & Proof", description: "Show us your work" },
-  { title: "Availability", description: "When can you work?" },
-  { title: "Review & Submit", description: "Final checks" },
-];
-
 export default function WorkWithUsContent() {
+  const { t } = useLanguage();
   const [currentStep, setCurrentStep] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [selectedRole, setSelectedRole] = useState("");
   const [cvFileName, setCvFileName] = useState("");
   const [photoFileName, setPhotoFileName] = useState("");
+
+  const STEPS = [
+    { title: t.workWithUs.steps.identityRole, description: "Tell us who you are" },
+    { title: t.workWithUs.steps.skillsProof, description: "Show us your work" },
+    { title: t.workWithUs.steps.availability, description: "When can you work?" },
+    { title: t.workWithUs.steps.reviewSubmit, description: "Final checks" },
+  ];
 
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
@@ -281,15 +283,15 @@ export default function WorkWithUsContent() {
           <div className="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
             <Check className="w-10 h-10" strokeWidth={3} />
           </div>
-          <h2 className="text-3xl font-heading font-bold text-slate-900 mb-4">Application Received!</h2>
+          <h2 className="text-3xl font-heading font-bold text-slate-900 mb-4">{t.workWithUs.success.title}</h2>
           <p className="text-lg text-slate-600 mb-3">
-            Thank you for applying to join Kazi Agency.
+            {t.workWithUs.success.message}
           </p>
           <p className="text-slate-500 mb-8">
-            We review applications within 48 hours. If shortlisted, we&apos;ll contact you via email.
+            {t.workWithUs.success.followUp}
           </p>
           <Button asChild className="rounded-full px-8 py-6 bg-blue-600 hover:bg-blue-700">
-            <Link href="/">Return Home</Link>
+            <Link href="/">{t.workWithUs.success.returnHome}</Link>
           </Button>
         </Card>
       </div>
@@ -302,11 +304,10 @@ export default function WorkWithUsContent() {
         {/* Header */}
         <div className="text-center mb-8">
           <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4">
-            Join Our Team
+            {t.workWithUs.headerTitle}
           </h1>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            We are a managed service. Communication with clients is handled through Kazi Agency.
-            You will be assigned tasks based on fit, availability, and quality.
+            {t.workWithUs.headerSubtitle}
           </p>
         </div>
 
@@ -357,14 +358,14 @@ export default function WorkWithUsContent() {
               {/* Step 1: Identity and Role */}
               {currentStep === 0 && (
                 <div className="space-y-6">
-                  <h2 className="text-2xl font-heading font-bold text-slate-900 mb-6">Identity & Role</h2>
+                  <h2 className="text-2xl font-heading font-bold text-slate-900 mb-6">{t.workWithUs.sections.identityRole}</h2>
 
                   <FormField
                     control={form.control}
                     name="fullName"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Full Name *</FormLabel>
+                        <FormLabel>{t.workWithUs.labels.fullName} *</FormLabel>
                         <FormControl>
                           <Input {...field} />
                         </FormControl>
@@ -379,7 +380,7 @@ export default function WorkWithUsContent() {
                       name="email"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Email *</FormLabel>
+                          <FormLabel>{t.workWithUs.labels.email} *</FormLabel>
                           <FormControl>
                             <Input type="email" placeholder="john@example.com" {...field} />
                           </FormControl>
@@ -393,7 +394,7 @@ export default function WorkWithUsContent() {
                       name="phone"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Phone / WhatsApp *</FormLabel>
+                          <FormLabel>{t.workWithUs.labels.phone} *</FormLabel>
                           <FormControl>
                             <Input type="tel" {...field} />
                           </FormControl>
@@ -409,7 +410,7 @@ export default function WorkWithUsContent() {
                       name="country"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Country *</FormLabel>
+                          <FormLabel>{t.workWithUs.labels.country} *</FormLabel>
                           <FormControl>
                             <Input {...field} />
                           </FormControl>
@@ -423,7 +424,7 @@ export default function WorkWithUsContent() {
                       name="city"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>City *</FormLabel>
+                          <FormLabel>{t.workWithUs.labels.city} *</FormLabel>
                           <FormControl>
                             <Input {...field} />
                           </FormControl>
@@ -438,11 +439,11 @@ export default function WorkWithUsContent() {
                     name="role"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Role Applying For *</FormLabel>
+                        <FormLabel>{t.workWithUs.labels.role} *</FormLabel>
                         <Select onValueChange={field.onChange} defaultValue={field.value}>
                           <FormControl>
                             <SelectTrigger>
-                              <SelectValue placeholder="Select a role" />
+                              <SelectValue placeholder={t.workWithUs.placeholders.selectRole} />
                             </SelectTrigger>
                           </FormControl>
                           <SelectContent>
@@ -461,11 +462,11 @@ export default function WorkWithUsContent() {
                     name="skillLevel"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Skill Level *</FormLabel>
+                        <FormLabel>{t.workWithUs.labels.skillLevel} *</FormLabel>
                         <Select onValueChange={field.onChange} defaultValue={field.value}>
                           <FormControl>
                             <SelectTrigger>
-                              <SelectValue placeholder="Select your level" />
+                              <SelectValue placeholder={t.workWithUs.placeholders.selectLevel} />
                             </SelectTrigger>
                           </FormControl>
                           <SelectContent>
@@ -484,8 +485,8 @@ export default function WorkWithUsContent() {
                     name="languages"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Languages *</FormLabel>
-                        <FormDescription>Select all languages you speak fluently</FormDescription>
+                        <FormLabel>{t.workWithUs.labels.languages} *</FormLabel>
+                        <FormDescription>{t.workWithUs.placeholders.languagesDescription}</FormDescription>
                         <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mt-2">
                           {LANGUAGES.map((lang) => (
                             <label
@@ -521,7 +522,7 @@ export default function WorkWithUsContent() {
                       name="otherLanguage"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Other Language(s)</FormLabel>
+                          <FormLabel>{t.workWithUs.labels.otherLanguage}</FormLabel>
                           <FormControl>
                             <Input {...field} />
                           </FormControl>
@@ -536,16 +537,16 @@ export default function WorkWithUsContent() {
               {/* Step 2: Skills and Proof */}
               {currentStep === 1 && (
                 <div className="space-y-6">
-                  <h2 className="text-2xl font-heading font-bold text-slate-900 mb-6">Skills & Proof</h2>
+                  <h2 className="text-2xl font-heading font-bold text-slate-900 mb-6">{t.workWithUs.sections.skillsProof}</h2>
 
                   <FormField
                     control={form.control}
                     name="portfolioLink"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Portfolio Link *</FormLabel>
+                        <FormLabel>{t.workWithUs.labels.portfolioLink} *</FormLabel>
                         <FormDescription>
-                          Behance, Dribbble, GitHub, personal site, Google Drive folder, YouTube, or Vimeo
+                          {t.workWithUs.placeholders.portfolioDescription}
                         </FormDescription>
                         <FormControl>
                           <Input {...field} />
@@ -560,9 +561,9 @@ export default function WorkWithUsContent() {
                     name="examplesLinks"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Best 1-3 Examples *</FormLabel>
+                        <FormLabel>{t.workWithUs.labels.examplesLinks} *</FormLabel>
                         <FormDescription>
-                          Direct links to your best work (separate multiple links with commas)
+                          {t.workWithUs.placeholders.examplesDescription}
                         </FormDescription>
                         <FormControl>
                           <Textarea
@@ -580,8 +581,8 @@ export default function WorkWithUsContent() {
                     name="tools"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Tools You Use *</FormLabel>
-                        <FormDescription>Select all that apply</FormDescription>
+                        <FormLabel>{t.workWithUs.labels.tools} *</FormLabel>
+                        <FormDescription>{t.workWithUs.placeholders.toolsDescription}</FormDescription>
                         <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mt-2">
                           {getToolsForRole().map((tool) => (
                             <label
@@ -617,7 +618,7 @@ export default function WorkWithUsContent() {
                       name="otherTools"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Other Tools</FormLabel>
+                          <FormLabel>{t.workWithUs.labels.otherTools}</FormLabel>
                           <FormControl>
                             <Input {...field} />
                           </FormControl>
@@ -632,16 +633,16 @@ export default function WorkWithUsContent() {
                     name="yearsExperience"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Years of Experience *</FormLabel>
+                        <FormLabel>{t.workWithUs.labels.yearsExp} *</FormLabel>
                         <Select onValueChange={field.onChange} defaultValue={field.value}>
                           <FormControl>
                             <SelectTrigger>
-                              <SelectValue placeholder="Select experience" />
+                              <SelectValue placeholder={t.workWithUs.placeholders.selectExperience} />
                             </SelectTrigger>
                           </FormControl>
                           <SelectContent>
                             {EXPERIENCE_YEARS.map((years) => (
-                              <SelectItem key={years} value={years}>{years} years</SelectItem>
+                              <SelectItem key={years} value={years}>{years} {t.workWithUs.years}</SelectItem>
                             ))}
                           </SelectContent>
                         </Select>
@@ -664,7 +665,7 @@ export default function WorkWithUsContent() {
                           </FormControl>
                           <div className="space-y-1 leading-none">
                             <FormLabel>
-                              I am familiar with Turnitin plagiarism checking
+                              {t.workWithUs.labels.turnitinFamiliar}
                             </FormLabel>
                           </div>
                         </FormItem>
@@ -677,7 +678,7 @@ export default function WorkWithUsContent() {
               {/* Step 3: Availability and Logistics */}
               {currentStep === 2 && (
                 <div className="space-y-6">
-                  <h2 className="text-2xl font-heading font-bold text-slate-900 mb-6">Availability & Logistics</h2>
+                  <h2 className="text-2xl font-heading font-bold text-slate-900 mb-6">{t.workWithUs.sections.availabilityLogistics}</h2>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <FormField
@@ -685,11 +686,11 @@ export default function WorkWithUsContent() {
                       name="availabilityType"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Availability Type *</FormLabel>
+                          <FormLabel>{t.workWithUs.labels.availabilityType} *</FormLabel>
                           <Select onValueChange={field.onChange} defaultValue={field.value}>
                             <FormControl>
                               <SelectTrigger>
-                                <SelectValue placeholder="Select type" />
+                                <SelectValue placeholder={t.workWithUs.placeholders.selectType} />
                               </SelectTrigger>
                             </FormControl>
                             <SelectContent>
@@ -708,16 +709,16 @@ export default function WorkWithUsContent() {
                       name="hoursPerWeek"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Hours Per Week *</FormLabel>
+                          <FormLabel>{t.workWithUs.labels.hoursPerWeek} *</FormLabel>
                           <Select onValueChange={field.onChange} defaultValue={field.value}>
                             <FormControl>
                               <SelectTrigger>
-                                <SelectValue placeholder="Select hours" />
+                                <SelectValue placeholder={t.workWithUs.placeholders.selectHours} />
                               </SelectTrigger>
                             </FormControl>
                             <SelectContent>
                               {HOURS_PER_WEEK.map((hours) => (
-                                <SelectItem key={hours} value={hours}>{hours} hours</SelectItem>
+                                <SelectItem key={hours} value={hours}>{hours} {t.workWithUs.hours}</SelectItem>
                               ))}
                             </SelectContent>
                           </Select>
@@ -732,11 +733,11 @@ export default function WorkWithUsContent() {
                     name="timezone"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Your Timezone *</FormLabel>
+                        <FormLabel>{t.workWithUs.labels.timezone} *</FormLabel>
                         <Select onValueChange={field.onChange} defaultValue={field.value}>
                           <FormControl>
                             <SelectTrigger>
-                              <SelectValue placeholder="Select timezone" />
+                              <SelectValue placeholder={t.workWithUs.placeholders.selectTimezone} />
                             </SelectTrigger>
                           </FormControl>
                           <SelectContent>
@@ -755,11 +756,11 @@ export default function WorkWithUsContent() {
                     name="turnaround"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Typical Turnaround *</FormLabel>
+                        <FormLabel>{t.workWithUs.labels.turnaround} *</FormLabel>
                         <Select onValueChange={field.onChange} defaultValue={field.value}>
                           <FormControl>
                             <SelectTrigger>
-                              <SelectValue placeholder="Select turnaround time" />
+                              <SelectValue placeholder={t.workWithUs.placeholders.selectTurnaround} />
                             </SelectTrigger>
                           </FormControl>
                           <SelectContent>
@@ -779,7 +780,7 @@ export default function WorkWithUsContent() {
                       name="turnaroundCustom"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Please explain</FormLabel>
+                          <FormLabel>{t.workWithUs.labels.turnaroundCustom}</FormLabel>
                           <FormControl>
                             <Input {...field} />
                           </FormControl>
@@ -795,7 +796,7 @@ export default function WorkWithUsContent() {
                       name="rateType"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Rate Preference *</FormLabel>
+                          <FormLabel>{t.workWithUs.labels.ratePreference} *</FormLabel>
                           <FormControl>
                             <div className="flex gap-3">
                               <Button
@@ -804,7 +805,7 @@ export default function WorkWithUsContent() {
                                 className="flex-1"
                                 onClick={() => field.onChange("hourly")}
                               >
-                                Hourly Rate (EUR)
+                                {t.workWithUs.labels.hourlyRate}
                               </Button>
                               <Button
                                 type="button"
@@ -812,7 +813,7 @@ export default function WorkWithUsContent() {
                                 className="flex-1"
                                 onClick={() => field.onChange("project")}
                               >
-                                Per Project
+                                {t.workWithUs.labels.perProject}
                               </Button>
                             </div>
                           </FormControl>
@@ -833,8 +834,8 @@ export default function WorkWithUsContent() {
                           </FormControl>
                           <FormDescription>
                             {form.watch("rateType") === "hourly"
-                              ? "Your hourly rate in EUR"
-                              : "Your typical project rate range in EUR"}
+                              ? t.workWithUs.placeholders.hourlyRateDesc
+                              : t.workWithUs.placeholders.projectRateDesc}
                           </FormDescription>
                           <FormMessage />
                         </FormItem>
@@ -847,7 +848,7 @@ export default function WorkWithUsContent() {
                     name="paymentMethods"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Preferred Payment Methods *</FormLabel>
+                        <FormLabel>{t.workWithUs.labels.paymentMethods} *</FormLabel>
                         <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mt-2">
                           {PAYMENT_METHODS.map((method) => (
                             <label
@@ -882,16 +883,16 @@ export default function WorkWithUsContent() {
               {/* Step 4: Review and Submit */}
               {currentStep === 3 && (
                 <div className="space-y-6">
-                  <h2 className="text-2xl font-heading font-bold text-slate-900 mb-6">Final Checks</h2>
+                  <h2 className="text-2xl font-heading font-bold text-slate-900 mb-6">{t.workWithUs.sections.finalChecks}</h2>
 
                   <FormField
                     control={form.control}
                     name="shortIntro"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Short Introduction *</FormLabel>
+                        <FormLabel>{t.workWithUs.labels.shortIntro} *</FormLabel>
                         <FormDescription>
-                          In 3-5 lines, describe what you do best and what type of work you want.
+                          {t.workWithUs.placeholders.introDescription}
                         </FormDescription>
                         <FormControl>
                           <Textarea
@@ -900,7 +901,7 @@ export default function WorkWithUsContent() {
                           />
                         </FormControl>
                         <div className="text-xs text-slate-500 text-right">
-                          {field.value?.length || 0}/500 characters
+                          {field.value?.length || 0}/500 {t.workWithUs.characters}
                         </div>
                         <FormMessage />
                       </FormItem>
@@ -912,7 +913,7 @@ export default function WorkWithUsContent() {
                     name="whyKazi"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Why Kazi Agency? *</FormLabel>
+                        <FormLabel>{t.workWithUs.labels.whyKazi} *</FormLabel>
                         <FormControl>
                           <Textarea
                             className="resize-y"
@@ -925,7 +926,7 @@ export default function WorkWithUsContent() {
                   />
 
                   <div className="bg-slate-50 rounded-xl p-6 space-y-4">
-                    <h3 className="font-semibold text-slate-900">Reliability Checklist *</h3>
+                    <h3 className="font-semibold text-slate-900">{t.workWithUs.sections.reliabilityChecklist} *</h3>
 
                     <FormField
                       control={form.control}
@@ -936,7 +937,7 @@ export default function WorkWithUsContent() {
                             <Checkbox checked={field.value} onCheckedChange={field.onChange} />
                           </FormControl>
                           <FormLabel className="font-normal text-slate-700">
-                            I can meet agreed deadlines
+                            {t.workWithUs.consents.deadlines}
                           </FormLabel>
                         </FormItem>
                       )}
@@ -951,7 +952,7 @@ export default function WorkWithUsContent() {
                             <Checkbox checked={field.value} onCheckedChange={field.onChange} />
                           </FormControl>
                           <FormLabel className="font-normal text-slate-700">
-                            I respond within 24 hours on workdays
+                            {t.workWithUs.consents.response}
                           </FormLabel>
                         </FormItem>
                       )}
@@ -966,7 +967,7 @@ export default function WorkWithUsContent() {
                             <Checkbox checked={field.value} onCheckedChange={field.onChange} />
                           </FormControl>
                           <FormLabel className="font-normal text-slate-700">
-                            I am okay with feedback and revisions
+                            {t.workWithUs.consents.feedback}
                           </FormLabel>
                         </FormItem>
                       )}
@@ -981,7 +982,7 @@ export default function WorkWithUsContent() {
                             <Checkbox checked={field.value} onCheckedChange={field.onChange} />
                           </FormControl>
                           <FormLabel className="font-normal text-slate-700">
-                            I understand work is delivered under Kazi Agency, not my personal brand
+                            {t.workWithUs.consents.brand}
                           </FormLabel>
                         </FormItem>
                       )}
@@ -998,7 +999,7 @@ export default function WorkWithUsContent() {
                             <Checkbox checked={field.value} onCheckedChange={field.onChange} />
                           </FormControl>
                           <FormLabel className="font-normal">
-                            I understand Kazi Agency may request a short test task before onboarding. *
+                            {t.workWithUs.consents.testTask} *
                           </FormLabel>
                         </FormItem>
                       )}
@@ -1013,7 +1014,7 @@ export default function WorkWithUsContent() {
                             <Checkbox checked={field.value} onCheckedChange={field.onChange} />
                           </FormControl>
                           <FormLabel className="font-normal">
-                            I agree to keep client information confidential and not share files. *
+                            {t.workWithUs.consents.dataHandling} *
                           </FormLabel>
                         </FormItem>
                       )}
@@ -1022,7 +1023,7 @@ export default function WorkWithUsContent() {
 
                   {/* Optional Fields */}
                   <div className="border-t pt-6 mt-6">
-                    <h3 className="font-semibold text-slate-900 mb-4">Optional Information</h3>
+                    <h3 className="font-semibold text-slate-900 mb-4">{t.workWithUs.sections.optionalInfo}</h3>
 
                     <div className="space-y-4">
                       <FormField
@@ -1030,7 +1031,7 @@ export default function WorkWithUsContent() {
                         name="cvFile"
                         render={({ field: { value, onChange, ...fieldProps } }) => (
                           <FormItem>
-                            <FormLabel>CV / Resume</FormLabel>
+                            <FormLabel>{t.workWithUs.labels.cv}</FormLabel>
                             <FormControl>
                               <div className="flex items-center gap-2">
                                 <Input
@@ -1058,7 +1059,7 @@ export default function WorkWithUsContent() {
                                   className="gap-2"
                                 >
                                   <Upload className="w-4 h-4" />
-                                  Upload CV
+                                  {t.workWithUs.buttons.uploadCv}
                                 </Button>
                                 {cvFileName && (
                                   <span className="text-sm text-slate-600 flex items-center gap-2">
@@ -1077,7 +1078,7 @@ export default function WorkWithUsContent() {
                                 )}
                               </div>
                             </FormControl>
-                            <FormDescription>PDF or DOCX, max 10MB</FormDescription>
+                            <FormDescription>{t.workWithUs.placeholders.cvFormat}</FormDescription>
                           </FormItem>
                         )}
                       />
@@ -1087,7 +1088,7 @@ export default function WorkWithUsContent() {
                         name="linkedinUrl"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>LinkedIn Profile</FormLabel>
+                            <FormLabel>{t.workWithUs.labels.linkedinProfile}</FormLabel>
                             <FormControl>
                               <Input {...field} />
                             </FormControl>
@@ -1109,12 +1110,12 @@ export default function WorkWithUsContent() {
                   className="gap-2"
                 >
                   <ChevronLeft className="w-4 h-4" />
-                  Back
+                  {t.workWithUs.buttons.back}
                 </Button>
 
                 {currentStep < STEPS.length - 1 ? (
                   <Button type="button" onClick={nextStep} className="gap-2 bg-blue-600 hover:bg-blue-700">
-                    Next
+                    {t.workWithUs.buttons.next}
                     <ChevronRight className="w-4 h-4" />
                   </Button>
                 ) : (
@@ -1126,12 +1127,12 @@ export default function WorkWithUsContent() {
                     {isLoading ? (
                       <>
                         <Loader2 className="w-4 h-4 animate-spin" />
-                        Submitting...
+                        {t.workWithUs.buttons.submitting}
                       </>
                     ) : (
                       <>
                         <Check className="w-4 h-4" />
-                        Submit Application
+                        {t.workWithUs.buttons.submit}
                       </>
                     )}
                   </Button>

@@ -5,37 +5,17 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Star, Quote } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
-const testimonials = [
-  {
-    name: "Client Case Study",
-    role: "E-commerce Website",
-    text: "Delivered a fully functional e-commerce platform in 3 weeks with custom payment integration and inventory management system.",
-    rating: 5,
-  },
-  {
-    name: "Client Case Study",
-    role: "Academic Paper",
-    text: "Edited and reviewed a 10,000-word research paper on environmental science, achieving publication-ready quality within 5 days.",
-    rating: 5,
-  },
-  {
-    name: "Client Case Study",
-    role: "Brand Identity",
-    text: "Created a complete brand identity package including logo, color palette, and style guide for a growing tech startup.",
-    rating: 5,
-  },
-  {
-    name: "Client Case Study",
-    role: "Video Production",
-    text: "Produced a 2-minute promotional video with motion graphics and professional voiceover for product launch campaign.",
-    rating: 5,
-  },
-];
-
 export default function Testimonials() {
   const { t } = useLanguage();
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
+
+  const testimonials = t.home.testimonials.cases.map((caseItem) => ({
+    name: t.home.testimonials.caseStudy,
+    role: caseItem.role,
+    text: caseItem.text,
+    rating: 5,
+  }));
 
   useEffect(() => {
     const observer = new IntersectionObserver(

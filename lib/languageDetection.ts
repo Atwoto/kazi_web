@@ -38,7 +38,16 @@ const LANGUAGE_MAP: { [key: string]: Language } = {
   'ca': 'ca',
   'ca-ES': 'ca',
   'ca-FR': 'ca', // Catalan in France
+  'ca-AD': 'ca', // Catalan in Andorra
 };
+
+// Catalan-speaking regions in Spain (by region/city)
+const CATALAN_REGIONS = [
+  'catalonia', 'catalunya', 'cataluña',
+  'barcelona', 'girona', 'lleida', 'tarragona',
+  'valencia', 'valenciana', 'alicante', 'castellon', 'castelló',
+  'balearic', 'balears', 'mallorca', 'menorca', 'ibiza', 'eivissa',
+];
 
 /**
  * Detects the user's preferred language based on browser settings
@@ -54,13 +63,13 @@ export async function detectLanguage(): Promise<Language> {
     return savedLang;
   }
 
-  // 2. Detect from browser language (Accept-Language header)
+  // 2. Detect from browser language (Accept-Language header) - most reliable
   const browserLang = detectFromBrowser();
   if (browserLang) {
     return browserLang;
   }
 
-  // 3. Detect from IP geolocation (optional, fallback)
+  // 3. Detect from IP geolocation (fallback)
   try {
     const geoLang = await detectFromGeolocation();
     if (geoLang) {
@@ -80,19 +89,22 @@ export async function detectLanguage(): Promise<Language> {
 function detectFromBrowser(): Language | null {
   if (typeof window === 'undefined') return null;
 
-  const browserLang = navigator.language || (navigator as any).languages?.[0];
+  // Check all browser languages in order of preference
+  const languages = (navigator as any).languages || [navigator.language];
+  
+  for (const browserLang of languages) {
+    if (!browserLang) continue;
+    
+    // Check exact match first
+    if (LANGUAGE_MAP[browserLang]) {
+      return LANGUAGE_MAP[browserLang];
+    }
 
-  if (!browserLang) return null;
-
-  // Check exact match first
-  if (LANGUAGE_MAP[browserLang]) {
-    return LANGUAGE_MAP[browserLang];
-  }
-
-  // Check language code without region (e.g., 'en-US' -> 'en')
-  const langCode = browserLang.split('-')[0].toLowerCase();
-  if (LANGUAGE_MAP[langCode]) {
-    return LANGUAGE_MAP[langCode];
+    // Check language code without region (e.g., 'en-US' -> 'en')
+    const langCode = browserLang.split('-')[0].toLowerCase();
+    if (LANGUAGE_MAP[langCode]) {
+      return LANGUAGE_MAP[langCode];
+    }
   }
 
   return null;
@@ -100,48 +112,122 @@ function detectFromBrowser(): Language | null {
 
 /**
  * Detect language from IP geolocation
- * Uses ipapi.co (free tier: 1000 requests/month)
+ * Uses multiple services with fallback
  */
 async function detectFromGeolocation(): Promise<Language | null> {
   if (typeof window === 'undefined') return null;
 
+  // Try primary service first
   try {
-    // Use ipapi.co for geolocation (no API key required for basic usage)
+    const result = await tryIpApi();
+    if (result) return result;
+  } catch (e) {
+    console.log('Primary geolocation failed, trying fallback...');
+  }
+
+  // Try fallback service
+  try {
+    const result = await tryIpWhoIs();
+    if (result) return result;
+  } catch (e) {
+    console.log('Fallback geolocation also failed');
+  }
+
+  return null;
+}
+
+/**
+ * Primary geolocation service: ipapi.co
+ */
+async function tryIpApi(): Promise<Language | null> {
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), 5000); // 5s timeout
+
+  try {
     const response = await fetch('https://ipapi.co/json/', {
       method: 'GET',
-      headers: {
-        'Accept': 'application/json',
-      },
+      headers: { 'Accept': 'application/json' },
+      signal: controller.signal,
     });
 
-    if (!response.ok) {
-      throw new Error('Geolocation service unavailable');
-    }
+    clearTimeout(timeoutId);
+
+    if (!response.ok) throw new Error('Service unavailable');
 
     const data = await response.json();
-
-    // If from Spain, prefer Catalan, otherwise Spanish
-    if (data.country_code === 'ES') {
-      return 'ca'; // Catalan for Spain
-    }
-
-    // Spanish-speaking countries
-    const spanishSpeakingCountries = [
-      'MX', 'AR', 'CO', 'PE', 'VE', 'CL', 'EC', 'GT', 'CU', 'BO',
-      'HN', 'PY', 'UY', 'DO', 'CR', 'PA', 'NI', 'SV', 'ES', 'GQ',
-      'PY', 'UY'
-    ];
-
-    if (spanishSpeakingCountries.includes(data.country_code)) {
-      return 'es';
-    }
-
-    // Default to English for other countries
-    return 'en';
+    return determineLanguageFromGeo(data.country_code, data.region, data.city);
   } catch (error) {
-    console.warn('IP geolocation failed:', error);
-    return null;
+    clearTimeout(timeoutId);
+    throw error;
   }
+}
+
+/**
+ * Fallback geolocation service: ipwhois.app
+ */
+async function tryIpWhoIs(): Promise<Language | null> {
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), 5000);
+
+  try {
+    const response = await fetch('https://ipwho.is/', {
+      method: 'GET',
+      headers: { 'Accept': 'application/json' },
+      signal: controller.signal,
+    });
+
+    clearTimeout(timeoutId);
+
+    if (!response.ok) throw new Error('Service unavailable');
+
+    const data = await response.json();
+    return determineLanguageFromGeo(data.country_code, data.region, data.city);
+  } catch (error) {
+    clearTimeout(timeoutId);
+    throw error;
+  }
+}
+
+/**
+ * Determine language based on country, region, and city
+ */
+function determineLanguageFromGeo(
+  countryCode: string,
+  region?: string,
+  city?: string
+): Language {
+  // Andorra - Catalan is official language
+  if (countryCode === 'AD') {
+    return 'ca';
+  }
+
+  // Spain - check if in Catalan-speaking region
+  if (countryCode === 'ES') {
+    const locationStr = `${region || ''} ${city || ''}`.toLowerCase();
+    
+    // Check if in Catalan-speaking region
+    const isCatalanRegion = CATALAN_REGIONS.some(r => locationStr.includes(r));
+    
+    if (isCatalanRegion) {
+      return 'ca';
+    }
+    
+    // Rest of Spain - Spanish
+    return 'es';
+  }
+
+  // Spanish-speaking countries in Latin America
+  const spanishSpeakingCountries = [
+    'MX', 'AR', 'CO', 'PE', 'VE', 'CL', 'EC', 'GT', 'CU', 'BO',
+    'HN', 'PY', 'UY', 'DO', 'CR', 'PA', 'NI', 'SV', 'GQ', 'PR'
+  ];
+
+  if (spanishSpeakingCountries.includes(countryCode)) {
+    return 'es';
+  }
+
+  // Default to English for other countries
+  return 'en';
 }
 
 /**

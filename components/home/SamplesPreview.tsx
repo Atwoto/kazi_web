@@ -11,18 +11,18 @@ export default function SamplesPreview() {
 
   const samples = [
     {
-      title: "SokoBridge",
-      category: "Web Development",
+      titleKey: "sokoBridge" as const,
+      categoryKey: "webDev" as const,
       image: "/samples/web/soko.jpg",
     },
     {
-      title: "Bills On Solar EA Limited",
-      category: "Web Development",
+      titleKey: "billsSolar" as const,
+      categoryKey: "webDev" as const,
       image: "/samples/web/bill.jpg",
     },
     {
-      title: "WhatsApp Car Rental Bot",
-      category: "AI Services",
+      titleKey: "whatsappBot" as const,
+      categoryKey: "aiServices" as const,
       image: "/samples/AI/chat.jpg",
     },
   ];
@@ -48,16 +48,16 @@ export default function SamplesPreview() {
               <div className="relative w-full h-64 bg-gray-200">
                 <Image
                   src={sample.image}
-                  alt={sample.title}
+                  alt={t.home.samples.projects[sample.titleKey]}
                   layout="fill"
                   objectFit="cover"
                   className="group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
               <CardHeader className="bg-white">
-                <CardTitle className="font-heading text-lg font-bold">{sample.title}</CardTitle>
+                <CardTitle className="font-heading text-lg font-bold">{t.home.samples.projects[sample.titleKey]}</CardTitle>
                 <CardDescription className="text-blue-600 font-medium uppercase tracking-wide text-xs">
-                  {sample.category}
+                  {t.home.samples.categories[sample.categoryKey]}
                 </CardDescription>
               </CardHeader>
             </Card>

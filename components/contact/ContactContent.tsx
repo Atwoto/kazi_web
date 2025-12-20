@@ -81,17 +81,17 @@ export default function ContactContent() {
           </div>
 
           <div className="max-w-2xl mx-auto w-full relative z-10">
-            <h2 className="text-3xl font-heading font-bold mb-3 text-gray-900">Get in Touch</h2>
-            <p className="text-gray-500 mb-8 text-lg">Have a question or want to discuss a project? Send us a message.</p>
+            <h2 className="text-3xl font-heading font-bold mb-3 text-gray-900">{t.contact.form.title}</h2>
+            <p className="text-gray-500 mb-8 text-lg">{t.contact.form.subtitle}</p>
 
             {/* Simple Contact Form */}
             <ContactForm className="border border-gray-100 shadow-xl rounded-2xl bg-white" />
             
             <div className="mt-6 text-center">
               <p className="text-sm text-slate-500">
-                Need a detailed project quote?{" "}
+                {t.contact.form.quoteLink}{" "}
                 <Link href="/pricing" className="text-blue-600 hover:text-blue-700 font-semibold underline">
-                  Get a Quote →
+                  {t.contact.form.getQuote}
                 </Link>
               </p>
             </div>

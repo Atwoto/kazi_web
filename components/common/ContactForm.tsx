@@ -18,6 +18,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+import { useLanguage } from "@/context/LanguageContext";
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters" }),
@@ -29,6 +30,7 @@ const formSchema = z.object({
 type FormData = z.infer<typeof formSchema>;
 
 export default function ContactForm({ className }: { className?: string }) {
+  const { t } = useLanguage();
   const [isLoading, setIsLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
@@ -75,17 +77,17 @@ export default function ContactForm({ className }: { className?: string }) {
             <Check className="h-8 w-8 text-white" />
           </div>
           <h3 className="text-2xl font-heading font-bold text-gray-900 mb-2">
-            Message Sent!
+            {t.contact.form.success.title}
           </h3>
           <p className="text-gray-600 mb-4">
-            Thank you for reaching out. We'll get back to you within 24 hours.
+            {t.contact.form.success.message}
           </p>
           <Button
             onClick={() => setSubmitted(false)}
             variant="outline"
             className="mt-4"
           >
-            Send Another Message
+            {t.contact.form.buttons.sendAnother}
           </Button>
         </div>
       </Card>
@@ -102,10 +104,10 @@ export default function ContactForm({ className }: { className?: string }) {
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Your Name *</FormLabel>
+                  <FormLabel>{t.contact.form.labels.name} *</FormLabel>
                   <FormControl>
                     <Input
-                      placeholder="John Doe"
+                      placeholder={t.contact.form.placeholders.name}
                       {...field}
                       className="h-12 border-slate-300"
                     />
@@ -120,11 +122,11 @@ export default function ContactForm({ className }: { className?: string }) {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Email Address *</FormLabel>
+                  <FormLabel>{t.contact.form.labels.email} *</FormLabel>
                   <FormControl>
                     <Input
                       type="email"
-                      placeholder="john@example.com"
+                      placeholder={t.contact.form.placeholders.email}
                       {...field}
                       className="h-12 border-slate-300"
                     />
@@ -140,10 +142,10 @@ export default function ContactForm({ className }: { className?: string }) {
             name="subject"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Subject *</FormLabel>
+                <FormLabel>{t.contact.form.labels.subject} *</FormLabel>
                 <FormControl>
                   <Input
-                    placeholder="What's this about?"
+                    placeholder={t.contact.form.placeholders.subject}
                     {...field}
                     className="h-12 border-slate-300"
                   />
@@ -158,10 +160,10 @@ export default function ContactForm({ className }: { className?: string }) {
             name="message"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Message *</FormLabel>
+                <FormLabel>{t.contact.form.labels.message} *</FormLabel>
                 <FormControl>
                   <Textarea
-                    placeholder="Tell us what you need help with..."
+                    placeholder={t.contact.form.placeholders.message}
                     className="resize-y min-h-[150px] border-slate-300"
                     {...field}
                   />
@@ -179,11 +181,11 @@ export default function ContactForm({ className }: { className?: string }) {
             {isLoading ? (
               <>
                 <Loader2 className="mr-2 w-4 h-4 animate-spin" />
-                Sending...
+                {t.contact.form.buttons.sending}
               </>
             ) : (
               <>
-                Send Message <Send className="ml-2 w-4 h-4" />
+                {t.contact.form.buttons.send} <Send className="ml-2 w-4 h-4" />
               </>
             )}
           </Button>
