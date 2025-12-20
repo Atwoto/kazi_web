@@ -907,6 +907,171 @@ export const translations = {
       poweredBy: "Powered by Qwen AI",
       assistantTitle: "Kazi Agency Assistant",
     },
+    legal: {
+      privacy: {
+        title: "Privacy Policy",
+        intro: "This Privacy Policy describes how Kazi Agency collects, uses, and discloses your personal information when you visit or contact us through kaziagency.es (the \"Site\").",
+        collect: {
+          title: "Information We Collect",
+          text: "When you visit the Site or contact us for services, we collect information necessary to:",
+          list: [
+            "Respond to your inquiries and service requests",
+            "Provide quotes and proposals",
+            "Manage ongoing projects and client relationships",
+            "Comply with legal and regulatory requirements"
+          ],
+          typesTitle: "Types of Information Collected",
+          types: [
+            { "label": "Contact Information:", "text": "Name, email address, phone number, company name" },
+            { "label": "Project Information:", "text": "Project details, requirements, deadlines, budget" },
+            { "label": "Technical Information:", "text": "IP address, browser type, device information, cookies (if enabled)" },
+            { "label": "Communication Records:", "text": "Correspondence history, meeting notes, project files" }
+          ]
+        },
+        use: {
+          title: "How We Use Your Information",
+          text: "We use your information for the following purposes:",
+          list: [
+            "To provide and maintain our services",
+            "To communicate with you about projects and services",
+            "To process payments and manage contracts",
+            "To improve our website and services",
+            "To comply with legal obligations"
+          ]
+        },
+        sharing: {
+          title: "Data Sharing and Disclosure",
+          text: "We do not sell your personal information. We may share information with:",
+          list: [
+            { "label": "Service Providers:", "text": "Third-party services that help us operate our business (e.g., cloud storage, payment processing, email services)" },
+            { "label": "Legal Requirements:", "text": "When required by law or to protect our rights and safety" },
+            { "label": "Business Transfers:", "text": "In connection with a merger, sale, or reorganization (you would be notified)" }
+          ]
+        },
+        retention: {
+          title: "Data Retention",
+          text: "We retain your information for as long as necessary to provide services and maintain business records as required by law. Client project files are typically retained for 7 years for tax and legal purposes."
+        },
+        rights: {
+          title: "Your Rights (EU Residents)",
+          text: "Under the General Data Protection Regulation (GDPR), you have the right to:",
+          list: [
+            "Access your personal data",
+            "Correct inaccurate data",
+            "Request deletion of your data",
+            "Restrict or object to processing",
+            "Data portability",
+            "Withdraw consent at any time"
+          ],
+          contact: "To exercise these rights, contact us at hello@kaziagency.es"
+        },
+        security: {
+          title: "Data Security",
+          text: "We implement appropriate technical and organizational security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction."
+        },
+        international: {
+          title: "International Transfers",
+          text: "Your information may be transferred to and processed in countries outside the EU. We ensure appropriate safeguards are in place for such transfers."
+        },
+        changes: {
+          title: "Changes to This Policy",
+          text: "We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated revision date."
+        },
+        contact: {
+          title: "Contact Us",
+          text: "For questions about this Privacy Policy or our data practices, contact us:",
+          emailLabel: "Email:",
+          controller: "Data Controller: Kazi Agency",
+          website: "Website: kaziagency.es"
+        }
+      },
+      terms: {
+        title: "Terms of Service",
+        intro: "Welcome to Kazi. By using our services, you agree to the following terms.",
+        core: {
+          title: "1. Core Business Rules",
+          rules: [
+            { "label": "Communication Rule:", "text": "All client communication must go through Kazi. Direct contact with freelancers is prohibited to ensure quality control." },
+            { "label": "Off-Platform Rule:", "text": "You agree not to request or share contact details to move communication or payment off the Kazi platform. Doing so will result in immediate service termination." },
+            { "label": "Anonymity Rule:", "text": "Freelancers are not provided with your personal details beyond what is strictly necessary to complete the job." }
+          ]
+        },
+        delivery: {
+          title: "2. Delivery & Revisions",
+          text: "Deliverables are released in stages. You may receive watermarked previews for video or design work. Final files are released only after full payment is confirmed. Revisions are limited to the rounds specified in your quote."
+        },
+        payments: {
+          title: "3. Payments & Refunds",
+          text: "Payments are milestone-based. We offer a free refund up to 5 days after completion if a freelancer error is proven. If you disappear mid-project (unresponsive for 14+ days), we reserve the right to close the project and retain the deposit."
+        },
+        academic: {
+          title: "4. Academic Support Compliance",
+          text: "Kazi provides editing, proofreading, formatting, and coaching.",
+          strong: "We do not market ghostwriting for student assignments, exams, or graded submissions.",
+          agreement: "Clients engaging us for academic support agree that:",
+          list: [
+            "They must review the work themselves.",
+            "They are solely responsible for the final submission.",
+            "Any academic repercussions are their sole responsibility, not Kazi's."
+          ]
+        },
+        ip: {
+          title: "5. Intellectual Property",
+          text: "Upon final payment, full intellectual property rights for the completed work (excluding academic support coaching materials) are transferred to the client."
+        }
+      },
+      cookies: {
+        title: "Cookies Policy",
+        intro: "This Cookies Policy explains what cookies are, how Kazi Agency uses cookies on kaziagency.es, and your choices regarding cookies.",
+        what: {
+          title: "What are cookies?",
+          text: "Cookies are small text files that are stored on your device when you visit a website. They help the website remember information about your visit, which can make your next visit easier and the site more useful to you."
+        },
+        use: {
+          title: "How Kazi Agency uses cookies",
+          text: "We use cookies to:",
+          list: [
+            "Ensure the website functions properly",
+            "Understand how visitors use our website (analytics)",
+            "Remember your language preference",
+            "Improve user experience"
+          ]
+        },
+        types: {
+          title: "Types of cookies we use",
+          list: [
+            { "label": "Essential Cookies:", "text": "These cookies are necessary for the website to function properly. They cannot be switched off in our systems." },
+            { "label": "Analytics Cookies:", "text": "These cookies help us understand how visitors interact with our website by collecting and reporting information anonymously. We use this information to improve our website." },
+            { "label": "Functional Cookies:", "text": "These cookies enable enhanced functionality and personalization, such as remembering your language preference." }
+          ]
+        },
+        thirdParty: {
+          title: "Third-party services",
+          text: "We may use third-party services that set their own cookies:",
+          list: [
+            { "label": "Analytics Services:", "text": "We may use Google Analytics or similar services to understand website usage. You can opt out of Google Analytics cookies by visiting" }
+          ]
+        },
+        choices: {
+          title: "Your cookie choices",
+          text: "You can control and manage cookies in various ways:",
+          list: [
+            { "label": "Browser Settings:", "text": "Most web browsers allow you to control cookies through their settings preferences. However, limiting cookies may impact your experience of our website." },
+            { "label": "Opting Out:", "text": "You can opt out of targeted advertising cookies by visiting" }
+          ],
+          note: "Please note that if you choose to block all cookies, you may not be able to access all or parts of our site, or some functionality may be limited."
+        },
+        moreInfo: {
+          title: "More information",
+          text: "To learn more about cookies and how they work, please visit:",
+          label: "AllAboutCookies:"
+        },
+        contact: {
+          title: "Contact us",
+          text: "If you have any questions about our use of cookies, please contact us at"
+        }
+      }
+    },
   },
   es: {
     nav: {
@@ -1816,6 +1981,171 @@ export const translations = {
       poweredBy: "Powered by Qwen AI",
       assistantTitle: "Asistente de Kazi Agency",
     },
+    legal: {
+      privacy: {
+        title: "Política de Privacidad",
+        intro: "Esta Política de Privacidad describe cómo Kazi Agency recopila, utiliza y divulga su información personal cuando visita o contacta con nosotros a través de kaziagency.es (el \"Sitio\").",
+        collect: {
+          title: "Información que Recopilamos",
+          text: "Cuando visita el Sitio o nos contacta para servicios, recopilamos la información necesaria para:",
+          list: [
+            "Responder a sus consultas y solicitudes de servicio",
+            "Proporcionar cotizaciones y propuestas",
+            "Gestionar proyectos en curso y relaciones con clientes",
+            "Cumplir con requisitos legales y reglamentarios"
+          ],
+          typesTitle: "Tipos de Información Recopilada",
+          types: [
+            { "label": "Información de Contacto:", "text": "Nombre, dirección de correo electrónico, número de teléfono, nombre de la empresa" },
+            { "label": "Información del Proyecto:", "text": "Detalles del proyecto, requisitos, plazos, presupuesto" },
+            { "label": "Información Técnica:", "text": "Dirección IP, tipo de navegador, información del dispositivo, cookies (si están habilitadas)" },
+            { "label": "Registros de Comunicación:", "text": "Historial de correspondencia, notas de reuniones, archivos del proyecto" }
+          ]
+        },
+        use: {
+          title: "Cómo Usamos Su Información",
+          text: "Utilizamos su información para los siguientes propósitos:",
+          list: [
+            "Para proporcionar y mantener nuestros servicios",
+            "Para comunicarnos con usted sobre proyectos y servicios",
+            "Para procesar pagos y gestionar contratos",
+            "Para mejorar nuestro sitio web y servicios",
+            "Para cumplir con obligaciones legales"
+          ]
+        },
+        sharing: {
+          title: "Intercambio y Divulgación de Datos",
+          text: "No vendemos su información personal. Podemos compartir información con:",
+          list: [
+            { "label": "Proveedores de Servicios:", "text": "Servicios de terceros que nos ayudan a operar nuestro negocio (por ejemplo, almacenamiento en la nube, procesamiento de pagos, servicios de correo electrónico)" },
+            { "label": "Requisitos Legales:", "text": "Cuando lo exija la ley o para proteger nuestros derechos y seguridad" },
+            { "label": "Transferencias Comerciales:", "text": "En relación con una fusión, venta o reorganización (se le notificará)" }
+          ]
+        },
+        retention: {
+          title: "Retención de Datos",
+          text: "Retenemos su información durante el tiempo necesario para proporcionar servicios y mantener registros comerciales según lo exija la ley. Los archivos de proyectos de clientes se conservan normalmente durante 7 años para fines fiscales y legales."
+        },
+        rights: {
+          title: "Sus Derechos (Residentes de la UE)",
+          text: "Según el Reglamento General de Protección de Datos (GDPR), usted tiene derecho a:",
+          list: [
+            "Acceder a sus datos personales",
+            "Corregir datos inexactos",
+            "Solicitar la eliminación de sus datos",
+            "Restringir u oponerse al procesamiento",
+            "Portabilidad de datos",
+            "Retirar el consentimiento en cualquier momento"
+          ],
+          contact: "Para ejercer estos derechos, contáctenos en hello@kaziagency.es"
+        },
+        security: {
+          title: "Seguridad de Datos",
+          text: "Implementamos medidas de seguridad técnicas y organizativas apropiadas para proteger su información personal contra el acceso, alteración, divulgación o destrucción no autorizados."
+        },
+        international: {
+          title: "Transferencias Internacionales",
+          text: "Su información puede ser transferida y procesada en países fuera de la UE. Nos aseguramos de que existan salvaguardas adecuadas para dichas transferencias."
+        },
+        changes: {
+          title: "Cambios a esta Política",
+          text: "Podemos actualizar esta Política de Privacidad de vez en cuando. Los cambios se publicarán en esta página con una fecha de revisión actualizada."
+        },
+        contact: {
+          title: "Contáctenos",
+          text: "Para preguntas sobre esta Política de Privacidad o nuestras prácticas de datos, contáctenos:",
+          emailLabel: "Correo electrónico:",
+          controller: "Responsable de Datos: Kazi Agency",
+          website: "Sitio web: kaziagency.es"
+        }
+      },
+      terms: {
+        title: "Términos de Servicio",
+        intro: "Bienvenido a Kazi. Al utilizar nuestros servicios, acepta los siguientes términos.",
+        core: {
+          title: "1. Reglas Comerciales Principales",
+          rules: [
+            { "label": "Regla de Comunicación:", "text": "Toda la comunicación con el cliente debe pasar por Kazi. El contacto directo con freelancers está prohibido para garantizar el control de calidad." },
+            { "label": "Regla Fuera de Plataforma:", "text": "Acepta no solicitar ni compartir detalles de contacto para mover la comunicación o el pago fuera de la plataforma Kazi. Hacerlo resultará en la terminación inmediata del servicio." },
+            { "label": "Regla de Anonimato:", "text": "A los freelancers no se les proporcionan sus detalles personales más allá de lo estrictamente necesario para completar el trabajo." }
+          ]
+        },
+        delivery: {
+          title: "2. Entrega y Revisiones",
+          text: "Los entregables se liberan por etapas. Puede recibir vistas previas con marca de agua para trabajos de video o diseño. Los archivos finales se liberan solo después de confirmar el pago completo. Las revisiones se limitan a las rondas especificadas en su cotización."
+        },
+        payments: {
+          title: "3. Pagos y Reembolsos",
+          text: "Los pagos se basan en hitos. Ofrecemos un reembolso gratuito hasta 5 días después de la finalización si se demuestra un error del freelancer. Si desaparece a mitad del proyecto (sin respuesta por más de 14 días), nos reservamos el derecho de cerrar el proyecto y retener el depósito."
+        },
+        academic: {
+          title: "4. Cumplimiento de Apoyo Académico",
+          text: "Kazi proporciona edición, corrección, formato y coaching.",
+          strong: "No comercializamos la escritura fantasma para tareas estudiantiles, exámenes o entregas calificadas.",
+          agreement: "Los clientes que nos contratan para apoyo académico aceptan que:",
+          list: [
+            "Deben revisar el trabajo ellos mismos.",
+            "Son los únicos responsables de la entrega final.",
+            "Cualquier repercusión académica es su única responsabilidad, no de Kazi."
+          ]
+        },
+        ip: {
+          title: "5. Propiedad Intelectual",
+          text: "Tras el pago final, los derechos de propiedad intelectual completos del trabajo completado (excluyendo materiales de coaching de apoyo académico) se transfieren al cliente."
+        }
+      },
+      cookies: {
+        title: "Política de Cookies",
+        intro: "Esta Política de Cookies explica qué son las cookies, cómo Kazi Agency utiliza las cookies en kaziagency.es y sus opciones con respecto a las cookies.",
+        what: {
+          title: "¿Qué son las cookies?",
+          text: "Las cookies son pequeños archivos de texto que se almacenan en su dispositivo cuando visita un sitio web. Ayudan al sitio web a recordar información sobre su visita, lo que puede facilitar su próxima visita y hacer que el sitio sea más útil para usted."
+        },
+        use: {
+          title: "Cómo utiliza Kazi Agency las cookies",
+          text: "Utilizamos cookies para:",
+          list: [
+            "Asegurar que el sitio web funcione correctamente",
+            "Entender cómo los visitantes utilizan nuestro sitio web (análisis)",
+            "Recordar su preferencia de idioma",
+            "Mejorar la experiencia del usuario"
+          ]
+        },
+        types: {
+          title: "Tipos de cookies que utilizamos",
+          list: [
+            { "label": "Cookies Esenciales:", "text": "Estas cookies son necesarias para que el sitio web funcione correctamente. No se pueden desactivar en nuestros sistemas." },
+            { "label": "Cookies de Análisis:", "text": "Estas cookies nos ayudan a entender cómo los visitantes interactúan con nuestro sitio web recopilando e informando información de forma anónima. Utilizamos esta información para mejorar nuestro sitio web." },
+            { "label": "Cookies Funcionales:", "text": "Estas cookies permiten una funcionalidad mejorada y personalización, como recordar su preferencia de idioma." }
+          ]
+        },
+        thirdParty: {
+          title: "Servicios de terceros",
+          text: "Podemos utilizar servicios de terceros que establecen sus propias cookies:",
+          list: [
+            { "label": "Servicios de Análisis:", "text": "Podemos utilizar Google Analytics o servicios similares para entender el uso del sitio web. Puede optar por no recibir cookies de Google Analytics visitando" }
+          ]
+        },
+        choices: {
+          title: "Sus opciones de cookies",
+          text: "Puede controlar y gestionar las cookies de varias maneras:",
+          list: [
+            { "label": "Configuración del Navegador:", "text": "La mayoría de los navegadores web le permiten controlar las cookies a través de sus preferencias de configuración. Sin embargo, limitar las cookies puede afectar su experiencia en nuestro sitio web." },
+            { "label": "Optar por no participar:", "text": "Puede optar por no recibir cookies de publicidad dirigida visitando" }
+          ],
+          note: "Tenga en cuenta que si elige bloquear todas las cookies, es posible que no pueda acceder a todas o partes de nuestro sitio, o que alguna funcionalidad se vea limitada."
+        },
+        moreInfo: {
+          title: "Más información",
+          text: "Para obtener más información sobre las cookies y cómo funcionan, visite:",
+          label: "AllAboutCookies:"
+        },
+        contact: {
+          title: "Contáctenos",
+          text: "Si tiene alguna pregunta sobre nuestro uso de cookies, por favor contáctenos en"
+        }
+      }
+    },
   },
   ca: {
     nav: {
@@ -2724,6 +3054,171 @@ export const translations = {
       sendMessage: "Enviar missatge",
       poweredBy: "Powered by Qwen AI",
       assistantTitle: "Assistent de Kazi Agency",
+    },
+    legal: {
+      privacy: {
+        title: "Política de Privacitat",
+        intro: "Aquesta Política de Privacitat descriu com Kazi Agency recopila, utilitza i divulga la seva informació personal quan visita o contacta amb nosaltres a través de kaziagency.es (el \"Lloc\").",
+        collect: {
+          title: "Informació que Recopilem",
+          text: "Quan visita el Lloc o ens contacta per serveis, recopilem la informació necessària per:",
+          list: [
+            "Respondre a les seves consultes i sol·licituds de servei",
+            "Proporcionar pressupostos i propostes",
+            "Gestionar projectes en curs i relacions amb clients",
+            "Complir amb requisits legals i reglamentaris"
+          ],
+          typesTitle: "Tipus d'Informació Recopilada",
+          types: [
+            { "label": "Informació de Contacte:", "text": "Nom, adreça de correu electrònic, número de telèfon, nom de l'empresa" },
+            { "label": "Informació del Projecte:", "text": "Detalls del projecte, requisits, terminis, pressupost" },
+            { "label": "Informació Tècnica:", "text": "Adreça IP, tipus de navegador, informació del dispositiu, cookies (si estan habilitades)" },
+            { "label": "Registres de Comunicació:", "text": "Historial de correspondència, notes de reunions, arxius del projecte" }
+          ]
+        },
+        use: {
+          title: "Com Usem la Seva Informació",
+          text: "Utilitzem la seva informació per als següents propòsits:",
+          list: [
+            "Per proporcionar i mantenir els nostres serveis",
+            "Per comunicar-nos amb vostè sobre projectes i serveis",
+            "Per processar pagaments i gestionar contractes",
+            "Per millorar el nostre lloc web i serveis",
+            "Per complir amb obligacions legals"
+          ]
+        },
+        sharing: {
+          title: "Intercanvi i Divulgació de Dades",
+          text: "No venem la seva informació personal. Podem compartir informació amb:",
+          list: [
+            { "label": "Proveïdors de Serveis:", "text": "Serveis de tercers que ens ajuden a operar el nostre negoci (per exemple, emmagatzematge al núvol, processament de pagaments, serveis de correu electrònic)" },
+            { "label": "Requisits Legals:", "text": "Quan ho exigeixi la llei o per protegir els nostres drets i seguretat" },
+            { "label": "Transferències Comercials:", "text": "En relació amb una fusió, venda o reorganització (se li notificarà)" }
+          ]
+        },
+        retention: {
+          title: "Retenció de Dades",
+          text: "Retenim la seva informació durant el temps necessari per proporcionar serveis i mantenir registres comercials segons ho exigeixi la llei. Els arxius de projectes de clients es conserven normalment durant 7 anys per a fins fiscals i legals."
+        },
+        rights: {
+          title: "Els Seus Drets (Residents de la UE)",
+          text: "Segons el Reglament General de Protecció de Dades (GDPR), vostè té dret a:",
+          list: [
+            "Accedir a les seves dades personals",
+            "Corregir dades inexactes",
+            "Sol·licitar l'eliminació de les seves dades",
+            "Restringir o oposar-se al processament",
+            "Portabilitat de dades",
+            "Retirar el consentiment en qualsevol moment"
+          ],
+          contact: "Per exercir aquests drets, contacti amb nosaltres a hello@kaziagency.es"
+        },
+        security: {
+          title: "Seguretat de Dades",
+          text: "Implementem mesures de seguretat tècniques i organitzatives apropiades per protegir la seva informació personal contra l'accés, alteració, divulgació o destrucció no autoritzats."
+        },
+        international: {
+          title: "Transferències Internacionals",
+          text: "La seva informació pot ser transferida i processada en països fora de la UE. Ens assegurem que existeixin salvaguardes adequades per a aquestes transferències."
+        },
+        changes: {
+          title: "Canvis a aquesta Política",
+          text: "Podem actualitzar aquesta Política de Privacitat de tant en tant. Els canvis es publicaran en aquesta pàgina amb una data de revisió actualitzada."
+        },
+        contact: {
+          title: "Contacti amb Nosaltres",
+          text: "Per preguntes sobre aquesta Política de Privacitat o les nostres pràctiques de dades, contacti amb nosaltres:",
+          emailLabel: "Correu electrònic:",
+          controller: "Responsable de Dades: Kazi Agency",
+          website: "Lloc web: kaziagency.es"
+        }
+      },
+      terms: {
+        title: "Termes de Servei",
+        intro: "Benvingut a Kazi. En utilitzar els nostres serveis, accepta els següents termes.",
+        core: {
+          title: "1. Regles Comercials Principals",
+          rules: [
+            { "label": "Regla de Comunicació:", "text": "Tota la comunicació amb el client ha de passar per Kazi. El contacte directe amb freelancers està prohibit per garantir el control de qualitat." },
+            { "label": "Regla Fora de Plataforma:", "text": "Accepta no sol·licitar ni compartir detalls de contacte per moure la comunicació o el pagament fora de la plataforma Kazi. Fer-ho resultarà en la terminació immediata del servei." },
+            { "label": "Regla d'Anonimat:", "text": "Als freelancers no se'ls proporcionen els seus detalls personals més enllà del que és estrictament necessari per completar la feina." }
+          ]
+        },
+        delivery: {
+          title: "2. Lliurament i Revisions",
+          text: "Els lliurables s'alliberen per etapes. Pot rebre vistes prèvies amb marca d'aigua per a treballs de vídeo o disseny. Els fitxers finals s'alliberen només després de confirmar el pagament complet. Les revisions es limiten a les rondas especificades en el seu pressupost."
+        },
+        payments: {
+          title: "3. Pagaments i Reemborsaments",
+          text: "Els pagaments es basen en fites. Oferim un reemborsament gratuït fins a 5 dies després de la finalització si es demostra un error del freelancer. Si desapareix a meitat del projecte (sense resposta per més de 14 dies), ens reservem el dret de tancar el projecte i retenir el dipòsit."
+        },
+        academic: {
+          title: "4. Compliment de Suport Acadèmic",
+          text: "Kazi proporciona edició, correcció, format i coaching.",
+          strong: "No comercialitzem l'escriptura fantasma per a tasques estudiantils, exàmens o entregues qualificades.",
+          agreement: "Els clients que ens contracten per a suport acadèmic accepten que:",
+          list: [
+            "Han de revisar la feina ells mateixos.",
+            "Són els únics responsables de l'entrega final.",
+            "Qualsevol repercussió acadèmica és la seva única responsabilitat, no de Kazi."
+          ]
+        },
+        ip: {
+          title: "5. Propietat Intel·lectual",
+          text: "Després del pagament final, els drets de propietat intel·lectual complets de la feina completada (excloent materials de coaching de suport acadèmic) es transfereixen al client."
+        }
+      },
+      cookies: {
+        title: "Política de Cookies",
+        intro: "Aquesta Política de Cookies explica què són les cookies, com Kazi Agency utilitza les cookies a kaziagency.es i les seves opcions pel que fa a les cookies.",
+        what: {
+          title: "Què són les cookies?",
+          text: "Les cookies són petits fitxers de text que s'emmagatzemen al seu dispositiu quan visita un lloc web. Ajuden al lloc web a recordar informació sobre la seva visita, cosa que pot facilitar la seva propera visita i fer que el lloc sigui més útil per a vostè."
+        },
+        use: {
+          title: "Com utilitza Kazi Agency les cookies",
+          text: "Utilitzem cookies per:",
+          list: [
+            "Assegurar que el lloc web funcioni correctament",
+            "Entendre com els visitants utilitzen el nostre lloc web (anàlisi)",
+            "Recordar la seva preferència d'idioma",
+            "Millorar l'experiència de l'usuari"
+          ]
+        },
+        types: {
+          title: "Tipus de cookies que utilitzem",
+          list: [
+            { "label": "Cookies Essencials:", "text": "Aquestes cookies són necessàries perquè el lloc web funcioni correctament. No es poden desactivar als nostres sistemes." },
+            { "label": "Cookies d'Anàlisi:", "text": "Aquestes cookies ens ajuden a entendre com els visitants interactuen amb el nostre lloc web recopilant i informant informació de forma anònima. Utilitzem aquesta informació per millorar el nostre lloc web." },
+            { "label": "Cookies Funcionals:", "text": "Aquestes cookies permeten una funcionalitat millorada i personalització, com recordar la seva preferència d'idioma." }
+          ]
+        },
+        thirdParty: {
+          title: "Serveis de tercers",
+          text: "Podemos utilitzar serveis de tercers que estableixen les seves pròpies cookies:",
+          list: [
+            { "label": "Serveis d'Anàlisi:", "text": "Podem utilitzar Google Analytics o serveis similars per entendre l'ús del lloc web. Pot optar per no rebre cookies de Google Analytics visitant" }
+          ]
+        },
+        choices: {
+          title: "Les seves opcions de cookies",
+          text: "Pot controlar i gestionar les cookies de diverses maneres:",
+          list: [
+            { "label": "Configuració del Navegador:", "text": "La majoria dels navegadors web li permeten controlar les cookies a través de les seves preferències de configuració. No obstant això, limitar les cookies pot afectar la seva experiència al nostre lloc web." },
+            { "label": "Optar per no participar:", "text": "Pot optar per no rebre cookies de publicitat dirigida visitant" }
+          ],
+          note: "Tingui en compte que si tria bloquejar totes les cookies, és possible que no pugui accedir a totes o parts del nostre lloc, o que alguna funcionalitat es vegi limitada."
+        },
+        moreInfo: {
+          title: "Més informació",
+          text: "Per obtenir més informació sobre les cookies i com funcionen, visiti:",
+          label: "AllAboutCookies:"
+        },
+        contact: {
+          title: "Contacti amb nosaltres",
+          text: "Si té alguna pregunta sobre el nostre ús de cookies, si us plau contacti amb nosaltres a"
+        }
+      }
     },
   },
 };

@@ -1,113 +1,90 @@
+"use client";
+
+import { useLanguage } from "@/context/LanguageContext";
+import { translations } from "@/lib/translations";
+
 export default function PrivacyPolicyPage() {
+  const { language } = useLanguage();
+  const t = translations[language].legal.privacy;
+
   return (
-    <div className="py-16 md:py-24 bg-gray-50">
+    <div className="pt-32 pb-16 md:pt-40 md:pb-24 bg-gray-50">
       <div className="container mx-auto px-4 max-w-3xl">
         <h1 className="text-4xl md:text-5xl font-heading font-bold text-center mb-8">
-          Privacy Policy
+          {t.title}
         </h1>
         <div className="prose lg:prose-lg mx-auto text-gray-700">
-          <p>
-            This Privacy Policy describes how Kazi Agency collects, uses, and
-            discloses your personal information when you visit or contact us through kaziagency.es (the "Site").
-          </p>
+          <p>{t.intro}</p>
 
-          <h2>Information We Collect</h2>
-          <p>
-            When you visit the Site or contact us for services, we collect information necessary to:
-          </p>
+          <h2>{t.collect.title}</h2>
+          <p>{t.collect.text}</p>
           <ul>
-            <li>Respond to your inquiries and service requests</li>
-            <li>Provide quotes and proposals</li>
-            <li>Manage ongoing projects and client relationships</li>
-            <li>Comply with legal and regulatory requirements</li>
+            {t.collect.list.map((item, index) => (
+              <li key={index}>{item}</li>
+            ))}
           </ul>
 
-          <h3>Types of Information Collected</h3>
+          <h3>{t.collect.typesTitle}</h3>
           <ul>
-            <li>
-              <strong>Contact Information:</strong> Name, email address, phone number, company name
-            </li>
-            <li>
-              <strong>Project Information:</strong> Project details, requirements, deadlines, budget
-            </li>
-            <li>
-              <strong>Technical Information:</strong> IP address, browser type, device information, cookies (if enabled)
-            </li>
-            <li>
-              <strong>Communication Records:</strong> Correspondence history, meeting notes, project files
-            </li>
+            {t.collect.types.map((type, index) => (
+              <li key={index}>
+                <strong>{type.label}</strong> {type.text}
+              </li>
+            ))}
           </ul>
 
-          <h2>How We Use Your Information</h2>
-          <p>We use your information for the following purposes:</p>
+          <h2>{t.use.title}</h2>
+          <p>{t.use.text}</p>
           <ul>
-            <li>To provide and maintain our services</li>
-            <li>To communicate with you about projects and services</li>
-            <li>To process payments and manage contracts</li>
-            <li>To improve our website and services</li>
-            <li>To comply with legal obligations</li>
+            {t.use.list.map((item, index) => (
+              <li key={index}>{item}</li>
+            ))}
           </ul>
 
-          <h2>Data Sharing and Disclosure</h2>
-          <p>
-            We do not sell your personal information. We may share information with:
-          </p>
+          <h2>{t.sharing.title}</h2>
+          <p>{t.sharing.text}</p>
           <ul>
-            <li>
-              <strong>Service Providers:</strong> Third-party services that help us operate our business (e.g., cloud storage, payment processing, email services)
-            </li>
-            <li>
-              <strong>Legal Requirements:</strong> When required by law or to protect our rights and safety
-            </li>
-            <li>
-              <strong>Business Transfers:</strong> In connection with a merger, sale, or reorganization (you would be notified)
-            </li>
+            {t.sharing.list.map((item, index) => (
+              <li key={index}>
+                <strong>{item.label}</strong> {item.text}
+              </li>
+            ))}
           </ul>
 
-          <h2>Data Retention</h2>
-          <p>
-            We retain your information for as long as necessary to provide services and maintain business records as required by law. Client project files are typically retained for 7 years for tax and legal purposes.
-          </p>
+          <h2>{t.retention.title}</h2>
+          <p>{t.retention.text}</p>
 
-          <h2>Your Rights (EU Residents)</h2>
-          <p>
-            Under the General Data Protection Regulation (GDPR), you have the right to:
-          </p>
+          <h2>{t.rights.title}</h2>
+          <p>{t.rights.text}</p>
           <ul>
-            <li>Access your personal data</li>
-            <li>Correct inaccurate data</li>
-            <li>Request deletion of your data</li>
-            <li>Restrict or object to processing</li>
-            <li>Data portability</li>
-            <li>Withdraw consent at any time</li>
+            {t.rights.list.map((item, index) => (
+              <li key={index}>{item}</li>
+            ))}
           </ul>
-          <p>
-            To exercise these rights, contact us at hello@kaziagency.es
-          </p>
+          <p>{t.rights.contact}</p>
 
-          <h2>Data Security</h2>
-          <p>
-            We implement appropriate technical and organizational security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction.
-          </p>
+          <h2>{t.security.title}</h2>
+          <p>{t.security.text}</p>
 
-          <h2>International Transfers</h2>
-          <p>
-            Your information may be transferred to and processed in countries outside the EU. We ensure appropriate safeguards are in place for such transfers.
-          </p>
+          <h2>{t.international.title}</h2>
+          <p>{t.international.text}</p>
 
-          <h2>Changes to This Policy</h2>
-          <p>
-            We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated revision date.
-          </p>
+          <h2>{t.changes.title}</h2>
+          <p>{t.changes.text}</p>
 
-          <h2>Contact Us</h2>
+          <h2>{t.contact.title}</h2>
+          <p>{t.contact.text}</p>
           <p>
-            For questions about this Privacy Policy or our data practices, contact us:
+            {t.contact.emailLabel}{" "}
+            <a href="mailto:hello@kaziagency.es" className="text-primary hover:underline">
+              hello@kaziagency.es
+            </a>
           </p>
-          <p>Email: <a href="mailto:hello@kaziagency.es" className="text-primary hover:underline">hello@kaziagency.es</a></p>
           <p>
-            Data Controller: Kazi Agency<br />
-            Website: kaziagency.es<br />
+            {t.contact.controller}
+            <br />
+            {t.contact.website}
+            <br />
             Email: hello@kaziagency.es
           </p>
         </div>

@@ -1,94 +1,103 @@
+"use client";
+
+import { useLanguage } from "@/context/LanguageContext";
+import { translations } from "@/lib/translations";
+
 export default function CookiesPage() {
+  const { language } = useLanguage();
+  const t = translations[language].legal.cookies;
+
   return (
-    <div className="py-16 md:py-24 bg-gray-50">
+    <div className="pt-32 pb-16 md:pt-40 md:pb-24 bg-gray-50">
       <div className="container mx-auto px-4 max-w-3xl">
         <h1 className="text-4xl md:text-5xl font-heading font-bold text-center mb-8">
-          Cookies Policy
+          {t.title}
         </h1>
         <div className="prose lg:prose-lg mx-auto text-gray-700">
-          <p>
-            This Cookies Policy explains what cookies are, how Kazi Agency uses cookies on kaziagency.es, and your choices regarding cookies.
-          </p>
+          <p>{t.intro}</p>
 
-          <h2>What are cookies?</h2>
-          <p>
-            Cookies are small text files that are stored on your device when you visit a website. They help the website remember information about your visit, which can make your next visit easier and the site more useful to you.
-          </p>
+          <h2>{t.what.title}</h2>
+          <p>{t.what.text}</p>
 
-          <h2>How Kazi Agency uses cookies</h2>
-          <p>
-            We use cookies to:
-          </p>
+          <h2>{t.use.title}</h2>
+          <p>{t.use.text}</p>
           <ul>
-            <li>Ensure the website functions properly</li>
-            <li>Understand how visitors use our website (analytics)</li>
-            <li>Remember your language preference</li>
-            <li>Improve user experience</li>
+            {t.use.list.map((item, index) => (
+              <li key={index}>{item}</li>
+            ))}
           </ul>
 
-          <h2>Types of cookies we use</h2>
+          <h2>{t.types.title}</h2>
           <ul>
-            <li>
-              <strong>Essential Cookies:</strong> These cookies are necessary for the website to function properly. They cannot be switched off in our systems.
-            </li>
-            <li>
-              <strong>Analytics Cookies:</strong> These cookies help us understand how visitors interact with our website by collecting and reporting information anonymously. We use this information to improve our website.
-            </li>
-            <li>
-              <strong>Functional Cookies:</strong> These cookies enable enhanced functionality and personalization, such as remembering your language preference.
-            </li>
+            {t.types.list.map((item, index) => (
+              <li key={index}>
+                <strong>{item.label}</strong> {item.text}
+              </li>
+            ))}
           </ul>
 
-          <h2>Third-party services</h2>
-          <p>
-            We may use third-party services that set their own cookies:
-          </p>
+          <h2>{t.thirdParty.title}</h2>
+          <p>{t.thirdParty.text}</p>
           <ul>
-            <li>
-              <strong>Analytics Services:</strong> We may use Google Analytics or similar services to understand website usage. You can opt out of Google Analytics cookies by visiting{" "}
-              <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer">
-                Google Analytics Opt-out
-              </a>
-            </li>
+            {t.thirdParty.list.map((item, index) => (
+              <li key={index}>
+                <strong>{item.label}</strong> {item.text}{" "}
+                <a
+                  href="https://tools.google.com/dlpage/gaoptout"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Google Analytics Opt-out
+                </a>
+              </li>
+            ))}
           </ul>
 
-          <h2>Your cookie choices</h2>
-          <p>
-            You can control and manage cookies in various ways:
-          </p>
+          <h2>{t.choices.title}</h2>
+          <p>{t.choices.text}</p>
           <ul>
-            <li>
-              <strong>Browser Settings:</strong> Most web browsers allow you to control cookies through their settings preferences. However, limiting cookies may impact your experience of our website.
-            </li>
-            <li>
-              <strong>Opting Out:</strong> You can opt out of targeted advertising cookies by visiting{" "}
-              <a href="http://www.youronlinechoices.eu/" target="_blank" rel="noopener noreferrer">
-                Your Online Choices
-              </a>
-            </li>
+            {t.choices.list.map((item, index) => (
+              <li key={index}>
+                <strong>{item.label}</strong> {item.text}{" "}
+                {index === 1 && (
+                  <a
+                    href="http://www.youronlinechoices.eu/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Your Online Choices
+                  </a>
+                )}
+              </li>
+            ))}
           </ul>
 
-          <p>
-            Please note that if you choose to block all cookies, you may not be able to access all or parts of our site, or some functionality may be limited.
-          </p>
+          <p>{t.choices.note}</p>
 
-          <h2>More information</h2>
-          <p>
-            To learn more about cookies and how they work, please visit:
-          </p>
+          <h2>{t.moreInfo.title}</h2>
+          <p>{t.moreInfo.text}</p>
           <ul>
             <li>
-              AllAboutCookies:{" "}
-              <a href="https://www.allaboutcookies.org/" target="_blank" rel="noopener noreferrer">
+              {t.moreInfo.label}{" "}
+              <a
+                href="https://www.allaboutcookies.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 https://www.allaboutcookies.org/
               </a>
             </li>
           </ul>
 
-          <h2>Contact us</h2>
+          <h2>{t.contact.title}</h2>
           <p>
-            If you have any questions about our use of cookies, please contact us at{" "}
-            <a href="mailto:hello@kaziagency.es" className="text-primary hover:underline">hello@kaziagency.es</a>
+            {t.contact.text}{" "}
+            <a
+              href="mailto:hello@kaziagency.es"
+              className="text-primary hover:underline"
+            >
+              hello@kaziagency.es
+            </a>
           </p>
         </div>
       </div>
