@@ -739,6 +739,39 @@ export const translations = {
         academicSupport: "Academic Support",
       }
     },
+    pmStandards: {
+      title: "Project Management Standards",
+      subtitle: "European project management with transparent processes and clear communication.",
+      standards: [
+        {
+          title: "EU Timezone Support",
+          description: "Monday-Friday 9:00-18:00 CET. Response within 24 hours on business days.",
+        },
+        {
+          title: "Single Communication Channel",
+          description: "One dedicated point of contact per client via email or WhatsApp. Optional Slack integration for teams.",
+        },
+        {
+          title: "Milestone Previews",
+          description: "Every deliverable includes a preview or first milestone for your approval before final delivery.",
+        },
+        {
+          title: "Internal QA Checklist",
+          description: "All work undergoes internal quality assurance before reaching your inbox.",
+        },
+      ],
+      badge: "All processes documented and transparent",
+      askMeBadge: "Ask me!",
+    },
+    chatbot: {
+      needHelp: "Need help?",
+      greeting: "Hi! I'm Kazi Agency's AI assistant. I can communicate in English, Spanish, and Catalan. Ask me anything about our services!",
+      placeholder: "Type your question...",
+      waiting: "Waiting...",
+      sendMessage: "Send message",
+      poweredBy: "Powered by Qwen AI",
+      assistantTitle: "Kazi Agency Assistant",
+    },
   },
   es: {
     nav: {
@@ -1480,6 +1513,39 @@ export const translations = {
         academicSupport: "Apoyo Académico",
       }
     },
+    pmStandards: {
+      title: "Estándares de Gestión de Proyectos",
+      subtitle: "Gestión europea de proyectos con procesos transparentes y comunicación clara.",
+      standards: [
+        {
+          title: "Soporte Zona Horaria UE",
+          description: "Lunes-Viernes 9:00-18:00 CET. Respuesta en 24 horas en días laborables.",
+        },
+        {
+          title: "Canal de Comunicación Único",
+          description: "Un punto de contacto dedicado por cliente vía email o WhatsApp. Integración Slack opcional para equipos.",
+        },
+        {
+          title: "Vistas Previas de Hitos",
+          description: "Cada entregable incluye una vista previa o primer hito para tu aprobación antes de la entrega final.",
+        },
+        {
+          title: "Lista de Verificación de QA Interna",
+          description: "Todo el trabajo undergoes control de calidad interno antes de llegar a tu bandeja de entrada.",
+        },
+      ],
+      badge: "Todos los procesos documentados y transparentes",
+      askMeBadge: "¡Pregúntame!",
+    },
+    chatbot: {
+      needHelp: "¿Necesitas ayuda?",
+      greeting: "¡Hola! Soy el asistente de IA de Kazi Agency. Puedo comunicarme en inglés, español y catalán. ¡Pregúntame sobre nuestros servicios!",
+      placeholder: "Escribe tu pregunta...",
+      waiting: "Esperando...",
+      sendMessage: "Enviar mensaje",
+      poweredBy: "Powered by Qwen AI",
+      assistantTitle: "Asistente de Kazi Agency",
+    },
   },
   ca: {
     nav: {
@@ -2220,6 +2286,39 @@ export const translations = {
         aiServices: "Serveis d'IA",
         academicSupport: "Suport Acadèmic",
       }
+    },
+    pmStandards: {
+      title: "Estàndards de Gestió de Projectes",
+      subtitle: "Gestió europea de projectes amb processos transparents i comunicació clara.",
+      standards: [
+        {
+          title: "Suport Zona Horària UE",
+          description: "Dl-Dv 9:00-18:00 CET. Resposta en 24 hores en dies laborables.",
+        },
+        {
+          title: "Canal de Comunicació Únic",
+          description: "Un punt de contacte dedicat per client via email o WhatsApp. Integració Slack opcional per a equips.",
+        },
+        {
+          title: "Previsualitzacions de Fites",
+          description: "Cada lliurable inclou una previsualització o primera fita per a la teva aprovació abans de l'entrega final.",
+        },
+        {
+          title: "Llista de Verificació de QA Interna",
+          description: "Tota la feina passa per control de qualitat intern abans d'arribar a la teva safata d'entrada.",
+        },
+      ],
+      badge: "Tots els processos documentats i transparents",
+      askMeBadge: "Pregunta'm!",
+    },
+    chatbot: {
+      needHelp: "Necessites ajuda?",
+      greeting: "Hola! Sóc l'assistent d'IA de Kazi Agency. Puc comunicar-me en anglès, espanyol i català. Pregunta'm sobre els nostres serveis!",
+      placeholder: "Escriu la teva pregunta...",
+      waiting: "Esperant...",
+      sendMessage: "Enviar missatge",
+      poweredBy: "Powered by Qwen AI",
+      assistantTitle: "Assistent de Kazi Agency",
     },
   },
 };

@@ -1,40 +1,29 @@
 "use client";
 
 import { Clock, MessageSquare, CheckCircle2, Shield } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function PMStandards() {
-  const standards = [
-    {
-      icon: Clock,
-      title: "EU Timezone Support",
-      description: "Monday-Friday 9:00-18:00 CET. Response within 24 hours on business days.",
-    },
-    {
-      icon: MessageSquare,
-      title: "Single Communication Channel",
-      description: "One dedicated point of contact per client via email or WhatsApp. Optional Slack integration for teams.",
-    },
-    {
-      icon: CheckCircle2,
-      title: "Milestone Previews",
-      description: "Every deliverable includes a preview or first milestone for your approval before final delivery.",
-    },
-    {
-      icon: Shield,
-      title: "Internal QA Checklist",
-      description: "All work undergoes internal quality assurance before reaching your inbox.",
-    },
-  ];
+  const { t } = useLanguage();
+
+  const standards = t.pmStandards.standards.map((standard, index) => {
+    const icons = [Clock, MessageSquare, CheckCircle2, Shield];
+    return {
+      icon: icons[index],
+      title: standard.title,
+      description: standard.description,
+    };
+  });
 
   return (
     <section className="py-24 bg-white border-t border-gray-100">
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-3xl mx-auto text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-6">
-            Project Management Standards
+            {t.pmStandards.title}
           </h2>
           <p className="text-lg text-gray-500">
-            European project management with transparent processes and clear communication.
+            {t.pmStandards.subtitle}
           </p>
         </div>
 
@@ -55,7 +44,7 @@ export default function PMStandards() {
         <div className="mt-12 text-center">
           <div className="inline-flex items-center gap-2 bg-blue-50 px-6 py-3 rounded-full border border-blue-100">
             <CheckCircle2 className="w-5 h-5 text-blue-600" />
-            <span className="text-blue-900 font-semibold">All processes documented and transparent</span>
+            <span className="text-blue-900 font-semibold">{t.pmStandards.badge}</span>
           </div>
         </div>
       </div>

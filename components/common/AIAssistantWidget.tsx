@@ -12,6 +12,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { useLanguage } from "@/context/LanguageContext";
 
 type Message = {
   id: string;
@@ -66,6 +67,7 @@ export default function AIAssistantWidget() {
   const [isLoading, setIsLoading] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   const scrollAreaRef = useRef<HTMLDivElement>(null);
+  const { t } = useLanguage();
 
   useEffect(() => {
     // Scroll to bottom when messages change
@@ -145,10 +147,10 @@ export default function AIAssistantWidget() {
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2">
       {!isOpen && (
         <div
-          className="bg-blue-600 text-white text-xs font-semibold px-3 py-1.5 rounded-full shadow-lg cursor-pointer hover:bg-blue-700 transition-colors"
+          className="bg-blue-600 text-white text-xs font-semibold px-3 py-1.5 rounded-full shadow-lg cursor-pointer hover:bg-blue-700 transition-colors animate-bounce"
           onClick={() => setIsOpen(true)}
         >
-          Need help?
+          {t.chatbot.needHelp}
         </div>
       )}
 
@@ -191,7 +193,7 @@ export default function AIAssistantWidget() {
               {messages.length === 0 && (
                 <div className="bg-white p-4 rounded-2xl rounded-tl-none shadow-sm border border-slate-100 max-w-[85%] self-start">
                   <p className="text-sm text-slate-700">
-                    Hi! I'm Kazi Agency's AI assistant. Ask me anything!
+                    {t.chatbot.greeting}
                   </p>
                 </div>
               )}
@@ -230,7 +232,7 @@ export default function AIAssistantWidget() {
               <Input
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                placeholder={isLoading ? "Waiting..." : "Type your question..."}
+                placeholder={isLoading ? t.chatbot.waiting : t.chatbot.placeholder}
                 disabled={isLoading}
                 className="flex-1 bg-slate-50 border-slate-200 focus-visible:ring-blue-600 disabled:opacity-50"
               />
