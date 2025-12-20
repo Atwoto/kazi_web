@@ -132,7 +132,7 @@ export default function CookiesPage() {
              {/* Footer Contact */}
              <div className="bg-gray-900 text-white p-8 rounded-2xl flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
                 <div>
-                   <h2 className="text-xl font-bold mb-2 flex items-center gap-2">
+                   <h2 className="text-xl font-bold mb-2 flex items-center gap-2 text-white">
                       <Mail className="h-5 w-5" />
                       {t.contact.title}
                    </h2>

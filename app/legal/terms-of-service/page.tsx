@@ -5,7 +5,7 @@ import { translations } from "@/lib/translations";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
-import { ArrowLeft, CheckCircle2, AlertCircle, FileCheck, Scale } from "lucide-react";
+import { ArrowLeft, CheckCircle2, AlertCircle, FileCheck, Scale, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function TermsOfServicePage() {
@@ -125,6 +125,22 @@ export default function TermsOfServicePage() {
                  </div>
               </div>
             </section>
+
+             {/* Footer Contact */}
+             <div className="bg-gray-900 text-white p-8 rounded-2xl flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mt-8">
+                <div>
+                   <h2 className="text-xl font-bold mb-2 flex items-center gap-2 text-white">
+                      <Mail className="h-5 w-5" />
+                      Contact Us
+                   </h2>
+                   <p className="text-gray-300 text-sm max-w-md">
+                      For any questions about these Terms, please contact us at{" "}
+                      <a href="mailto:hello@kaziagency.es" className="text-white hover:text-blue-300 underline underline-offset-4">
+                         hello@kaziagency.es
+                      </a>
+                   </p>
+                </div>
+             </div>
 
           </CardContent>
         </Card>

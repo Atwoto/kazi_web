@@ -163,7 +163,7 @@ export default function PrivacyPolicyPage() {
                 </section>
 
                 <section className="space-y-4 bg-gray-900 text-white p-6 rounded-2xl">
-                   <h2 className="text-xl font-bold mb-4">{t.contact.title}</h2>
+                   <h2 className="text-xl font-bold mb-4 text-white">{t.contact.title}</h2>
                    <p className="text-gray-300 text-sm mb-4">{t.contact.text}</p>
                    
                    <div className="space-y-2 text-sm">
