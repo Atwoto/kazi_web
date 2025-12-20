@@ -178,9 +178,6 @@ export default function AIAssistantWidget() {
               </div>
               <div className="flex flex-col">
                 <span className="text-sm font-bold">Kazi Agency Assistant</span>
-                <span className="text-[10px] text-slate-400 font-normal">
-                  Powered by Qwen AI
-                </span>
               </div>
             </DialogTitle>
             <p id="chatbot-description" className="sr-only">
