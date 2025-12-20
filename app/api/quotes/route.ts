@@ -38,9 +38,12 @@ export async function POST(req: Request) {
 
     // 2. Send Email Notification
     const adminEmail = process.env.ADMIN_EMAIL;
-    if (adminEmail && process.env.RESEND_API_KEY) {
+    
+    if (!adminEmail || !process.env.RESEND_API_KEY) {
+      console.warn('Skipping email notification: Missing ADMIN_EMAIL or RESEND_API_KEY');
+    } else {
       try {
-        await resend.emails.send({
+        const { data: emailData, error: emailError } = await resend.emails.send({
           from: 'Kazi Agency <hello@kaziagency.es>',
           to: adminEmail,
           subject: `New Project Quote: ${serviceType} from ${name}`,
@@ -107,8 +110,14 @@ export async function POST(req: Request) {
             </html>
           `,
         });
+
+        if (emailError) {
+          console.error('Resend API Error (Quotes):', emailError);
+        } else {
+          console.log('Quote email sent successfully:', emailData?.id);
+        }
       } catch (emailError) {
-        console.error('Failed to send quote notification email:', emailError);
+        console.error('Unexpected error sending quote email:', emailError);
       }
     }
 

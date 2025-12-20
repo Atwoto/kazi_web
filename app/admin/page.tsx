@@ -321,7 +321,7 @@ export default async function AdminDashboard() {
             <div className="absolute top-0 right-0 w-40 h-40 bg-blue-500/20 rounded-full blur-3xl" />
             <div className="absolute bottom-0 left-0 w-32 h-32 bg-purple-500/20 rounded-full blur-3xl" />
             <CardContent className="p-6 sm:p-8 lg:p-10 relative z-10">
-              <h3 className="text-xl lg:text-2xl font-bold mb-3 lg:mb-4 flex items-center gap-3">
+              <h3 className="text-xl lg:text-2xl font-bold mb-3 lg:mb-4 flex items-center gap-3 text-white">
                 <span className="inline-flex items-center justify-center w-10 h-10 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl shadow-lg shadow-blue-500/30">
                   <TrendingUp className="w-5 h-5 text-white" />
                 </span>

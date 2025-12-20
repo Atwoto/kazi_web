@@ -93,7 +93,7 @@ export async function POST(request: Request) {
     // 2. Send confirmation email to applicant
     if (process.env.RESEND_API_KEY) {
       try {
-        await resend.emails.send({
+        const { data: emailData, error: emailError } = await resend.emails.send({
           from: 'Kazi Agency <hello@kaziagency.es>',
           to: email,
           subject: 'We received your application',
@@ -126,6 +126,12 @@ export async function POST(request: Request) {
             </html>
           `,
         });
+
+        if (emailError) {
+          console.error('Resend API Error (Applicant Confirmation):', emailError);
+        } else {
+          console.log('Applicant confirmation email sent:', emailData?.id);
+        }
       } catch (emailError) {
         console.error('Failed to send applicant confirmation email:', emailError);
       }
@@ -134,7 +140,7 @@ export async function POST(request: Request) {
     // 3. Send admin notification email
     if (adminEmail && process.env.RESEND_API_KEY) {
       try {
-        await resend.emails.send({
+        const { data: emailData, error: emailError } = await resend.emails.send({
           from: 'Kazi Agency <hello@kaziagency.es>',
           to: adminEmail,
           subject: `New Application: ${role} - ${fullName}`,
@@ -251,6 +257,12 @@ export async function POST(request: Request) {
             </html>
           `,
         });
+
+        if (emailError) {
+          console.error('Resend API Error (Applicant Admin):', emailError);
+        } else {
+          console.log('Applicant admin notification sent:', emailData?.id);
+        }
       } catch (emailError) {
         console.error('Failed to send admin notification email:', emailError);
       }

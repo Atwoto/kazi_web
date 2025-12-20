@@ -32,9 +32,12 @@ export async function POST(request: Request) {
 
     // 2. Send Admin Notification Email
     const adminEmail = process.env.ADMIN_EMAIL;
-    if (adminEmail && process.env.RESEND_API_KEY) {
+    
+    if (!adminEmail || !process.env.RESEND_API_KEY) {
+      console.warn('Skipping email notification: Missing ADMIN_EMAIL or RESEND_API_KEY');
+    } else {
       try {
-        await resend.emails.send({
+        const { data: emailData, error: emailError } = await resend.emails.send({
           from: 'Kazi Agency <hello@kaziagency.es>',
           to: adminEmail,
           subject: `New Contact Message: ${subject || 'No Subject'} from ${name}`,
@@ -83,8 +86,14 @@ export async function POST(request: Request) {
             </html>
           `,
         });
+
+        if (emailError) {
+          console.error('Resend API Error (Contact):', emailError);
+        } else {
+          console.log('Contact email sent successfully:', emailData?.id);
+        }
       } catch (emailError) {
-        console.error('Failed to send contact notification email:', emailError);
+        console.error('Unexpected error sending contact email:', emailError);
       }
     }
 
