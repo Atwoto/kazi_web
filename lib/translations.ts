@@ -1390,7 +1390,7 @@ export const translations = {
         disclaimerHighlight: "Términos de Pago: 50% depósito inicial, 50% al finalizar. 2 rondas de revisión incluidas estándar.",
         tiers: [
           { tier: "Tareas Rápidas", hours: "1 a 3 horas", price: "€25", desc: "Arreglos rápidos, diseños simples y edición básica.", examples: ["Logotipos y Tarjetas", "Arreglos Web Simples", "Corrección y Edición", "Chequeo IA/Plagio"] },
-          { tier: "Tareas Estándar", hours: "3 a 6 horas", price: "€55", desc: "Activos sociales, actualizaciones y formato de documentos.", examples: ["Gráficos Sociales", "Actualización Web Estándar", "Configuración Chatbot IA", "Formato Documento Completo"] },
+          { tier: "Tareas Estándar", hours: "3 a 6 horas", price: "€75", desc: "Activos sociales, actualizaciones y formato de documentos.", examples: ["Gráficos Sociales", "Actualización Web Estándar", "Configuración Chatbot IA", "Formato Documento Completo"] },
           { tier: "Proyectos Complejos", hours: "6 a 12 horas", price: "€110", desc: "Construcciones, ediciones profundas y diseño complejo.", examples: ["Construcción Web", "Diseño Gráfico Complejo", "Edición Video Largo", "Formato Académico Largo"] },
         ],
         cta: "Reservar Tarea"
@@ -2464,7 +2464,7 @@ export const translations = {
         disclaimerHighlight: "Termes de Pagament: 50% dipòsit inicial, 50% en finalitzar. 2 rondes de revisió incloses estàndard.",
         tiers: [
           { tier: "Tasques Ràpides", hours: "1 a 3 hores", price: "€25", desc: "Arranjaments ràpids, dissenys simples i edició bàsica.", examples: ["Logotips i Targetes", "Arranjaments Web Simples", "Correcció i Edició", "Control IA/Plagi"] },
-          { tier: "Tasques Estàndard", hours: "3 a 6 hores", price: "€55", desc: "Actius socials, actualitzacions i format de documents.", examples: ["Gràfics Socials", "Actualització Web Estàndard", "Configuració Xatbot IA", "Format Document Complet"] },
+          { tier: "Tasques Estàndard", hours: "3 a 6 hores", price: "€75", desc: "Actius socials, actualitzacions i format de documents.", examples: ["Gràfics Socials", "Actualització Web Estàndard", "Configuració Xatbot IA", "Format Document Complet"] },
           { tier: "Projectes Complexos", hours: "6 a 12 hores", price: "€110", desc: "Construccions, edicions profundes i disseny complex.", examples: ["Construcció Web", "Disseny Gràfic Complex", "Edició Vídeo Llarg", "Format Acadèmic Llarg"] },
         ],
         cta: "Reservar Tasca"

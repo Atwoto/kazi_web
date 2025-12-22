@@ -36,12 +36,11 @@ export default function PricingContent() {
                 <Card className="border border-gray-100 shadow-lg hover:shadow-xl transition-all duration-300 rounded-2xl flex flex-col justify-between h-full hover:-translate-y-1">
                   <CardHeader className="text-center pb-2">
                     <CardTitle className="font-heading text-2xl font-bold text-gray-900">{tier.tier}</CardTitle>
-                    <CardDescription className="text-sm uppercase tracking-wide font-semibold text-blue-500 mt-2">{tier.hours}</CardDescription>
                   </CardHeader>
                   <CardContent className="flex flex-col flex-grow">
                     <div className="text-center mb-6">
+                      <span className="text-gray-400 text-sm block mb-1">{t.servicesHub.labels.from}</span>
                       <span className="text-4xl font-bold text-gray-900">{tier.price}</span>
-                      <span className="text-gray-400 text-sm"> / flat rate</span>
                     </div>
                     <p className="text-gray-600 text-center mb-6 text-sm">{tier.desc}</p>
                     <ul className="space-y-3 mb-8 flex-grow">
