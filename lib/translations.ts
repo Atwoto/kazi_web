@@ -2233,6 +2233,10 @@ export const translations = {
       ctaPrimary: "Demanar Pressupost",
       ctaSecondary: "El Nostre Procés",
       trust: "Gestió Europea.",
+      trustBadges: {
+        pm: { title: "PM Europeu", subtitle: "Gestió de Projectes" },
+        response: { title: "Resposta 24h", subtitle: "Dies Laborables" }
+      },
       stats: {
         projects: "Projects Delivered",
         retention: "Client Retention"
