@@ -66,7 +66,7 @@ function TestimonialCard({
 
         <div className="relative mb-6 flex-grow">
           <Quote className="absolute -top-1 -left-1 w-6 h-6 text-blue-100" />
-          <p className="text-gray-600 text-sm leading-relaxed pl-4">
+          <p className="text-gray-600 text-sm leading-relaxed pl-8">
             {text}
           </p>
         </div>
