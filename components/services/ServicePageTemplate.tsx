@@ -282,16 +282,38 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
                            </Card>
                          ) : (
                            // Standard Image Card for other services
-                           <Card key={index} className="border-none shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden group bg-gray-50">
+                           <Card key={index} className="border-none shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden group bg-gray-50 cursor-pointer" onClick={() => openPreview(example)}>
                              <div className="relative w-full h-64 bg-gray-200 overflow-hidden">
-                               <Image
-                                 src={example.imageUrl}
-                                 alt={example.title}
-                                 layout="fill"
-                                 objectFit="cover"
-                                 className="group-hover:scale-110 transition-transform duration-700"
-                               />
-                               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
+                               {example.gallery && example.gallery.length > 0 ? (
+                                 // Gallery item with indicator
+                                 <>
+                                   <Image
+                                     src={example.imageUrl}
+                                     alt={example.title}
+                                     layout="fill"
+                                     objectFit="cover"
+                                     className="group-hover:scale-110 transition-transform duration-700"
+                                   />
+                                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
+                                     <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 px-4 py-2 rounded-full flex items-center gap-2">
+                                       <Images className="w-4 h-4 text-blue-600" />
+                                       <span className="text-sm font-semibold text-blue-600">{t.portfolio.viewGallery} ({example.gallery.length})</span>
+                                     </div>
+                                   </div>
+                                 </>
+                               ) : (
+                                 // Regular image without gallery
+                                 <>
+                                   <Image
+                                     src={example.imageUrl}
+                                     alt={example.title}
+                                     layout="fill"
+                                     objectFit="cover"
+                                     className="group-hover:scale-110 transition-transform duration-700"
+                                   />
+                                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
+                                 </>
+                               )}
                              </div>
                              <CardHeader>
                                <CardTitle className="font-heading text-lg font-bold">{example.title}</CardTitle>
@@ -427,14 +449,41 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
                 </div>
               ) : (
                 // IMAGE VIEWER
-                <div className="w-full h-full bg-gray-900 relative flex items-center justify-center">
+                <div className="w-full h-full bg-gray-900 relative flex items-center justify-center group/gallery">
                   <Image
-                    src={selectedItem.imageUrl}
+                    src={selectedItem.gallery && selectedItem.gallery.length > 0 
+                      ? selectedItem.gallery[currentImageIndex] 
+                      : selectedItem.imageUrl}
                     alt={selectedItem.title}
                     layout="fill"
                     objectFit="contain"
                     className="p-4"
                   />
+                  
+                  {/* Gallery Navigation */}
+                  {selectedItem.gallery && selectedItem.gallery.length > 1 && (
+                    <>
+                      <button 
+                        onClick={prevImage}
+                        className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white p-3 rounded-full backdrop-blur-sm transition-all shadow-lg"
+                        aria-label="Previous image"
+                      >
+                        <ChevronLeft className="w-6 h-6" />
+                      </button>
+                      <button 
+                        onClick={nextImage}
+                        className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white p-3 rounded-full backdrop-blur-sm transition-all shadow-lg"
+                        aria-label="Next image"
+                      >
+                        <ChevronRight className="w-6 h-6" />
+                      </button>
+                      
+                      {/* Counter */}
+                      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/50 backdrop-blur-md px-4 py-1.5 rounded-full text-white text-sm font-medium">
+                        {currentImageIndex + 1} / {selectedItem.gallery.length}
+                      </div>
+                    </>
+                  )}
                 </div>
               )}
             </div>
@@ -443,6 +492,47 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
             <div className="bg-white md:rounded-b-2xl p-6 shrink-0 max-h-[30vh] overflow-y-auto">
               <h3 className="text-2xl font-heading font-bold text-gray-900 mb-2">{selectedItem.title}</h3>
               <p className="text-gray-600 mb-4">{selectedItem.description}</p>
+
+              {selectedItem.highlights && (
+                <div className="mb-4">
+                  <h4 className="text-sm font-bold text-gray-900 uppercase tracking-wide mb-2">{t.portfolio.keyFeatures}</h4>
+                  <ul className="grid grid-cols-2 gap-2">
+                    {selectedItem.highlights.map((highlight: string, idx: number) => (
+                      <li key={idx} className="flex items-center gap-2 text-sm text-gray-600">
+                        <span className="w-1.5 h-1.5 bg-purple-600 rounded-full"></span>
+                        {highlight}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {selectedItem.liveUrl && !selectedItem.isDocument && (
+                <a
+                  href={selectedItem.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-blue-700 transition-colors"
+                >
+                  {t.portfolio.visitLiveSite} <ExternalLink className="w-4 h-4" />
+                </a>
+              )}
+              
+              {selectedItem.gallery && selectedItem.gallery.length > 1 && (
+                <div className="flex gap-2 mt-4 justify-center">
+                  {selectedItem.gallery.map((img: string, idx: number) => (
+                    <button
+                      key={idx}
+                      onClick={() => setCurrentImageIndex(idx)}
+                      className={`relative w-16 h-16 rounded-lg overflow-hidden border-2 transition-all ${
+                        idx === currentImageIndex ? 'border-blue-600 scale-110' : 'border-transparent opacity-60 hover:opacity-100'
+                      }`}
+                    >
+                      <Image src={img} alt={`Thumbnail ${idx + 1}`} fill className="object-cover" />
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
         </div>
