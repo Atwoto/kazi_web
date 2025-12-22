@@ -197,6 +197,34 @@ export const servicesData: Service[] = [
     turnaround: "1-2 Weeks"
   },
   {
+    slug: "social-media-management",
+    name: "Social Media Management",
+    oneLiner: "Strategic content and community management to grow your digital presence.",
+    heroImage: "/hero-section2.jpg",
+    ctaLink: "/pricing",
+    deliverables: [
+      "Monthly Content Calendar",
+      "Custom Graphics & Captions",
+      "Community Engagement",
+      "Performance Analytics",
+      "Hashtag & Keyword Strategy",
+    ],
+    examples: [],
+    process: [
+      { step: "Audit", description: "We analyze your current presence and competitors." },
+      { step: "Strategy", description: "Creation of a unique brand voice and content pillars." },
+      { step: "Production", description: "Our managed team creates and schedules your posts." },
+      { step: "Reporting", description: "Monthly insights and strategy refinement." },
+    ],
+    faqs: [
+      { question: "Which platforms do you manage?", answer: "We specialize in Instagram, LinkedIn, X (Twitter), and Facebook." },
+      { question: "Do you respond to comments?", answer: "Yes, our standard packages include daily community engagement." },
+    ],
+    targetAudience: "Brands & Creators",
+    startingPrice: "€75",
+    turnaround: "Monthly Support"
+  },
+  {
     slug: "academic-support",
     name: "Academic Editing",
     oneLiner: "Professional editing and coaching for academic excellence.",

@@ -15,6 +15,7 @@ export const translations = {
         webDev: "Custom, responsive websites.",
         graphicDesign: "Logos, branding & marketing assets.",
         aiServices: "Automation & data solutions.",
+        socialMediaManagement: "Content, engagement & growth strategy.",
         academicSupport: "Editing, proofreading & coaching.",
       }
     },
@@ -243,6 +244,21 @@ export const translations = {
         deliverables: ["Workflow Automation", "Custom Chatbot Integration", "Data Analysis Models", "Process Optimization"],
         faqs: [
             { q: "Is my data secure?", a: "Yes, we prioritize data privacy and use secure, enterprise-grade APIs." },
+        ]
+      },
+      "social-media-management": {
+        name: "Social Media Management",
+        oneLiner: "Strategic content and community management to grow your digital presence.",
+        deliverables: ["Monthly Content Calendar", "Custom Graphics & Captions", "Community Engagement", "Performance Analytics", "Hashtag & Keyword Strategy"],
+        process: [
+          { step: "Discovery", description: "We audit your brand and define your target audience." },
+          { step: "Strategy", description: "Creation of a unique brand voice and content pillars." },
+          { step: "Execution", description: "Our team handles scheduling, posting, and engagement." },
+          { step: "Refinement", description: "Monthly data review to optimize growth." }
+        ],
+        faqs: [
+          { q: "Which platforms do you manage?", a: "We specialize in Instagram, LinkedIn, X (Twitter), and Facebook." },
+          { q: "Do you respond to comments?", a: "Yes, our standard packages include daily community engagement." }
         ]
       },
       "academic-support": {
@@ -609,6 +625,7 @@ export const translations = {
       pageSubtitle: "Delivered by our managed teams. Quality controlled, on time, and on budget.",
       filters: {
         all: "All",
+        socialMediaManagement: "Social Media Management",
       },
       viewSite: "View Site",
       viewGallery: "View Gallery",
@@ -821,6 +838,20 @@ export const translations = {
             "Color Psychology"
           ]
         },
+        {
+          id: 21,
+          title: "Estanc Ramoneda. Instagram Management",
+          categoryKey: "socialMediaManagement",
+          imageUrl: "/samples/graphic/Variation 1 Logo.png",
+          description: "Full management of the Estanc Ramoneda social presence. We focus on blending heritage with modern engagement to grow the local community in Sentmenat.\n\n**Strategy**\n• High-quality product photography\n• Community-first engagement\n• Consistent aesthetic grid layout\n• Weekly story storytelling",
+          liveUrl: "https://www.instagram.com/estanc.ramoneda/",
+          highlights: [
+            "Organic Growth",
+            "Local Community Focus",
+            "Consistent Branding",
+            "Daily Management"
+          ]
+        },
       ]
     },
     contact: {
@@ -912,6 +943,7 @@ export const translations = {
         webDev: "Web Design & Development",
         graphicDesign: "Graphic Design",
         aiServices: "AI Services",
+        socialMediaManagement: "Social Media Management",
         academicSupport: "Academic Support",
       }
     },
@@ -1130,6 +1162,7 @@ export const translations = {
         webDev: "Sitios web personalizados y responsivos.",
         graphicDesign: "Logotipos, branding y activos de marketing.",
         aiServices: "Automatización y soluciones de datos.",
+        socialMediaManagement: "Estrategia de contenido, engagement y crecimiento.",
         academicSupport: "Edición, corrección y coaching.",
       }
     },
@@ -1358,6 +1391,21 @@ export const translations = {
         deliverables: ["Automatización de Flujos de Trabajo", "Integración de Chatbots Personalizados", "Modelos de Análisis de Datos", "Optimización de Procesos"],
         faqs: [
             { q: "¿Están seguros mis datos?", a: "Sí, priorizamos la privacidad de los datos y utilizamos API seguras de nivel empresarial." },
+        ]
+      },
+      "social-media-management": {
+        name: "Gestión de Redes Sociales",
+        oneLiner: "Contenido estratégico y gestión de comunidad para hacer crecer tu presencia digital.",
+        deliverables: ["Calendario de Contenido Mensual", "Gráficos y Textos Personalizados", "Engagement con la Comunidad", "Analítica de Rendimiento", "Estrategia de Hashtags y Keywords"],
+        process: [
+          { step: "Auditoría", description: "Analizamos tu marca y definimos tu público objetivo." },
+          { step: "Estrategia", description: "Creación de una voz de marca única y pilares de contenido." },
+          { step: "Ejecución", description: "Nuestro equipo gestiona la programación, publicación e interacción." },
+          { step: "Refinamiento", description: "Revisión mensual de datos para optimizar el crecimiento." }
+        ],
+        faqs: [
+          { q: "¿Qué plataformas gestionan?", a: "Nos especializamos en Instagram, LinkedIn, X (Twitter) y Facebook." },
+          { q: "¿Responden a los comentarios?", a: "Sí, nuestros paquetes estándar incluyen engagement diario con la comunidad." }
         ]
       },
       "academic-support": {
@@ -1724,6 +1772,7 @@ export const translations = {
       pageSubtitle: "Entregado por nuestros equipos gestionados. Control de calidad, a tiempo y dentro del presupuesto.",
       filters: {
         all: "Todos",
+        socialMediaManagement: "Gestión de Redes",
       },
       viewSite: "Ver Sitio",
       viewGallery: "Ver Galería",
@@ -1936,6 +1985,20 @@ export const translations = {
             "Psicología del Color"
           ]
         },
+        {
+          id: 21,
+          title: "Estanc Ramoneda. Gestión de Instagram",
+          categoryKey: "socialMediaManagement",
+          imageUrl: "/samples/graphic/Variation 1 Logo.png",
+          description: "Gestión integral de la presencia social de Estanc Ramoneda. Nos centramos en combinar el patrimonio con el engagement moderno para hacer crecer la comunidad local en Sentmenat.\n\n**Estrategia**\n• Fotografía de producto de alta calidad\n• Engagement centrado en la comunidad\n• Diseño de cuadrícula estético y consistente\n• Storytelling semanal en historias",
+          liveUrl: "https://www.instagram.com/estanc.ramoneda/",
+          highlights: [
+            "Crecimiento Orgánico",
+            "Foco en Comunidad Local",
+            "Branding Consistente",
+            "Gestión Diaria"
+          ]
+        },
       ]
     },
     contact: {
@@ -2027,6 +2090,7 @@ export const translations = {
         webDev: "Diseño y Desarrollo Web",
         graphicDesign: "Diseño Gráfico",
         aiServices: "Servicios de IA",
+        socialMediaManagement: "Gestión de Redes Sociales",
         academicSupport: "Apoyo Académico",
       }
     },
@@ -2245,6 +2309,7 @@ export const translations = {
         webDev: "Llocs web personalitzats i responsius.",
         graphicDesign: "Logotips, branding i actius de màrqueting.",
         aiServices: "Automatització i solucions de dades.",
+        socialMediaManagement: "Estratègia de contingut, engagement i creixement.",
         academicSupport: "Edició, correcció i coaching.",
       }
     },
@@ -2473,6 +2538,21 @@ export const translations = {
         deliverables: ["Automatització de Fluxos de Treball", "Integració de Chatbots Personalitzats", "Models d'Anàlisi de Dades", "Optimització de Processos"],
         faqs: [
             { q: "Estan segures les meves dades?", a: "Sí, prioritzem la privacitat de les dades i utilitzem API segures de nivell empresarial." }
+        ]
+      },
+      "social-media-management": {
+        name: "Gestió de Xarxes Socials",
+        oneLiner: "Contingut estratègic i gestió de comunitat per fer créixer la teva presència digital.",
+        deliverables: ["Calendari de Contingut Mensual", "Gràfics i Textos Personalitzats", "Engagement amb la Comunitat", "Analítica de Rendiment", "Estratègia de Hashtags i Keywords"],
+        process: [
+          { step: "Auditoria", description: "Analitzem la teva marca i definim el teu públic objectiu." },
+          { step: "Estratègia", description: "Creació d'una veu de marca única i pilars de contingut." },
+          { step: "Execució", description: "El nostre equip gestiona la programació, publicació i interacció." },
+          { step: "Refinament", description: "Revisió mensual de dades per optimitzar el creixement." }
+        ],
+        faqs: [
+          { q: "Quines plataformes gestioneu?", a: "Ens especialitzem en Instagram, LinkedIn, X (Twitter) i Facebook." },
+          { q: "Responeu als comentaris?", a: "Sí, els nostres paquets estàndard inclouen engagement diari amb la comunitat." }
         ]
       },
       "academic-support": {
@@ -2839,6 +2919,7 @@ export const translations = {
       pageSubtitle: "Lliurat pels nostres equips gestionats. Control de qualitat, a temps i dins del pressupost.",
       filters: {
         all: "Tots",
+        socialMediaManagement: "Gestió de Xarxes",
       },
       viewSite: "Veure Lloc",
       viewGallery: "Veure Galeria",
@@ -3051,6 +3132,20 @@ export const translations = {
             "Psicologia del Color"
           ]
         },
+        {
+          id: 21,
+          title: "Estanc Ramoneda. Gestió d'Instagram",
+          categoryKey: "socialMediaManagement",
+          imageUrl: "/samples/graphic/Variation 1 Logo.png",
+          description: "Gestió integral de la presència social de l'Estanc Ramoneda. Ens centrem a combinar el patrimoni amb l'engagement modern per fer créixer la comunitat local a Sentmenat.\n\n**Estratègia**\n• Fotografia de producte d'alta qualitat\n• Engagement centrat en la comunitat\n• Disseny de quadrícula estètic i consistent\n• Storytelling setmanal a històries",
+          liveUrl: "https://www.instagram.com/estanc.ramoneda/",
+          highlights: [
+            "Creixement Orgànic",
+            "Foc a la Comunitat Local",
+            "Branding Consistent",
+            "Gestió Diària"
+          ]
+        },
       ]
     },
     contact: {
@@ -3142,6 +3237,7 @@ export const translations = {
         webDev: "Disseny i Desenvolupament Web",
         graphicDesign: "Disseny Gràfic",
         aiServices: "Serveis d'IA",
+        socialMediaManagement: "Gestió de Xarxes Socials",
         academicSupport: "Suport Acadèmic",
       }
     },
