@@ -323,7 +323,7 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
                          )
                        ))}
                      </div>
-                     {examples.length > 3 && (
+                     {examples.length > 0 && (
                        <div className="mt-12 text-center">
                          <Button asChild variant="outline" className="rounded-full px-8 border-2 hover:bg-blue-50 hover:text-blue-600 hover:border-blue-200 transition-all">
                            <Link href="/portfolio">View Full Portfolio <ChevronRight className="w-4 h-4 ml-2" /></Link>
