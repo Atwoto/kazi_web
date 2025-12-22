@@ -179,11 +179,13 @@ export default function PortfolioContent() {
                       <span className="text-sm font-semibold text-blue-600">{t.portfolio.viewGallery} ({item.gallery.length})</span>
                     </div>
                   </div>
-                  <div className="absolute top-3 right-3">
-                    <span className="inline-block bg-purple-600 text-white text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-wide">
-                      {t.portfolio.aiProject}
-                    </span>
-                  </div>
+                  {item.categoryKey === 'aiServices' && (
+                    <div className="absolute top-3 right-3">
+                      <span className="inline-block bg-purple-600 text-white text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-wide">
+                        {t.portfolio.aiProject}
+                      </span>
+                    </div>
+                  )}
                 </div>
               ) : (
                 // Regular Image Card Design

@@ -856,14 +856,21 @@ export const translations = {
           id: 21,
           title: "Estanc Ramoneda. Instagram Management",
           categoryKey: "socialMediaManagement",
-          imageUrl: "/samples/graphic/Front Black (1).png",
-          description: "Full Instagram rollout for a 160-year-old retail business. We transformed their digital presence into a consistent, trust-building sales tool that drives local discovery and customer action.\n\n**Key Actions**\n• Custom grid aesthetic matching the heritage brand\n• Daily stories promoting seasonal products\n• Strategic Reels to increase local reach in Sentmenat\n• Consistent weekly posting and engagement",
+          imageUrl: "/samples/graphic/Front Gold.png",
+          description: "Launch a full Instagram management service for local businesses. We handle strategy, content, posting, and community so the brand looks consistent, sells more, and stays active without the owner thinking about it. First reference client is Estanc Ramoneda, so the service is built for retail, product promos, and local foot-traffic.\n\n**Goals**\n1. Make the page look premium and consistent so new visitors trust the business fast.\n2. Increase local discovery, reach, and profile visits.\n3. Turn attention into actions: DMs, calls, WhatsApp clicks, and in-store visits.\n4. Keep posting consistent every week, with clear promos and seasonal moments.\n5. Track performance monthly and adjust based on what performs, not vibes.\n\n**Key Results**\n• **Custom Grid Aesthetic:** Templates for posts, stories, highlights, and promo layouts so the feed stays coherent.\n• **Weekly Content Plan:** A simple calendar with planned promos, product features, and seasonal posts.\n• **Daily Stories:** Stories that push action like 'ask in DM', 'visit today', or 'new arrivals'.\n• **Reels System:** Repeatable reel formats for product showcases and new stock drops.\n• **Monthly Reporting:** Tracking reach, engagement, and DMs to decide what to double down on.",
           liveUrl: "https://www.instagram.com/estanc.ramoneda/",
+          gallery: [
+            "/samples/graphic/Front Gold.png",
+            "/samples/graphic/Back Gold Final.png",
+            "/samples/graphic/Front Black (1).png",
+            "/samples/graphic/Variation 1 Logo.png"
+          ],
           highlights: [
-            "Local Reach Growth",
-            "Consistent Daily Activity",
-            "In-store Traffic Focused",
-            "Full Community Management"
+            "Custom Grid System",
+            "Weekly Content Plan",
+            "Daily Stories & CTAs",
+            "Reels for Reach",
+            "Monthly Reporting"
           ]
         },
       ]
@@ -2017,14 +2024,21 @@ export const translations = {
           id: 21,
           title: "Estanc Ramoneda. Gestión de Instagram",
           categoryKey: "socialMediaManagement",
-          imageUrl: "/samples/graphic/Front Black (1).png",
-          description: "Lanzamiento completo de Instagram para un negocio minorista de 160 años. Transformamos su presencia digital en una herramienta de ventas consistente que genera confianza, descubrimiento local y acción del cliente.\n\n**Acciones Clave**\n• Estética de cuadrícula personalizada alineada con la marca histórica\n• Historias diarias promocionando productos de temporada\n• Reels estratégicos para aumentar el alcance local en Sentmenat\n• Publicación e interacción semanal constante",
+          imageUrl: "/samples/graphic/Front Gold.png",
+          description: "Lanzamiento de un servicio completo de gestión de Instagram para negocios locales. Manejamos estrategia, contenido, publicación y comunidad para que la marca se vea consistente, venda más y se mantenga activa sin que el dueño tenga que pensar en ello. El primer cliente de referencia es Estanc Ramoneda, por lo que el servicio está diseñado para venta minorista, promociones de productos y tráfico local.\n\n**Objetivos**\n1. Hacer que la página se vea premium y consistente para que los nuevos visitantes confíen en el negocio rápidamente.\n2. Aumentar el descubrimiento local, el alcance y las visitas al perfil.\n3. Convertir la atención en acciones: DMs, llamadas, clics en WhatsApp y visitas en tienda.\n4. Mantener la publicación constante cada semana, con promociones claras y momentos estacionales.\n5. Seguimiento mensual del rendimiento y ajuste basado en lo que funciona, no en sensaciones.\n\n**Resultados Clave**\n• **Estética de Cuadrícula Personalizada:** Plantillas para publicaciones, historias, destacados y diseños promocionales para que el feed sea coherente.\n• **Plan de Contenido Semanal:** Un calendario simple con promociones planificadas, características de productos y publicaciones estacionales.\n• **Historias Diarias:** Historias que impulsan la acción como 'pregunta en DM', 'visita hoy' o 'novedades'.\n• **Sistema de Reels:** Formatos de reels repetibles para exhibición de productos y lanzamientos de nuevo stock.\n• **Informes Mensuales:** Seguimiento del alcance, interacción y DMs para decidir en qué enfocarse.",
           liveUrl: "https://www.instagram.com/estanc.ramoneda/",
+          gallery: [
+            "/samples/graphic/Front Gold.png",
+            "/samples/graphic/Back Gold Final.png",
+            "/samples/graphic/Front Black (1).png",
+            "/samples/graphic/Variation 1 Logo.png"
+          ],
           highlights: [
-            "Crecimiento de Alcance Local",
-            "Actividad Diaria Constante",
-            "Foco en Tráfico en Tienda",
-            "Gestión Integral de Comunidad"
+            "Sistema de Cuadrícula",
+            "Plan Semanal",
+            "Historias Diarias",
+            "Reels de Alcance",
+            "Informes Mensuales"
           ]
         },
       ]
@@ -3178,14 +3192,21 @@ export const translations = {
           id: 21,
           title: "Estanc Ramoneda. Gestió d'Instagram",
           categoryKey: "socialMediaManagement",
-          imageUrl: "/samples/graphic/Front Black (1).png",
-          description: "Llançament complet d'Instagram per a un negoci minorista de 160 anys. Transformem la seva presència digital en una eina de vendes consistent que genera confiança, descobriment local i acció del client.\n\n**Accions Clau**\n• Estètica de quadrícula personalitzada alineada amb la marca històrica\n• Històries diàries promovent productes de temporada\n• Reels estratègics per augmentar l'abast local a Sentmenat\n• Publicació i interacció setmanal constant",
+          imageUrl: "/samples/graphic/Front Gold.png",
+          description: "Llançament d'un servei complet de gestió d'Instagram per a negocis locals. Gestionem estratègia, contingut, publicació i comunitat perquè la marca es vegi consistent, vengui més i es mantingui activa sense que el propietari hi hagi de pensar. El primer client de referència és Estanc Ramoneda, per la qual cosa el servei està dissenyat per a venda minorista, promocions de productes i trànsit local.\n\n**Objectius**\n1. Fer que la pàgina es vegi prèmium i consistent perquè els nous visitants confiïn en el negoci ràpidament.\n2. Augmentar el descobriment local, l'abast i les visites al perfil.\n3. Convertir l'atenció en accions: DMs, trucades, clics a WhatsApp i visites a la botiga.\n4. Mantenir la publicació constant cada setmana, amb promocions clares i moments estacionals.\n5. Seguiment mensual del rendiment i ajust basat en el que funciona, no en sensacions.\n\n**Resultats Clau**\n• **Estètica de Quadrícula Personalitzada:** Plantillas per a publicacions, històries, destacats i dissenys promocionals perquè el feed sigui coherent.\n• **Pla de Contingut Setmanal:** Un calendari simple amb promocions planificades, característiques de productes i publicacions estacionals.\n• **Històries Diàries:** Històries que impulsen l'acció com 'pregunta per DM', 'visita avui' o 'novetats'.\n• **Sistema de Reels:** Formats de reels repetibles per a exhibició de productes i llançaments de nou estoc.\n• **Informes Mensuals:** Seguiment de l'abast, interacció i DMs per decidir en què enfocar-se.",
           liveUrl: "https://www.instagram.com/estanc.ramoneda/",
+          gallery: [
+            "/samples/graphic/Front Gold.png",
+            "/samples/graphic/Back Gold Final.png",
+            "/samples/graphic/Front Black (1).png",
+            "/samples/graphic/Variation 1 Logo.png"
+          ],
           highlights: [
-            "Creixement d'Abast Local",
-            "Activitat Diària Constant",
-            "Foc en Trànsit a Botiga",
-            "Gestió Integral de Comunitat"
+            "Sistema de Quadrícula",
+            "Pla Setmanal",
+            "Històries Diàries",
+            "Reels d'Abast",
+            "Informes Mensuales"
           ]
         },
       ]
