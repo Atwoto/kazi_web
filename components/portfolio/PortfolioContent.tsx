@@ -6,6 +6,8 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Button } from "@/components/ui/button";
 import { FileText, ExternalLink, X, ChevronLeft, ChevronRight, Images, Eye } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
+import { formatText } from "@/lib/utils";
+import { useEffect } from "react";
 
 interface PortfolioItem {
   id: number;
@@ -25,6 +27,21 @@ export default function PortfolioContent() {
   const [filter, setFilter] = useState("all");
   const [selectedItem, setSelectedItem] = useState<any | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  // Manage body scroll and floating buttons when modal is open
+  useEffect(() => {
+    if (selectedItem) {
+      document.body.style.overflow = "hidden";
+      document.body.setAttribute("data-modal-open", "true");
+    } else {
+      document.body.style.overflow = "unset";
+      document.body.removeAttribute("data-modal-open");
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+      document.body.removeAttribute("data-modal-open");
+    };
+  }, [selectedItem]);
 
   const portfolioItems = t.portfolio.items || [];
 
@@ -92,9 +109,16 @@ export default function PortfolioContent() {
         </div>
 
         {/* Portfolio Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 pb-24">
           {filteredItems.map((item: any) => (
-            <Card key={item.id} className="rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border-none bg-gray-50 group flex flex-col h-full">
+            <Card key={item.id} className="rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border-none bg-gray-50 group flex flex-col h-full relative">
+              {item.badge && (
+                <div className="absolute top-3 left-3 z-30">
+                  <span className="bg-blue-600 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-lg">
+                    {item.badge}
+                  </span>
+                </div>
+              )}
               {item.isDocument ? (
                 // Document Card Design
                 <div 
@@ -180,7 +204,7 @@ export default function PortfolioContent() {
                 </CardDescription>
               </CardHeader>
               <CardContent className="flex-grow flex flex-col">
-                <p className="text-gray-600 text-sm leading-relaxed mb-4 flex-grow">{item.description}</p>
+                <div className="text-gray-600 text-sm leading-relaxed mb-4 flex-grow">{formatText(item.description)}</div>
                 <div className="flex flex-wrap gap-2 mt-auto">
                   {item.liveUrl && (
                     <a
@@ -217,7 +241,7 @@ export default function PortfolioContent() {
 
       {/* Gallery/Document Modal */}
       {selectedItem && (
-        <div className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4" onClick={closeGallery}>
+        <div className="fixed inset-0 z-[100] bg-black/90 flex items-center justify-center p-4" onClick={closeGallery}>
           <div className="relative max-w-5xl w-full max-h-[95vh] flex flex-col h-full" onClick={(e) => e.stopPropagation()}>
             <button
               onClick={closeGallery}
@@ -290,7 +314,7 @@ export default function PortfolioContent() {
             {/* Project Info Footer */}
             <div className="bg-white md:rounded-b-2xl p-6 shrink-0 max-h-[30vh] overflow-y-auto">
               <h3 className="text-2xl font-heading font-bold text-gray-900 mb-2">{selectedItem.title}</h3>
-              <p className="text-gray-600 mb-4">{selectedItem.description}</p>
+              <div className="text-gray-600 mb-4">{formatText(selectedItem.description)}</div>
 
               {selectedItem.highlights && (
                 <div className="mb-4">
@@ -318,12 +342,12 @@ export default function PortfolioContent() {
               )}
               
               {selectedItem.gallery && selectedItem.gallery.length > 1 && (
-                <div className="flex gap-2 mt-4 justify-center">
+                <div className="flex gap-2 mt-4 justify-center overflow-x-auto pb-2 no-scrollbar">
                   {selectedItem.gallery.map((img: string, idx: number) => (
                     <button
                       key={idx}
                       onClick={() => setCurrentImageIndex(idx)}
-                      className={`relative w-16 h-16 rounded-lg overflow-hidden border-2 transition-all ${
+                      className={`relative w-16 h-16 rounded-lg overflow-hidden border-2 transition-all flex-shrink-0 ${
                         idx === currentImageIndex ? 'border-white scale-110' : 'border-transparent opacity-60 hover:opacity-100'
                       }`}
                     >

@@ -144,7 +144,7 @@ export default function AIAssistantWidget() {
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2">
+    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2 fixed-floating-button transition-all duration-300">
       {!isOpen && (
         <div
           className="bg-blue-600 text-white text-xs font-semibold px-3 py-1.5 rounded-full shadow-lg cursor-pointer hover:bg-blue-700 transition-colors animate-bounce"

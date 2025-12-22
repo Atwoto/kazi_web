@@ -11,7 +11,7 @@ export default function WhatsAppButton() {
       href={`https://wa.me/${phoneNumber.replace(/\s/g, "")}`} // Remove spaces for the link
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 left-6 z-50 flex items-center justify-center w-14 h-14 bg-green-500 rounded-full shadow-lg hover:bg-green-600 transition-all duration-300 animate-bounce cursor-pointer group"
+      className="fixed bottom-6 left-6 z-50 flex items-center justify-center w-14 h-14 bg-green-500 rounded-full shadow-lg hover:bg-green-600 transition-all duration-300 animate-bounce cursor-pointer group fixed-floating-button"
       aria-label="Chat on WhatsApp"
     >
       <svg

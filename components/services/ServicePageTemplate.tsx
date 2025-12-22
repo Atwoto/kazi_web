@@ -15,6 +15,8 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { useLanguage } from "@/context/LanguageContext";
+import { formatText } from "@/lib/utils";
+import { useEffect } from "react";
 
 interface ServicePageTemplateProps {
   service: Service;
@@ -24,6 +26,21 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
   const { t } = useLanguage();
   const [selectedItem, setSelectedItem] = useState<any | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  // Manage body scroll and floating buttons when modal is open
+  useEffect(() => {
+    if (selectedItem) {
+      document.body.style.overflow = "hidden";
+      document.body.setAttribute("data-modal-open", "true");
+    } else {
+      document.body.style.overflow = "unset";
+      document.body.removeAttribute("data-modal-open");
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+      document.body.removeAttribute("data-modal-open");
+    };
+  }, [selectedItem]);
 
   // Map service slug to portfolio category key
   const categoryMap: Record<string, string> = {
@@ -223,15 +240,22 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
                  <h2 className="text-3xl font-heading font-bold text-gray-900 mb-8 text-center">{t.servicePage.recentWork}</h2>
                  {examples && examples.length > 0 ? (
                    <>
-                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pb-20 md:pb-0">
                        {examples.slice(0, 3).map((example, index) => (
                          service.slug === 'academic-support' ? (
                            // Document Card Design for Academic Support
                            <Card 
                              key={index} 
-                             className="rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border-none bg-gray-50 group flex flex-col h-full cursor-pointer"
+                             className="rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border-none bg-gray-50 group flex flex-col h-full cursor-pointer relative"
                              onClick={() => openPreview(example)}
                            >
+                              {example.badge && (
+                                <div className="absolute top-3 left-3 z-30">
+                                  <span className="bg-blue-600 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-lg">
+                                    {example.badge}
+                                  </span>
+                                </div>
+                              )}
                               <div className="relative w-full h-56 bg-slate-100 overflow-hidden flex items-center justify-center p-6 group-hover:bg-blue-50 transition-colors duration-500">
                                 {/* Decorative Background Elements */}
                                 <div className="absolute top-0 right-0 w-32 h-32 bg-blue-200/20 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
@@ -277,12 +301,19 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
                               </div>
                               <CardHeader>
                                  <CardTitle className="font-heading text-lg font-bold">{example.title}</CardTitle>
-                                 <p className="text-xs text-gray-500 uppercase tracking-wider">{example.description}</p>
+                                 <div className="text-xs text-gray-500">{formatText(example.description)}</div>
                               </CardHeader>
                            </Card>
                          ) : (
                            // Standard Image Card for other services
-                           <Card key={index} className="border-none shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden group bg-gray-50 cursor-pointer" onClick={() => openPreview(example)}>
+                           <Card key={index} className="border-none shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden group bg-gray-50 cursor-pointer relative" onClick={() => openPreview(example)}>
+                             {example.badge && (
+                               <div className="absolute top-3 left-3 z-30">
+                                 <span className="bg-blue-600 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-lg">
+                                   {example.badge}
+                                 </span>
+                               </div>
+                             )}
                              <div className="relative w-full h-64 bg-gray-200 overflow-hidden">
                                {example.gallery && example.gallery.length > 0 ? (
                                  // Gallery item with indicator
@@ -317,7 +348,7 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
                              </div>
                              <CardHeader>
                                <CardTitle className="font-heading text-lg font-bold">{example.title}</CardTitle>
-                               <p className="text-xs text-gray-500 uppercase tracking-wider">{example.description}</p>
+                               <div className="text-xs text-gray-500">{formatText(example.description)}</div>
                              </CardHeader>
                            </Card>
                          )
@@ -411,7 +442,7 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
 
       {/* Gallery/Document Modal */}
       {selectedItem && (
-        <div className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4" onClick={closePreview}>
+        <div className="fixed inset-0 z-[100] bg-black/90 flex items-center justify-center p-4" onClick={closePreview}>
           <div className="relative max-w-5xl w-full max-h-[95vh] flex flex-col h-full" onClick={(e) => e.stopPropagation()}>
             {/* Close Button */}
             <button
@@ -490,8 +521,15 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
 
             {/* Project Info Footer */}
             <div className="bg-white md:rounded-b-2xl p-6 shrink-0 max-h-[30vh] overflow-y-auto">
-              <h3 className="text-2xl font-heading font-bold text-gray-900 mb-2">{selectedItem.title}</h3>
-              <p className="text-gray-600 mb-4">{selectedItem.description}</p>
+              <div className="flex items-center gap-3 mb-2">
+                <h3 className="text-2xl font-heading font-bold text-gray-900">{selectedItem.title}</h3>
+                {selectedItem.badge && (
+                  <span className="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">
+                    {selectedItem.badge}
+                  </span>
+                )}
+              </div>
+              <div className="text-gray-600 mb-4">{formatText(selectedItem.description)}</div>
 
               {selectedItem.highlights && (
                 <div className="mb-4">
@@ -519,12 +557,12 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
               )}
               
               {selectedItem.gallery && selectedItem.gallery.length > 1 && (
-                <div className="flex gap-2 mt-4 justify-center">
+                <div className="flex gap-2 mt-4 justify-center overflow-x-auto pb-2 no-scrollbar">
                   {selectedItem.gallery.map((img: string, idx: number) => (
                     <button
                       key={idx}
                       onClick={() => setCurrentImageIndex(idx)}
-                      className={`relative w-16 h-16 rounded-lg overflow-hidden border-2 transition-all ${
+                      className={`relative w-16 h-16 rounded-lg overflow-hidden border-2 transition-all flex-shrink-0 ${
                         idx === currentImageIndex ? 'border-blue-600 scale-110' : 'border-transparent opacity-60 hover:opacity-100'
                       }`}
                     >

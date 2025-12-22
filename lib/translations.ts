@@ -790,20 +790,35 @@ export const translations = {
           title: "Casa Ramoneda, Sentmenat. Brand identity system",
           categoryKey: "graphicDesign",
           imageUrl: "/samples/graphic/Front Black (1).png",
+          badge: "Client Selected",
           description: "A visual identity refresh for a well known estanc in Sentmenat, founded in 1860. The goal was a premium look that still feels classic and local.\n\n**Deliverables**\n• Logo redesign with variations\n• Color system and typography pairing\n• Business cards and stationery\n• Print ready signage layout\n• Final files for print and digital\n\n**Process**\nWe explored three directions (Gold, Maroon, Green). The client selected Black and Gold for the final rollout.",
           gallery: [
             "/samples/graphic/Front Black (1).png",
             "/samples/graphic/Back Gold Final.png",
             "/samples/graphic/Front Gold.png",
-            "/samples/graphic/Variation 1 Logo.png",
-            "/samples/graphic/Variation 2 (1).png",
-            "/samples/graphic/Variation 3 (1).png"
+            "/samples/graphic/Variation 1 Logo.png"
           ],
           highlights: [
-            "Client Selected Direction",
             "Heritage Brand Refresh",
             "Complete Stationery Set",
             "Signage & Print Ready"
+          ]
+        },
+        {
+          id: 20,
+          title: "Casa Ramoneda. Concept Exploration",
+          categoryKey: "graphicDesign",
+          imageUrl: "/samples/graphic/Variation 2 (1).png",
+          description: "During the discovery phase, we explored multiple creative directions to capture the essence of the brand's 160-year history. \n\n**Directions Explored**\n• **Maroon & Classic:** Focusing on the traditional tobacco roots.\n• **Forest Green:** A nod to local heritage and nature.\n• **Black & Gold:** The eventual winner, focusing on premium luxury.",
+          gallery: [
+            "/samples/graphic/Variation 2 (1).png",
+            "/samples/graphic/Variation 3 (1).png",
+            "/samples/graphic/Front White (1).png"
+          ],
+          highlights: [
+            "Multiple Directions",
+            "Heritage Research",
+            "Color Psychology"
           ]
         },
       ]
@@ -1890,20 +1905,35 @@ export const translations = {
           title: "Casa Ramoneda, Sentmenat. Brand identity system",
           categoryKey: "graphicDesign",
           imageUrl: "/samples/graphic/Front Black (1).png",
+          badge: "Seleccionado por Cliente",
           description: "Una renovación de identidad visual para un conocido estanc en Sentmenat, fundado en 1860. El objetivo era un aspecto premium que aún se sienta clásico y local.\n\n**Entregables**\n• Rediseño de logotipo con variaciones\n• Sistema de color y tipografía\n• Tarjetas de visita y papelería\n• Diseño de señalización listo para imprimir\n• Archivos finales para impresión y digital\n\n**Proceso**\nExploramos tres direcciones (Dorado, Granate, Verde). El cliente seleccionó Negro y Dorado para el lanzamiento final.",
           gallery: [
             "/samples/graphic/Front Black (1).png",
             "/samples/graphic/Back Gold Final.png",
             "/samples/graphic/Front Gold.png",
-            "/samples/graphic/Variation 1 Logo.png",
-            "/samples/graphic/Variation 2 (1).png",
-            "/samples/graphic/Variation 3 (1).png"
+            "/samples/graphic/Variation 1 Logo.png"
           ],
           highlights: [
-            "Dirección Seleccionada por Cliente",
             "Renovación de Marca Patrimonial",
             "Set Completo de Papelería",
             "Señalización Lista para Imprimir"
+          ]
+        },
+        {
+          id: 20,
+          title: "Casa Ramoneda. Exploración de Conceptos",
+          categoryKey: "graphicDesign",
+          imageUrl: "/samples/graphic/Variation 2 (1).png",
+          description: "Durante la fase de descubrimiento, exploramos múltiples direcciones creativas para capturar la esencia de los 160 años de historia de la marca.\n\n**Direcciones Exploradas**\n• **Granate y Clásico:** Enfocado en las raíces tradicionales.\n• **Verde Bosque:** Un guiño al patrimonio local y la naturaleza.\n• **Negro y Dorado:** El ganador final, enfocado en el lujo premium.",
+          gallery: [
+            "/samples/graphic/Variation 2 (1).png",
+            "/samples/graphic/Variation 3 (1).png",
+            "/samples/graphic/Front White (1).png"
+          ],
+          highlights: [
+            "Múltiples Direcciones",
+            "Investigación de Patrimonio",
+            "Psicología del Color"
           ]
         },
       ]
@@ -2990,20 +3020,35 @@ export const translations = {
           title: "Casa Ramoneda, Sentmenat. Brand identity system",
           categoryKey: "graphicDesign",
           imageUrl: "/samples/graphic/Front Black (1).png",
+          badge: "Seleccionat per Client",
           description: "Una renovació d'identitat visual per a un conegut estanc a Sentmenat, fundat el 1860. L'objectiu era un aspecte prèmium que encara se senti clàssic i local.\n\n**Lliurables**\n• Redisseny de logotip amb variacions\n• Sistema de color i tipografia\n• Targetes de visita i papereria\n• Disseny de senyalització llest per imprimir\n• Arxius finals per a impressió i digital\n\n**Procés**\nVam explorar tres direccions (Daurat, Granat, Verd). El client va seleccionar Negre i Daurat per al llançament final.",
           gallery: [
             "/samples/graphic/Front Black (1).png",
             "/samples/graphic/Back Gold Final.png",
             "/samples/graphic/Front Gold.png",
-            "/samples/graphic/Variation 1 Logo.png",
-            "/samples/graphic/Variation 2 (1).png",
-            "/samples/graphic/Variation 3 (1).png"
+            "/samples/graphic/Variation 1 Logo.png"
           ],
           highlights: [
-            "Direcció Seleccionada per Client",
             "Renovació de Marca Patrimonial",
             "Set Complet de Papereria",
             "Senyalització Llesta per Imprimir"
+          ]
+        },
+        {
+          id: 20,
+          title: "Casa Ramoneda. Exploració de Conceptes",
+          categoryKey: "graphicDesign",
+          imageUrl: "/samples/graphic/Variation 2 (1).png",
+          description: "Durant la fase de descoberta, vam explorar múltiples direccions creatives per capturar l'essència dels 160 anys d'història de la marca.\n\n**Direccions Explorades**\n• **Granat i Clàssic:** Enfocat en les arrels tradicionals.\n• **Verd Bosc:** Una picada d'ullet al patrimoni local i la natura.\n• **Negre i Daurat:** El guanyador final, enfocat en el luxe prèmium.",
+          gallery: [
+            "/samples/graphic/Variation 2 (1).png",
+            "/samples/graphic/Variation 3 (1).png",
+            "/samples/graphic/Front White (1).png"
+          ],
+          highlights: [
+            "Múltiples Direccions",
+            "Investigació de Patrimoni",
+            "Psicologia del Color"
           ]
         },
       ]

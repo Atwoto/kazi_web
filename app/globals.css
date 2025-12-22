@@ -157,3 +157,20 @@
     @apply font-heading text-foreground;
   }
 }
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  /* Hide floating buttons when modals are open */
+  body[data-modal-open="true"] .fixed-floating-button {
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.9) translateY(20px);
+  }
+}
