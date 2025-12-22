@@ -74,7 +74,24 @@ export const servicesData: Service[] = [
     heroImage: "/graphics.jpg",
     ctaLink: "/pricing",
     deliverables: ["Brand Strategy & Identity", "Marketing Collateral", "Social Media Suites", "Presentation Design"],
-    examples: [],
+    examples: [
+      {
+        title: "Premium Brand Identity",
+        description: "Complete visual identity system including luxury logo variations and corporate stationery design in black, gold, and white.",
+        imageUrl: "/samples/graphic/Variation 1 Logo.png",
+        gallery: [
+          "/samples/graphic/Variation 1 Logo.png",
+          "/samples/graphic/Front Gold.png",
+          "/samples/graphic/Back Gold Final.png",
+          "/samples/graphic/Variation 2 (1).png",
+          "/samples/graphic/Variation 3 (1).png",
+          "/samples/graphic/Front Black (1).png",
+          "/samples/graphic/Back black final.png",
+          "/samples/graphic/Front White (1).png",
+          "/samples/graphic/Back White final.png"
+        ],
+      },
+    ],
     process: [
       { step: "Briefing", description: "We gather your brand assets, style preferences, and project goals." },
       { step: "Concept Design", description: "Our designers create initial concepts for your review." },
