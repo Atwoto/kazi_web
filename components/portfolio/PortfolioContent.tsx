@@ -204,7 +204,7 @@ export default function PortfolioContent() {
                 </CardDescription>
               </CardHeader>
               <CardContent className="flex-grow flex flex-col">
-                <div className="text-gray-600 text-sm leading-relaxed mb-4 flex-grow">{formatText(item.description)}</div>
+                <div className="text-gray-600 text-sm leading-relaxed mb-4 flex-grow normal-case">{formatText(item.description)}</div>
                 <div className="flex flex-wrap gap-2 mt-auto">
                   {item.liveUrl && (
                     <a
@@ -314,7 +314,7 @@ export default function PortfolioContent() {
             {/* Project Info Footer */}
             <div className="bg-white md:rounded-b-2xl p-6 shrink-0 max-h-[30vh] overflow-y-auto">
               <h3 className="text-2xl font-heading font-bold text-gray-900 mb-2">{selectedItem.title}</h3>
-              <div className="text-gray-600 mb-4">{formatText(selectedItem.description)}</div>
+              <div className="text-gray-600 mb-4 normal-case">{formatText(selectedItem.description)}</div>
 
               {selectedItem.highlights && (
                 <div className="mb-4">

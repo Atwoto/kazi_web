@@ -36,13 +36,13 @@ export default function PricingTeaser() {
                </div>
 
                {/* Visual Side - Shrunk Accent */}
-               <div className="w-full lg:w-[40%] relative min-h-[200px] lg:min-h-full">
-                 <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-slate-900 via-transparent to-transparent z-10" />
+               <div className="w-full lg:w-[45%] relative min-h-[380px] lg:min-h-full">
+                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent lg:bg-gradient-to-r lg:from-slate-900 lg:to-transparent z-10" />
                  <Image 
                     src="/agreement.jpg" 
                     alt="Kazi Quality" 
                     fill 
-                    className="object-cover opacity-60 grayscale hover:grayscale-0 hover:opacity-80 transition-all duration-700"
+                    className="object-cover object-top opacity-100 transition-all duration-700"
                  />
                </div>
              </div>

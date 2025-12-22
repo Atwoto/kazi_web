@@ -301,7 +301,7 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
                               </div>
                               <CardHeader>
                                  <CardTitle className="font-heading text-lg font-bold">{example.title}</CardTitle>
-                                 <div className="text-xs text-gray-500">{formatText(example.description)}</div>
+                                 <div className="text-xs text-gray-500 normal-case">{formatText(example.description)}</div>
                               </CardHeader>
                            </Card>
                          ) : (
@@ -348,7 +348,7 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
                              </div>
                              <CardHeader>
                                <CardTitle className="font-heading text-lg font-bold">{example.title}</CardTitle>
-                               <div className="text-xs text-gray-500">{formatText(example.description)}</div>
+                               <div className="text-xs text-gray-500 normal-case">{formatText(example.description)}</div>
                              </CardHeader>
                            </Card>
                          )
@@ -529,7 +529,7 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
                   </span>
                 )}
               </div>
-              <div className="text-gray-600 mb-4">{formatText(selectedItem.description)}</div>
+              <div className="text-gray-600 mb-4 normal-case">{formatText(selectedItem.description)}</div>
 
               {selectedItem.highlights && (
                 <div className="mb-4">
