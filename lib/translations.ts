@@ -780,6 +780,30 @@ export const translations = {
           isDocument: true,
           documentUrl: "/samples/academic/Machine Vision for Medical Image Analysis (1) (1).docx",
         },
+        {
+          id: 19,
+          title: "Premium Brand Identity",
+          categoryKey: "graphicDesign",
+          imageUrl: "/samples/graphic/Variation 1 Logo.png",
+          description: "Complete visual identity system including luxury logo variations and corporate stationery design in black, gold, and white.",
+          gallery: [
+            "/samples/graphic/Variation 1 Logo.png",
+            "/samples/graphic/Front Gold.png",
+            "/samples/graphic/Back Gold Final.png",
+            "/samples/graphic/Variation 2 (1).png",
+            "/samples/graphic/Variation 3 (1).png",
+            "/samples/graphic/Front Black (1).png",
+            "/samples/graphic/Back black final.png",
+            "/samples/graphic/Front White (1).png",
+            "/samples/graphic/Back White final.png"
+          ],
+          highlights: [
+            "Luxury Color Palette",
+            "Logo Variations",
+            "Business Card Design",
+            "Brand Consistency"
+          ]
+        },
       ]
     },
     contact: {
@@ -1854,6 +1878,30 @@ export const translations = {
           isDocument: true,
           documentUrl: "/samples/academic/Machine Vision for Medical Image Analysis (1) (1).docx",
         },
+        {
+          id: 19,
+          title: "Identidad de Marca Premium",
+          categoryKey: "graphicDesign",
+          imageUrl: "/samples/graphic/Variation 1 Logo.png",
+          description: "Sistema completo de identidad visual que incluye variaciones de logotipo de lujo y diseño de papelería corporativa en negro, dorado y blanco.",
+          gallery: [
+            "/samples/graphic/Variation 1 Logo.png",
+            "/samples/graphic/Front Gold.png",
+            "/samples/graphic/Back Gold Final.png",
+            "/samples/graphic/Variation 2 (1).png",
+            "/samples/graphic/Variation 3 (1).png",
+            "/samples/graphic/Front Black (1).png",
+            "/samples/graphic/Back black final.png",
+            "/samples/graphic/Front White (1).png",
+            "/samples/graphic/Back White final.png"
+          ],
+          highlights: [
+            "Paleta de Colores de Lujo",
+            "Variaciones de Logotipo",
+            "Diseño de Tarjetas de Visita",
+            "Consistencia de Marca"
+          ]
+        },
       ]
     },
     contact: {
@@ -2927,6 +2975,30 @@ export const translations = {
           description: "Marc d'aprenentatge profund per a imatges mèdiques amb CNN i IA explicable.",
           isDocument: true,
           documentUrl: "/samples/academic/Machine Vision for Medical Image Analysis (1) (1).docx",
+        },
+        {
+          id: 19,
+          title: "Identitat de Marca Premium",
+          categoryKey: "graphicDesign",
+          imageUrl: "/samples/graphic/Variation 1 Logo.png",
+          description: "Sistema complet d'identitat visual que inclou variacions de logotip de luxe i disseny de papereria corporativa en negre, daurat i blanc.",
+          gallery: [
+            "/samples/graphic/Variation 1 Logo.png",
+            "/samples/graphic/Front Gold.png",
+            "/samples/graphic/Back Gold Final.png",
+            "/samples/graphic/Variation 2 (1).png",
+            "/samples/graphic/Variation 3 (1).png",
+            "/samples/graphic/Front Black (1).png",
+            "/samples/graphic/Back black final.png",
+            "/samples/graphic/Front White (1).png",
+            "/samples/graphic/Back White final.png"
+          ],
+          highlights: [
+            "Paleta de Colors de Luxe",
+            "Variacions de Logotip",
+            "Disseny de Targetes de Visita",
+            "Consistència de Marca"
+          ]
         },
       ]
     },
