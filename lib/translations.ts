@@ -27,6 +27,10 @@ export const translations = {
       ctaPrimary: "Get a Proposal",
       ctaSecondary: "Our Process",
       trust: "EU-Managed delivery.",
+      trustBadges: {
+        pm: { title: "European PM", subtitle: "Project Management" },
+        response: { title: "24h Response", subtitle: "Business Days" }
+      },
       stats: {
         projects: "Projects Delivered",
         retention: "Client Retention"
@@ -1126,6 +1130,10 @@ export const translations = {
       ctaPrimary: "Pedir Presupuesto",
       ctaSecondary: "Nuestro Proceso",
       trust: "Gestión Europea.",
+      trustBadges: {
+        pm: { title: "PM Europeo", subtitle: "Gestión de Proyectos" },
+        response: { title: "Respuesta 24h", subtitle: "Días Laborables" }
+      },
       stats: {
         projects: "Projects Delivered",
         retention: "Client Retention"

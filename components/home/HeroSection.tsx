@@ -92,8 +92,8 @@ export default function HeroSection() {
                     <Briefcase className="w-3 h-3 md:w-4 md:h-4" />
                   </div>
                   <div>
-                    <p className="font-bold text-slate-900 text-xs md:text-sm leading-tight">European PM</p>
-                    <p className="text-[9px] md:text-[10px] font-semibold text-slate-500 uppercase tracking-wide mt-0.5">Project Management</p>
+                    <p className="font-bold text-slate-900 text-xs md:text-sm leading-tight">{t.hero.trustBadges.pm.title}</p>
+                    <p className="text-[9px] md:text-[10px] font-semibold text-slate-500 uppercase tracking-wide mt-0.5">{t.hero.trustBadges.pm.subtitle}</p>
                   </div>
                 </div>
 
@@ -103,8 +103,8 @@ export default function HeroSection() {
                     <CheckCircle2 className="w-3 h-3 md:w-4 md:h-4" />
                   </div>
                   <div>
-                    <p className="font-bold text-slate-900 text-xs md:text-sm leading-tight">24h Response</p>
-                    <p className="text-[9px] md:text-[10px] font-semibold text-slate-500 uppercase tracking-wide mt-0.5">Business Days</p>
+                    <p className="font-bold text-slate-900 text-xs md:text-sm leading-tight">{t.hero.trustBadges.response.title}</p>
+                    <p className="text-[9px] md:text-[10px] font-semibold text-slate-500 uppercase tracking-wide mt-0.5">{t.hero.trustBadges.response.subtitle}</p>
                   </div>
                 </div>
               </div>
