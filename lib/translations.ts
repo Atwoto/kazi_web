@@ -787,26 +787,23 @@ export const translations = {
         },
         {
           id: 19,
-          title: "Premium Brand Identity",
+          title: "Casa Ramoneda, Sentmenat. Brand identity system",
           categoryKey: "graphicDesign",
-          imageUrl: "/samples/graphic/Variation 1 Logo.png",
-          description: "Complete visual identity system including luxury logo variations and corporate stationery design in black, gold, and white.",
+          imageUrl: "/samples/graphic/Front Black (1).png",
+          description: "A visual identity refresh for a well known estanc in Sentmenat, founded in 1860. The goal was a premium look that still feels classic and local.\n\n**Deliverables**\n• Logo redesign with variations\n• Color system and typography pairing\n• Business cards and stationery\n• Print ready signage layout\n• Final files for print and digital\n\n**Process**\nWe explored three directions (Gold, Maroon, Green). The client selected Black and Gold for the final rollout.",
           gallery: [
-            "/samples/graphic/Variation 1 Logo.png",
-            "/samples/graphic/Front Gold.png",
-            "/samples/graphic/Back Gold Final.png",
-            "/samples/graphic/Variation 2 (1).png",
-            "/samples/graphic/Variation 3 (1).png",
             "/samples/graphic/Front Black (1).png",
-            "/samples/graphic/Back black final.png",
-            "/samples/graphic/Front White (1).png",
-            "/samples/graphic/Back White final.png"
+            "/samples/graphic/Back Gold Final.png",
+            "/samples/graphic/Front Gold.png",
+            "/samples/graphic/Variation 1 Logo.png",
+            "/samples/graphic/Variation 2 (1).png",
+            "/samples/graphic/Variation 3 (1).png"
           ],
           highlights: [
-            "Luxury Color Palette",
-            "Logo Variations",
-            "Business Card Design",
-            "Brand Consistency"
+            "Client Selected Direction",
+            "Heritage Brand Refresh",
+            "Complete Stationery Set",
+            "Signage & Print Ready"
           ]
         },
       ]
@@ -1890,26 +1887,23 @@ export const translations = {
         },
         {
           id: 19,
-          title: "Identidad de Marca Premium",
+          title: "Casa Ramoneda, Sentmenat. Brand identity system",
           categoryKey: "graphicDesign",
-          imageUrl: "/samples/graphic/Variation 1 Logo.png",
-          description: "Sistema completo de identidad visual que incluye variaciones de logotipo de lujo y diseño de papelería corporativa en negro, dorado y blanco.",
+          imageUrl: "/samples/graphic/Front Black (1).png",
+          description: "Una renovación de identidad visual para un conocido estanc en Sentmenat, fundado en 1860. El objetivo era un aspecto premium que aún se sienta clásico y local.\n\n**Entregables**\n• Rediseño de logotipo con variaciones\n• Sistema de color y tipografía\n• Tarjetas de visita y papelería\n• Diseño de señalización listo para imprimir\n• Archivos finales para impresión y digital\n\n**Proceso**\nExploramos tres direcciones (Dorado, Granate, Verde). El cliente seleccionó Negro y Dorado para el lanzamiento final.",
           gallery: [
-            "/samples/graphic/Variation 1 Logo.png",
-            "/samples/graphic/Front Gold.png",
-            "/samples/graphic/Back Gold Final.png",
-            "/samples/graphic/Variation 2 (1).png",
-            "/samples/graphic/Variation 3 (1).png",
             "/samples/graphic/Front Black (1).png",
-            "/samples/graphic/Back black final.png",
-            "/samples/graphic/Front White (1).png",
-            "/samples/graphic/Back White final.png"
+            "/samples/graphic/Back Gold Final.png",
+            "/samples/graphic/Front Gold.png",
+            "/samples/graphic/Variation 1 Logo.png",
+            "/samples/graphic/Variation 2 (1).png",
+            "/samples/graphic/Variation 3 (1).png"
           ],
           highlights: [
-            "Paleta de Colores de Lujo",
-            "Variaciones de Logotipo",
-            "Diseño de Tarjetas de Visita",
-            "Consistencia de Marca"
+            "Dirección Seleccionada por Cliente",
+            "Renovación de Marca Patrimonial",
+            "Set Completo de Papelería",
+            "Señalización Lista para Imprimir"
           ]
         },
       ]
@@ -2993,26 +2987,23 @@ export const translations = {
         },
         {
           id: 19,
-          title: "Identitat de Marca Premium",
+          title: "Casa Ramoneda, Sentmenat. Brand identity system",
           categoryKey: "graphicDesign",
-          imageUrl: "/samples/graphic/Variation 1 Logo.png",
-          description: "Sistema complet d'identitat visual que inclou variacions de logotip de luxe i disseny de papereria corporativa en negre, daurat i blanc.",
+          imageUrl: "/samples/graphic/Front Black (1).png",
+          description: "Una renovació d'identitat visual per a un conegut estanc a Sentmenat, fundat el 1860. L'objectiu era un aspecte prèmium que encara se senti clàssic i local.\n\n**Lliurables**\n• Redisseny de logotip amb variacions\n• Sistema de color i tipografia\n• Targetes de visita i papereria\n• Disseny de senyalització llest per imprimir\n• Arxius finals per a impressió i digital\n\n**Procés**\nVam explorar tres direccions (Daurat, Granat, Verd). El client va seleccionar Negre i Daurat per al llançament final.",
           gallery: [
-            "/samples/graphic/Variation 1 Logo.png",
-            "/samples/graphic/Front Gold.png",
-            "/samples/graphic/Back Gold Final.png",
-            "/samples/graphic/Variation 2 (1).png",
-            "/samples/graphic/Variation 3 (1).png",
             "/samples/graphic/Front Black (1).png",
-            "/samples/graphic/Back black final.png",
-            "/samples/graphic/Front White (1).png",
-            "/samples/graphic/Back White final.png"
+            "/samples/graphic/Back Gold Final.png",
+            "/samples/graphic/Front Gold.png",
+            "/samples/graphic/Variation 1 Logo.png",
+            "/samples/graphic/Variation 2 (1).png",
+            "/samples/graphic/Variation 3 (1).png"
           ],
           highlights: [
-            "Paleta de Colors de Luxe",
-            "Variacions de Logotip",
-            "Disseny de Targetes de Visita",
-            "Consistència de Marca"
+            "Direcció Seleccionada per Client",
+            "Renovació de Marca Patrimonial",
+            "Set Complet de Papereria",
+            "Senyalització Llesta per Imprimir"
           ]
         },
       ]
