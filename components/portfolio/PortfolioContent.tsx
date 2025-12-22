@@ -245,9 +245,10 @@ export default function PortfolioContent() {
           <div className="relative max-w-5xl w-full max-h-[95vh] flex flex-col h-full" onClick={(e) => e.stopPropagation()}>
             <button
               onClick={closeGallery}
-              className="absolute -top-10 right-0 md:-right-8 text-white hover:text-gray-300 transition-colors z-50"
+              className="absolute top-16 md:top-6 right-4 md:right-6 bg-slate-900/50 hover:bg-slate-900/80 backdrop-blur-md text-white p-2 rounded-full transition-all z-[110] border border-white/10 group shadow-xl"
+              aria-label="Close gallery"
             >
-              <X className="w-8 h-8" />
+              <X className="w-6 h-6 md:w-8 md:h-8 group-hover:scale-110 transition-transform" />
             </button>
 
             <div className="relative w-full flex-grow bg-white md:rounded-t-2xl overflow-hidden flex flex-col">
