@@ -201,7 +201,7 @@ export const servicesData: Service[] = [
     slug: "social-media-management",
     name: "Social Media Management",
     oneLiner: "Full-service Instagram management for local businesses to increase reach, foot traffic, and sales.",
-    heroImage: "/samples/social/social6.jpg",
+    heroImage: "/samples/social/social4.jpg",
     ctaLink: "/pricing",
     deliverables: [
       "Custom Grid Aesthetic & Brand System",

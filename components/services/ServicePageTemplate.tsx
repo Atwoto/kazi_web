@@ -50,6 +50,7 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
     "photo-editing": "photoEditing",
     "ai-services": "aiServices",
     "academic-support": "academicSupport",
+    "social-media-management": "socialMediaManagement",
   };
 
   // Get translated service data, fallback to English/default if not found
