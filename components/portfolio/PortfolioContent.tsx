@@ -53,6 +53,7 @@ export default function PortfolioContent() {
       aiServices: t.footer.serviceNames.aiServices,
       academicSupport: t.footer.serviceNames.academicSupport,
       photoEditing: t.footer.serviceNames.photoEditing,
+      socialMediaManagement: t.footer.serviceNames.socialMediaManagement,
     };
     return keyMap[key] || key;
   };
@@ -215,7 +216,7 @@ export default function PortfolioContent() {
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:text-blue-700 transition-colors"
                     >
-                      {t.portfolio.viewSite} <ExternalLink className="w-4 h-4" />
+                      {item.liveUrl.includes("instagram.com") ? "View on Instagram" : t.portfolio.viewSite} <ExternalLink className="w-4 h-4" />
                     </a>
                   )}
                   {item.gallery && (

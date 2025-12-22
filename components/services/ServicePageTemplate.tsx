@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle } from "@/components/ui/card";
-import { Check, Clock, Euro, RefreshCw, ChevronRight, FileText, X, ChevronLeft, Images, Eye } from "lucide-react";
+import { Check, Clock, Euro, RefreshCw, ChevronRight, FileText, X, ChevronLeft, Images, Eye, ExternalLink } from "lucide-react";
 import { Service } from "@/lib/service-data";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
@@ -348,10 +348,23 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
                                      className="group-hover:scale-110 transition-transform duration-700"
                                    />
                                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
-                                     <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 px-4 py-2 rounded-full flex items-center gap-2">
-                                       <Images className="w-4 h-4 text-blue-600" />
-                                       <span className="text-sm font-semibold text-blue-600">{t.portfolio.viewGallery} ({example.gallery.length})</span>
-                                     </div>
+                                      <div className="flex flex-col gap-2 items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                        <div className="bg-white/90 px-4 py-2 rounded-full flex items-center gap-2">
+                                          <Images className="w-4 h-4 text-blue-600" />
+                                          <span className="text-sm font-semibold text-blue-600">{t.portfolio.viewGallery} ({example.gallery.length})</span>
+                                        </div>
+                                        {example.liveUrl && (
+                                          <a 
+                                            href={example.liveUrl}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            onClick={(e) => e.stopPropagation()}
+                                            className="bg-blue-600/90 hover:bg-blue-700 text-white px-4 py-2 rounded-full flex items-center gap-2 text-sm font-semibold transition-colors shadow-lg"
+                                          >
+                                            {example.liveUrl.includes("instagram.com") ? "View on Instagram" : t.portfolio.visitLiveSite} <ExternalLink className="w-4 h-4" />
+                                          </a>
+                                        )}
+                                      </div>
                                    </div>
                                  </>
                                ) : (
@@ -364,7 +377,24 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
                                      objectFit="cover"
                                      className="group-hover:scale-110 transition-transform duration-700"
                                    />
-                                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
+                                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
+                                      {example.liveUrl ? (
+                                          <a 
+                                            href={example.liveUrl}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            onClick={(e) => e.stopPropagation()}
+                                            className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-blue-600/90 hover:bg-blue-700 text-white px-4 py-2 rounded-full flex items-center gap-2 text-sm font-semibold shadow-lg"
+                                          >
+                                            {example.liveUrl.includes("instagram.com") ? "View on Instagram" : t.portfolio.visitLiveSite} <ExternalLink className="w-4 h-4" />
+                                          </a>
+                                      ) : (
+                                        <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 px-4 py-2 rounded-full flex items-center gap-2">
+                                           <Eye className="w-4 h-4 text-blue-600" />
+                                           <span className="text-sm font-semibold text-blue-600">Preview</span>
+                                        </div>
+                                      )}
+                                   </div>
                                  </>
                                )}
                              </div>
@@ -575,7 +605,7 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-blue-700 transition-colors"
                 >
-                  {t.portfolio.visitLiveSite} <ExternalLink className="w-4 h-4" />
+                  {selectedItem.liveUrl.includes("instagram.com") ? "View on Instagram" : t.portfolio.visitLiveSite} <ExternalLink className="w-4 h-4" />
                 </a>
               )}
               

@@ -217,7 +217,20 @@ export const servicesData: Service[] = [
       "Keep posting consistent every week, with clear promos and seasonal moments.",
       "Track performance monthly and adjust based on what performs, not vibes.",
     ],
-    examples: [],
+    examples: [
+      {
+        title: "Estanc Ramoneda. Instagram Management",
+        description: "Full Instagram rollout for a 160-year-old retail business. We transformed their digital presence into a consistent, trust-building sales tool that drives local discovery and customer action.",
+        imageUrl: "/samples/graphic/Front Gold.png",
+        liveUrl: "https://www.instagram.com/estanc.ramoneda/",
+        gallery: [
+          "/samples/graphic/Front Gold.png",
+          "/samples/graphic/Back Gold Final.png",
+          "/samples/graphic/Front Black (1).png",
+          "/samples/graphic/Variation 1 Logo.png"
+        ],
+      },
+    ],
     process: [
       { step: "Strategy & Setup", description: "We build a premium grid aesthetic and templates so your brand looks consistent instantly." },
       { step: "Content Creation", description: "Weekly production of posts and Reels designed for local discovery and product promos." },
