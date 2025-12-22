@@ -5,6 +5,7 @@ export interface Service {
   heroImage: string;
   ctaLink: string;
   deliverables: string[];
+  goals?: string[];
   examples: { title: string; description: string; imageUrl: string; documentUrl?: string; liveUrl?: string; gallery?: string[] }[];
   process: { step: string; description: string }[];
   faqs: { question: string; answer: string }[];
@@ -199,30 +200,37 @@ export const servicesData: Service[] = [
   {
     slug: "social-media-management",
     name: "Social Media Management",
-    oneLiner: "Strategic content and community management to grow your digital presence.",
-    heroImage: "/hero-section2.jpg",
+    oneLiner: "Full-service Instagram management for local businesses to increase reach, foot traffic, and sales.",
+    heroImage: "/samples/social/social6.jpg",
     ctaLink: "/pricing",
     deliverables: [
-      "Monthly Content Calendar",
-      "Custom Graphics & Captions",
-      "Community Engagement",
-      "Performance Analytics",
-      "Hashtag & Keyword Strategy",
+      "Custom Grid Aesthetic & Brand System",
+      "Weekly Content Plan & Scheduling",
+      "Daily Stories with Actionable CTAs",
+      "Reels System for Maximum Reach",
+      "Monthly Reporting & Strategy Optimization",
+    ],
+    goals: [
+      "Make the page look premium and consistent so new visitors trust the business fast.",
+      "Increase local discovery, reach, and profile visits.",
+      "Turn attention into actions: DMs, calls, WhatsApp clicks, and in-store visits.",
+      "Keep posting consistent every week, with clear promos and seasonal moments.",
+      "Track performance monthly and adjust based on what performs, not vibes.",
     ],
     examples: [],
     process: [
-      { step: "Audit", description: "We analyze your current presence and competitors." },
-      { step: "Strategy", description: "Creation of a unique brand voice and content pillars." },
-      { step: "Production", description: "Our managed team creates and schedules your posts." },
-      { step: "Reporting", description: "Monthly insights and strategy refinement." },
+      { step: "Strategy & Setup", description: "We build a premium grid aesthetic and templates so your brand looks consistent instantly." },
+      { step: "Content Creation", description: "Weekly production of posts and Reels designed for local discovery and product promos." },
+      { step: "Daily Management", description: "We handle stories and engagement to turn attention into DMs, calls, and visits." },
+      { step: "Analysis", description: "Monthly reporting tracking real metrics like profile visits and sales, adjusting based on data." },
     ],
     faqs: [
-      { question: "Which platforms do you manage?", answer: "We specialize in Instagram, LinkedIn, X (Twitter), and Facebook." },
-      { question: "Do you respond to comments?", answer: "Yes, our standard packages include daily community engagement." },
+      { question: "Which platforms do you manage?", answer: "Our primary focus is Instagram for local reach, but we can syndicate to Facebook and LinkedIn." },
+      { question: "Do you respond to comments?", answer: "Yes, we handle community management to ensure no lead is left unanswered." },
     ],
-    targetAudience: "Brands & Creators",
+    targetAudience: "Local Retail, Hospitality & Services",
     startingPrice: "€75",
-    turnaround: "Monthly Support"
+    turnaround: "Monthly Recurring"
   },
   {
     slug: "academic-support",

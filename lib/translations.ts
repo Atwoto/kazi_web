@@ -248,17 +248,30 @@ export const translations = {
       },
       "social-media-management": {
         name: "Social Media Management",
-        oneLiner: "Strategic content and community management to grow your digital presence.",
-        deliverables: ["Monthly Content Calendar", "Custom Graphics & Captions", "Community Engagement", "Performance Analytics", "Hashtag & Keyword Strategy"],
+        oneLiner: "Full-service Instagram management for local businesses. We handle strategy, content, and community so your brand looks consistent and sells more without you thinking about it.",
+        deliverables: [
+          "Custom Grid Aesthetic & Brand System",
+          "Weekly Content Plan & Scheduling",
+          "Daily Stories with Actionable CTAs",
+          "Strategic Reels System for Local Reach",
+          "Monthly Performance Reporting & Action Steps"
+        ],
+        goals: [
+          "Make the page look premium and consistent so new visitors trust the business fast.",
+          "Increase local discovery, reach, and profile visits.",
+          "Turn attention into actions: DMs, calls, WhatsApp clicks, and in-store visits.",
+          "Keep posting consistent every week, with clear promos and seasonal moments.",
+          "Track performance monthly and adjust based on what performs, not vibes."
+        ],
         process: [
-          { step: "Discovery", description: "We audit your brand and define your target audience." },
-          { step: "Strategy", description: "Creation of a unique brand voice and content pillars." },
-          { step: "Execution", description: "Our team handles scheduling, posting, and engagement." },
-          { step: "Refinement", description: "Monthly data review to optimize growth." }
+          { step: "Strategy & Setup", description: "We build a premium grid aesthetic and templates so new visitors trust your business fast." },
+          { step: "Content Planning", description: "Weekly content calendars with clear promos and seasonal moments to keep your feed active." },
+          { step: "Daily Management", description: "Near-daily stories and community engagement to turn attention into DMs, calls, and visits." },
+          { step: "Performance Tracking", description: "Monthly reporting based on real data, adjusting strategy to double down on what works." }
         ],
         faqs: [
-          { q: "Which platforms do you manage?", a: "We specialize in Instagram, LinkedIn, X (Twitter), and Facebook." },
-          { q: "Do you respond to comments?", a: "Yes, our standard packages include daily community engagement." }
+          { q: "Which platforms do you manage?", a: "We focus on Instagram for local business growth, but we can also syndicate content to Facebook and LinkedIn." },
+          { q: "Do you handle customer inquiries?", a: "Yes, we manage comments and initial DMs to push users toward action like WhatsApp or in-store visits." }
         ]
       },
       "academic-support": {
@@ -305,6 +318,7 @@ export const translations = {
       startsFrom: "Starts From",
       revisions: "Revisions Inc.",
       whatYouGet: "What You Get",
+      serviceGoals: "Service Goals",
       howItWorks: "How It Works",
       recentWork: "Recent Work",
       faq: "Frequently Asked Questions",
@@ -842,14 +856,14 @@ export const translations = {
           id: 21,
           title: "Estanc Ramoneda. Instagram Management",
           categoryKey: "socialMediaManagement",
-          imageUrl: "/samples/graphic/Variation 1 Logo.png",
-          description: "Full management of the Estanc Ramoneda social presence. We focus on blending heritage with modern engagement to grow the local community in Sentmenat.\n\n**Strategy**\n• High-quality product photography\n• Community-first engagement\n• Consistent aesthetic grid layout\n• Weekly story storytelling",
+          imageUrl: "/samples/graphic/Front Black (1).png",
+          description: "Full Instagram rollout for a 160-year-old retail business. We transformed their digital presence into a consistent, trust-building sales tool that drives local discovery and customer action.\n\n**Key Actions**\n• Custom grid aesthetic matching the heritage brand\n• Daily stories promoting seasonal products\n• Strategic Reels to increase local reach in Sentmenat\n• Consistent weekly posting and engagement",
           liveUrl: "https://www.instagram.com/estanc.ramoneda/",
           highlights: [
-            "Organic Growth",
-            "Local Community Focus",
-            "Consistent Branding",
-            "Daily Management"
+            "Local Reach Growth",
+            "Consistent Daily Activity",
+            "In-store Traffic Focused",
+            "Full Community Management"
           ]
         },
       ]
@@ -1395,17 +1409,30 @@ export const translations = {
       },
       "social-media-management": {
         name: "Gestión de Redes Sociales",
-        oneLiner: "Contenido estratégico y gestión de comunidad para hacer crecer tu presencia digital.",
-        deliverables: ["Calendario de Contenido Mensual", "Gráficos y Textos Personalizados", "Engagement con la Comunidad", "Analítica de Rendimiento", "Estrategia de Hashtags y Keywords"],
+        oneLiner: "Gestión integral de Instagram para negocios locales. Manejamos estrategia, contenido y comunidad para que tu marca se vea consistente y venda más sin que tengas que pensar en ello.",
+        deliverables: [
+          "Estética de Cuadrícula y Sistema de Marca",
+          "Plan de Contenido Semanal y Programación",
+          "Historias Diarias con CTAs de Acción",
+          "Sistema de Reels Estratégico para Alcance Local",
+          "Informes Mensuales con Pasos a Seguir"
+        ],
+        goals: [
+          "Hacer que la página se vea premium y consistente para que los nuevos visitantes confíen en el negocio rápidamente.",
+          "Aumentar el descubrimiento local, el alcance y las visitas al perfil.",
+          "Convertir la atención en acciones: DMs, llamadas, clics en WhatsApp y visitas en tienda.",
+          "Mantener la publicación constante cada semana, con promociones claras y momentos estacionales.",
+          "Seguimiento mensual del rendimiento y ajuste basado en lo que funciona, no en sensaciones."
+        ],
         process: [
-          { step: "Auditoría", description: "Analizamos tu marca y definimos tu público objetivo." },
-          { step: "Estrategia", description: "Creación de una voz de marca única y pilares de contenido." },
-          { step: "Ejecución", description: "Nuestro equipo gestiona la programación, publicación e interacción." },
-          { step: "Refinamiento", description: "Revisión mensual de datos para optimizar el crecimiento." }
+          { step: "Estrategia y Configuración", description: "Creamos una estética premium y plantillas para que los nuevos visitantes confíen en tu negocio rápidamente." },
+          { step: "Planificación de Contenido", description: "Calendarios semanales con promociones claras y momentos estacionales para mantener tu feed activo." },
+          { step: "Gestión Diaria", description: "Historias diarias y compromiso con la comunidad para convertir la atención en DMs, llamadas y visitas." },
+          { step: "Seguimiento de Rendimiento", description: "Informes mensuales basados en datos reales, ajustando la estrategia para potenciar lo que funciona." }
         ],
         faqs: [
-          { q: "¿Qué plataformas gestionan?", a: "Nos especializamos en Instagram, LinkedIn, X (Twitter) y Facebook." },
-          { q: "¿Responden a los comentarios?", a: "Sí, nuestros paquetes estándar incluyen engagement diario con la comunidad." }
+          { q: "¿Qué plataformas gestionan?", a: "Nos enfocamos en Instagram para el crecimiento de negocios locales, pero también podemos sindicar contenido a Facebook y LinkedIn." },
+          { q: "¿Manejan consultas de clientes?", a: "Sí, gestionamos comentarios y DMs iniciales para empujar a los usuarios hacia acciones como WhatsApp o visitas en tienda." }
         ]
       },
       "academic-support": {
@@ -1452,6 +1479,7 @@ export const translations = {
       startsFrom: "Desde",
       revisions: "Revisiones Incl.",
       whatYouGet: "Lo Que Obtienes",
+      serviceGoals: "Objetivos del Servicio",
       howItWorks: "Cómo Funciona",
       recentWork: "Trabajo Reciente",
       faq: "Preguntas Frecuentes",
@@ -1989,14 +2017,14 @@ export const translations = {
           id: 21,
           title: "Estanc Ramoneda. Gestión de Instagram",
           categoryKey: "socialMediaManagement",
-          imageUrl: "/samples/graphic/Variation 1 Logo.png",
-          description: "Gestión integral de la presencia social de Estanc Ramoneda. Nos centramos en combinar el patrimonio con el engagement moderno para hacer crecer la comunidad local en Sentmenat.\n\n**Estrategia**\n• Fotografía de producto de alta calidad\n• Engagement centrado en la comunidad\n• Diseño de cuadrícula estético y consistente\n• Storytelling semanal en historias",
+          imageUrl: "/samples/graphic/Front Black (1).png",
+          description: "Lanzamiento completo de Instagram para un negocio minorista de 160 años. Transformamos su presencia digital en una herramienta de ventas consistente que genera confianza, descubrimiento local y acción del cliente.\n\n**Acciones Clave**\n• Estética de cuadrícula personalizada alineada con la marca histórica\n• Historias diarias promocionando productos de temporada\n• Reels estratégicos para aumentar el alcance local en Sentmenat\n• Publicación e interacción semanal constante",
           liveUrl: "https://www.instagram.com/estanc.ramoneda/",
           highlights: [
-            "Crecimiento Orgánico",
-            "Foco en Comunidad Local",
-            "Branding Consistente",
-            "Gestión Diaria"
+            "Crecimiento de Alcance Local",
+            "Actividad Diaria Constante",
+            "Foco en Tráfico en Tienda",
+            "Gestión Integral de Comunidad"
           ]
         },
       ]
@@ -2542,17 +2570,30 @@ export const translations = {
       },
       "social-media-management": {
         name: "Gestió de Xarxes Socials",
-        oneLiner: "Contingut estratègic i gestió de comunitat per fer créixer la teva presència digital.",
-        deliverables: ["Calendari de Contingut Mensual", "Gràfics i Textos Personalitzats", "Engagement amb la Comunitat", "Analítica de Rendiment", "Estratègia de Hashtags i Keywords"],
+        oneLiner: "Gestió integral d'Instagram per a negocis locals. Gestionem estratègia, contingut i comunitat perquè la teva marca es vegi consistent i vengui més sense que hi hagis de pensar.",
+        deliverables: [
+          "Estètica de Quadrícula i Sistema de Marca",
+          "Pla de Contingut Setmanal i Programació",
+          "Històries Diàries amb CTAs d'Acció",
+          "Sistema de Reels Estratègic per a Abast Local",
+          "Informes Mensuals amb Pasos a Seguir"
+        ],
+        goals: [
+          "Fer que la pàgina es vegi prèmium i consistent perquè els nous visitants confiïn en el negoci ràpidament.",
+          "Augmentar el descobriment local, l'abast i les visites al perfil.",
+          "Convertir l'atenció en accions: DMs, trucades, clics a WhatsApp i visites a la botiga.",
+          "Mantenir la publicació constant cada setmana, amb promocions clares i moments estacionals.",
+          "Seguiment mensual del rendiment i ajust basat en el que funciona, no en sensacions."
+        ],
         process: [
-          { step: "Auditoria", description: "Analitzem la teva marca i definim el teu públic objectiu." },
-          { step: "Estratègia", description: "Creació d'una veu de marca única i pilars de contingut." },
-          { step: "Execució", description: "El nostre equip gestiona la programació, publicació i interacció." },
-          { step: "Refinament", description: "Revisió mensual de dades per optimitzar el creixement." }
+          { step: "Estratègia i Configuració", description: "Creem una estètica prèmium i plantilles perquè els nous visitants confiïn en el teu negoci ràpidament." },
+          { step: "Planificació de Contingut", description: "Calendaris setmanals amb promocions clares i moments estacionals per mantenir el teu feed actiu." },
+          { step: "Gestió Diària", description: "Històries diàries i compromís amb la comunitat per convertir l'atenció en DMs, trucades i visites." },
+          { step: "Seguiment de Rendiment", description: "Informes mensuals basats en dades reals, ajustant l'estratègia per potenciar el que funciona." }
         ],
         faqs: [
-          { q: "Quines plataformes gestioneu?", a: "Ens especialitzem en Instagram, LinkedIn, X (Twitter) i Facebook." },
-          { q: "Responeu als comentaris?", a: "Sí, els nostres paquets estàndard inclouen engagement diari amb la comunitat." }
+          { q: "Quines plataformes gestioneu?", a: "Ens enfoquem en Instagram per al creixement de negocis locals, però també podem sindicar contingut a Facebook i LinkedIn." },
+          { q: "Gestioneu consultes de clients?", a: "Sí, gestionem comentaris i DMs inicials per empènyer els usuaris cap a accions com WhatsApp o visites a la botiga." }
         ]
       },
       "academic-support": {
@@ -2599,6 +2640,7 @@ export const translations = {
       startsFrom: "Des de",
       revisions: "Revisions Incl.",
       whatYouGet: "El Que Obtens",
+      serviceGoals: "Objectius del Servei",
       howItWorks: "Com Funciona",
       recentWork: "Treball Recent",
       faq: "Preguntes Freqüents",
@@ -3136,14 +3178,14 @@ export const translations = {
           id: 21,
           title: "Estanc Ramoneda. Gestió d'Instagram",
           categoryKey: "socialMediaManagement",
-          imageUrl: "/samples/graphic/Variation 1 Logo.png",
-          description: "Gestió integral de la presència social de l'Estanc Ramoneda. Ens centrem a combinar el patrimoni amb l'engagement modern per fer créixer la comunitat local a Sentmenat.\n\n**Estratègia**\n• Fotografia de producte d'alta qualitat\n• Engagement centrat en la comunitat\n• Disseny de quadrícula estètic i consistent\n• Storytelling setmanal a històries",
+          imageUrl: "/samples/graphic/Front Black (1).png",
+          description: "Llançament complet d'Instagram per a un negoci minorista de 160 anys. Transformem la seva presència digital en una eina de vendes consistent que genera confiança, descobriment local i acció del client.\n\n**Accions Clau**\n• Estètica de quadrícula personalitzada alineada amb la marca històrica\n• Històries diàries promovent productes de temporada\n• Reels estratègics per augmentar l'abast local a Sentmenat\n• Publicació i interacció setmanal constant",
           liveUrl: "https://www.instagram.com/estanc.ramoneda/",
           highlights: [
-            "Creixement Orgànic",
-            "Foc a la Comunitat Local",
-            "Branding Consistent",
-            "Gestió Diària"
+            "Creixement d'Abast Local",
+            "Activitat Diària Constant",
+            "Foc en Trànsit a Botiga",
+            "Gestió Integral de Comunitat"
           ]
         },
       ]

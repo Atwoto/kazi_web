@@ -58,6 +58,7 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
   const name = translatedData.name || service.name;
   const oneLiner = translatedData.oneLiner || service.oneLiner;
   const deliverables = translatedData.deliverables || service.deliverables;
+  const goals = translatedData.goals || service.goals;
   const process = translatedData.process || service.process;
   const faqs = translatedData.faqs || service.faqs;
 
@@ -194,21 +195,41 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
             </div>
 
             <TabsContent value="overview" className="animate-in fade-in slide-in-from-bottom-4 duration-500">
-              <div className="max-w-4xl mx-auto">
-                <h2 className="text-3xl font-heading font-bold text-gray-900 mb-8 text-center">{t.servicePage.whatYouGet}</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {deliverables.map((item: string, index: number) => (
-                    <div key={index} className="flex items-start bg-gray-50 p-6 rounded-2xl hover:bg-blue-50 transition-colors duration-300">
-                      <div className="bg-blue-100 text-blue-600 rounded-full p-2 mt-0.5 mr-4 shrink-0">
-                        <Check className="w-4 h-4" />
+              <div className="max-w-4xl mx-auto space-y-16">
+                {/* Deliverables */}
+                <div>
+                  <h2 className="text-3xl font-heading font-bold text-gray-900 mb-8 text-center">{t.servicePage.whatYouGet}</h2>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {deliverables.map((item: string, index: number) => (
+                      <div key={index} className="flex items-start bg-gray-50 p-6 rounded-2xl hover:bg-blue-50 transition-colors duration-300">
+                        <div className="bg-blue-100 text-blue-600 rounded-full p-2 mt-0.5 mr-4 shrink-0">
+                          <Check className="w-4 h-4" />
+                        </div>
+                        <div>
+                          <p className="font-bold text-gray-900 text-lg">{item}</p>
+                          <p className="text-sm text-gray-500 mt-2">Professional standard delivery ensuring high quality output.</p>
+                        </div>
                       </div>
-                      <div>
-                        <p className="font-bold text-gray-900 text-lg">{item}</p>
-                        <p className="text-sm text-gray-500 mt-2">Professional standard delivery ensuring high quality output.</p>
-                      </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
+
+                {/* Goals */}
+                {goals && goals.length > 0 && (
+                  <div>
+                    <h2 className="text-3xl font-heading font-bold text-gray-900 mb-8 text-center">{t.servicePage.serviceGoals}</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      {goals.map((goal: string, index: number) => (
+                        <div key={index} className="flex items-start bg-blue-50/50 p-6 rounded-2xl border border-blue-100">
+                          <div className="bg-blue-600 text-white rounded-full w-6 h-6 flex items-center justify-center mt-0.5 mr-4 shrink-0 text-xs font-bold">
+                            {index + 1}
+                          </div>
+                          <p className="text-gray-700 font-medium">{goal}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             </TabsContent>
 
