@@ -299,6 +299,7 @@ export const translations = {
       portfolioPlaceholder: "Portfolios are customized per client request to ensure relevance.",
       requestSamples: "Request Specific Samples",
       viewGeneralFaq: "View General FAQ",
+      professionalDelivery: "Professional Delivery",
       cta: {
         title: "Ready to build something great?",
         text: "Get a premium development team without the overhead. Start your project with Kazi today.",
@@ -1397,6 +1398,7 @@ export const translations = {
       portfolioPlaceholder: "Los portafolios se personalizan según la solicitud del cliente para garantizar relevancia.",
       requestSamples: "Solicitar Muestras Específicas",
       viewGeneralFaq: "Ver FAQ General",
+      professionalDelivery: "Entrega Profesional",
       cta: {
         title: "¿Listo para construir algo grandioso?",
         text: "Obtén un equipo de desarrollo premium sin los gastos generales. Comienza tu proyecto con Kazi hoy.",
@@ -2495,6 +2497,7 @@ export const translations = {
       portfolioPlaceholder: "Els portafolis es personalitzen segons la sol·licitud del client per garantir rellevància.",
       requestSamples: "Sol·licitar Mostres Específiques",
       viewGeneralFaq: "Veure FAQ General",
+      professionalDelivery: "Lliurament Professional",
       cta: {
         title: "A punt per construir alguna cosa gran?",
         text: "Obté un equip de desenvolupament prèmium sense les despeses generals. Comença el teu projecte amb Kazi avui.",

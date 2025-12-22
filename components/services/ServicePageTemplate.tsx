@@ -369,7 +369,7 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
                     <CardTitle className="text-lg font-bold text-gray-900 mb-2 leading-tight group-hover:text-blue-600 transition-colors">
                       {item}
                     </CardTitle>
-                    <p className="text-sm text-gray-500 font-medium">Professional Delivery</p>
+                    <p className="text-sm text-gray-500 font-medium">{t.servicePage.professionalDelivery}</p>
                   </div>
                 </CardHeader>
               </Card>
