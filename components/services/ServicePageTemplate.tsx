@@ -25,8 +25,17 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
   const [selectedItem, setSelectedItem] = useState<any | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  // Get translated service data, fallback to English/default if not found or for fields not in translation
-  // We use 'as any' here because service.slug is a string, and t.services keys are specific strings.
+  // Map service slug to portfolio category key
+  const categoryMap: Record<string, string> = {
+    "web-design-development": "webDev",
+    "graphic-design": "graphicDesign",
+    "video-editing": "videoEditing",
+    "photo-editing": "photoEditing",
+    "ai-services": "aiServices",
+    "academic-support": "academicSupport",
+  };
+
+  // Get translated service data, fallback to English/default if not found
   const translatedData = (t.services as any)[service.slug] || {};
   
   const name = translatedData.name || service.name;
@@ -34,8 +43,16 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
   const deliverables = translatedData.deliverables || service.deliverables;
   const process = translatedData.process || service.process;
   const faqs = translatedData.faqs || service.faqs;
-  // Examples are currently not in translation file, so we use the prop
-  const examples = service.examples; 
+
+  // Resolve examples: Prefer translated portfolio items filtered by category
+  const categoryKey = categoryMap[service.slug];
+  const portfolioItems = (t.portfolio as any).items || [];
+  const translatedExamples = categoryKey 
+    ? portfolioItems.filter((item: any) => item.categoryKey === categoryKey)
+    : [];
+
+  // Fallback to service.examples if no translated items found
+  const examples = translatedExamples.length > 0 ? translatedExamples : service.examples;
 
   const openPreview = (item: any) => {
     setSelectedItem(item);
@@ -46,6 +63,21 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
     setSelectedItem(null);
     setCurrentImageIndex(0);
   };
+
+  const nextImage = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (selectedItem?.gallery) {
+      setCurrentImageIndex((prev) => (prev + 1) % selectedItem.gallery.length);
+    }
+  };
+
+  const prevImage = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (selectedItem?.gallery) {
+      setCurrentImageIndex((prev) => (prev - 1 + selectedItem.gallery.length) % selectedItem.gallery.length);
+    }
+  };
+
 
   return (
     <div className="bg-white">
