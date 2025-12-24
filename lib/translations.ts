@@ -240,6 +240,12 @@ export const translations = {
         name: "Graphic Design",
         oneLiner: "Strategic visual identity and marketing assets for your brand.",
         deliverables: ["Brand Strategy & Identity", "Marketing Collateral", "Social Media Suites", "Presentation Design"],
+        process: [
+          { step: "Briefing", description: "We gather your brand assets, style preferences, and project goals." },
+          { step: "Concept Design", description: "Our designers create initial concepts for your review." },
+          { step: "Refinement", description: "We iterate based on your feedback to perfect the visuals." },
+          { step: "Delivery", description: "Final files provided in all required formats (AI, PNG, PDF)." },
+        ],
         faqs: [
            { q: "What formats will I receive?", a: "We provide all industry-standard formats: AI, EPS, PDF, JPG, and PNG." },
            { q: "How many revisions are included?", a: "Our standard packages include 2-3 rounds of revisions." },
@@ -266,6 +272,12 @@ export const translations = {
         name: "AI Solutions",
         oneLiner: "Implementing practical AI workflows to future-proof your business.",
         deliverables: ["Workflow Automation", "Custom Chatbot Integration", "Data Analysis Models", "Process Optimization"],
+        process: [
+          { step: "Analysis", description: "We audit your current workflows to identify automation opportunities." },
+          { step: "Implementation", description: "We build and integrate the AI agents or automations." },
+          { step: "Testing", description: "Rigorous testing to ensure accuracy and reliability." },
+          { step: "Handover", description: "We train your team on how to use and monitor the new system." },
+        ],
         faqs: [
             { q: "Is my data secure?", a: "Yes, we prioritize data privacy and use secure, enterprise-grade APIs." },
         ]
@@ -1449,6 +1461,12 @@ export const translations = {
         name: "Diseño Gráfico",
         oneLiner: "Identidad visual estratégica y activos de marketing para tu marca.",
         deliverables: ["Estrategia de Marca e Identidad", "Material de Marketing", "Suites para Redes Sociales", "Diseño de Presentaciones"],
+        process: [
+          { step: "Reunión Informativa", description: "Recopilamos tus activos de marca, preferencias de estilo y objetivos del proyecto." },
+          { step: "Diseño de Conceptos", description: "Nuestros diseñadores crean conceptos iniciales para tu revisión." },
+          { step: "Refinamiento", description: "Iteramos según tus comentarios para perfeccionar los visuales." },
+          { step: "Entrega", description: "Archivos finales proporcionados en todos los formatos requeridos (AI, PNG, PDF)." },
+        ],
         faqs: [
            { q: "¿Qué formatos recibiré?", a: "Proporcionamos todos los formatos estándar de la industria: AI, EPS, PDF, JPG y PNG." },
            { q: "¿Cuántas revisiones se incluyen?", a: "Nuestros paquetes estándar incluyen 2-3 rondas de revisiones." },
@@ -1475,6 +1493,12 @@ export const translations = {
         name: "Soluciones de IA",
         oneLiner: "Implementación de flujos de trabajo de IA prácticos para preparar tu negocio para el futuro.",
         deliverables: ["Automatización de Flujos de Trabajo", "Integración de Chatbots Personalizados", "Modelos de Análisis de Datos", "Optimización de Procesos"],
+        process: [
+          { step: "Análisis", description: "Auditamos tus flujos de trabajo actuales para identificar oportunidades de automatización." },
+          { step: "Implementación", description: "Construimos e integramos los agentes de IA o automatizaciones." },
+          { step: "Pruebas", description: "Pruebas rigurosas para garantizar precisión y fiabilidad." },
+          { step: "Entrega", description: "Formamos a tu equipo sobre cómo usar y monitorizar el nuevo sistema." },
+        ],
         faqs: [
             { q: "¿Están seguros mis datos?", a: "Sí, priorizamos la privacidad de los datos y utilizamos API seguras de nivel empresarial." },
         ]
@@ -2658,6 +2682,12 @@ export const translations = {
         name: "Disseny Gràfic",
         oneLiner: "Identitat visual estratègica i actius de màrqueting per a la teva marca.",
         deliverables: ["Estratègia de Marca i Identitat", "Material de Màrqueting", "Suites per a Xarxes Socials", "Disseny de Presentacions"],
+        process: [
+          { step: "Briefing", description: "Recopilem els teus actius de marca, preferències d'estil i objectius del projecte." },
+          { step: "Disseny de Conceptes", description: "Els nostres dissenyadors creen conceptes inicials per a la teva revisió." },
+          { step: "Refinament", description: "Iterem segons els teus comentaris per perfeccionar els visuals." },
+          { step: "Lliurament", description: "Fitxers finals proporcionats en tots els formats requerits (AI, PNG, PDF)." },
+        ],
         faqs: [
            { q: "Quins formats rebré?", a: "Proporcionem tots els formats estàndard de la indústria: AI, EPS, PDF, JPG i PNG." },
            { q: "Quantes revisions s'inclouen?", a: "Els nostres paquets estàndard inclouen 2-3 rondes de revisions." }
@@ -2684,6 +2714,12 @@ export const translations = {
         name: "Solucions d'IA",
         oneLiner: "Implementació de fluxos de treball d'IA pràctics per preparar el teu negoci per al futur.",
         deliverables: ["Automatització de Fluxos de Treball", "Integració de Chatbots Personalitzats", "Models d'Anàlisi de Dades", "Optimització de Processos"],
+        process: [
+          { step: "Anàlisi", description: "Auditem els teus fluxos de treball actuals per identificar oportunitats d'automatització." },
+          { step: "Implementació", description: "Construïm i integrem els agents d'IA o automatitzacions." },
+          { step: "Proves", description: "Proves rigoroses per garantir precisió i fiabilitat." },
+          { step: "Entrega", description: "Formem el teu equip sobre com utilitzar i monitoritzar el nou sistema." },
+        ],
         faqs: [
             { q: "Estan segures les meves dades?", a: "Sí, prioritzem la privacitat de les dades i utilitzem API segures de nivell empresarial." }
         ]
