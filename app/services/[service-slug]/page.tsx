@@ -10,8 +10,9 @@ interface ServicePageProps {
   }>;
 }
 
-export async function generateMetadata({ params }: { params: { 'service-slug': string } }): Promise<Metadata> {
-  const service = servicesData.find(s => s.slug === params['service-slug']);
+export async function generateMetadata({ params }: { params: Promise<{ 'service-slug': string }> }): Promise<Metadata> {
+  const resolvedParams = await params;
+  const service = servicesData.find(s => s.slug === resolvedParams['service-slug']);
   if (!service) {
     return {
       title: "Service Not Found | Kazi Agency",

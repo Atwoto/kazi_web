@@ -106,16 +106,10 @@ export const translations = {
           academicSupport: "Academic Support",
         },
         projects: {
-          sokoBridge: "SokoBridge",
-          billsSolar: "Bills On Solar EA Limited",
+          sokoBridge: "Restaurante La Mesa",
+          billsSolar: "Barbería Estilo",
           whatsappBot: "WhatsApp Car Rental Bot",
         },
-      },
-      pricing: {
-        title: "Premium quality.",
-        titleHighlight: "Transparent pricing.",
-        subtitle: "No hidden fees or surprise costs. We offer fixed project pricing and clear hourly rates for ongoing support.",
-        cta: "See Pricing",
       },
       impact: {
         title: "Work that Changes Lives",
@@ -1332,12 +1326,6 @@ export const translations = {
           whatsappBot: "WhatsApp Car Rental Bot",
         },
       },
-      pricing: {
-        title: "Precios Simples.",
-        titleHighlight: "Sin Sorpresas.",
-        subtitle: "Elige el plan que mejor se adapte a tu etapa actual.",
-        cta: "Ver Planes Completos",
-      },
       impact: {
         title: "Trabajo que Cambia Vidas",
         text: "Por cada proyecto que inicies con Kazi Agency, donamos 1 € a una organización benéfica para niños. Publicamos los recibos de las donaciones cada trimestre.",
@@ -2552,12 +2540,6 @@ export const translations = {
           billsSolar: "Bills On Solar EA Limited",
           whatsappBot: "Bot de Lloguer de Cotxes WhatsApp",
         },
-      },
-      pricing: {
-        title: "Qualitat prèmium.",
-        titleHighlight: "Preus transparents.",
-        subtitle: "Sense tarifes ocultes ni sorpreses. Oferim preus fixos per projecte i tarifes per hora clares per a suport continu.",
-        cta: "Veure Preus",
       },
       impact: {
         title: "Treball que Canvia Vides",
