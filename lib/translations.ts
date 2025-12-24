@@ -527,6 +527,9 @@ export const translations = {
           personal: "Personal", business: "Business", print: "Print", ads: "Ads",
         },
         web: {
+          serviceType: "What do you need?",
+          initialConfig: "Initial Configuration / Build",
+          maintenance: "Monthly Maintenance",
           fix: "Fix", landingPage: "Landing page", businessSite: "Business website", ecommerce: "E-commerce",
           pages1: "1", pages3_5: "3–5", pages6_10: "6–10",
           contactForm: "Contact form", booking: "Booking", payments: "Payments", blog: "Blog", multilingual: "Multilingual", auth: "Auth", dashboard: "Dashboard",
@@ -1723,6 +1726,9 @@ export const translations = {
           personal: "Personal", business: "Negocios", print: "Impresión", ads: "Anuncios",
         },
         web: {
+          serviceType: "¿Qué necesitas?",
+          initialConfig: "Configuración Inicial / Construcción",
+          maintenance: "Mantenimiento Mensual",
           fix: "Arreglo", landingPage: "Landing page", businessSite: "Sitio web de negocios", ecommerce: "E-commerce",
           pages1: "1", pages3_5: "3–5", pages6_10: "6–10",
           contactForm: "Formulario contacto", booking: "Reservas", payments: "Pagos", blog: "Blog", multilingual: "Multilingüe", auth: "Autenticación", dashboard: "Panel",
@@ -2919,6 +2925,9 @@ export const translations = {
           personal: "Personal", business: "Negocis", print: "Impressió", ads: "Anuncis",
         },
         web: {
+          serviceType: "Què necessites?",
+          initialConfig: "Configuració Inicial / Construcció",
+          maintenance: "Manteniment Mensual",
           fix: "Arranjament", landingPage: "Landing page", businessSite: "Lloc web de negocis", ecommerce: "E-commerce",
           pages1: "1", pages3_5: "3–5", pages6_10: "6–10",
           contactForm: "Formulari contacte", booking: "Reserves", payments: "Pagaments", blog: "Blog", multilingual: "Multilingüe", auth: "Autenticació", dashboard: "Panell",

@@ -80,6 +80,7 @@ export default function QuoteForm({ className }: { className?: string }) {
     usage: z.string().optional(),
 
     // Web
+    webServiceOption: z.string().optional(),
     projectType: z.string().optional(),
     currentWebsite: z.string().optional(),
     domainHosting: z.string().optional(),
@@ -181,7 +182,7 @@ export default function QuoteForm({ className }: { className?: string }) {
       case 1: 
         const basic: (keyof FormData)[] = ["description"];
         const service = form.getValues("serviceType");
-        if (service === "web") return [...basic, "projectType", "currentWebsite", "domainHosting", "pagesNeeded"];
+        if (service === "web") return [...basic, "webServiceOption", "projectType", "currentWebsite", "domainHosting", "pagesNeeded"];
         if (service === "graphic") return [...basic, "designType", "deliverables", "examplesLink"];
         return basic;
       case 2: return ["name", "email", "whatsapp", "country", "timezone", "howDidYouHear"];
@@ -382,6 +383,43 @@ export default function QuoteForm({ className }: { className?: string }) {
 
           {watchServiceType === "web" && (
             <div className="space-y-4">
+                <FormField
+                  control={form.control}
+                  name="webServiceOption"
+                  render={({ field }) => (
+                    <FormItem className="space-y-3">
+                      <FormLabel>{(t.forms.options.web as any).serviceType}</FormLabel>
+                      <FormControl>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          <button
+                            type="button"
+                            onClick={() => field.onChange("initial")}
+                            className={cn(
+                              "flex flex-col items-center justify-center p-4 rounded-xl border-2 transition-all",
+                              field.value === "initial" ? "border-blue-600 bg-blue-50" : "border-slate-200 hover:border-slate-300"
+                            )}
+                          >
+                            <span className="font-bold text-slate-900">{(t.forms.options.web as any).initialConfig}</span>
+                            <span className="text-xs text-slate-500 mt-1">Desde €299 Pago Único</span>
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => field.onChange("maintenance")}
+                            className={cn(
+                              "flex flex-col items-center justify-center p-4 rounded-xl border-2 transition-all",
+                              field.value === "maintenance" ? "border-blue-600 bg-blue-50" : "border-slate-200 hover:border-slate-300"
+                            )}
+                          >
+                            <span className="font-bold text-slate-900">{(t.forms.options.web as any).maintenance}</span>
+                            <span className="text-xs text-slate-500 mt-1">Desde €29 / mes</span>
+                          </button>
+                        </div>
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
                 <FormField
                   control={form.control}
                   name="projectType"
