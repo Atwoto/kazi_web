@@ -195,34 +195,27 @@ export const translations = {
       }
     },
     faq: {
-      pageTitle: "How can we help you?",
-      pageSubtitle: "Answers about our managed services, vetting process, and payments.",
+      pageTitle: "Frequently Asked Questions (FAQ)",
+      pageSubtitle: "Clear answers to your questions.",
       categories: {
-        general: "General & Process",
-        payments: "Payments & Refunds",
-        privacy: "Privacy & Safety",
+        general: "General",
+        payments: "Payments",
+        privacy: "Privacy",
       },
       questions: {
         general: [
-          { q: "What is Kazi?", a: "Kazi is a digital service agency. You send your request, we match it to the right specialist, we manage the work, and we deliver a quality-checked result on time. You deal with one point of contact from start to finish." },
-          { q: "How long does it take?", a: "Timelines depend on scope and your deadline. Most small requests take 24 to 72 hours. Larger projects, like full websites or long documents, follow a clear schedule shared after you submit your quote request. If you need something urgently, choose an urgent deadline and we will confirm feasibility before starting." },
-          { q: "How do revisions work?", a: "Every project includes a set number of revisions, confirmed in your quote. Revisions cover improvements to the agreed scope, like layout tweaks, wording refinement, or minor feature adjustments. New requests or added scope get quoted separately so timelines and quality stay protected." },
-          { q: "What info do you need to start?", a: "We need four basics: Service type, Deadline, Budget range, and a Clear brief. If you have examples, brand assets, files, or links, upload them in the quote form. The clearer your brief, the faster and better the result." },
-          { q: "Can I talk to the freelancer directly?", a: "To keep delivery smooth and accountable, communication goes through Kazi. We collect your requirements, manage updates, and ensure quality control. If a call is needed for clarity, we can arrange a short call, but we keep one official channel so nothing gets lost and timelines stay tight." },
-          { q: "Do you guarantee deadlines?", a: "We only accept deadlines we can meet. Once we confirm your project, we commit to the timeline. If a delay happens due to us, we prioritize a fix, fast-track the delivery, or agree on a fair adjustment." },
-          { q: "What counts as “scope”?", a: "Scope is what you requested and what we confirmed in your quote. Anything outside that scope is treated as a new request and quoted separately to protect quality and timelines." },
-          { q: "Do you work on exams or timed tests?", a: "No. We do not support live exams, timed tests, or any request designed to cheat. We support learning, editing, and legitimate project assistance." },
-          { q: "Can you help with academic work?", a: "Yes, for academic services we focus on editing, clarity, structure, formatting, referencing support, and tutoring. You remain responsible for final submission and academic integrity rules at your institution." },
-          { q: "What if I’m not sure what I need?", a: "Submit a quote with your goal and deadline. We will recommend the best service option and next steps before you pay." },
+          { q: "I'm not tech-savvy. Will it be hard to use the system?", a: "Not at all. We set everything up for you. You'll just receive booking notifications on your mobile or WhatsApp. Plus, we'll give you a quick 15-minute training so you know how to view your calendar and block dates. If you can use WhatsApp, you can use our system." },
+          { q: "How long until my website is ready?", a: "Usually, between 7 and 14 days after you give us the go-ahead. We work fast so you can start getting bookings as soon as possible." },
+          { q: "Are you a real agency or an internet robot?", a: "We're real and local. Our base is in Castellar del Vallès (Barcelona). We understand the local market because we live here, shop here, and get our hair cut here." },
+          { q: "I already have a domain or an old website. Can we use it?", a: "Yes. If you already have a domain, we'll connect it to the new system. If you have an old website that isn't bringing you customers, we'll completely renew it to make it modern and accept automatic bookings." },
         ],
         payments: [
-          { q: "How do payments work?", a: "We confirm your quote first. Then you pay to start the project. For larger projects, we split into milestones, for example 50 percent to start and 50 percent on delivery, or milestone-based payments. Payment options depend on your location and project size, and will be shown during checkout or confirmed in your quote." },
-          { q: "Do you offer refunds?", a: "If we have not started, you can request a cancellation and we will refund minus any payment processing fees. If work has started, refunds depend on the stage of the project and what has already been delivered. If you are unhappy, we first try to fix it through revisions or partial rework. We do not refund completed work that matches the agreed brief, but we do stand behind quality and fairness." },
+          { q: "Do I have to pay everything upfront?", a: "No. We understand how local businesses work. We charge a startup fee to set up the website and system, then a small monthly fee for maintenance. Check our pricing page for the exact options." },
+          { q: "What does the monthly fee include?", a: "The monthly fee is your 'Peace of Mind Insurance.' It includes web hosting, your domain name (e.g. tuberberia.com), backups, and technical support. If something breaks or you need to change a price on the website, we handle it." },
+          { q: "Is there a contract or minimum commitment?", a: "We want you to stay because the system works, not because we force you. You can cancel the monthly service with 30 days notice. You own your business." },
         ],
         privacy: [
-          { q: "How do you protect confidentiality?", a: "We treat your files and information as confidential. Access is limited to the team members working on your project. We do not sell or share your data. On request, we can sign an NDA for business projects." },
-          { q: "What happens if I disappear mid-project?", a: "If you stop replying, we pause the project and hold your files. After 14 days of no response, the project is marked inactive. If you return later, we will resume from the last confirmed step, but timelines may change based on workload. For long inactivity, a restart fee may apply if the project needs re-planning." },
-          { q: "Will my project be original?", a: "Yes. All work is created for you based on your brief. If you request academic support, we focus on improving your draft and helping you present your ideas clearly." },
+          { q: "What if I want to change my prices or hours in the future?", a: "You have two options: you can do it yourself from the control panel (it's very easy), or you can send us a WhatsApp and we'll update it for you as part of your monthly maintenance." },
         ]
       }
     },
@@ -905,22 +898,22 @@ export const translations = {
       ]
     },
     contact: {
-      sidebarTitle: "Let's build something great together.",
+      sidebarTitle: "Stop losing customers by not answering the phone.",
       sidebar: {
         logoText: "Kazi Agency",
-        subtitle: "European project management meets East African talent.",
+        subtitle: "Automate your bookings with your own professional website. Take care of your customers, we handle the technology.",
         valueProps: [
           {
-            title: "Vetted Talent",
-            description: "Access highly skilled East African professionals without the vetting headache."
+            title: "More Bookings",
+            description: "Automatic appointment system that works 24 hours a day, even while you sleep."
           },
           {
-            title: "100% Secure Payment",
-            description: "Your funds are protected. We only release payments upon your approval."
+            title: "No Commissions",
+            description: "Stop paying 20% to third-party apps. Your customers are 100% yours."
           },
           {
-            title: "European Management",
-            description: "Your project is overseen by experienced managers ensuring European quality standards."
+            title: "Local Support",
+            description: "We're in Catalonia. If you have a problem, we help you here and now."
           }
         ]
       },
@@ -1392,7 +1385,7 @@ export const translations = {
       }
     },
     faq: {
-      pageTitle: "¿Cómo podemos ayudarte?",
+      pageTitle: "Preguntas Frecuentes (FAQ)",
       pageSubtitle: "Respuestas claras a tus dudas.",
       categories: {
         general: "General",
@@ -1401,16 +1394,18 @@ export const translations = {
       },
       questions: {
         general: [
-          { q: "¿Sois una agencia local?", a: "Sí, operamos desde Cataluña y nos enfocamos en dar servicio a negocios locales." },
-          { q: "¿Cuánto tardáis en hacer una web?", a: "Depende del proyecto, pero una web básica con reservas puede estar lista en 1-2 semanas." },
-          { q: "¿Tengo que pagar mantenimiento?", a: "Depende del plan. El plan Básico y Estándar incluyen mantenimiento técnico básico." },
+          { q: "No soy bueno con la tecnología. ¿Será difícil usar el sistema?", a: "Para nada. Nosotros configuramos todo por ti. Tú solo recibirás las notificaciones de las reservas en tu móvil o WhatsApp. Además, te darán una formación rápida de 15 minutos para que sepas cómo ver tu calendario y cerrar fechas. Si sabes usar WhatsApp, sabes usar nuestro sistema." },
+          { q: "¿Cuánto tardáis en tener mi web lista?", a: "Normalmente, entre 7 y 14 días desde que nos das el 'Ok'. Trabajamos rápido para que empieces a recibir reservas lo antes posible." },
+          { q: "¿Sois una agencia real o un robot de internet?", a: "Somos reales y locales. Nuestra base está en Castellar del Vallès (Barcelona). Entendemos el mercado local porque vivimos aquí, compramos aquí y nos cortamos el pelo aquí." },
+          { q: "Ya tengo un dominio o una web vieja. ¿Podemos usarla?", a: "Sí. Si ya tienes un dominio, lo conectamos al nuevo sistema. Si tienes una web antigua que no te trae clientes, la renovaremos por completo para que sea moderna y acepte reservas automáticas." },
         ],
         payments: [
-          { q: "¿Cómo se paga?", a: "Aceptamos transferencia bancaria y tarjetas. Pedimos un depósito inicial para empezar." },
-          { q: "¿Hay permanencia?", a: "En los servicios mensuales (como redes sociales), pedimos un compromiso mínimo de 3 meses para ver resultados." },
+          { q: "¿Tengo que pagar todo por adelantado?", a: "No. Entendemos cómo funcionan los negocios locales. Cobramos una tarifa de inicio para montar la web y el sistema, y luego una cuota mensual pequeña para el mantenimiento. Consulta nuestra página de precios para ver las opciones exactas." },
+          { q: "¿Qué incluye la cuota mensual?", a: "La cuota mensual es tu 'Seguro de Tranquilidad'. Incluye el alojamiento de la web (hosting), tu nombre de dominio (ej. tuberberia.com), copias de seguridad y soporte técnico. Si algo falla o necesitas cambiar un precio en la web, nosotros nos encargamos." },
+          { q: "¿Hay contrato de permanencia?", a: "Queremos que te quedes porque el sistema funciona, no porque te obligamos. Puedes cancelar el servicio mensual avisando con 30 días de antelación. Tú eres el dueño de tu negocio." },
         ],
         privacy: [
-          { q: "¿Mis datos están seguros?", a: "Absolutamente. Cumplimos con toda la normativa de protección de datos europea." },
+          { q: "¿Qué pasa si quiero cambiar mis precios o mis horarios en el futuro?", a: "Tienes dos opciones: puedes hacerlo tú mismo desde el panel de control (es muy fácil), o puedes mandarnos un WhatsApp y nosotros lo actualizamos por ti como parte de tu mantenimiento mensual." },
         ]
       }
     },
@@ -2093,22 +2088,22 @@ export const translations = {
       ]
     },
     contact: {
-      sidebarTitle: "Construyamos algo genial juntos.",
+      sidebarTitle: "Deja de perder clientes por no responder al teléfono.",
       sidebar: {
         logoText: "Kazi Agency",
-        subtitle: "Gestión de proyectos europea con talento de África Oriental.",
+        subtitle: "Automatiza tus reservas con tu propia web profesional. Atiende a tus clientes, nosotros nos encargamos de la tecnología.",
         valueProps: [
           {
-            title: "Talento Verificado",
-            description: "Accede a profesionales altamente cualificados de África Oriental sin el dolor de cabeza de la selección."
+            title: "Más Reservas",
+            description: "Sistema de citas automático que funciona las 24 horas, incluso cuando duermes."
           },
           {
-            title: "Pago 100% Seguro",
-            description: "Tus fondos están protegidos. Solo liberamos los pagos con tu aprobación."
+            title: "Sin Comisiones",
+            description: "Deja de pagar el 20% a apps de terceros. Tus clientes son 100% tuyos."
           },
           {
-            title: "Gestión Europea",
-            description: "Tu proyecto está supervisado por gestores experimentados que garantizan estándares de calidad europeos."
+            title: "Soporte Local",
+            description: "Estamos en Cataluña. Si tienes un problema, te atendemos aquí y ahora."
           }
         ]
       },
@@ -2580,34 +2575,27 @@ export const translations = {
       }
     },
     faq: {
-      pageTitle: "Com podem ajudar-te?",
-      pageSubtitle: "Respostes sobre els nostres serveis gestionats, procés de selecció i pagaments.",
+      pageTitle: "Preguntes FreqÜents (FAQ)",
+      pageSubtitle: "Respostes clares als teus dubtes.",
       categories: {
-        general: "General i Processos",
-        payments: "Pagaments i Reemborsaments",
-        privacy: "Privacitat i Seguretat",
+        general: "General",
+        payments: "Pagaments",
+        privacy: "Privacitat",
       },
       questions: {
         general: [
-          { q: "Què és Kazi?", a: "Kazi és una agència de serveis digitals. Envies la teva sol·licitud, l'assignem a l'especialista adequat, gestionem el treball i lliurem un resultat amb control de qualitat i a temps. Tractes amb un únic punt de contacte de principi a fi." },
-          { q: "Quant de temps triga?", a: "Els terminis depenen de l'abast i de la teva data límit. La majoria de les sol·licituds petites triguen de 24 a 72 hores. Els projectes més grans, com llocs web complets o documents extensos, segueixen un cronograma clar que es comparteix després d'enviar la teva sol·licitud de pressupost. Si necessites alguna cosa urgent, tria una data límit urgent i confirmarem la viabilitat abans de començar." },
-          { q: "Com funcionen les revisions?", a: "Cada projecte inclou un nombre determinat de revisions, confirmat en el teu pressupost. Les revisions cobreixen millores a l'abast acordat, com ajustos de disseny, refinament de redacció o petits ajustos de funcions. Les noves sol·licituds o l'abast afegit es pressuposten per separat per protegir els terminis i la qualitat." },
-          { q: "Quina informació necessiteu per començar?", a: "Necessitem quatre bàsics: Tipus de servei, Data límit, Rang de pressupost i un Resum clar. Si tens exemples, actius de marca, arxius o enllaços, puja'ls al formulari de pressupost. Com més clar sigui el teu resum, més ràpid i millor serà el resultat." },
-          { q: "Puc parlar amb el freelancer directament?", a: "Per mantenir el lliurament fluid i responsable, tota la comunicació passa per Kazi. Recollim els teus requisits, gestionem les actualitzacions i garantim el control de qualitat. Si es necessita una trucada per a més claredat, la podem organitzar, però mantenim un canal oficial perquè res es perdi i els terminis es compleixin." },
-          { q: "Garantiu els terminis?", a: "Només acceptem terminis que podem complir. Una vegada que confirmem el teu projecte, ens comprometem amb el cronograma. Si ocorre un retard per la nostra part, prioritzem una solució, accelerem el lliurament o acordem un ajust just." },
-          { q: "Què compta com a “abast”?", a: "L'abast és el que vas sol·licitar i el que vam confirmar en el teu pressupost. Qualsevol cosa fora d'aquest abast es tracta com una nova sol·licitud i es pressuposta per separat per protegir la qualitat i els terminis." },
-          { q: "Treballeu en exàmens o proves cronometrades?", a: "No. No donem suport a exàmens en viu, proves cronometrades ni cap sol·licitud dissenyada per fer trampa. Donem suport a l'aprenentatge, l'edició i l'assistència legítima en projectes." },
-          { q: "Podeu ajudar amb el treball acadèmic?", a: "Sí, per als serveis acadèmics ens enfoquem en l'edició, claredat, estructura, format, suport de referències i tutoria. Continues sent responsable del lliurament final i de les regles d'integritat acadèmica de la teva institució." },
-          { q: "Què passa si no estic segur del que necessito?", a: "Envia un pressupost amb el teu objectiu i data límit. Et recomanarem la millor opció de servei i els següents passos abans que paguis." },
+          { q: "No sóc bo amb la tecnologia. Serà difícil usar el sistema?", a: "De cap manera. Nosaltres configurem tot per tu. Tu només rebràs les notificacions de les reserves al teu mòbil o WhatsApp. A més, et donarem una formació ràpida de 15 minuts perquè sàpigues com veure el teu calendari i tancar dates. Si saps usar WhatsApp, saps usar el nostre sistema." },
+          { q: "Quant de temps trigueu a tenir la meva web llista?", a: "Normalment, entre 7 i 14 dies des que ens dones l'Ok. Treballem ràpid perquè comencis a rebre reserves el més aviat possible." },
+          { q: "Sou una agència real o un robot d'internet?", a: "Som reals i locals. La nostra base està a Castellar del Vallès (Barcelona). Entenem el mercat local perquè vivim aquí, comprem aquí i ens tallem els cabells aquí." },
+          { q: "Ja tinc un domini o una web antiga. Podem usar-la?", a: "Sí. Si ja tens un domini, el connectem al nou sistema. Si tens una web antiga que no et porta clients, la renovarem completament perquè sigui moderna i accepti reserves automàtiques." },
         ],
         payments: [
-          { q: "Com funcionen els pagaments?", a: "Primer confirmem el teu pressupost. Després pagues per començar el projecte. Per a projectes més grans, dividim en fites, per exemple, 50% per començar i 50% en el lliurament, o pagaments basats en fites. Les opcions de pagament depenen de la teva ubicació i mida del projecte, i es mostraran durant el pagament o es confirmaran en el teu pressupost." },
-          { q: "Oferiu reemborsaments?", a: "Si no hem començat, pots sol·licitar una cancel·lació i et retornarem els diners menys les tarifes de processament de pagament. Si el treball ha començat, els reemborsaments depenen de l'etapa del projecte i del que ja s'hagi lliurat. Si no estàs satisfet, primer intentem solucionar-ho mitjançant revisions. No reemborsarem el treball completat que coincidi amb el resum acordat, però garantim qualitat i equitat." },
+          { q: "He de pagar tot per endavant?", a: "No. Entenem com funcionen els negocis locals. Cobrem una tarifa d'inici per muntar la web i el sistema, i llavors una quota mensual petita per al manteniment. Consulta la nostra pàgina de preus per veure les opcions exactes." },
+          { q: "Què inclou la quota mensual?", a: "La quota mensual és el teu 'Segur de Tranquil·litat'. Inclou l'allotjament de la web (hosting), el teu nom de domini (ex. tuberberia.com), còpies de seguretat i suport tècnic. Si alguna cosa falla o necessites canviar un preu a la web, nosaltres ens encarreguem." },
+          { q: "Hi ha contracte de permanència?", a: "Volem que et quedis perquè el sistema funciona, no perquè t'obliguem. Pots cancel·lar el servei mensual avisant amb 30 dies d'antelació. Tu ets el propietari del teu negoci." },
         ],
         privacy: [
-          { q: "Com protegiu la confidencialitat?", a: "Tractem els teus fitxers i informació com a confidencials. L'accés està limitat als membres de l'equip que treballen en el teu projecte. No venem ni compartim les teves dades. Sota petició, podem signar un acord de confidencialitat (NDA) per a projectes empresarials." },
-          { q: "Què passa si desaparec a meitat del projecte?", a: "Si deixes de respondre, pausem el projecte i guardem els teus fitxers. Després de 14 dies sense resposta, el projecte es marca com a inactiu. Si tornes més tard, reprendrem des de l'últim pas confirmat, però els terminis poden canviar. Per a inactivitat prolongada, pot aplicar-se una tarifa de reinici." },
-          { q: "Serà el meu projecte original?", a: "Sí. Tot el treball es crea per a tu segons el teu resum. Si sol·licites suport acadèmic, ens enfoquem en millorar el teu esborrany i ajudar-te a presentar les teves idees amb claredat." },
+          { q: "Què passa si vull canviar els meus preus o els meus horaris en el futur?", a: "Tens dues opcions: pots fer-ho tu mateix des del panell de control (és molt fàcil), o ens pots enviar un WhatsApp i nosaltres ho actualitzem per tu com a part del teu manteniment mensual." },
         ]
       }
     },
@@ -3290,22 +3278,22 @@ export const translations = {
       ]
     },
     contact: {
-      sidebarTitle: "Construïm alguna cosa genial junts.",
+      sidebarTitle: "Deixa de perdre clients per no respondre al telèfon.",
       sidebar: {
         logoText: "Kazi Agency",
-        subtitle: "Gestió de projectes europea amb talent de l'Àfrica Oriental.",
+        subtitle: "Automatitza les teves reserves amb la teva pròpia web professional. Atén els teus clients, nosaltres ens encarreguem de la tecnologia.",
         valueProps: [
           {
-            title: "Talent Verificat",
-            description: "Accedeix a professionals altament qualificats de l'Àfrica Oriental sense el mal de cap de la selecció."
+            title: "Més Reserves",
+            description: "Sistema de cites automàtic que funciona les 24 hores, fins i tot quan dorms."
           },
           {
-            title: "Pagament 100% Segur",
-            description: "Els teus fons estan protegits. Només alliberem els pagaments amb la teva aprovació."
+            title: "Sense Comissions",
+            description: "Deixa de pagar el 20% a apps de tercers. Els teus clients són 100% teus."
           },
           {
-            title: "Gestió Europea",
-            description: "El teu projecte està supervisat per gestors experimentats que garanteixen estàndards de qualitat europeus."
+            title: "Suport Local",
+            description: "Estem a Catalunya. Si tens un problema, t'aténem aquí i ara."
           }
         ]
       },

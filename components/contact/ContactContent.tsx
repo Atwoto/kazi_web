@@ -14,11 +14,18 @@ export default function ContactContent() {
       <div className="flex flex-col lg:flex-row min-h-[calc(100vh-6rem)]">
         
         {/* Left Side: Value Props (Fixed Sidebar on Desktop) */}
-        <div className="lg:w-5/12 bg-gradient-to-br from-slate-900 via-blue-600 to-slate-900 text-white p-8 lg:p-16 flex flex-col justify-center relative overflow-hidden order-first">
-           
-           {/* Abstract Glow Effects */}
-           <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-blue-600/20 rounded-full blur-[100px] pointer-events-none" />
-           <div className="absolute bottom-[-10%] right-[-10%] w-[400px] h-[400px] bg-purple-600/20 rounded-full blur-[100px] pointer-events-none" />
+        <div className="lg:w-5/12 bg-gradient-to-br from-slate-900 via-blue-800 to-slate-900 text-white p-8 lg:p-16 flex flex-col justify-center relative overflow-hidden order-first">
+
+           {/* Abstract Glow Effects - Dimmed */}
+           <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-blue-900/30 rounded-full blur-[100px] pointer-events-none" />
+           <div className="absolute bottom-[-10%] right-[-10%] w-[400px] h-[400px] bg-slate-700/30 rounded-full blur-[100px] pointer-events-none" />
+
+           {/* Subtle Phone Screen Overlay Effect */}
+           <div className="absolute inset-0 pointer-events-none opacity-[0.03]">
+             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] h-[550px] border-[12px] border-white/50 rounded-[3rem] bg-white/10" />
+             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[240px] h-[480px] border-4 border-white/30 rounded-[2.5rem] bg-black/20" />
+             <div className="absolute top-[27%] left-1/2 -translate-x-1/2 w-[80px] h-[25px] bg-white/30 rounded-full" />
+           </div>
            
            <div className="relative z-10 pt-24 lg:pt-0">
              <Link href="/" className="inline-flex items-center gap-2 mb-12 group">
