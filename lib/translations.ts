@@ -994,7 +994,7 @@ export const translations = {
       close: "Close",
     },
     footer: {
-      blurb: "Kazi is a digital service agency that matches your request to the right specialist, we manage the work, and we deliver a quality-checked result on time.",
+      blurb: "Kazi is your local digital partner. We help businesses in Catalonia grow with simple and effective technology.",
       servicesTitle: "Services",
       companyTitle: "Company",
       legalTitle: "Legal",
@@ -2209,7 +2209,7 @@ export const translations = {
       close: "Cerrar",
     },
     footer: {
-      blurb: "Kazi es una agencia de servicios digitales que asigna tu solicitud al especialista adecuado, gestionamos el trabajo y entregamos un resultado con control de calidad y a tiempo.",
+      blurb: "Kazi es tu socio digital local. Ayudamos a negocios en Cataluña a crecer con tecnología simple y efectiva.",
       servicesTitle: "Servicios",
       companyTitle: "Empresa",
       legalTitle: "Legal",
@@ -3424,7 +3424,7 @@ export const translations = {
       close: "Tancar",
     },
     footer: {
-      blurb: "Kazi és una agència de serveis digitals que assigna la teva sol·licitud a l'especialista adequat, gestionem la feina i lliurem un resultat amb control de qualitat i a temps.",
+      blurb: "Kazi és el teu soci digital local. Ajudem els negocis a Catalunya a créixer amb tecnologia simple i efectiva.",
       servicesTitle: "Serveis",
       companyTitle: "Empresa",
       legalTitle: "Legal",
