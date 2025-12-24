@@ -68,7 +68,20 @@ export default function PricingContent() {
           ))}
         </div>
 
-        {/* FAQ Teaser / Support */}
+        {/* Custom Quote Section - Moved Up */}
+        <div className="max-w-3xl mx-auto mb-32">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-4">
+              {t.pricing.getQuote.title}
+            </h2>
+            <p className="text-lg text-gray-600">
+              {t.pricing.getQuote.subtitle}
+            </p>
+          </div>
+          <QuoteForm />
+        </div>
+
+        {/* FAQ Teaser / Support - Moved Down */}
         <div className="bg-gray-50 rounded-[3rem] p-12 md:p-20 text-center max-w-5xl mx-auto">
            <ScrollAnimation animation="fade-up">
               <h2 className="text-3xl font-heading font-bold text-gray-900 mb-6">¿Tienes dudas sobre los planes?</h2>
@@ -85,19 +98,6 @@ export default function PricingContent() {
                 </Button>
               </div>
            </ScrollAnimation>
-        </div>
-
-        {/* Custom Quote Section */}
-        <div className="mt-32 max-w-3xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-4">
-              {t.pricing.getQuote.title}
-            </h2>
-            <p className="text-lg text-gray-600">
-              {t.pricing.getQuote.subtitle}
-            </p>
-          </div>
-          <QuoteForm />
         </div>
       </div>
     </div>
