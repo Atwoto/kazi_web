@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { Loader2, Upload, Check, ChevronRight, ChevronLeft } from "lucide-react";
+import { Loader2, Check, ChevronRight, ChevronLeft } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -30,7 +30,7 @@ import {
 import { useLanguage } from "@/context/LanguageContext";
 
 const serviceTypeKeys = ["web", "social", "graphic", "ai"] as const;
-
+const priorityKeys = ["fast", "quality", "cost"] as const;
 const budgetRanges = [
   "€25–€50",
   "€50–€100",
@@ -39,8 +39,6 @@ const budgetRanges = [
   "€600–€1,200",
   "No estoy seguro",
 ] as const;
-
-const priorityKeys = ["fast", "quality", "cost"] as const;
 
 export default function QuoteForm({ className }: { className?: string }) {
   const { t } = useLanguage();
@@ -51,48 +49,19 @@ export default function QuoteForm({ className }: { className?: string }) {
 
   const formSchema = z.object({
     serviceType: z.enum(serviceTypeKeys),
-    deadline: z.date(),
-    budgetRange: z.enum(budgetRanges),
+    deadline: z.coerce.date(),
+    budgetRange: z.string().optional(),
     priority: z.enum(priorityKeys),
-    
-    // Step 2: Specifics + Description
     description: z.string().min(10, { message: "Description must be at least 10 characters" }),
-    
-    // Academic
-    documentType: z.string().optional(),
-    wordCount: z.string().optional(),
-    language: z.string().optional(),
-    level: z.string().optional(),
-    helpType: z.string().optional(),
-    referencingStyle: z.string().optional(),
-    trackedChanges: z.string().optional(),
-    urgency: z.string().optional(),
-
-    // Graphic
-    designType: z.string().optional(),
-    deliverables: z.string().optional(),
-    dimensions: z.string().optional(),
-    brandAssets: z.string().optional(),
-    styleDirection: z.string().optional(),
-    examplesLink: z.string().optional(),
-    concepts: z.string().optional(),
-    revisions: z.string().optional(),
-    usage: z.string().optional(),
-
-    // Web
     webServiceOption: z.string().optional(),
+    webPricingTier: z.string().optional(),
     projectType: z.string().optional(),
     currentWebsite: z.string().optional(),
     domainHosting: z.string().optional(),
     pagesNeeded: z.string().optional(),
-    features: z.string().optional(),
-    contentReadiness: z.string().optional(),
-    techPreference: z.string().optional(),
-    launchDate: z.date().optional(),
-    maintenance: z.string().optional(),
-
-    // Step 3: Contact & Upload
-    fileUpload: z.any().optional(),
+    designType: z.string().optional(),
+    deliverables: z.string().optional(),
+    examplesLink: z.string().optional(),
     name: z.string().min(2, { message: t.forms.validation.required }),
     email: z.string().email({ message: t.forms.validation.email }),
     whatsapp: z.string().optional(),
@@ -108,8 +77,6 @@ export default function QuoteForm({ className }: { className?: string }) {
 
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
-    shouldUnregister: false,
-    mode: "onChange",
     defaultValues: {
       name: "",
       email: "",
@@ -123,193 +90,92 @@ export default function QuoteForm({ className }: { className?: string }) {
   });
 
   const watchServiceType = form.watch("serviceType");
+  const watchWebOption = form.watch("webServiceOption");
 
   async function onSubmit(values: FormData) {
     setIsLoading(true);
     try {
       const response = await fetch('/api/quotes', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           ...values,
           deadline: values.deadline ? values.deadline.toISOString() : null,
         }),
       });
-
-      if (!response.ok) {
-        const errorText = await response.text();
-        throw new Error(`Failed to submit quote: ${response.status}`);
-      }
-
-      const result = await response.json();
+      if (!response.ok) throw new Error(`Failed to submit: ${response.status}`);
       setSubmittedData(values);
     } catch (error: any) {
-      console.error("Submission error:", error);
-      alert(`Error submitting form: ${error.message}`);
+      console.error(error);
+      alert(`Error: ${error.message}`);
     } finally {
       setIsLoading(false);
     }
   }
 
-  const onError = (errors: any) => {
-    const errorFields = Object.keys(errors);
-
-    // Check which step the first error belongs to and navigate there
-    if (errorFields.some(field => ["serviceType", "deadline", "budgetRange", "priority"].includes(field))) {
-      setCurrentStep(0);
-    } else if (errorFields.some(field => ["description", "documentType", "wordCount", "designType", "projectType"].includes(field))) {
-      setCurrentStep(1);
-    } else if (errorFields.some(field => ["name", "email", "whatsapp", "country", "timezone", "fileUpload"].includes(field))) {
-      setCurrentStep(2);
-    } else if (errorFields.includes("consent")) {
-      setCurrentStep(3);
-    }
-  };
-
   const nextStep = async () => {
-    const fields = getStepFields(currentStep);
-    const isValid = await form.trigger(fields as any);
-    if (isValid) {
-      setCurrentStep((prev) => Math.min(prev + 1, totalSteps - 1));
-    }
+    const stepFields = getStepFields(currentStep);
+    const isValid = await form.trigger(stepFields as any);
+    if (isValid) setCurrentStep((prev) => Math.min(prev + 1, totalSteps - 1));
   };
 
   const getStepFields = (step: number): (keyof FormData)[] => {
     switch (step) {
       case 0: return ["serviceType", "priority", "deadline", "budgetRange"];
-      case 1: 
+      case 1:
         const basic: (keyof FormData)[] = ["description"];
-        const service = form.getValues("serviceType");
-        if (service === "web") return [...basic, "webServiceOption", "projectType", "currentWebsite", "domainHosting", "pagesNeeded"];
-        if (service === "graphic") return [...basic, "designType", "deliverables", "examplesLink"];
+        if (watchServiceType === "web") return [...basic, "webServiceOption", "webPricingTier"];
+        if (watchServiceType === "graphic") return [...basic, "designType", "deliverables"];
         return basic;
-      case 2: return ["name", "email", "whatsapp", "country", "timezone", "howDidYouHear"];
+      case 2: return ["name", "email", "whatsapp", "country"];
       default: return [];
     }
   };
 
-  const prevStep = () => setCurrentStep((prev) => Math.max(prev - 1, 0));
-
   if (submittedData) {
     return (
-      <Card className={cn("p-8 border border-slate-200 bg-white", className)}>
-        <div className="text-center">
-          <div className="w-16 h-16 bg-slate-900 rounded-full flex items-center justify-center mx-auto mb-4">
-            <Check className="h-8 w-8 text-white" />
-          </div>
-          <h3 className="text-2xl font-heading font-bold text-gray-900 mb-2">
-            {t.forms.success.title}
-          </h3>
-          <p className="text-gray-600 mb-4">
-            {t.forms.success.message}
-          </p>
-          <p className="text-sm text-gray-500">
-            A confirmation email has been sent to {submittedData.email}
-          </p>
+      <Card className={cn("p-8 text-center bg-white", className)}>
+        <div className="w-16 h-16 bg-slate-900 rounded-full flex items-center justify-center mx-auto mb-4">
+          <Check className="h-8 w-8 text-white" />
         </div>
+        <h3 className="text-2xl font-bold">{t.forms.success.title}</h3>
+        <p className="text-gray-600 mt-2">{t.forms.success.message}</p>
       </Card>
     );
   }
 
-  const renderStep = () => {
-    return (
-      <>
-        {/* Step 0: Basics */}
-        <div className={cn("space-y-6", currentStep !== 0 && "hidden")}>
-          <div className="space-y-2">
-            <h3 className="text-xl font-semibold text-slate-900">{t.forms.steps.basics}</h3>
-            <p className="text-sm text-slate-500">Let&apos;s start with the basics</p>
-          </div>
+  return (
+    <Card className={cn("p-6 lg:p-8 bg-white border border-slate-200", className)}>
+      <div className="mb-8">
+        <div className="h-1 w-full bg-slate-200 rounded-full overflow-hidden mb-4">
+          <div className="h-full bg-slate-900 transition-all duration-500" style={{ width: `${(currentStep / 3) * 100}%` }} />
+        </div>
+        <div className="flex justify-between text-xs text-slate-400 font-medium">
+          {["BASICS", "DETAILS", "CONTACT", "REVIEW"].map((label, i) => (
+            <span key={label} className={cn(currentStep >= i && "text-slate-900")}>{label}</span>
+          ))}
+        </div>
+      </div>
 
-            <FormField
-              control={form.control}
-              name="serviceType"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>{t.forms.labels.serviceType}</FormLabel>
-                  <Select onValueChange={field.onChange} value={field.value || ""}>
-                    <FormControl>
-                      <SelectTrigger className="h-12 border-slate-300">
-                        <SelectValue placeholder={t.forms.placeholders.select} />
-                      </SelectTrigger>
-                    </FormControl>
-                    <SelectContent>
-                      {serviceTypeKeys.map((key) => (
-                        <SelectItem key={key} value={key}>
-                          {(t.forms.options.services as any)[key]}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-
-            <FormField
-              control={form.control}
-              name="priority"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>{t.forms.labels.priority}</FormLabel>
-                  <Select onValueChange={field.onChange} value={field.value || ""}>
-                    <FormControl>
-                      <SelectTrigger className="h-12 border-slate-300">
-                        <SelectValue placeholder={t.forms.placeholders.select} />
-                      </SelectTrigger>
-                    </FormControl>
-                    <SelectContent>
-                      {priorityKeys.map((key) => (
-                        <SelectItem key={key} value={key}>
-                          {(t.forms.options.priority as any)[key]}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                  <FormDescription>
-                    This helps us tailor the quote to your needs
-                  </FormDescription>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+          {currentStep === 0 && (
+            <div className="space-y-6">
               <FormField
                 control={form.control}
-                name="deadline"
-                render={({ field }) => (
-                  <FormItem className="flex flex-col">
-                    <FormLabel>{t.forms.labels.deadline}</FormLabel>
-                    <Input
-                      type="date"
-                      className="h-12"
-                      {...field}
-                      value={field.value ? new Date(field.value).toISOString().split('T')[0] : ''}
-                      onChange={(e) => field.onChange(e.target.value ? new Date(e.target.value) : undefined)}
-                    />
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-
-              <FormField
-                control={form.control}
-                name="budgetRange"
+                name="serviceType"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>{t.forms.labels.budget}</FormLabel>
-                    <Select onValueChange={field.onChange} value={field.value || ""}>
+                    <FormLabel>{t.forms.labels.serviceType}</FormLabel>
+                    <Select onValueChange={field.onChange} value={field.value}>
                       <FormControl>
                         <SelectTrigger className="h-12 border-slate-300">
                           <SelectValue placeholder={t.forms.placeholders.select} />
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent>
-                        {budgetRanges.map((range) => (
-                          <SelectItem key={range} value={range}>{range}</SelectItem>
+                        {serviceTypeKeys.map((key) => (
+                          <SelectItem key={key} value={key}>{(t.forms.options.services as any)[key]}</SelectItem>
                         ))}
                       </SelectContent>
                     </Select>
@@ -317,480 +183,179 @@ export default function QuoteForm({ className }: { className?: string }) {
                   </FormItem>
                 )}
               />
-            </div>
-
-          <Button
-            type="button"
-            onClick={nextStep}
-            disabled={!watchServiceType}
-            className="w-full h-12 rounded-full bg-blue-600 hover:bg-blue-700"
-          >
-            {t.forms.buttons.next} <ChevronRight className="ml-2 w-4 h-4" />
-          </Button>
-        </div>
-
-        {/* Step 1: Details */}
-        <div className={cn("space-y-6", currentStep !== 1 && "hidden")}>
-          <div className="space-y-2">
-            <h3 className="text-xl font-semibold text-slate-900">{t.forms.steps.details}</h3>
-            <p className="text-sm text-slate-500">Cuéntanos más sobre tu proyecto</p>
-          </div>
-
-          {watchServiceType === "graphic" && (
-            <div className="space-y-4">
-                <FormField
-                  control={form.control}
-                  name="designType"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>{t.forms.labels.designType}</FormLabel>
-                      <Select onValueChange={field.onChange} value={field.value || ""}>
-                        <FormControl><SelectTrigger><SelectValue placeholder={t.forms.placeholders.select} /></SelectTrigger></FormControl>
-                        <SelectContent>
-                          {["Logo", "Social Posts", "Flyer", "Brand Kit", "Otro"].map(opt => <SelectItem key={opt} value={opt}>{opt}</SelectItem>)}
-                        </SelectContent>
-                      </Select>
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name="deliverables"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>{t.forms.labels.deliverables}</FormLabel>
-                      <Select onValueChange={field.onChange} value={field.value || ""}>
-                        <FormControl><SelectTrigger><SelectValue placeholder={t.forms.placeholders.select} /></SelectTrigger></FormControl>
-                        <SelectContent>
-                          {["PNG", "JPG", "SVG", "PDF", "Print-ready"].map(opt => <SelectItem key={opt} value={opt}>{opt}</SelectItem>)}
-                        </SelectContent>
-                      </Select>
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name="examplesLink"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>{t.forms.labels.examplesLink}</FormLabel>
-                      <FormControl><Input {...field} value={field.value || ""} /></FormControl>
-                    </FormItem>
-                  )}
-                />
-            </div>
-          )}
-
-          {watchServiceType === "web" && (
-            <div className="space-y-4">
-                <FormField
-                  control={form.control}
-                  name="webServiceOption"
-                  render={({ field }) => (
-                    <FormItem className="space-y-3">
-                      <FormLabel>{(t.forms.options.web as any).serviceType}</FormLabel>
+              <FormField
+                control={form.control}
+                name="priority"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>{t.forms.labels.priority}</FormLabel>
+                    <Select onValueChange={field.onChange} value={field.value}>
                       <FormControl>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                          <button
-                            type="button"
-                            onClick={() => field.onChange("initial")}
-                            className={cn(
-                              "flex flex-col items-center justify-center p-4 rounded-xl border-2 transition-all",
-                              field.value === "initial" ? "border-blue-600 bg-blue-50" : "border-slate-200 hover:border-slate-300"
-                            )}
-                          >
-                            <span className="font-bold text-slate-900">{(t.forms.options.web as any).initialConfig}</span>
-                            <span className="text-xs text-slate-500 mt-1">Desde €299 Pago Único</span>
-                          </button>
-                          <button
-                            type="button"
-                            onClick={() => field.onChange("maintenance")}
-                            className={cn(
-                              "flex flex-col items-center justify-center p-4 rounded-xl border-2 transition-all",
-                              field.value === "maintenance" ? "border-blue-600 bg-blue-50" : "border-slate-200 hover:border-slate-300"
-                            )}
-                          >
-                            <span className="font-bold text-slate-900">{(t.forms.options.web as any).maintenance}</span>
-                            <span className="text-xs text-slate-500 mt-1">Desde €29 / mes</span>
-                          </button>
-                        </div>
+                        <SelectTrigger className="h-12 border-slate-300">
+                          <SelectValue placeholder={t.forms.placeholders.select} />
+                        </SelectTrigger>
                       </FormControl>
+                      <SelectContent>
+                        {priorityKeys.map((key) => (
+                          <SelectItem key={key} value={key}>{(t.forms.options.priority as any)[key]}</SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <FormField
+                  control={form.control}
+                  name="deadline"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>{t.forms.labels.deadline}</FormLabel>
+                      <Input type="date" className="h-12" {...field} value={field.value ? new Date(field.value).toISOString().split('T')[0] : ''} onChange={(e) => field.onChange(e.target.value)} />
                       <FormMessage />
                     </FormItem>
                   )}
                 />
-
-                <FormField
-                  control={form.control}
-                  name="projectType"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>{t.forms.labels.projectType}</FormLabel>
-                      <Select onValueChange={field.onChange} value={field.value || ""}>
-                        <FormControl><SelectTrigger><SelectValue placeholder={t.forms.placeholders.select} /></SelectTrigger></FormControl>
-                        <SelectContent>
-                          {["Fix", "Landing Page", "Business Website", "E-commerce"].map(opt => <SelectItem key={opt} value={opt}>{opt}</SelectItem>)}
-                        </SelectContent>
-                      </Select>
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name="currentWebsite"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>{t.forms.labels.currentWebsite}</FormLabel>
-                      <FormControl><Input {...field} value={field.value || ""} /></FormControl>
-                    </FormItem>
-                  )}
-                />
-                <div className="grid grid-cols-2 gap-4">
+                {watchServiceType !== "web" && (
                   <FormField
                     control={form.control}
-                    name="domainHosting"
+                    name="budgetRange"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>{t.forms.labels.domainHosting}</FormLabel>
-                        <Select onValueChange={field.onChange} value={field.value || ""}>
-                          <FormControl><SelectTrigger><SelectValue placeholder={t.forms.placeholders.select} /></SelectTrigger></FormControl>
+                        <FormLabel>{t.forms.labels.budget}</FormLabel>
+                        <Select onValueChange={field.onChange} value={field.value}>
+                          <FormControl>
+                            <SelectTrigger className="h-12 border-slate-300">
+                              <SelectValue placeholder={t.forms.placeholders.select} />
+                            </SelectTrigger>
+                          </FormControl>
                           <SelectContent>
-                            <SelectItem value="yes">{t.forms.options.common.yes}</SelectItem>
-                            <SelectItem value="no">{t.forms.options.common.no}</SelectItem>
+                            {budgetRanges.map((range) => <SelectItem key={range} value={range}>{range}</SelectItem>)}
                           </SelectContent>
                         </Select>
+                        <FormMessage />
                       </FormItem>
                     )}
                   />
-                  <FormField
-                    control={form.control}
-                    name="pagesNeeded"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>{t.forms.labels.pagesNeeded}</FormLabel>
-                        <Select onValueChange={field.onChange} value={field.value || ""}>
-                          <FormControl><SelectTrigger><SelectValue placeholder={t.forms.placeholders.select} /></SelectTrigger></FormControl>
-                          <SelectContent>
-                            {["1", "3-5", "6-10", "E-commerce"].map(opt => <SelectItem key={opt} value={opt}>{opt}</SelectItem>)}
-                          </SelectContent>
-                        </Select>
-                      </FormItem>
-                    )}
-                  />
-                </div>
+                )}
+              </div>
+              <Button type="button" onClick={nextStep} disabled={!watchServiceType} className="w-full h-12 rounded-full bg-blue-600 hover:bg-blue-700">
+                {t.forms.buttons.next} <ChevronRight className="ml-2 w-4 h-4" />
+              </Button>
             </div>
           )}
 
-          <FormField
-              control={form.control}
-              name="description"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>{t.forms.labels.description} *</FormLabel>
-                  <FormControl>
-                    <Textarea
-                      className="resize-y min-h-[120px] border-slate-300"
-                      placeholder="Describe your project in detail..."
-                      {...field}
+          {currentStep === 1 && (
+            <div className="space-y-6">
+              {watchServiceType === "web" && (
+                <div className="space-y-6">
+                  <FormField
+                    control={form.control}
+                    name="webServiceOption"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>{(t.forms.options.web as any).serviceType}</FormLabel>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          {["initial", "maintenance"].map((opt) => (
+                            <button key={opt} type="button" onClick={() => field.onChange(opt)} className={cn("p-4 rounded-xl border-2 text-left", field.value === opt ? "border-blue-600 bg-blue-50" : "border-slate-200")}>
+                              <p className="font-bold text-slate-900">{(t.forms.options.web as any)[opt === "initial" ? "initialConfig" : "maintenance"]}</p>
+                              <p className="text-xs text-slate-500 mt-1">{opt === "initial" ? "Desde €299 Pago Único" : "Desde €29 / mes"}</p>
+                            </button>
+                          ))}
+                        </div>
+                      </FormItem>
+                    )}
+                  />
+                  {watchWebOption && (
+                    <FormField
+                      control={form.control}
+                      name="webPricingTier"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>{watchWebOption === "initial" ? "Elige tu Plan de Construcción" : "Elige tu Plan de Mantenimiento"}</FormLabel>
+                          <Select onValueChange={field.onChange} value={field.value}>
+                            <FormControl>
+                              <SelectTrigger className="h-12 border-slate-300">
+                                <SelectValue placeholder="Seleccionar plan..." />
+                              </SelectTrigger>
+                            </FormControl>
+                            <SelectContent>
+                              {["basic", "standard", "pro"].map((tier) => (
+                                <SelectItem key={tier} value={tier}>{(t.forms.options.web as any)[watchWebOption === "initial" ? "initialTiers" : "maintTiers"][tier]}</SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
+                        </FormItem>
+                      )}
                     />
-                  </FormControl>
-                  <FormDescription>
-                    Please provide at least 10 characters describing your project
-                  </FormDescription>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-
-          <div className="flex gap-4 mt-6">
-            <Button
-              type="button"
-              variant="outline"
-              onClick={prevStep}
-              disabled={isLoading}
-              className="w-1/3 h-12 rounded-full border-gray-200 disabled:opacity-50"
-            >
-              <ChevronLeft className="mr-2 w-4 h-4" /> {t.forms.buttons.back}
-            </Button>
-            <Button
-              type="button"
-              onClick={nextStep}
-              disabled={isLoading}
-              className="w-2/3 h-12 bg-blue-600 hover:bg-blue-700 text-white disabled:opacity-50"
-            >
-              {t.forms.buttons.next} <ChevronRight className="ml-2 w-4 h-4" />
-            </Button>
-          </div>
-        </div>
-
-        {/* Step 2: Upload & Contact */}
-        <div className={cn("space-y-6", currentStep !== 2 && "hidden")}>
-          <div className="space-y-2">
-            <h3 className="text-xl font-semibold text-slate-900">{t.forms.steps.upload}</h3>
-            <p className="text-sm text-slate-500">Upload files and provide contact details</p>
-          </div>
-
-          <FormField
-            control={form.control}
-            name="fileUpload"
-            render={({ field: { value, onChange, ...fieldProps } }) => (
-              <FormItem>
-                <FormLabel>{t.forms.labels.upload}</FormLabel>
-                <FormControl>
-                  <Input
-                    {...fieldProps}
-                    type="file"
-                    className="h-12 pt-2"
-                    onChange={(event) => {
-                      onChange(event.target.files && event.target.files[0]);
-                    }}
-                  />
-                </FormControl>
-                <FormDescription>
-                  Upload any relevant files (max 5MB)
-                </FormDescription>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <FormField
-              control={form.control}
-              name="name"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>{t.forms.labels.name} *</FormLabel>
-                  <FormControl>
-                    <Input {...field} className="h-12 border-slate-300" />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-
-            <FormField
-              control={form.control}
-              name="email"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>{t.forms.labels.email} *</FormLabel>
-                  <FormControl>
-                    <Input type="email" placeholder={t.forms.placeholders.email} {...field} className="h-12" />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <FormField
-              control={form.control}
-              name="whatsapp"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>{t.forms.labels.whatsapp}</FormLabel>
-                  <FormControl>
-                    <Input {...field} className="h-12 border-slate-300" />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-
-            <FormField
-              control={form.control}
-              name="country"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>{t.forms.labels.country}</FormLabel>
-                  <FormControl>
-                    <Input {...field} className="h-12 border-slate-300" />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-          </div>
-
-          <FormField
-            control={form.control}
-            name="timezone"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>{t.forms.labels.timeZone}</FormLabel>
-                <FormControl>
-                  <Input {...field} className="h-12 border-slate-300" />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-
-          <FormField
-            control={form.control}
-            name="howDidYouHear"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>{t.forms.labels.howHear}</FormLabel>
-                <FormControl>
-                  <Input {...field} className="h-12 border-slate-300" />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-
-          <div className="flex gap-4 mt-6">
-            <Button
-              type="button"
-              variant="outline"
-              onClick={prevStep}
-              disabled={isLoading}
-              className="w-1/3 h-12 rounded-full border-gray-200 disabled:opacity-50"
-            >
-              <ChevronLeft className="mr-2 w-4 h-4" /> {t.forms.buttons.back}
-            </Button>
-            <Button
-              type="button"
-              onClick={nextStep}
-              disabled={isLoading}
-              className="w-2/3 h-12 bg-blue-600 hover:bg-blue-700 text-white disabled:opacity-50"
-            >
-              {t.forms.buttons.next} <ChevronRight className="ml-2 w-4 h-4" />
-            </Button>
-          </div>
-        </div>
-
-        {/* Step 3: Review & Submit */}
-        <div className={cn("space-y-6", currentStep !== 3 && "hidden")}>
-          <div className="space-y-2">
-            <h3 className="text-xl font-semibold text-slate-900">{t.forms.steps.review}</h3>
-            <p className="text-sm text-slate-500">Please review your details before submitting</p>
-          </div>
-
-          <div className="bg-slate-50 p-6 rounded-lg space-y-3 border border-slate-200">
-            {(() => {
-              const formValues = form.getValues();
-              return (
-                <>
-                  <div className="text-slate-900">
-                    <span className="font-semibold">{t.forms.labels.serviceType}:</span> {formValues.serviceType}
-                  </div>
-                  <div className="text-slate-900">
-                    <span className="font-semibold">{t.forms.labels.priority}:</span> {formValues.priority}
-                  </div>
-                  <div className="text-slate-900">
-                    <span className="font-semibold">{t.forms.labels.budget}:</span> {formValues.budgetRange}
-                  </div>
-                  <div className="text-slate-900">
-                    <span className="font-semibold">{t.forms.labels.deadline}:</span> {formValues.deadline ? new Date(formValues.deadline).toLocaleDateString() : "Not set"}
-                  </div>
-                  <div className="text-slate-900">
-                    <span className="font-semibold">{t.forms.labels.name}:</span> {formValues.name}
-                  </div>
-
-                  <div className="text-slate-900">
-                    <span className="font-semibold">{t.forms.labels.email}:</span> {formValues.email}
-                  </div>
-                  <div className="text-slate-900">
-                    <span className="font-semibold">{t.forms.labels.description}:</span>
-                    <p className="text-sm text-slate-600 mt-1 line-clamp-3">{formValues.description}</p>
-                  </div>
-                </>
-              );
-            })()}
-          </div>
-
-          <FormField
-            control={form.control}
-            name="consent"
-            render={({ field }) => (
-              <FormItem className={cn(
-                "flex flex-row items-start space-x-3 space-y-0 rounded-lg border p-4 bg-slate-50 border-slate-200"
-              )}>
-                <FormControl>
-                  <Checkbox
-                    checked={field.value}
-                    onCheckedChange={field.onChange}
-                    className="mt-1"
-                  />
-                </FormControl>
-                <div className="space-y-1 leading-none">
-                  <FormLabel className={cn(
-                    "text-gray-700 font-medium",
-                    !field.value && "text-red-600"
-                  )}>
-                    {t.forms.labels.consent} {!field.value && <span className="text-red-500">*</span>}
-                  </FormLabel>
-                  <p className="text-xs text-gray-500">
-                    You must agree to the terms to submit your request
-                  </p>
-                  <FormMessage />
+                  )}
                 </div>
-              </FormItem>
-            )}
-          />
-
-          <div className="flex gap-4 mt-6">
-            <Button
-              type="button"
-              variant="outline"
-              onClick={prevStep}
-              disabled={isLoading}
-              className="w-1/3 h-12 rounded-full border-gray-200 disabled:opacity-50"
-            >
-              <ChevronLeft className="mr-2 w-4 h-4" /> {t.forms.buttons.back}
-            </Button>
-            <div className="w-2/3 relative">
-              <Button
-                type="submit"
-                disabled={isLoading}
-                className="w-full h-12 bg-slate-900 hover:bg-slate-800 text-white disabled:opacity-50"
-              >
-                {isLoading ? (
-                  <>
-                    <Loader2 className="mr-2 w-4 h-4 animate-spin" />
-                    {t.forms.buttons.submitting}
-                  </>
-                ) : (
-                  <>
-                    {t.forms.buttons.submit} <Check className="ml-2 w-4 h-4" />
-                  </>
+              )}
+              <FormField
+                control={form.control}
+                name="description"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>{t.forms.labels.description} *</FormLabel>
+                    <FormControl><Textarea className="min-h-[120px]" {...field} /></FormControl>
+                    <FormMessage />
+                  </FormItem>
                 )}
-              </Button>
+              />
+              <div className="flex gap-4">
+                <Button type="button" variant="outline" onClick={() => setCurrentStep(0)} className="w-1/3 h-12 rounded-full">Back</Button>
+                <Button type="button" onClick={nextStep} className="w-2/3 h-12 rounded-full bg-blue-600 text-white">Next</Button>
+              </div>
             </div>
-          </div>
-        </div>
-      </>
-    );
-  };
+          )}
 
-  return (
-    <Card className={cn("p-6 lg:p-8 border border-slate-200 bg-white", className)}>
-      {/* Progress Stepper */}
-      <div className="mb-8">
-        <div className="h-1 w-full bg-slate-200 rounded-full overflow-hidden mb-8">
-          <div
-            className="h-full bg-slate-900 transition-all duration-500 ease-out"
-            style={{ width: `${(currentStep / (totalSteps - 1)) * 100}%`}}
-          />
-        </div>
+          {currentStep === 2 && (
+            <div className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <FormField control={form.control} name="name" render={({ field }) => (
+                  <FormItem><FormLabel>Nombre *</FormLabel><FormControl><Input {...field} className="h-12" /></FormControl><FormMessage /></FormItem>
+                )} />
+                <FormField control={form.control} name="email" render={({ field }) => (
+                  <FormItem><FormLabel>Email *</FormLabel><FormControl><Input type="email" {...field} className="h-12" /></FormControl><FormMessage /></FormItem>
+                )} />
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <FormField control={form.control} name="whatsapp" render={({ field }) => (
+                  <FormItem><FormLabel>WhatsApp</FormLabel><FormControl><Input {...field} className="h-12" /></FormControl></FormItem>
+                )} />
+                <FormField control={form.control} name="country" render={({ field }) => (
+                  <FormItem><FormLabel>País</FormLabel><FormControl><Input {...field} className="h-12" /></FormControl></FormItem>
+                )} />
+              </div>
+              <div className="flex gap-4">
+                <Button type="button" variant="outline" onClick={() => setCurrentStep(1)} className="w-1/3 h-12 rounded-full">Back</Button>
+                <Button type="button" onClick={nextStep} className="w-2/3 h-12 rounded-full bg-blue-600 text-white">Next</Button>
+              </div>
+            </div>
+          )}
 
-        <div className="flex justify-between items-center text-xs font-medium">
-          <span className={cn("transition-colors", currentStep >= 0 ? "text-slate-900" : "text-slate-400")}>{t.forms.steps.basics}</span>
-          <span className={cn("transition-colors", currentStep >= 1 ? "text-slate-900" : "text-slate-400")}>{t.forms.steps.details}</span>
-          <span className={cn("transition-colors", currentStep >= 2 ? "text-slate-900" : "text-slate-400")}>{t.forms.steps.upload}</span>
-          <span className={cn("transition-colors", currentStep >= 3 ? "text-slate-900" : "text-slate-400")}>{t.forms.steps.review}</span>
-        </div>
-      </div>
-
-      <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit, onError)} className="space-y-6">
-          <fieldset disabled={isLoading} className="contents group">
-            {renderStep()}
-          </fieldset>
+          {currentStep === 3 && (
+            <div className="space-y-6">
+              <div className="bg-slate-50 p-6 rounded-lg border border-slate-200">
+                <p><strong>{t.forms.labels.serviceType}:</strong> {(t.forms.options.services as any)[watchServiceType]}</p>
+                <p><strong>{t.forms.labels.name}:</strong> {form.getValues("name")}</p>
+                <p><strong>Email:</strong> {form.getValues("email")}</p>
+              </div>
+              <FormField control={form.control} name="consent" render={({ field }) => (
+                <FormItem className="flex items-start space-x-3 p-4 bg-slate-50 rounded-lg">
+                  <FormControl><Checkbox checked={field.value} onCheckedChange={field.onChange} /></FormControl>
+                  <FormLabel>{t.forms.labels.consent}</FormLabel>
+                </FormItem>
+              )} />
+              <div className="flex gap-4">
+                <Button type="button" variant="outline" onClick={() => setCurrentStep(2)} className="w-1/3 h-12 rounded-full">Back</Button>
+                <Button type="submit" disabled={isLoading} className="w-2/3 h-12 rounded-full bg-slate-900 text-white">
+                  {isLoading ? <Loader2 className="animate-spin" /> : t.forms.buttons.submit}
+                </Button>
+              </div>
+            </div>
+          )}
         </form>
       </Form>
     </Card>
