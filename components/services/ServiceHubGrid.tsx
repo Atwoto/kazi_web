@@ -39,11 +39,20 @@ export default function ServiceHubGrid() {
     return audience; // Fallback
   };
 
+  const allowedSlugs = [
+    "web-design-development",
+    "social-media-management",
+    "graphic-design",
+    "ai-services"
+  ];
+
   return (
     <section className="py-12">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {servicesData.map((service, index) => (
+          {servicesData
+            .filter(service => allowedSlugs.includes(service.slug))
+            .map((service, index) => (
             <ScrollAnimation key={service.slug} animation="fade-up" delay={index * 100} className="h-full">
               <Card className="flex flex-col h-full border-gray-100 shadow-sm hover:shadow-xl transition-shadow duration-300 rounded-2xl overflow-hidden group">
                 <CardHeader className="bg-gray-50 pb-6">

@@ -9,9 +9,9 @@ export interface SEOData {
 }
 
 export const defaultSEO: SEOData = {
-  title: "Kazi Agency - Managed Offshoring to Vetted East African Talent",
-  description: "Work delivered without the freelance hassle. Kazi Agency connects European companies with top 1% vetted talent from East Africa. Video Editing, Web Design, Graphic Design, AI Services & more.",
-  keywords: "managed offshoring, East Africa, freelance, talent, video editing, web design, graphic design, AI services, academic support, photo editing",
+  title: "Kazi Agency - Agencia de Servicios Digitales en Cataluña",
+  description: "Soluciones digitales profesionales para negocios locales. Especialistas en Web, Reservas, Redes Sociales y Diseño Gráfico en Cataluña.",
+  keywords: "agencia local, Cataluña, diseño web, reservas, redes sociales, diseño gráfico, automatización IA",
   ogImage: "/og-image.jpg",
   ogType: "website",
 };
@@ -19,13 +19,13 @@ export const defaultSEO: SEOData = {
 export const pageSEO: Record<string, SEOData> = {
   "/": {
     ...defaultSEO,
-    title: "Kazi Agency - Work Delivered, Without the Freelance Hassle",
-    description: "Connect with top 1% vetted East African talent. Managed offshoring for video editing, web design, graphic design, AI services & academic support. 100+ projects delivered.",
+    title: "Kazi Agency - Agencia Local de Servicios Digitales",
+    description: "Impulsa tu negocio local con soluciones digitales a medida. Especialistas en sistemas de reservas, gestión de redes sociales y diseño gráfico en Cataluña.",
     structuredData: {
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "Kazi Agency",
-      "description": "Managed offshoring service connecting European companies with vetted East African talent",
+      "description": "Agencia de servicios digitales local en Cataluña enfocada en negocios locales",
       "url": "https://kaziagency.es",
       "logo": "https://kaziagency.es/logo.png",
       "sameAs": [
@@ -36,23 +36,23 @@ export const pageSEO: Record<string, SEOData> = {
       "contactPoint": {
         "@type": "ContactPoint",
         "contactType": "customer service",
-        "areaServed": "Europe",
+        "areaServed": "ES",
       },
       "address": {
         "@type": "PostalAddress",
-        "addressCountry": "EU",
+        "addressCountry": "ES",
       },
     },
   },
   "/about": {
-    title: "About Kazi Agency - Connecting Europe to East African Excellence",
-    description: "Learn about Kazi Agency's mission to connect European companies with vetted East African talent. Meet our team and discover our values.",
-    keywords: "about Kazi Agency, mission, team, East African talent, offshoring company",
+    title: "Sobre Nosotros - Kazi Agency | Tu Agencia Local",
+    description: "Conoce Kazi Agency, tu socio tecnológico en Cataluña. Ayudamos a los negocios locales a modernizarse con trato cercano y resultados profesionales.",
+    keywords: "sobre Kazi Agency, agencia local, Cataluña, equipo local",
     structuredData: {
       "@context": "https://schema.org",
       "@type": "AboutPage",
-      "name": "About Kazi Agency",
-      "description": "Learn about Kazi Agency's mission to connect European companies with vetted East African talent",
+      "name": "Sobre Kazi Agency",
+      "description": "Tu socio tecnológico local en Cataluña",
     },
   },
   "/services": {

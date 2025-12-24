@@ -62,7 +62,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="es" suppressHydrationWarning>
       <body className={`${quicksand.variable} ${inter.variable} flex flex-col min-h-screen`}>
         <Analytics />
         <LanguageProvider>

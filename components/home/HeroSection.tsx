@@ -74,8 +74,8 @@ export default function HeroSection() {
               
               <div className="relative h-[300px] md:h-[380px] lg:h-[450px] w-full rounded-[2rem] overflow-hidden shadow-2xl shadow-blue-900/10 border border-white/50 bg-white transform transition-all duration-700 group-hover:scale-[1.02] group-hover:rotate-1">
                 <Image
-                  src="/hero.jpg"
-                  alt="Professional team collaboration"
+                  src="/hero2.jpg"
+                  alt="Kazi Agency Booking Mockup"
                   fill
                   priority={true}
                   quality={90}

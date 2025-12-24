@@ -14,17 +14,12 @@ export default function SamplesPreview() {
     {
       titleKey: "sokoBridge" as const,
       categoryKey: "webDev" as const,
-      image: "/samples/web/soko.jpg",
+      image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=1000",
     },
     {
       titleKey: "billsSolar" as const,
       categoryKey: "webDev" as const,
-      image: "/samples/web/bill.jpg",
-    },
-    {
-      titleKey: "whatsappBot" as const,
-      categoryKey: "aiServices" as const,
-      image: "/samples/AI/chat.jpg",
+      image: "https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&q=80&w=1000",
     },
   ];
 

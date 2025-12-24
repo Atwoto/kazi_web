@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Camera, Code, Edit, Sparkles, BookOpen, Globe, Video } from "lucide-react";
+import { Camera, Code, Edit, Sparkles, BookOpen, Globe, Video, Instagram, Calendar, Palette, Megaphone } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import ScrollAnimation from "@/components/common/ScrollAnimation";
 
@@ -34,44 +34,24 @@ function ServiceTile({ icon: Icon, title, description, href }: ServiceTileProps)
 export default function ServiceTiles() {
   const { t } = useLanguage();
 
-  const services = [
-    {
-      icon: Video,
-      title: t.footer.serviceNames.videoEditing,
-      description: t.nav.serviceDescriptions.videoEditing,
-      href: "/services/video-editing",
-    },
-    {
-      icon: Camera,
-      title: t.footer.serviceNames.photoEditing,
-      description: t.nav.serviceDescriptions.photoEditing,
-      href: "/services/photo-editing",
-    },
-    {
-      icon: Globe,
-      title: t.footer.serviceNames.webDev,
-      description: t.nav.serviceDescriptions.webDev,
-      href: "/services/web-design-development",
-    },
-    {
-      icon: Sparkles,
-      title: t.footer.serviceNames.graphicDesign,
-      description: t.nav.serviceDescriptions.graphicDesign,
-      href: "/services/graphic-design",
-    },
-    {
-      icon: Code,
-      title: t.footer.serviceNames.aiServices,
-      description: t.nav.serviceDescriptions.aiServices,
-      href: "/services/ai-services",
-    },
-    {
-      icon: BookOpen,
-      title: t.footer.serviceNames.academicSupport,
-      description: t.nav.serviceDescriptions.academicSupport,
-      href: "/services/academic-support",
-    },
-  ];
+  const iconMap: { [key: string]: React.ElementType } = {
+    Globe: Globe,
+    Instagram: Instagram,
+    Sparkles: Sparkles,
+    Calendar: Calendar,
+    Palette: Palette,
+    Megaphone: Megaphone,
+    Video: Video,
+    Camera: Camera,
+    Code: Code,
+    BookOpen: BookOpen,
+    Edit: Edit,
+  };
+
+  const services = t.home.serviceTiles_new.map(service => ({
+    ...service,
+    icon: iconMap[service.icon] || Globe, // Fallback to Globe
+  }));
 
   return (
     <section className="py-24 bg-gray-50/50">
@@ -93,4 +73,3 @@ export default function ServiceTiles() {
     </section>
   );
 }
-

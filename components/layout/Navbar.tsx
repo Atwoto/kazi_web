@@ -25,15 +25,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const { t } = useLanguage();
 
-  const servicesList = [
-    { title: t.footer.serviceNames.videoEditing, href: "/services/video-editing", description: t.nav.serviceDescriptions.videoEditing },
-    { title: t.footer.serviceNames.photoEditing, href: "/services/photo-editing", description: t.nav.serviceDescriptions.photoEditing },
-    { title: t.footer.serviceNames.webDev, href: "/services/web-design-development", description: t.nav.serviceDescriptions.webDev },
-    { title: t.footer.serviceNames.graphicDesign, href: "/services/graphic-design", description: t.nav.serviceDescriptions.graphicDesign },
-    { title: t.footer.serviceNames.socialMediaManagement, href: "/services/social-media-management", description: t.nav.serviceDescriptions.socialMediaManagement },
-    { title: t.footer.serviceNames.aiServices, href: "/services/ai-services", description: t.nav.serviceDescriptions.aiServices },
-    { title: t.footer.serviceNames.academicSupport, href: "/services/academic-support", description: t.nav.serviceDescriptions.academicSupport },
-  ];
+  const servicesList = t.nav.servicesList;
 
   useEffect(() => {
     const handleScroll = () => {

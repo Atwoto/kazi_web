@@ -64,12 +64,13 @@ export default function Footer() {
           <div>
             <h3 className="text-sm font-bold uppercase tracking-wider text-white mb-4">{t.footer.servicesTitle}</h3>
             <ul className="space-y-3">
-              <li><Link href="/services/video-editing" className="text-slate-400 hover:text-white text-sm transition-colors">{t.footer.serviceNames.videoEditing}</Link></li>
-              <li><Link href="/services/photo-editing" className="text-slate-400 hover:text-white text-sm transition-colors">{t.footer.serviceNames.photoEditing}</Link></li>
-              <li><Link href="/services/web-design-development" className="text-slate-400 hover:text-white text-sm transition-colors">{t.footer.serviceNames.webDev}</Link></li>
-              <li><Link href="/services/graphic-design" className="text-slate-400 hover:text-white text-sm transition-colors">{t.footer.serviceNames.graphicDesign}</Link></li>
-              <li><Link href="/services/ai-services" className="text-slate-400 hover:text-white text-sm transition-colors">{t.footer.serviceNames.aiServices}</Link></li>
-              <li><Link href="/services/academic-support" className="text-slate-400 hover:text-white text-sm transition-colors">{t.footer.serviceNames.academicSupport}</Link></li>
+              {t.nav.servicesList.map((service, index) => (
+                <li key={index}>
+                  <Link href={service.href} className="text-slate-400 hover:text-white text-sm transition-colors">
+                    {service.title}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 

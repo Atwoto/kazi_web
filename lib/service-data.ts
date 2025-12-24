@@ -29,28 +29,14 @@ export const servicesData: Service[] = [
     ],
     examples: [
       {
-        title: "SokoBridge",
-        description: "Business platform helping clients source products from Europe to Kenya and manage trade/shipping logistics efficiently.",
-        imageUrl: "/samples/web/soko.jpg",
-        liveUrl: "https://www.sokobridge.com/",
+        title: "Restaurante La Mesa",
+        description: "Professional website for a local restaurant with digital QR menu and reservation integration.",
+        imageUrl: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=1000",
       },
       {
-        title: "Bills On Solar EA Limited",
-        description: "Kenyan renewable energy company providing solar solutions for residential, commercial, and off-grid use.",
-        imageUrl: "/samples/web/bill.jpg",
-        liveUrl: "https://billsonsolar.com/",
-      },
-      {
-        title: "Sambright Investment LTD",
-        description: "Home and office improvement company offering painting, gypsum installation, epoxy flooring, and waterproofing services.",
-        imageUrl: "/samples/web/sambright.jpg",
-        liveUrl: "https://www.sambrightinvestmentltd.com/",
-      },
-      {
-        title: "Mushosheke & Co Consultancy",
-        description: "Professional consultancy providing conference interpretation, translation services, and language solutions across East Africa.",
-        imageUrl: "/samples/web/mush.jpg",
-        liveUrl: "https://www.mushoshekeltd.co.ke/",
+        title: "Barbería Estilo",
+        description: "Modern booking system for a local barbershop, allowing 24/7 automated appointments.",
+        imageUrl: "https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&q=80&w=1000",
       },
     ],
     process: [

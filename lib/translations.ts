@@ -7,8 +7,14 @@ export const translations = {
       pricing: "Pricing",
       faq: "FAQ",
       contact: "Contact",
-      getStarted: "Get a Proposal",
+      getStarted: "Get a Demo",
       viewAllServices: "View All Services",
+      servicesList: [
+        { title: "Web & Booking", href: "/services/web-design-development", description: "Pro website with auto-booking system." },
+        { title: "Social Media", href: "/services/social-media-management", description: "Content management & Instagram growth." },
+        { title: "Graphic Design", href: "/services/graphic-design", description: "Menus, Logos & Digital Signage." },
+        { title: "AI Automation", href: "/services/ai-services", description: "Chatbots & Process Automation." },
+      ],
       serviceDescriptions: {
         videoEditing: "Professional cuts for social & business.",
         photoEditing: "High-end retouching & manipulation.",
@@ -20,16 +26,16 @@ export const translations = {
       }
     },
     hero: {
-      badge: "Premium Managed Services",
-      title: "Your Dedicated <br /> Remote Operations Team.",
-      titleLg: "Your Dedicated",
-      titleSm: "Remote Operations Team.",
-      subtitle: "We are not a marketplace. We are your managed service partner. One point of contact, end-to-end delivery, and European quality standards.",
-      ctaPrimary: "Get a Proposal",
-      ctaSecondary: "Our Process",
-      trust: "EU-Managed delivery.",
+      badge: "Local Agency in Catalonia",
+      title: "Stop losing customers <br /> by not answering the phone.",
+      titleLg: "Stop losing customers",
+      titleSm: "by not answering the phone.",
+      subtitle: "Automate your bookings and orders with your own professional website. Serve your customers, we handle the tech.",
+      ctaPrimary: "Request a Demo",
+      ctaSecondary: "How it Works",
+      trust: "Local Management.",
       trustBadges: {
-        pm: { title: "European PM", subtitle: "Project Management" },
+        pm: { title: "Local Support", subtitle: "Catalonia" },
         response: { title: "24h Response", subtitle: "Business Days" }
       },
       stats: {
@@ -39,8 +45,33 @@ export const translations = {
     },
     home: {
       serviceTiles: {
-        title: "Our Core Services",
-        subtitle: "We manage vetted talent to deliver high-quality digital services.",
+        title: "Everything your business needs",
+        subtitle: "Simple and effective digital solutions for local businesses.",
+      },
+      serviceTiles_new: [
+        { title: "Web & Booking", description: "Professional website with automatic booking system. Your business open 24/7.", icon: "Calendar", href: "/services/web-design-development" },
+        { title: "Social Media", description: "Content management and growth on Instagram/Google Maps. Get found.", icon: "Instagram", href: "/services/social-media-management" },
+        { title: "Design & Branding", description: "Menus, Logos and Digital Signage that make your brand stand out.", icon: "Palette", href: "/services/graphic-design" },
+      ],
+      pricing: {
+        title: "Simple Prices.",
+        titleHighlight: "No Surprises.",
+        subtitle: "Choose the plan that best fits your current stage.",
+        cta: "View Full Plans",
+      },
+      pricing_plans: [
+        { name: "Basic", setup: "€299", monthly: "€29", features: ["1 Page Website (Modern)", "WhatsApp Button", "Hosting Included", "Tech Support"], highlight: false },
+        { name: "Standard", setup: "€499", monthly: "€49", features: ["Everything in Basic", "Full Booking System", "Admin Panel", "AI Chatbot (Basic)"], highlight: true },
+        { name: "Pro", setup: "€499", monthly: "€249", features: ["Everything in Standard", "Instagram Management (8 posts/mo)", "Unlimited Graphic Design"], highlight: false },
+      ],
+      trustSection: {
+        title: "Why Trust Kazi?",
+        items: [
+          { title: "24-hour Response", description: "We promise a prompt response to your inquiries within 24 hours." },
+          { title: "Clear Revision Policy", description: "Transparent rules on revisions so you know exactly what to expect." },
+          { title: "Secure Payment", description: "Your funds are held securely. Milestone-based releases protect you." },
+          { title: "Confidential Handling", description: "Strict NDAs and privacy protocols to keep your data safe." },
+        ]
       },
       howItWorks: {
         title: "How it Works",
@@ -92,7 +123,7 @@ export const translations = {
         badge: "",
       },
       testimonials: {
-        title: "Trusted by Global Teams",
+        title: "Trusted by Local Businesses",
         subtitle: "See why companies across Europe are switching to managed talent.",
         caseStudy: "Client Case Study",
         cases: [
@@ -118,7 +149,7 @@ export const translations = {
     about: {
       hero: {
         badge: "Our Story",
-        title: "The Quality of a European Agency. The Agility of a Remote Team.",
+        title: "Agencia Local en Cataluña.",
         subtitle: "Kazi isn't a marketplace. We are a managed service provider that connects forward-thinking European companies with the top 1% of East African talent, overseen by dedicated project managers.",
       },
       problem: {
@@ -342,8 +373,8 @@ export const translations = {
       }
     },
     pricing: {
-      pageTitle: "Transparent Pricing",
-      pageSubtitle: "Simple, fixed prices for task-based work and clear custom quotes for larger projects.",
+      pageTitle: "Plans Tailored to You",
+      pageSubtitle: "Professional solutions for local businesses with clear pricing from day one.",
       academic: {
         title: "Task-Based Pricing",
         subtitle: "Clear pricing based on estimated hours. Covers Design, Web, Academic, and AI tasks.",
@@ -653,19 +684,17 @@ export const translations = {
       items: [
         {
           id: 1,
-          title: "SokoBridge",
+          title: "Restaurante La Mesa",
           categoryKey: "webDev",
-          imageUrl: "/samples/web/soko.jpg",
-          description: "Business platform helping clients source products from Europe to Kenya and manage trade/shipping logistics efficiently.",
-          liveUrl: "https://www.sokobridge.com/",
+          imageUrl: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=1000",
+          description: "Professional website for a local restaurant with digital QR menu and reservation integration.",
         },
         {
           id: 2,
-          title: "Bills On Solar EA Limited",
+          title: "Barbería Estilo",
           categoryKey: "webDev",
-          imageUrl: "/samples/web/bill.jpg",
-          description: "Kenyan renewable energy company providing solar solutions for residential, commercial, and off-grid use.",
-          liveUrl: "https://billsonsolar.com/",
+          imageUrl: "https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&q=80&w=1000",
+          description: "Modern booking system for a local barbershop, allowing 24/7 automated appointments.",
         },
         {
           id: 3,
@@ -1175,110 +1204,141 @@ export const translations = {
       pricing: "Precios",
       faq: "Preguntas",
       contact: "Contacto",
-      getStarted: "Pedir Presupuesto",
+      getStarted: "Solicita una Demo",
       viewAllServices: "Ver Todos los Servicios",
+      servicesList: [
+        { title: "Web y Reservas", href: "/services/web-design-development", description: "Web profesional con sistema de reservas automático." },
+        { title: "Redes Sociales", href: "/services/social-media-management", description: "Gestión de contenido y crecimiento en Instagram." },
+        { title: "Diseño Gráfico", href: "/services/graphic-design", description: "Menús, Logos y Cartelería digital." },
+        { title: "Automatización IA", href: "/services/ai-services", description: "Chatbots y automatización de procesos." },
+      ],
       serviceDescriptions: {
-        videoEditing: "Cortes profesionales para redes y negocios.",
-        photoEditing: "Retoque y manipulación de alta gama.",
-        webDev: "Sitios web personalizados y responsivos.",
-        graphicDesign: "Logotipos, branding y activos de marketing.",
-        aiServices: "Automatización y soluciones de datos.",
-        socialMediaManagement: "Estrategia de contenido, engagement y crecimiento.",
-        academicSupport: "Edición, corrección y coaching.",
+        videoEditing: "Edición profesional para redes.",
+        photoEditing: "Retoque fotográfico.",
+        webDev: "Web profesional con sistema de reservas.",
+        graphicDesign: "Menús, Logos y Cartelería digital.",
+        aiServices: "Chatbots y automatización.",
+        socialMediaManagement: "Gestión de contenido y crecimiento.",
+        academicSupport: "Edición y corrección.",
       }
     },
     hero: {
-      badge: "Servicios Gestionados Premium",
-      title: "Tu Equipo de Operaciones Remoto Dedicado.",
-      titleLg: "Tu Equipo de Operaciones",
-      titleSm: "Remoto Dedicado.",
-      subtitle: "No somos un marketplace. Somos tu socio de servicios gestionados. Un punto de contacto, entrega integral y estándares de calidad europeos.",
-      ctaPrimary: "Pedir Presupuesto",
-      ctaSecondary: "Nuestro Proceso",
-      trust: "Gestión Europea.",
+      badge: "Agencia Local en Cataluña",
+      title: "Deja de perder clientes <br /> por no responder al teléfono.",
+      titleLg: "Deja de perder clientes",
+      titleSm: "por no responder al teléfono.",
+      subtitle: "Automatiza tus reservas y pedidos con tu propia web profesional. Atiende a tus clientes, nosotros nos encargamos de la tecnología.",
+      ctaPrimary: "Solicita una Demo",
+      ctaSecondary: "Cómo Funciona",
+      trust: "Gestión Local.",
       trustBadges: {
-        pm: { title: "PM Europeo", subtitle: "Gestión de Proyectos" },
+        pm: { title: "Soporte Local", subtitle: "Cataluña" },
         response: { title: "Respuesta 24h", subtitle: "Días Laborables" }
       },
       stats: {
-        projects: "Projects Delivered",
-        retention: "Client Retention"
+        projects: "Proyectos Entregados",
+        retention: "Retención de Clientes"
       }
     },
     home: {
       serviceTiles: {
-        title: "Nuestros Servicios Principales",
-        subtitle: "Gestionamos talento verificado para ofrecer servicios digitales de alta calidad.",
+        title: "Todo lo que tu negocio necesita",
+        subtitle: "Soluciones digitales simples y efectivas para negocios locales.",
+      },
+      serviceTiles_new: [
+        { title: "Web y Reservas", description: "Web profesional con sistema de reservas automático. Tu negocio abierto 24/7.", icon: "Calendar", href: "/services/web-design-development" },
+        { title: "Redes Sociales", description: "Gestión de contenido y crecimiento en Instagram/Google Maps. Haz que te encuentren.", icon: "Instagram", href: "/services/social-media-management" },
+        { title: "Diseño & Branding", description: "Menús, Logos y Cartelería digital que hacen destacar tu marca.", icon: "Palette", href: "/services/graphic-design" },
+      ],
+      pricing: {
+        title: "Precios Simples.",
+        titleHighlight: "Sin Sorpresas.",
+        subtitle: "Elige el plan que mejor se adapte a tu etapa actual.",
+        cta: "Ver Planes Completos",
+      },
+      pricing_plans: [
+        { name: "Básico", setup: "€299", monthly: "€29", features: ["Web de 1 Página (Moderna)", "Botón de WhatsApp", "Hosting Incluido", "Soporte Técnico"], highlight: false },
+        { name: "Estándar", setup: "€499", monthly: "€49", features: ["Todo lo de Básico", "Sistema de Reservas Completo", "Panel de Administración", "Chatbot IA (Básico)"], highlight: true },
+        { name: "Pro", setup: "€499", monthly: "€249", features: ["Todo lo de Estándar", "Gestión de Instagram (8 posts/mes)", "Diseño Gráfico Ilimitado"], highlight: false },
+      ],
+      trustSection: {
+        title: "¿Por qué confiar en Kazi?",
+        items: [
+          { title: "Respuesta en 24h", description: "Prometemos una respuesta rápida a tus consultas en menos de 24 horas." },
+          { title: "Revisiones Claras", description: "Reglas transparentes sobre revisiones para que sepas qué esperar." },
+          { title: "Pago Seguro", description: "Tus fondos están protegidos. Pagos por hitos para tu seguridad." },
+          { title: "Confidencialidad", description: "Protocolos estrictos de privacidad para proteger tus datos." },
+        ]
       },
       howItWorks: {
         title: "Cómo Funciona",
         steps: [
-          { title: "Solicitas lo que necesitas", description: "Envía el resumen de tu proyecto. Te ayudamos a definir el alcance si es necesario." },
-          { title: "Confirmamos alcance, tiempo, precio", description: "Recibes un presupuesto claro y cronograma. Sin tarifas ocultas." },
-          { title: "Recibes un avance o primer hito", description: "Revisas el progreso y das feedback para asegurar la alineación." },
-          { title: "Entrega final tras aprobación", description: "Liberamos los archivos finales y te transferimos la propiedad." },
+          { title: "Cuéntanos tu necesidad", description: "Dinos qué necesitas mejorar en tu negocio." },
+          { title: "Propuesta a medida", description: "Te ofrecemos una solución clara y sin letra pequeña." },
+          { title: "Desarrollo rápido", description: "Ponemos en marcha tu web o campaña en tiempo récord." },
+          { title: "Tu negocio crece", description: "Empiezas a recibir más reservas y clientes automáticamente." },
         ],
       },
       quality: {
-        title: "Estándares de Calidad Europeos.",
-        titleHighlight: "Garantizado.",
-        subtitle: "Cerramos la brecha entre rentabilidad y calidad premium. Así aseguramos que tu proyecto tenga éxito cada vez.",
+        title: "Calidad Profesional.",
+        titleHighlight: "Cerca de ti.",
+        subtitle: "Somos tu socio tecnológico local. Sin complicaciones, sin tecnicismos.",
         checks: [
-          { title: "Solo Talento Verificado", description: "Solo trabajamos con el 1% de los solicitantes. Pruebas rigurosas de habilidades y comunicación." },
-          { title: "Gestores de Proyecto Dedicados", description: "Tú no gestionas al freelancer. Tu PM europeo asegura calidad y plazos." },
-          { title: "Revisión Doble", description: "Cada entregable es revisado por un experto senior antes de llegar a tu bandeja." },
-          { title: "Garantía de Devolución", description: "Si no cumplimos con el alcance acordado o estándares de calidad, obtienes un reembolso completo." },
+          { title: "Equipo Local", description: "Estamos aquí, en Cataluña. Conocemos el mercado local." },
+          { title: "Soporte Directo", description: "Habla con personas reales, no con robots (a menos que quieras uno)." },
+          { title: "Resultados Reales", description: "Nos enfocamos en lo que trae ventas a tu negocio." },
+          { title: "Satisfacción Garantizada", description: "Si no estás feliz con el resultado, lo arreglamos." },
         ],
       },
       samples: {
-        title: "Nuestro Trabajo Reciente",
-        subtitle: "Mira lo que nuestros equipos gestionados han entregado recientemente.",
+        title: "Casos de Éxito Local",
+        subtitle: "Negocios como el tuyo que ya están creciendo con nosotros.",
         cta: "Ver Portafolio Completo",
         categories: {
-          webDev: "Desarrollo Web",
-          aiServices: "Servicios de IA",
-          graphicDesign: "Diseño Gráfico",
-          videoEditing: "Edición de Video",
-          photoEditing: "Edición de Fotos",
-          academicSupport: "Apoyo Académico",
+          webDev: "Web & Menú QR",
+          aiServices: "Automatización",
+          graphicDesign: "Diseño & Branding",
+          videoEditing: "Video",
+          photoEditing: "Foto",
+          academicSupport: "Académico",
         },
         projects: {
-          sokoBridge: "SokoBridge",
-          billsSolar: "Bills On Solar EA Limited",
-          whatsappBot: "Bot de Alquiler de Coches WhatsApp",
+          sokoBridge: "Restaurante La Mesa",
+          billsSolar: "Barbería Estilo",
+          whatsappBot: "WhatsApp Car Rental Bot",
         },
       },
       pricing: {
-        title: "Calidad premium.",
-        titleHighlight: "Precios transparentes.",
-        subtitle: "Sin tarifas ocultas ni sorpresas. Ofrecemos precios fijos por proyecto y tarifas por hora claras para soporte continuo.",
-        cta: "Ver Precios",
+        title: "Precios Simples.",
+        titleHighlight: "Sin Sorpresas.",
+        subtitle: "Elige el plan que mejor se adapte a tu etapa actual.",
+        cta: "Ver Planes Completos",
       },
       impact: {
         title: "Trabajo que Cambia Vidas",
-        text: "Por cada proyecto que inicias con Kazi, donamos 1 € a una organización benéfica para niños. Publicamos recibos de donación cada trimestre.",
+        text: "Por cada proyecto que inicies con Kazi Agency, donamos 1 € a una organización benéfica para niños. Publicamos los recibos de las donaciones cada trimestre.",
         badge: "",
       },
       testimonials: {
-        title: "Con la Confianza de Equipos Globales",
-        subtitle: "Mira por qué empresas en toda Europa están cambiando al talento gestionado.",
+        title: "Clientes Felices",
+        subtitle: "Mira lo que dicen otros negocios locales.",
         caseStudy: "Caso de Estudio",
         cases: [
           {
-            role: "Sitio Web E-commerce",
-            text: "Entregamos una plataforma de comercio electrónico completamente funcional en 3 semanas con integración de pagos personalizada y sistema de gestión de inventario.",
+            role: "Restaurante Local",
+            text: "Desde que tenemos la web con reservas, perdemos menos tiempo al teléfono y llenamos más mesas.",
           },
           {
-            role: "Artículo Académico",
-            text: "Editamos y revisamos un artículo de investigación de 10.000 palabras sobre ciencias ambientales, logrando calidad lista para publicación en 5 días.",
+            role: "Peluquería",
+            text: "El sistema de citas automático es una maravilla. Mis clientes reservan a cualquier hora.",
           },
           {
-            role: "Identidad de Marca",
-            text: "Creamos un paquete completo de identidad de marca incluyendo logo, paleta de colores y guía de estilo para una startup tecnológica en crecimiento.",
+            role: "Tienda de Ropa",
+            text: "La gestión de Instagram ha traído mucha gente nueva a la tienda física.",
           },
           {
-            role: "Producción de Video",
-            text: "Producimos un video promocional de 2 minutos con motion graphics y locución profesional para campaña de lanzamiento de producto.",
+            role: "Consultora",
+            text: "Muy profesionales y rápidos. Entendieron lo que necesitaba a la primera.",
           },
         ],
       },
@@ -1286,17 +1346,17 @@ export const translations = {
     about: {
       hero: {
         badge: "Nuestra Historia",
-        title: "La Calidad de una Agencia Europea. La Agilidad de un Equipo Remoto.",
-        subtitle: "Kazi no es un marketplace. Somos un proveedor de servicios gestionados que conecta empresas europeas innovadoras con el 1% del talento de África Oriental, supervisado por gestores de proyectos dedicados.",
+        title: "Agencia Local en Cataluña.",
+        subtitle: "Ayudamos a los negocios de aquí a competir con las herramientas de los grandes. Trato cercano y resultados profesionales.",
       },
       problem: {
-        title: "El \"Salvaje Oeste\" Freelance vs. El Método Kazi",
-        text1: "Contratar directamente en marketplaces es arriesgado. El ghosting, la inconsistencia de calidad y las barreras de comunicación pueden descarrilar tus proyectos.",
-        text2: "Solucionamos esto añadiendo una Capa de Gestión. Tú no gestionas el talento; nosotros lo hacemos. Tienes un único punto de contacto, plazos garantizados y control de calidad estándar europeo.",
+        title: "Olvídate de los dolores de cabeza tecnológicos",
+        text1: "Contratar freelancers desconocidos es una lotería. Agencias grandes son demasiado caras.",
+        text2: "Nosotros somos el punto medio perfecto. Gestión local, precios justos y calidad garantizada.",
         checks: [
-          { title: "Responsabilidad", text: "Asumimos la responsabilidad del resultado final. Sin excusas." },
-          { title: "Excelencia Verificada", text: "Reclutamos, probamos y gestionamos el mejor talento en Kenia." },
-          { title: "Impacto Social", text: "Creando carreras de alto valor en África Oriental." },
+          { title: "Cercanía", text: "Entendemos tu negocio y tu idioma." },
+          { title: "Calidad", text: "No entregamos nada que no usaríamos nosotros mismos." },
+          { title: "Compromiso", text: "Tu éxito es nuestro éxito." },
         ],
       },
       stats: {
@@ -1305,14 +1365,14 @@ export const translations = {
         satisfaction: "Garantía de Satisfacción",
       },
       cta: {
-        title: "¿Listo para escalar tus operaciones?",
-        subtitle: "Obtén el soporte dedicado que necesitas sin los gastos generales.",
+        title: "¿Listo para modernizar tu negocio?",
+        subtitle: "Solicita tu demo hoy mismo.",
         button: "Pedir Presupuesto",
       }
     },
     servicesHub: {
-      title: "Soluciones Gestionadas",
-      subtitle: "Manejamos la complejidad. Tú obtienes los resultados. Explora nuestros servicios digitales integrales.",
+      title: "Nuestros Servicios",
+      subtitle: "Todo lo que necesitas para digitalizar tu negocio.",
       labels: {
         from: "Desde",
         viewService: "Ver Servicio",
@@ -1333,33 +1393,24 @@ export const translations = {
     },
     faq: {
       pageTitle: "¿Cómo podemos ayudarte?",
-      pageSubtitle: "Respuestas sobre nuestros servicios gestionados, proceso de selección y pagos.",
+      pageSubtitle: "Respuestas claras a tus dudas.",
       categories: {
-        general: "General y Procesos",
-        payments: "Pagos y Reembolsos",
-        privacy: "Privacidad y Seguridad",
+        general: "General",
+        payments: "Pagos",
+        privacy: "Privacidad",
       },
       questions: {
         general: [
-          { q: "¿Qué es Kazi?", a: "Kazi es una agencia de servicios digitales. Envías tu solicitud, la asignamos al especialista adecuado, gestionamos el trabajo y entregamos un resultado con control de calidad y a tiempo. Tratas con un único punto de contacto de principio a fin." },
-          { q: "¿Cuánto tiempo toma?", a: "Los plazos dependen del alcance y de tu fecha límite. La mayoría de las solicitudes pequeñas tardan de 24 a 72 horas. Los proyectos más grandes, como sitios web completos o documentos extensos, siguen un cronograma claro que se comparte después de enviar tu solicitud de presupuesto. Si necesitas algo urgente, elige una fecha límite urgente y confirmaremos la viabilidad antes de comenzar." },
-          { q: "¿Cómo funcionan las revisiones?", a: "Cada proyecto incluye un número determinado de revisiones, confirmado en tu presupuesto. Las revisiones cubren mejoras al alcance acordado, como ajustes de diseño, refinamiento de redacción o pequeños ajustes de funciones. Las nuevas solicitudes o el alcance añadido se presupuestan por separado para proteger los plazos y la calidad." },
-          { q: "¿Qué información necesitan para empezar?", a: "Necesitamos cuatro básicos: Tipo de servicio, Fecha límite, Rango de presupuesto y un Resumen claro. Si tienes ejemplos, activos de marca, archivos o enlaces, súbelos en el formulario de presupuesto. Cuanto más claro sea tu resumen, más rápido y mejor será el resultado." },
-          { q: "¿Puedo hablar con el freelancer directamente?", a: "Para mantener la entrega fluida y responsable, toda la comunicación pasa por Kazi. Recopilamos tus requisitos, gestionamos las actualizaciones y garantizamos el control de calidad. Si se necesita una llamada para mayor claridad, podemos organizarla, pero mantenemos un canal oficial para que nada se pierda y los plazos se cumplan." },
-          { q: "¿Garantizan los plazos?", a: "Solo aceptamos plazos que podemos cumplir. Una vez que confirmamos tu proyecto, nos comprometemos con el cronograma. Si ocurre un retraso por nuestra parte, priorizamos una solución, aceleramos la entrega o acordamos un ajuste justo." },
-          { q: "¿Qué cuenta como “alcance”?", a: "El alcance es lo que solicitaste y lo que confirmamos en tu presupuesto. Cualquier cosa fuera de ese alcance se trata como una nueva solicitud y se presupuesta por separado para proteger la calidad y los plazos." },
-          { q: "¿Trabajan en exámenes o pruebas cronometradas?", a: "No. No apoyamos exámenes en vivo, pruebas cronometradas ni ninguna solicitud diseñada para hacer trampa. Apoyamos el aprendizaje, la edición y la asistencia legítima en proyectos." },
-          { q: "¿Pueden ayudar con el trabajo académico?", a: "Sí, para los servicios académicos nos enfocamos en la edición, claridad, estructura, formato, soporte de referencias y tutoría. Sigues siendo responsable de la entrega final y de las reglas de integridad académica de tu institución." },
-          { q: "¿Qué pasa si no estoy seguro de lo que necesito?", a: "Envía un presupuesto con tu objetivo y fecha límite. Te recomendaremos la mejor opción de servicio y los siguientes pasos antes de que pagues." },
+          { q: "¿Sois una agencia local?", a: "Sí, operamos desde Cataluña y nos enfocamos en dar servicio a negocios locales." },
+          { q: "¿Cuánto tardáis en hacer una web?", a: "Depende del proyecto, pero una web básica con reservas puede estar lista en 1-2 semanas." },
+          { q: "¿Tengo que pagar mantenimiento?", a: "Depende del plan. El plan Básico y Estándar incluyen mantenimiento técnico básico." },
         ],
         payments: [
-          { q: "¿Cómo funcionan los pagos?", a: "Primero confirmamos tu presupuesto. Luego pagas para comenzar el proyecto. Para proyectos más grandes, dividimos en hitos, por ejemplo, 50% para empezar y 50% en la entrega, o pagos basados en hitos. Las opciones de pago dependen de tu ubicación y tamaño del proyecto, y se mostrarán durante el pago o se confirmarán en tu presupuesto." },
-          { q: "¿Ofrecen reembolsos?", a: "Si no hemos comenzado, puedes solicitar una cancelación y te devolveremos el dinero menos las tarifas de procesamiento de pago. Si el trabajo ha comenzado, los reembolsos dependen de la etapa del proyecto y de lo que ya se haya entregado. Si no estás satisfecho, primero intentamos solucionarlo mediante revisiones. No reembolsamos el trabajo completado que coincida con el resumen acordado, pero garantizamos calidad y equidad." },
+          { q: "¿Cómo se paga?", a: "Aceptamos transferencia bancaria y tarjetas. Pedimos un depósito inicial para empezar." },
+          { q: "¿Hay permanencia?", a: "En los servicios mensuales (como redes sociales), pedimos un compromiso mínimo de 3 meses para ver resultados." },
         ],
         privacy: [
-          { q: "¿Cómo protegen la confidencialidad?", a: "Tratamos tus archivos e información como confidenciales. El acceso está limitado a los miembros del equipo que trabajan en tu proyecto. No vendemos ni compartimos tus datos. Bajo petición, podemos firmar un acuerdo de confidencialidad (NDA) para proyectos empresariales." },
-          { q: "¿Qué pasa si desaparezco a mitad del proyecto?", a: "Si dejas de responder, pausamos el proyecto y guardamos tus archivos. Después de 14 días sin respuesta, el proyecto se marca como inactivo. Si regresas más tarde, reanudaremos desde el último paso confirmado, pero los plazos pueden cambiar. Para inactividad prolongada, puede aplicarse una tarifa de reinicio." },
-          { q: "¿Será mi proyecto original?", a: "Sí. Todo el trabajo se crea para ti según tu resumen. Si solicitas apoyo académico, nos enfocamos en mejorar tu borrador y ayudarte a presentar tus ideas con claridad." },
+          { q: "¿Mis datos están seguros?", a: "Absolutamente. Cumplimos con toda la normativa de protección de datos europea." },
         ]
       }
     },
@@ -1510,8 +1561,8 @@ export const translations = {
       }
     },
     pricing: {
-      pageTitle: "Precios Transparentes",
-      pageSubtitle: "Precios fijos simples para trabajo basado en tareas y cotizaciones claras para proyectos más grandes.",
+      pageTitle: "Planes a tu medida",
+      pageSubtitle: "Soluciones profesionales para negocios locales con precios claros desde el primer día.",
       academic: {
         title: "Precios por Tarea",
         subtitle: "Precios claros basados en horas estimadas. Cubre Diseño, Web, Académico e IA.",
@@ -1821,19 +1872,17 @@ export const translations = {
       items: [
         {
           id: 1,
-          title: "SokoBridge",
+          title: "Restaurante La Mesa",
           categoryKey: "webDev",
-          imageUrl: "/samples/web/soko.jpg",
-          description: "Plataforma empresarial que ayuda a clientes a obtener productos de Europa a Kenia y gestionar logística de comercio/envío eficientemente.",
-          liveUrl: "https://www.sokobridge.com/",
+          imageUrl: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=1000",
+          description: "Web profesional para restaurante local con menú QR digital e integración de reservas.",
         },
         {
           id: 2,
-          title: "Bills On Solar EA Limited",
+          title: "Barbería Estilo",
           categoryKey: "webDev",
-          imageUrl: "/samples/web/bill.jpg",
-          description: "Empresa keniana de energía renovable que proporciona soluciones solares para uso residencial, comercial y fuera de red.",
-          liveUrl: "https://billsonsolar.com/",
+          imageUrl: "https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&q=80&w=1000",
+          description: "Sistema de reservas moderno para barbería local, permitiendo citas automáticas 24/7.",
         },
         {
           id: 3,
@@ -2345,6 +2394,12 @@ export const translations = {
       contact: "Contacte",
       getStarted: "Demanar Pressupost",
       viewAllServices: "Veure Tots els Serveis",
+      servicesList: [
+        { title: "Web i Reserves", href: "/services/web-design-development", description: "Web professional amb sistema de reserves automàtic." },
+        { title: "Xarxes Socials", href: "/services/social-media-management", description: "Gestió de contingut i creixement a Instagram." },
+        { title: "Disseny Gràfic", href: "/services/graphic-design", description: "Menús, Logotips i Cartelleria digital." },
+        { title: "Automatització IA", href: "/services/ai-services", description: "Chatbots i automatització de processos." },
+      ],
       serviceDescriptions: {
         videoEditing: "Talls professionals per a xarxes i negocis.",
         photoEditing: "Retoc i manipulació d'alta gamma.",
@@ -2356,16 +2411,16 @@ export const translations = {
       }
     },
     hero: {
-      badge: "Serveis Gestionats Premium",
-      title: "El Teu Equip d'Operacions Remot Dedicat.",
-      titleLg: "El Teu Equip d'Operacions",
-      titleSm: "Remot Dedicat.",
-      subtitle: "No som un marketplace. Som el teu soci de serveis gestionats. Un punt de contacte, lliurament integral i estàndards de qualitat europeus.",
-      ctaPrimary: "Demanar Pressupost",
-      ctaSecondary: "El Nostre Procés",
-      trust: "Gestió Europea.",
+      badge: "Agència Local a Catalunya",
+      title: "Deixa de perdre clients <br /> per no respondre al telèfon.",
+      titleLg: "Deixa de perdre clients",
+      titleSm: "per no respondre al telèfon.",
+      subtitle: "Automatitza les teves reserves i comandes amb la teva pròpia web professional. Atén els teus clients, nosaltres ens encarreguem de la tecnologia.",
+      ctaPrimary: "Sol·licita una Demo",
+      ctaSecondary: "Com Funciona",
+      trust: "Gestió Local.",
       trustBadges: {
-        pm: { title: "PM Europeu", subtitle: "Gestió de Projectes" },
+        pm: { title: "Suport Local", subtitle: "Catalunya" },
         response: { title: "Resposta 24h", subtitle: "Dies Laborables" }
       },
       stats: {
@@ -2375,8 +2430,33 @@ export const translations = {
     },
     home: {
       serviceTiles: {
-        title: "Els Nostres Serveis Principals",
-        subtitle: "Gestionem talent verificat per oferir serveis digitals d'alta qualitat.",
+        title: "Tot el que el teu negoci necessita",
+        subtitle: "Solucions digitals simples i efectives per a negocis locals.",
+      },
+      serviceTiles_new: [
+        { title: "Web i Reserves", description: "Web professional amb sistema de reserves automàtic. El teu negoci obert 24/7.", icon: "Calendar", href: "/services/web-design-development" },
+        { title: "Xarxes Socials", description: "Gestió de contingut i creixement a Instagram/Google Maps. Fes que et trobin.", icon: "Instagram", href: "/services/social-media-management" },
+        { title: "Disseny i Branding", description: "Menús, Logotips i Cartelleria digital que fan destacar la teva marca.", icon: "Palette", href: "/services/graphic-design" },
+      ],
+      pricing: {
+        title: "Preus Simples.",
+        titleHighlight: "Sense Sorpreses.",
+        subtitle: "Tria el pla que millor s'adapti a la teva etapa actual.",
+        cta: "Veure Plans Completos",
+      },
+      pricing_plans: [
+        { name: "Bàsic", setup: "€299", monthly: "€29", features: ["Web d'1 Pàgina (Moderna)", "Botó de WhatsApp", "Allotjament Inclòs", "Suport Tècnic"], highlight: false },
+        { name: "Estàndard", setup: "€499", monthly: "€49", features: ["Tot el de Bàsic", "Sistema de Reserves Complet", "Panell d'Administració", "Xatbot IA (Bàsic)"], highlight: true },
+        { name: "Pro", setup: "€499", monthly: "€249", features: ["Tot el d'Estàndard", "Gestió d'Instagram (8 posts/mes)", "Disseny Gràfic Il·limitat"], highlight: false },
+      ],
+      trustSection: {
+        title: "Per què confiar en Kazi?",
+        items: [
+          { title: "Resposta en 24h", description: "Prometem una resposta ràpida a les teves consultes en menys de 24 hores." },
+          { title: "Revisions Clares", description: "Regles transparents sobre revisions perquè sàpigues què esperar." },
+          { title: "Pagament Segur", description: "Els teus fons estan protegits. Pagaments per fites per a la teva seguretat." },
+          { title: "Confidencialitat", description: "Protocols estrictes de privadesa per protegir les teves dades." },
+        ]
       },
       howItWorks: {
         title: "Com Funciona",
@@ -2424,11 +2504,11 @@ export const translations = {
       },
       impact: {
         title: "Treball que Canvia Vides",
-        text: "Per cada projecte que inicies amb Kazi, donem 1 € a una organització benèfica per a nens. Publiquem rebuts de donació cada trimestre.",
+        text: "Per cada projecte que iniciïs amb Kazi Agency, donem 1 € a una organització benèfica per a nens. Publiquem els rebuts de les donacions cada trimestre.",
         badge: "",
       },
       testimonials: {
-        title: "Amb la Confiança d'Equips Globals",
+        title: "Amb la Confiança de Negocis Locals",
         subtitle: "Mira per què empreses a tota Europa estan canviant al talent gestionat.",
         caseStudy: "Cas d'Estudi",
         cases: [
@@ -2454,8 +2534,8 @@ export const translations = {
     about: {
       hero: {
         badge: "La Nostra Història",
-        title: "La Qualitat d'una Agència Europea. L'Agilitat d'un Equip Remot.",
-        subtitle: "Kazi no és un marketplace. Som un proveïdor de serveis gestionats que connecta empreses europees innovadores amb l'1% del talent de l'Àfrica Oriental, supervisat per gestors de projectes dedicats.",
+        title: "Agència Local a Catalunya.",
+        subtitle: "Ajudem els negocis d'aquí a competir amb les eines dels grans. Tracte proper i resultats professionals.",
       },
       problem: {
         title: "El \"Salvatge Oest\" Freelance vs. El Mètode Kazi",
@@ -2678,8 +2758,8 @@ export const translations = {
       }
     },
     pricing: {
-      pageTitle: "Preus Transparents",
-      pageSubtitle: "Preus fixos simples per a treball basat en tasques i pressupostos clars per a projectes més grans.",
+      pageTitle: "Plans a la teva mida",
+      pageSubtitle: "Solucions professionals per a negocis locals amb preus clars des del primer dia.",
       academic: {
         title: "Preus per Tasca",
         subtitle: "Preus clars basats en hores estimades. Cobreix Disseny, Web, Acadèmic i IA.",
@@ -2989,19 +3069,17 @@ export const translations = {
       items: [
         {
           id: 1,
-          title: "SokoBridge",
+          title: "Restaurante La Mesa",
           categoryKey: "webDev",
-          imageUrl: "/samples/web/soko.jpg",
-          description: "Plataforma empresarial que ajuda clients a obtenir productes d'Europa a Kenya i gestionar logística de comerç/enviament eficientment.",
-          liveUrl: "https://www.sokobridge.com/",
+          imageUrl: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=1000",
+          description: "Web professional per a restaurant local amb menú QR digital i integració de reserves.",
         },
         {
           id: 2,
-          title: "Bills On Solar EA Limited",
+          title: "Barbería Estilo",
           categoryKey: "webDev",
-          imageUrl: "/samples/web/bill.jpg",
-          description: "Empresa keniana d'energia renovable que proporciona solucions solars per a ús residencial, comercial i fora de xarxa.",
-          liveUrl: "https://billsonsolar.com/",
+          imageUrl: "https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&q=80&w=1000",
+          description: "Sistema de reserves modern per a barberia local, permetent cites automàtiques 24/7.",
         },
         {
           id: 3,

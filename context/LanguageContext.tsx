@@ -14,7 +14,7 @@ interface LanguageContextType {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [language, setLanguage] = useState<Language>("en");
+  const [language, setLanguage] = useState<Language>("es");
   const [isAutoDetected, setIsAutoDetected] = useState(false);
   const [isInitialized, setIsInitialized] = useState(false);
 
@@ -31,18 +31,23 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
         return;
       }
 
-      // No saved language, auto-detect
+      // No saved language, force Spanish default as requested
+      /* 
       try {
         const detectedLang = await detectLanguage();
         setLanguage(detectedLang);
         setIsAutoDetected(true);
-        // Save the detected language
         localStorage.setItem("kazi-lang", detectedLang);
       } catch (error) {
         console.error("Language detection failed:", error);
-        setLanguage("en");
+        setLanguage("es");
         setIsAutoDetected(false);
       }
+      */
+      
+      // Default to Spanish
+      setLanguage("es");
+      setIsAutoDetected(false);
 
       setIsInitialized(true);
     }

@@ -1,56 +1,74 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import ScrollAnimation from "@/components/common/ScrollAnimation";
+import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 
 export default function PricingTeaser() {
   const { t } = useLanguage();
 
+  const plans = t.home.pricing_plans;
+
   return (
-    <section className="py-12 bg-white">
+    <section className="py-20 bg-gray-50">
       <div className="container mx-auto px-4 md:px-6">
         <ScrollAnimation animation="fade-up">
-          <div className="bg-slate-900 rounded-[2.5rem] overflow-hidden relative shadow-xl shadow-blue-900/10 border border-white/5">
-             
-             <div className="flex flex-col lg:flex-row items-stretch">
-               {/* Content Side */}
-               <div className="flex-1 p-8 md:p-12 lg:p-14 flex flex-col justify-center z-10 relative">
-                 <div className="max-w-xl">
-                    <h2 className="text-2xl md:text-3xl font-heading font-bold mb-4 text-white tracking-tight">
-                      {t.home.pricing.title} <span className="text-blue-500">{t.home.pricing.titleHighlight}</span>
-                    </h2>
-                    <p className="text-slate-400 text-base md:text-lg mb-8 leading-relaxed max-w-md">
-                      {t.home.pricing.subtitle}
-                    </p>
-                    <Button asChild className="bg-white text-slate-900 hover:bg-blue-50 rounded-full px-8 py-6 text-base font-bold transition-all hover:scale-105 group w-fit">
-                      <Link href="/pricing" className="flex items-center gap-2">
-                        {t.home.pricing.cta}
-                        <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-blue-600 group-hover:translate-x-1 transition-all" />
-                      </Link>
-                    </Button>
-                 </div>
-               </div>
-
-               {/* Visual Side - Shrunk Accent */}
-               <div className="w-full lg:w-[45%] relative min-h-[380px] lg:min-h-full">
-                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent lg:bg-gradient-to-r lg:from-slate-900 lg:to-transparent z-10" />
-                 <Image 
-                    src="/agreement.jpg" 
-                    alt="Kazi Quality" 
-                    fill 
-                    className="object-cover object-top opacity-100 transition-all duration-700"
-                 />
-               </div>
-             </div>
-
+          <div className="text-center mb-16 max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-4">
+              {t.home.pricing.title} <span className="text-blue-600">{t.home.pricing.titleHighlight}</span>
+            </h2>
+            <p className="text-gray-500 text-lg">
+              {t.home.pricing.subtitle}
+            </p>
           </div>
         </ScrollAnimation>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {plans.map((plan, index) => (
+            <ScrollAnimation key={plan.name} animation="fade-up" delay={index * 100} className="h-full">
+              <Card className={`relative h-full flex flex-col ${plan.highlight ? 'border-blue-500 shadow-2xl scale-105 z-10' : 'border-gray-200 shadow-sm hover:shadow-lg'} transition-all duration-300`}>
+                {plan.highlight && (
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-blue-600 text-white px-4 py-1 rounded-full text-sm font-bold tracking-wide">
+                    MÁS POPULAR
+                  </div>
+                )}
+                <CardHeader className={`text-center pt-8 ${plan.highlight ? 'bg-blue-50/50' : ''}`}>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">{plan.name}</h3>
+                  <div className="flex items-end justify-center gap-1 mb-1">
+                    <span className="text-4xl font-bold text-gray-900">{plan.monthly}</span>
+                    <span className="text-gray-500 mb-1">/mes</span>
+                  </div>
+                  <p className="text-sm text-gray-500">
+                    + {plan.setup} configuración
+                  </p>
+                </CardHeader>
+                <CardContent className="flex-grow pt-6">
+                  <ul className="space-y-4">
+                    {plan.features.map((feature, i) => (
+                      <li key={i} className="flex items-start gap-3">
+                        <div className={`mt-0.5 rounded-full p-1 ${plan.highlight ? 'bg-blue-100 text-blue-600' : 'bg-gray-100 text-gray-600'}`}>
+                          <Check className="w-3 h-3" />
+                        </div>
+                        <span className="text-sm text-gray-600">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+                <CardFooter className="pb-8 pt-4">
+                  <Button asChild className={`w-full rounded-full ${plan.highlight ? 'bg-blue-600 hover:bg-blue-700 shadow-lg shadow-blue-500/25' : 'bg-white text-gray-900 border-2 border-gray-200 hover:border-gray-300 hover:bg-gray-50'}`}>
+                    <Link href="/pricing">
+                      Elegir Plan
+                    </Link>
+                  </Button>
+                </CardFooter>
+              </Card>
+            </ScrollAnimation>
+          ))}
+        </div>
       </div>
     </section>
   );
 }
-
