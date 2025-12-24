@@ -10,20 +10,22 @@ interface ServicePageProps {
   }>;
 }
 
-export async function generateMetadata({ params }: ServicePageProps): Promise<Metadata> {
-  const resolvedParams = await params;
-  const service = servicesData.find((s) => s.slug === resolvedParams["service-slug"]);
-
+export async function generateMetadata({ params }: { params: { 'service-slug': string } }): Promise<Metadata> {
+  const service = servicesData.find(s => s.slug === params['service-slug']);
   if (!service) {
     return {
-      title: defaultSEO.title,
-      description: defaultSEO.description,
+      title: "Service Not Found | Kazi Agency",
+      description: "The requested service could not be found.",
     };
   }
 
   return {
-    title: `${service.name} Services - Managed Offshoring | Kazi`,
-    description: service.oneLiner || defaultSEO.description,
+    title: `${service.name} | Kazi Agency`,
+    description: `Learn more about our ${service.name} services for local businesses in Catalonia.`,
+    keywords: `${service.name}, local agency, Catalonia, digital services`,
+    alternates: {
+      canonical: `/services/${service.slug}`,
+    },
   };
 }
 

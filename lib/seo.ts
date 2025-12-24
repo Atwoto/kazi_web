@@ -56,9 +56,9 @@ export const pageSEO: Record<string, SEOData> = {
     },
   },
   "/services": {
-    title: "Our Services - Video Editing, Web Design & More | Kazi Agency",
-    description: "Explore our managed offshoring services: Video Editing, Photo Editing, Web Design & Development, Graphic Design, AI Services, and Academic Support.",
-    keywords: "video editing services, web design, graphic design, AI services, academic support, photo editing",
+    title: "Our Services - Web, Social Media & Design | Kazi Agency",
+    description: "Explore our digital solutions for local businesses: Web & Booking Systems, Social Media Management, and Graphic Design.",
+    keywords: "local agency services, web design, social media, graphic design",
     structuredData: {
       "@context": "https://schema.org",
       "@type": "Service",
@@ -72,8 +72,8 @@ export const pageSEO: Record<string, SEOData> = {
   },
   "/contact": {
     title: "Contact Us - Request a Quote | Kazi Agency",
-    description: "Ready to start your project? Request a quote from Kazi Agency. Get connected with vetted East African talent. Response within 24 hours.",
-    keywords: "contact Kazi Agency, request quote, hire talent, project quote",
+    description: "Ready to start your project? Request a quote from your local agency in Catalonia. Response within 24 hours.",
+    keywords: "contact Kazi Agency, request quote, local agency, Catalonia",
     structuredData: {
       "@context": "https://schema.org",
       "@type": "ContactPage",
@@ -82,23 +82,23 @@ export const pageSEO: Record<string, SEOData> = {
     },
   },
   "/work-with-us": {
-    title: "Work with Us - Join Our Network of Vetted Talent | Kazi Agency",
-    description: "Join Kazi Agency's network of vetted East African professionals. Apply for opportunities in video editing, web design, graphic design, AI services, and more.",
-    keywords: "freelance jobs, work with Kazi Agency, East African talent, remote work",
+    title: "Work with Us - Join Our Local Talent Network | Kazi Agency",
+    description: "Join Kazi Agency's network of vetted professionals in Catalonia. Apply for opportunities in web design, social media, and graphic design.",
+    keywords: "freelance jobs, work with Kazi Agency, Catalonia talent, local jobs",
   },
   "/faq": {
     title: "FAQ - Frequently Asked Questions | Kazi Agency",
-    description: "Find answers to frequently asked questions about Kazi Agency's managed offshoring services and process.",
-    keywords: "FAQ, frequently asked questions, Kazi Agency help",
+    description: "Find answers to frequently asked questions about our local digital services.",
+    keywords: "FAQ, frequently asked questions, Kazi Agency help, local agency",
   },
   "/portfolio": {
     title: "Portfolio - Our Work | Kazi Agency",
-    description: "View our portfolio of projects delivered by vetted East African talent. See the quality of work we deliver.",
-    keywords: "portfolio, projects, work samples, case studies",
+    description: "View our portfolio of projects delivered for local businesses in Catalonia.",
+    keywords: "portfolio, projects, work samples, case studies, local business",
   },
   "/pricing": {
     title: "Pricing - Transparent Rates | Kazi Agency",
-    description: "View transparent pricing for Kazi Agency's managed offshoring services. No hidden fees, clear quotes.",
-    keywords: "pricing, rates, cost, transparent pricing",
+    description: "View transparent pricing for Kazi Agency's digital services for local businesses. No hidden fees, clear quotes.",
+    keywords: "pricing, rates, cost, transparent pricing, local business",
   },
 };

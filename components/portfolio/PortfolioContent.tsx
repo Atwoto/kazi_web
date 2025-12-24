@@ -58,8 +58,11 @@ export default function PortfolioContent() {
     return keyMap[key] || key;
   };
 
-  const categories = ["all", ...Array.from(new Set(portfolioItems.map((item: any) => item.categoryKey)))];
-  const filteredItems = filter === "all" ? portfolioItems : portfolioItems.filter((item: any) => item.categoryKey === filter);
+  const allowedCategories = ["webDev", "socialMediaManagement", "graphicDesign", "aiServices"];
+  const categories = ["all", ...Array.from(new Set(portfolioItems.map((item: any) => item.categoryKey))).filter(c => allowedCategories.includes(c))];
+  const filteredItems = filter === "all" 
+    ? portfolioItems.filter((item: any) => allowedCategories.includes(item.categoryKey))
+    : portfolioItems.filter((item: any) => item.categoryKey === filter);
 
   const openGallery = (item: any) => {
     if ((item.gallery && item.gallery.length > 0) || item.isDocument) {

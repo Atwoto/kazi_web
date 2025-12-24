@@ -150,7 +150,7 @@ export const translations = {
       hero: {
         badge: "Our Story",
         title: "Agencia Local en Cataluña.",
-        subtitle: "Kazi isn't a marketplace. We are a managed service provider that connects forward-thinking European companies with the top 1% of East African talent, overseen by dedicated project managers.",
+        subtitle: "We are your local technology partner, helping businesses in Catalonia to modernize and grow.",
       },
       problem: {
         title: "The Freelancer \"Wild West\" vs. The Kazi Way",
@@ -158,14 +158,14 @@ export const translations = {
         text2: "We solved this by adding a Management Layer. You don't manage the talent; we do. You get a single point of contact, guaranteed timelines, and European-standard quality control.",
         checks: [
           { title: "Accountability", text: "We take responsibility for the final output. No excuses." },
-          { title: "Vetted Excellence", text: "We recruit, test, and manage the best talent in Kenya." },
-          { title: "Social Impact", text: "Creating high-value careers in East Africa." },
+          { title: "Vetted Excellence", text: "We recruit, test, and manage the best talent." },
+          { title: "Social Impact", text: "Creating high-value careers." },
         ],
       },
       stats: {
-        projects: "Projects Delivered",
-        response: "Response Time",
-        satisfaction: "Satisfaction Guarantee",
+        projects: "Local Support",
+        response: "24h Response",
+        satisfaction: "Quality Guaranteed",
       },
       cta: {
         title: "Ready to scale your operations?",
@@ -490,6 +490,12 @@ export const translations = {
         examplesLink: "https://example.com",
       },
       options: {
+        services: {
+          web: "Web & Booking",
+          social: "Social Media",
+          graphic: "Graphic Design",
+          ai: "AI Automation",
+        },
         priority: {
           fast: "Fast delivery",
           quality: "Best quality",
@@ -553,7 +559,7 @@ export const translations = {
     },
     workWithUs: {
       pageTitle: "Work with Us",
-      pageSubtitle: "Join our network of vetted East African talent. Fill out the form below to apply.",
+      pageSubtitle: "Join our network of vetted local talent in Catalonia. Fill out the form below to apply.",
       headerTitle: "Join Our Team",
       headerSubtitle: "We are a managed service. Communication with clients is handled through Kazi Agency. You will be assigned tasks based on fit, availability, and quality.",
       steps: {
@@ -1016,7 +1022,7 @@ export const translations = {
     },
     chatbot: {
       needHelp: "Need help?",
-      greeting: "Hi! I'm Kazi Agency's AI assistant. I can communicate in English, Spanish, and Catalan. Ask me anything about our services!",
+      greeting: "Hi! I'm Kazi Agency's AI assistant, your local partner in Catalonia. Ask me anything about our services!",
       placeholder: "Type your question...",
       waiting: "Waiting...",
       sendMessage: "Send message",
@@ -1107,9 +1113,9 @@ export const translations = {
         core: {
           title: "1. Core Business Rules",
           rules: [
-            { "label": "Communication Rule:", "text": "All client communication must go through Kazi. Direct contact with freelancers is prohibited to ensure quality control." },
+            { "label": "Communication Rule:", "text": "All client communication must go through Kazi. Direct contact with our professionals is prohibited to ensure quality control." },
             { "label": "Off-Platform Rule:", "text": "You agree not to request or share contact details to move communication or payment off the Kazi platform. Doing so will result in immediate service termination." },
-            { "label": "Anonymity Rule:", "text": "Freelancers are not provided with your personal details beyond what is strictly necessary to complete the job." }
+            { "label": "Anonymity Rule:", "text": "Our professionals are not provided with your personal details beyond what is strictly necessary to complete the job." }
           ]
         },
         delivery: {
@@ -1353,9 +1359,9 @@ export const translations = {
         ],
       },
       stats: {
-        projects: "Proyectos Entregados",
-        response: "Tiempo de Respuesta",
-        satisfaction: "Garantía de Satisfacción",
+        projects: "Soporte Local",
+        response: "Respuesta 24h",
+        satisfaction: "Calidad Garantizada",
       },
       cta: {
         title: "¿Listo para modernizar tu negocio?",
@@ -1680,6 +1686,12 @@ export const translations = {
         examplesLink: "https://ejemplo.com",
       },
       options: {
+        services: {
+          web: "Web y Reservas",
+          social: "Redes Sociales",
+          graphic: "Diseño Gráfico",
+          ai: "Automatización IA",
+        },
         priority: {
           fast: "Entrega rápida",
           quality: "Mejor calidad",
@@ -2206,7 +2218,7 @@ export const translations = {
     },
     chatbot: {
       needHelp: "¿Necesitas ayuda?",
-      greeting: "¡Hola! Soy el asistente de IA de Kazi Agency. Puedo comunicarme en inglés, español y catalán. ¡Pregúntame sobre nuestros servicios!",
+      greeting: "¡Hola! Soy el asistente de IA de Kazi Agency, tu socio local en Cataluña. ¡Pregúntame lo que quieras sobre nuestros servicios!",
       placeholder: "Escribe tu pregunta...",
       waiting: "Esperando...",
       sendMessage: "Enviar mensaje",
@@ -2297,9 +2309,9 @@ export const translations = {
         core: {
           title: "1. Reglas Comerciales Principales",
           rules: [
-            { "label": "Regla de Comunicación:", "text": "Toda la comunicación con el cliente debe pasar por Kazi. El contacto directo con freelancers está prohibido para garantizar el control de calidad." },
+            { "label": "Regla de Comunicación:", "text": "Toda la comunicación con el cliente debe pasar por Kazi. El contacto directo con nuestros profesionales está prohibido para garantizar el control de calidad." },
             { "label": "Regla Fuera de Plataforma:", "text": "Acepta no solicitar ni compartir detalles de contacto para mover la comunicación o el pago fuera de la plataforma Kazi. Hacerlo resultará en la terminación inmediata del servicio." },
-            { "label": "Regla de Anonimato:", "text": "A los freelancers no se les proporcionan sus detalles personales más allá de lo estrictamente necesario para completar el trabajo." }
+            { "label": "Regla de Anonimato:", "text": "A nuestros profesionales no se les proporcionan sus detalles personales más allá de lo estrictamente necesario para completar el trabajo." }
           ]
         },
         delivery: {
@@ -2538,14 +2550,14 @@ export const translations = {
         text2: "Solucionem això afegint una Capa de Gestió. Tu no gestiones el talent; nosaltres ho fem. Tens un únic punt de contacte, terminis garantits i control de qualitat estàndard europeu.",
         checks: [
           { title: "Responsabilitat", text: "Assumim la responsabilitat del resultat final. Sense excuses." },
-          { title: "Excel·lència Verificada", text: "Reclutem, provem i gestionem el millor talent a Kenya." },
-          { title: "Impacte Social", text: "Creant carreres d'alt valor a l'Àfrica Oriental." },
+          { title: "Excel·lència Verificada", text: "Reclutem, provem i gestionem el millor talent." },
+          { title: "Impacte Social", text: "Creant carreres d'alt valor." },
         ],
       },
       stats: {
-        projects: "Projectes Lliurats",
-        response: "Temps de Resposta",
-        satisfaction: "Garantia de Satisfacció",
+        projects: "Suport Local",
+        response: "Resposta 24h",
+        satisfaction: "Qualitat Garantida",
       },
       cta: {
         title: "A punt per escalar les teves operacions?",
@@ -2870,6 +2882,12 @@ export const translations = {
         examplesLink: "https://exemple.com",
       },
       options: {
+        services: {
+          web: "Web i Reserves",
+          social: "Xarxes Socials",
+          graphic: "Disseny Gràfic",
+          ai: "Automatització IA",
+        },
         priority: {
           fast: "Lliurament ràpid",
           quality: "Millor qualitat",
@@ -2933,7 +2951,7 @@ export const translations = {
     },
     workWithUs: {
       pageTitle: "Treballa amb Nosaltres",
-      pageSubtitle: "Uneix-te a la nostra xarxa de talent verificat de l'Àfrica Oriental. Omple el formulari per aplicar.",
+      pageSubtitle: "Uneix-te a la nostra xarxa de talent local a Catalunya. Omple el formulari per aplicar.",
       headerTitle: "Uneix-te al Nostre Equip",
       headerSubtitle: "Som un servei gestionat. La comunicació amb els clients es gestiona a través de Kazi Agency. Se t'assignaran tasques segons el teu perfil, disponibilitat i qualitat.",
       steps: {
@@ -3396,7 +3414,7 @@ export const translations = {
     },
     chatbot: {
       needHelp: "Necessites ajuda?",
-      greeting: "Hola! Sóc l'assistent d'IA de Kazi Agency. Puc comunicar-me en anglès, espanyol i català. Pregunta'm sobre els nostres serveis!",
+      greeting: "Hola! Sóc l'assistent d'IA de Kazi Agency, el teu soci local a Catalunya. Pregunta'm el que vulguis sobre els nostres serveis!",
       placeholder: "Escriu la teva pregunta...",
       waiting: "Esperant...",
       sendMessage: "Enviar missatge",
@@ -3487,9 +3505,9 @@ export const translations = {
         core: {
           title: "1. Regles Comercials Principals",
           rules: [
-            { "label": "Regla de Comunicació:", "text": "Tota la comunicació amb el client ha de passar per Kazi. El contacte directe amb freelancers està prohibit per garantir el control de qualitat." },
+            { "label": "Regla de Comunicació:", "text": "Tota la comunicació amb el client ha de passar per Kazi. El contacte directe amb els nostres professionals està prohibit per garantir el control de qualitat." },
             { "label": "Regla Fora de Plataforma:", "text": "Accepta no sol·licitar ni compartir detalls de contacte per moure la comunicació o el pagament fora de la plataforma Kazi. Fer-ho resultarà en la terminació immediata del servei." },
-            { "label": "Regla d'Anonimat:", "text": "Als freelancers no se'ls proporcionen els seus detalls personals més enllà del que és estrictament necessari per completar la feina." }
+            { "label": "Regla d'Anonimat:", "text": "Als nostres professionals no se'ls proporcionen els seus detalls personals més enllà del que és estrictament necessari per completar la feina." }
           ]
         },
         delivery: {

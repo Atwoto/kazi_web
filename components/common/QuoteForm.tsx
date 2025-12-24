@@ -29,12 +29,7 @@ import {
 } from "@/components/ui/select";
 import { useLanguage } from "@/context/LanguageContext";
 
-const serviceTypes = [
-  "Academic Support",
-  "Web Design & Development",
-  "Photo Editing",
-  "AI Services",
-] as const;
+const serviceTypeKeys = ["web", "social", "graphic", "ai"] as const;
 
 const budgetRanges = [
   "€25–€50",
@@ -42,14 +37,10 @@ const budgetRanges = [
   "€100–€250",
   "€250–€600",
   "€600–€1,200",
-  "Not sure",
+  "No estoy seguro",
 ] as const;
 
-const priorities = [
-  "Fast delivery",
-  "Best quality",
-  "Lowest cost",
-] as const;
+const priorityKeys = ["fast", "quality", "cost"] as const;
 
 export default function QuoteForm({ className }: { className?: string }) {
   const { t } = useLanguage();
@@ -59,10 +50,10 @@ export default function QuoteForm({ className }: { className?: string }) {
   const totalSteps = 4;
 
   const formSchema = z.object({
-    serviceType: z.enum(serviceTypes),
+    serviceType: z.enum(serviceTypeKeys),
     deadline: z.date(),
     budgetRange: z.enum(budgetRanges),
-    priority: z.enum(priorities),
+    priority: z.enum(priorityKeys),
     
     // Step 2: Specifics + Description
     description: z.string().min(10, { message: "Description must be at least 10 characters" }),
@@ -190,9 +181,8 @@ export default function QuoteForm({ className }: { className?: string }) {
       case 1: 
         const basic: (keyof FormData)[] = ["description"];
         const service = form.getValues("serviceType");
-        if (service === "Academic Support") return [...basic, "documentType", "wordCount", "language", "level", "helpType"];
-        if (service === "Photo Editing") return [...basic, "designType", "deliverables", "examplesLink"];
-        if (service === "Web Design & Development") return [...basic, "projectType", "currentWebsite", "domainHosting", "pagesNeeded"];
+        if (service === "web") return [...basic, "projectType", "currentWebsite", "domainHosting", "pagesNeeded"];
+        if (service === "graphic") return [...basic, "designType", "deliverables", "examplesLink"];
         return basic;
       case 2: return ["name", "email", "whatsapp", "country", "timezone", "howDidYouHear"];
       default: return [];
@@ -245,8 +235,10 @@ export default function QuoteForm({ className }: { className?: string }) {
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
-                      {serviceTypes.map((type) => (
-                        <SelectItem key={type} value={type}>{type}</SelectItem>
+                      {serviceTypeKeys.map((key) => (
+                        <SelectItem key={key} value={key}>
+                          {(t.forms.options.services as any)[key]}
+                        </SelectItem>
                       ))}
                     </SelectContent>
                   </Select>
@@ -268,8 +260,10 @@ export default function QuoteForm({ className }: { className?: string }) {
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
-                      {priorities.map((priority) => (
-                        <SelectItem key={priority} value={priority}>{priority}</SelectItem>
+                      {priorityKeys.map((key) => (
+                        <SelectItem key={key} value={key}>
+                          {(t.forms.options.priority as any)[key]}
+                        </SelectItem>
                       ))}
                     </SelectContent>
                   </Select>
@@ -338,87 +332,10 @@ export default function QuoteForm({ className }: { className?: string }) {
         <div className={cn("space-y-6", currentStep !== 1 && "hidden")}>
           <div className="space-y-2">
             <h3 className="text-xl font-semibold text-slate-900">{t.forms.steps.details}</h3>
-            <p className="text-sm text-slate-500">Tell us more about your project</p>
+            <p className="text-sm text-slate-500">Cuéntanos más sobre tu proyecto</p>
           </div>
 
-          {watchServiceType === "Academic Support" && (
-            <div className="space-y-4">
-                <FormField
-                  control={form.control}
-                  name="documentType"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>{t.forms.labels.documentType}</FormLabel>
-                      <Select onValueChange={field.onChange} value={field.value || ""}>
-                        <FormControl><SelectTrigger><SelectValue placeholder={t.forms.placeholders.select} /></SelectTrigger></FormControl>
-                        <SelectContent>
-                          {["Essay", "Report", "Dissertation", "CV", "Cover Letter", "Presentation", "Other"].map(opt => <SelectItem key={opt} value={opt}>{opt}</SelectItem>)}
-                        </SelectContent>
-                      </Select>
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name="wordCount"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>{t.forms.labels.wordCount}</FormLabel>
-                      <FormControl><Input {...field} value={field.value || ""} /></FormControl>
-                    </FormItem>
-                  )}
-                />
-                <div className="grid grid-cols-2 gap-4">
-                  <FormField
-                    control={form.control}
-                    name="language"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>{t.forms.labels.language}</FormLabel>
-                        <Select onValueChange={field.onChange} value={field.value || ""}>
-                          <FormControl><SelectTrigger><SelectValue placeholder={t.forms.placeholders.select} /></SelectTrigger></FormControl>
-                          <SelectContent>
-                            {["English", "Spanish", "Other"].map(opt => <SelectItem key={opt} value={opt}>{opt}</SelectItem>)}
-                          </SelectContent>
-                        </Select>
-                      </FormItem>
-                    )}
-                  />
-                  <FormField
-                    control={form.control}
-                    name="level"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>{t.forms.labels.level}</FormLabel>
-                        <Select onValueChange={field.onChange} value={field.value || ""}>
-                          <FormControl><SelectTrigger><SelectValue placeholder={t.forms.placeholders.select} /></SelectTrigger></FormControl>
-                          <SelectContent>
-                            {["High School", "Bachelor", "Master", "PhD", "Other"].map(opt => <SelectItem key={opt} value={opt}>{opt}</SelectItem>)}
-                          </SelectContent>
-                        </Select>
-                      </FormItem>
-                    )}
-                  />
-                </div>
-                <FormField
-                  control={form.control}
-                  name="helpType"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>{t.forms.labels.helpType}</FormLabel>
-                      <Select onValueChange={field.onChange} value={field.value || ""}>
-                        <FormControl><SelectTrigger><SelectValue placeholder={t.forms.placeholders.select} /></SelectTrigger></FormControl>
-                        <SelectContent>
-                          {["Proofreading", "Clarity", "Structure", "Referencing", "Formatting", "Tutoring"].map(opt => <SelectItem key={opt} value={opt}>{opt}</SelectItem>)}
-                        </SelectContent>
-                      </Select>
-                    </FormItem>
-                  )}
-                />
-            </div>
-          )}
-
-          {watchServiceType === "Photo Editing" && (
+          {watchServiceType === "graphic" && (
             <div className="space-y-4">
                 <FormField
                   control={form.control}
@@ -429,7 +346,7 @@ export default function QuoteForm({ className }: { className?: string }) {
                       <Select onValueChange={field.onChange} value={field.value || ""}>
                         <FormControl><SelectTrigger><SelectValue placeholder={t.forms.placeholders.select} /></SelectTrigger></FormControl>
                         <SelectContent>
-                          {["Logo", "Social Posts", "Flyer", "Brand Kit", "Other"].map(opt => <SelectItem key={opt} value={opt}>{opt}</SelectItem>)}
+                          {["Logo", "Social Posts", "Flyer", "Brand Kit", "Otro"].map(opt => <SelectItem key={opt} value={opt}>{opt}</SelectItem>)}
                         </SelectContent>
                       </Select>
                     </FormItem>
@@ -463,7 +380,7 @@ export default function QuoteForm({ className }: { className?: string }) {
             </div>
           )}
 
-          {watchServiceType === "Web Design & Development" && (
+          {watchServiceType === "web" && (
             <div className="space-y-4">
                 <FormField
                   control={form.control}

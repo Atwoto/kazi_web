@@ -83,15 +83,15 @@ export default function AboutContent() {
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             {[
-              { icon: Globe, val: "EU Timezone", sub: t.about.stats.projects },
-              { icon: Clock, val: "24h Response", sub: t.about.stats.response },
-              { icon: Shield, val: "QA Checked", sub: t.about.stats.satisfaction },
+              { icon: Globe, key: "projects" },
+              { icon: Clock, key: "response" },
+              { icon: Shield, key: "satisfaction" },
             ].map((item, i) => (
               <ScrollAnimation key={i} animation="zoom-in" delay={i * 150}>
                 <div className="p-8 rounded-2xl bg-gray-50 border border-gray-100 h-full transition-transform hover:scale-105">
                   <item.icon className="w-10 h-10 text-blue-600 mx-auto mb-4" />
-                  <h3 className="text-3xl font-bold text-gray-900 mb-2">{item.val}</h3>
-                  <p className="text-gray-500">{item.sub}</p>
+                  <h3 className="text-3xl font-bold text-gray-900 mb-2">{(t.about.stats as any)[item.key]}</h3>
+                  <p className="text-gray-500">{item.key.charAt(0).toUpperCase() + item.key.slice(1)}</p>
                 </div>
               </ScrollAnimation>
             ))}
