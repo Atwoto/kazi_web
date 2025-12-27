@@ -54,6 +54,9 @@ export const metadata: Metadata = {
   icons: {
     icon: "/logo2.jpg",
   },
+  other: {
+    google: "notranslate",
+  },
 };
 
 export default function RootLayout({
@@ -63,7 +66,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" suppressHydrationWarning>
-      <body className={`${quicksand.variable} ${inter.variable} flex flex-col min-h-screen`}>
+      <body className={`${quicksand.variable} ${inter.variable} flex flex-col min-h-screen notranslate`}>
         <Analytics />
         <LanguageProvider>
           <LayoutWrapper>{children}</LayoutWrapper>
