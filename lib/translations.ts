@@ -2300,19 +2300,6 @@ export const translations = {
       keyFeatures: "Características Clave",
       items: [
         {
-          id: 101,
-          title: "Clínica Dental Sanitas (Ficticio)",
-          categoryKey: "webDev",
-          imageUrl: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=1000",
-          badge: "Caso de Estudio",
-          description: "Rediseño completo de la presencia digital para una clínica dental líder en Barcelona, enfocado en la captación de pacientes locales.",
-          challenge: "La web anterior era lenta, no adaptada a móviles y no generaba citas. El cliente perdía pacientes frente a competidores con mejor presencia online.",
-          solution: "Implementamos un sistema de reservas directo, optimizamos el SEO local para 'dentista barcelona' y creamos landing pages específicas para tratamientos de alto valor (implantes, ortodoncia).",
-          results: "Aumento del 150% en solicitudes de primera visita en 3 meses. Posicionamiento Top 3 en Google Maps para búsquedas clave.",
-          techStack: ["Next.js", "Calendly API", "Google Maps", "SEO Local"],
-          highlights: ["Reservas Online", "SEO Local", "Diseño Médico Premium"]
-        },
-        {
           id: 102,
           title: "Tienda de Moda 'Llum BCN'",
           categoryKey: "webDev",

@@ -21,38 +21,50 @@ export default function ProcessTimeline({ steps, deliverablesLabel = "Deliverabl
 
   return (
     <div className="w-full">
-      {/* Mobile / Vertical View */}
-      <div className="flex flex-col space-y-4 md:hidden">
+      {/* Mobile / Tablet / Vertical View */}
+      <div className="flex flex-col space-y-4 lg:hidden">
         {steps.map((step, index) => (
           <div 
             key={index} 
             className={cn(
-              "border rounded-2xl p-6 transition-all duration-300",
-              activeStep === index ? "bg-blue-50 border-blue-200 shadow-md" : "bg-white border-slate-100"
+              "border rounded-2xl p-6 transition-all duration-300 cursor-pointer",
+              activeStep === index ? "bg-blue-50 border-blue-200 shadow-md ring-1 ring-blue-100" : "bg-white border-slate-100 hover:border-blue-200"
             )}
             onClick={() => setActiveStep(index)}
           >
-            <div className="flex justify-between items-center mb-2">
-              <span className={cn(
-                "w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold",
-                activeStep === index ? "bg-blue-600 text-white" : "bg-slate-100 text-slate-500"
-              )}>
-                {index + 1}
-              </span>
-              <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">{step.duration}</span>
+            <div className="flex justify-between items-center mb-4">
+              <div className="flex items-center gap-4">
+                <span className={cn(
+                  "w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold transition-colors",
+                  activeStep === index ? "bg-blue-600 text-white" : "bg-slate-100 text-slate-500"
+                )}>
+                  {index + 1}
+                </span>
+                <div className="flex flex-col">
+                   <h3 className="text-lg font-bold text-slate-900 leading-tight">{step.title}</h3>
+                   {activeStep !== index && (
+                     <span className="text-xs font-bold text-slate-400 uppercase tracking-wider mt-1">{step.duration}</span>
+                   )}
+                </div>
+              </div>
+              <ChevronDown className={cn("w-5 h-5 text-slate-400 transition-transform duration-300", activeStep === index && "rotate-180 text-blue-600")} />
             </div>
-            <h3 className="text-xl font-bold text-slate-900 mb-2">{step.title}</h3>
+            
             {activeStep === index && (
-               <div className="animate-in fade-in slide-in-from-top-2">
-                 <p className="text-slate-600 mb-4">{step.description}</p>
-                 <ul className="space-y-2">
-                   {(step.items || []).map((item, idx) => (
-                     <li key={idx} className="flex items-start gap-2 text-sm text-slate-700">
-                       <CheckCircle2 className="w-4 h-4 text-blue-500 mt-0.5 shrink-0" />
-                       {item}
-                     </li>
-                   ))}
-                 </ul>
+               <div className="animate-in fade-in slide-in-from-top-2 pl-14">
+                 <span className="inline-block text-xs font-bold text-blue-600 uppercase tracking-wider mb-2 bg-blue-100 px-2 py-0.5 rounded-full">{step.duration}</span>
+                 <p className="text-slate-600 mb-4 text-sm leading-relaxed">{step.description}</p>
+                 <div className="bg-white/50 rounded-xl p-4 border border-blue-100/50">
+                   <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider mb-3">{deliverablesLabel}</h4>
+                   <ul className="space-y-2">
+                     {(step.items || []).map((item, idx) => (
+                       <li key={idx} className="flex items-start gap-2 text-sm text-slate-700">
+                         <CheckCircle2 className="w-4 h-4 text-blue-500 mt-0.5 shrink-0" />
+                         {item}
+                       </li>
+                     ))}
+                   </ul>
+                 </div>
                </div>
             )}
           </div>
@@ -60,7 +72,7 @@ export default function ProcessTimeline({ steps, deliverablesLabel = "Deliverabl
       </div>
 
       {/* Desktop / Horizontal Interactive View */}
-      <div className="hidden md:block">
+      <div className="hidden lg:block">
         {/* Progress Line */}
         <div className="relative flex justify-between items-center mb-12 px-12">
            <div className="absolute left-0 top-1/2 w-full h-1 bg-slate-100 -z-10" />
