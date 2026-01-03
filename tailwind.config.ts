@@ -70,12 +70,18 @@ const config: Config = {
           from: { transform: "translateX(-50%)" },
           to: { transform: "translateX(0)" },
         },
+        "ken-burns": {
+          "0%": { transform: "scale(1.0) translate(0, 0)" },
+          "100%": { transform: "scale(1.1) translate(-1%, -1%)" },
+        },
       },
       animation: {
         shimmer: "shimmer 3s linear infinite",
         marquee: "marquee 20s linear infinite",
         "scroll-left": "scroll-left 40s linear infinite",
         "scroll-right": "scroll-right 50s linear infinite",
+        "ken-burns": "ken-burns 20s ease-in-out infinite alternate",
+        "bounce-slow": "bounce 3s infinite",
       },
     },
   },

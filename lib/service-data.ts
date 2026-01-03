@@ -6,15 +6,184 @@ export interface Service {
   ctaLink: string;
   deliverables: string[];
   goals?: string[];
-  examples: { title: string; description: string; imageUrl: string; documentUrl?: string; liveUrl?: string; gallery?: string[] }[];
+  examples: {
+    title: string;
+    description: string;
+    imageUrl: string;
+    documentUrl?: string;
+    liveUrl?: string;
+    gallery?: string[];
+    badge?: string;
+    challenge?: string;
+    solution?: string;
+    results?: string;
+    techStack?: string[];
+    testimonial?: { quote: string; author: string };
+    highlights?: string[];
+    isDocument?: boolean;
+  }[];
   process: { step: string; description: string }[];
   faqs: { question: string; answer: string }[];
   targetAudience?: string;
   startingPrice?: string;
   turnaround?: string;
+  perfectFor?: string[];
+  notFor?: string[];
 }
 
 export const servicesData: Service[] = [
+  {
+    slug: "diseno-web-barcelona",
+    name: "Diseño Web en Barcelona",
+    oneLiner: "Diseño Web Premium para Negocios Locales en Barcelona. Convierte visitantes en clientes.",
+    heroImage: "/web.png",
+    ctaLink: "/pricing",
+    deliverables: [
+      "Research & estrategia inicial",
+      "Wireframes y arquitectura UX",
+      "Diseño UI responsive (2 revisiones)",
+      "Desarrollo y testing",
+      "SEO on-page básico",
+      "Capacitación (2 sesiones)",
+      "30 días de soporte post-lanzamiento"
+    ],
+    examples: [],
+    process: [
+      { step: "Descubrimiento", description: "Analizamos tu negocio, competencia y objetivos en Barcelona." },
+      { step: "Estrategia y Diseño", description: "Creamos la estructura y el diseño visual para maximizar conversiones." },
+      { step: "Desarrollo", description: "Construimos tu web con las últimas tecnologías y estándares de velocidad." },
+      { step: "Lanzamiento", description: "Publicamos tu web y te enseñamos a gestionarla." }
+    ],
+    faqs: [],
+    targetAudience: "Negocios Locales",
+    startingPrice: "€3,000",
+    turnaround: "4-6 Semanas"
+  },
+  {
+    slug: "desarrollo-web-empresas",
+    name: "Desarrollo Web para Empresas",
+    oneLiner: "Soluciones web corporativas a medida para empresas que buscan escalabilidad.",
+    heroImage: "/web.png",
+    ctaLink: "/pricing",
+    deliverables: [
+      "Arquitectura de software a medida",
+      "Integraciones con CRM/ERP",
+      "Panel de administración personalizado",
+      "Seguridad avanzada y backups",
+      "Optimización de rendimiento (Core Web Vitals)"
+    ],
+    examples: [],
+    process: [
+      { step: "Análisis Técnico", description: "Definimos la arquitectura y stack tecnológico ideal para tu empresa." },
+      { step: "Desarrollo Ágil", description: "Sprints de 2 semanas con entregables funcionales y revisiones." },
+      { step: "QA y Testing", description: "Pruebas exhaustivas de seguridad, carga y funcionalidad." },
+      { step: "Despliegue", description: "Puesta en producción sin interrupciones y formación al equipo." }
+    ],
+    faqs: [],
+    targetAudience: "Empresas Medianas/Grandes",
+    startingPrice: "€4,000",
+    turnaround: "8-12 Semanas"
+  },
+  {
+    slug: "tiendas-online-ecommerce",
+    name: "Tiendas Online (eCommerce)",
+    oneLiner: "Vende más con una tienda online optimizada para la conversión.",
+    heroImage: "/web.png",
+    ctaLink: "/pricing",
+    deliverables: [
+      "Diseño enfocado en ventas (UX/UI)",
+      "Configuración de pasarelas de pago",
+      "Gestión de inventario y envíos",
+      "Recuperación de carritos abandonados",
+      "Integración con Google Shopping"
+    ],
+    examples: [],
+    process: [
+      { step: "Estrategia de Venta", description: "Definimos tu catálogo, precios y logística de envíos." },
+      { step: "Montaje de Tienda", description: "Configuración de WooCommerce/Shopify y diseño de fichas de producto." },
+      { step: "Configuración de Pagos", description: "Pruebas de pasarelas de pago y seguridad transaccional." },
+      { step: "Optimización CRO", description: "Ajustes finales para maximizar la tasa de conversión antes del lanzamiento." }
+    ],
+    faqs: [],
+    targetAudience: "Retail y Marcas D2C",
+    startingPrice: "€5,000",
+    turnaround: "6-8 Semanas"
+  },
+  {
+    slug: "seo-local-barcelona",
+    name: "SEO Local Barcelona y Vallès",
+    oneLiner: "Domina las búsquedas locales y atrae clientes de tu zona.",
+    heroImage: "/web.png",
+    ctaLink: "/pricing",
+    deliverables: [
+      "Auditoría SEO completa",
+      "Optimización Google Business Profile",
+      "Estrategia de contenidos locales",
+      "Linkbuilding local",
+      "Reportes mensuales de posicionamiento"
+    ],
+    examples: [],
+    process: [
+      { step: "Auditoría", description: "Analizamos tu estado actual y oportunidades en tu zona." },
+      { step: "Optimización On-Page", description: "Mejoramos tu web para keywords locales (ej. 'abogado sabadell')." },
+      { step: "Google Business", description: "Optimizamos tu ficha para aparecer en Google Maps." },
+      { step: "Autoridad", description: "Generamos citas y enlaces locales para subir tu reputación." }
+    ],
+    faqs: [],
+    targetAudience: "Negocios con local físico",
+    startingPrice: "€600/mes",
+    turnaround: "Mensual"
+  },
+  {
+    slug: "mantenimiento-web",
+    name: "Mantenimiento y Optimización Web",
+    oneLiner: "Tu web siempre segura, rápida y actualizada. Sin preocupaciones.",
+    heroImage: "/web.png",
+    ctaLink: "/pricing",
+    deliverables: [
+      "Actualizaciones de plugins y CMS",
+      "Copias de seguridad diarias",
+      "Monitorización de seguridad 24/7",
+      "Mejoras de velocidad mensual",
+      "Soporte técnico prioritario"
+    ],
+    examples: [],
+    process: [
+      { step: "Auditoría Inicial", description: "Revisamos el estado de salud de tu web." },
+      { step: "Puesta a Punto", description: "Corregimos errores críticos y actualizamos todo el software." },
+      { step: "Monitorización", description: "Vigilamos tu web 24/7 para prevenir caídas o ataques." },
+      { step: "Informes", description: "Recibes un reporte mensual con todo lo que hemos hecho." }
+    ],
+    faqs: [],
+    targetAudience: "Cualquier web profesional",
+    startingPrice: "€200/mes",
+    turnaround: "Mensual"
+  },
+  {
+    slug: "consultoria-digital",
+    name: "Consultoría Digital Estratégica",
+    oneLiner: "Hoja de ruta clara para digitalizar y hacer crecer tu negocio.",
+    heroImage: "/web.png",
+    ctaLink: "/pricing",
+    deliverables: [
+      "Análisis de modelo de negocio digital",
+      "Auditoría de presencia online",
+      "Plan de transformación digital",
+      "Selección de herramientas y tecnología",
+      "Acompañamiento en la implementación"
+    ],
+    examples: [],
+    process: [
+      { step: "Diagnóstico", description: "Entendemos tus procesos actuales y puntos de dolor." },
+      { step: "Estrategia", description: "Diseñamos un plan de acción priorizado por impacto." },
+      { step: "Selección", description: "Te ayudamos a elegir las mejores herramientas para tu caso." },
+      { step: "Seguimiento", description: "Sesiones de revisión para asegurar que el plan se cumple." }
+    ],
+    faqs: [],
+    targetAudience: "Gerentes y Dueños",
+    startingPrice: "€800",
+    turnaround: "Por Sesión/Proyecto"
+  },
   {
     slug: "web-design-development",
     name: "Web Development",

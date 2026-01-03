@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { servicesData } from "@/lib/service-data";
 import { defaultSEO } from "@/lib/seo";
-import ServicePageTemplate from "@/components/services/ServicePageTemplate";
+import ServicePageTemplateV2 from "@/components/services/ServicePageTemplateV2";
 
 interface ServicePageProps {
   params: Promise<{
@@ -40,7 +40,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
     notFound();
   }
 
-  return <ServicePageTemplate service={service} />;
+  return <ServicePageTemplateV2 service={service} />;
 }
 
 export async function generateStaticParams() {

@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle } from "@/components/ui/card";
-import { Check, Clock, Euro, RefreshCw, ChevronRight, FileText, X, ChevronLeft, Images, Eye, ExternalLink } from "lucide-react";
+import { Check, Clock, Euro, RefreshCw, ChevronRight, FileText, X, ChevronLeft, Images, Eye, ExternalLink, CheckCircle, XCircle } from "lucide-react";
 import { Service } from "@/lib/service-data";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
@@ -228,6 +228,40 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
                           <p className="text-gray-700 font-medium">{goal}</p>
                         </div>
                       ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Who It's For / Not For */}
+                {(translatedData.perfectFor || service.perfectFor) && (
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16">
+                    {/* Perfect For */}
+                    <div className="bg-green-50 p-8 rounded-2xl border border-green-100">
+                       <h3 className="text-xl font-bold text-green-800 mb-6 flex items-center">
+                         <CheckCircle className="w-6 h-6 mr-2" /> {t.servicePage.perfectFor || "Perfect For"}
+                       </h3>
+                       <ul className="space-y-4">
+                         {(translatedData.perfectFor || service.perfectFor).map((item: string, i: number) => (
+                           <li key={i} className="flex items-start text-green-700 font-medium">
+                             <Check className="w-5 h-5 mr-3 shrink-0 mt-0.5 text-green-600" />
+                             {item}
+                           </li>
+                         ))}
+                       </ul>
+                    </div>
+                    {/* Not For */}
+                    <div className="bg-red-50 p-8 rounded-2xl border border-red-100">
+                       <h3 className="text-xl font-bold text-red-800 mb-6 flex items-center">
+                         <XCircle className="w-6 h-6 mr-2" /> {t.servicePage.notFor || "Not For You If"}
+                       </h3>
+                       <ul className="space-y-4">
+                         {(translatedData.notFor || service.notFor).map((item: string, i: number) => (
+                           <li key={i} className="flex items-start text-red-700 font-medium">
+                             <X className="w-5 h-5 mr-3 shrink-0 mt-0.5 text-red-600" />
+                             {item}
+                           </li>
+                         ))}
+                       </ul>
                     </div>
                   </div>
                 )}
@@ -582,7 +616,41 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
                   </span>
                 )}
               </div>
-              <div className="text-gray-600 mb-4 normal-case">{formatText(selectedItem.description)}</div>
+              <div className="text-gray-600 mb-4 normal-case whitespace-pre-line">{formatText(selectedItem.description)}</div>
+
+              {/* Case Study Details */}
+              {(selectedItem.challenge || selectedItem.solution || selectedItem.results) && (
+                <div className="space-y-4 mb-6 border-t border-b border-gray-100 py-4">
+                  {selectedItem.challenge && (
+                    <div>
+                      <h4 className="text-sm font-bold text-gray-900 uppercase tracking-wide mb-1">Challenge</h4>
+                      <p className="text-sm text-gray-600">{selectedItem.challenge}</p>
+                    </div>
+                  )}
+                  {selectedItem.solution && (
+                    <div>
+                      <h4 className="text-sm font-bold text-gray-900 uppercase tracking-wide mb-1">Our Approach</h4>
+                      <p className="text-sm text-gray-600">{selectedItem.solution}</p>
+                    </div>
+                  )}
+                  {selectedItem.results && (
+                    <div>
+                      <h4 className="text-sm font-bold text-gray-900 uppercase tracking-wide mb-1">Results</h4>
+                      <p className="text-sm text-gray-600">{selectedItem.results}</p>
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {selectedItem.techStack && (
+                 <div className="flex flex-wrap gap-2 mb-4">
+                   {selectedItem.techStack.map((tech: string, i: number) => (
+                     <span key={i} className="text-xs font-semibold bg-gray-100 text-gray-600 px-2 py-1 rounded">
+                       {tech}
+                     </span>
+                   ))}
+                 </div>
+              )}
 
               {selectedItem.highlights && (
                 <div className="mb-4">

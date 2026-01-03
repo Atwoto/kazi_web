@@ -1,16 +1,73 @@
 "use client";
 
 import Link from "next/link";
-import { Linkedin, Instagram, Facebook, Mail, MapPin } from "lucide-react";
+import { useState } from "react";
+import { Linkedin, Instagram, Facebook, Mail, MapPin, ShieldCheck, Clock, Map, Zap, Calculator } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
+import FreeAuditModal from "@/components/common/FreeAuditModal";
+import { Button } from "@/components/ui/button";
 
 export default function Footer() {
   const { t } = useLanguage();
+  const [isAuditOpen, setIsAuditOpen] = useState(false);
 
   return (
-    <footer className="bg-slate-900 text-white">
+    <footer className="bg-slate-900 text-white pt-16">
+      
+      {/* Trust Badges Row */}
+      <div className="border-b border-slate-800 pb-12 mb-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+              {/* Badge 1: Local Management */}
+              <div className="flex flex-col items-center gap-3">
+                 <div className="bg-blue-600/10 p-3 rounded-full text-blue-400">
+                   <Map className="w-6 h-6" />
+                 </div>
+                 <div>
+                   <h4 className="font-bold text-lg text-white">
+                     {t.footer.trustBadges[0].title}
+                   </h4>
+                   <p className="text-slate-300 text-sm">
+                     {t.footer.trustBadges[0].text}
+                   </p>
+                 </div>
+              </div>
+
+              {/* Badge 2: 24h Response */}
+              <div className="flex flex-col items-center gap-3">
+                 <div className="bg-blue-600/10 p-3 rounded-full text-blue-400">
+                   <Clock className="w-6 h-6" />
+                 </div>
+                 <div>
+                   <h4 className="font-bold text-lg text-white">
+                     {t.footer.trustBadges[1].title}
+                   </h4>
+                   <p className="text-slate-300 text-sm">
+                     {t.footer.trustBadges[1].text}
+                   </p>
+                 </div>
+              </div>
+
+              {/* Badge 3: Quality */}
+              <div className="flex flex-col items-center gap-3">
+                 <div className="bg-blue-600/10 p-3 rounded-full text-blue-400">
+                   <ShieldCheck className="w-6 h-6" />
+                 </div>
+                 <div>
+                   <h4 className="font-bold text-lg text-white">
+                     {t.footer.trustBadges[2].title}
+                   </h4>
+                   <p className="text-slate-300 text-sm">
+                     {t.footer.trustBadges[2].text}
+                   </p>
+                 </div>
+              </div>
+           </div>
+        </div>
+      </div>
+
       {/* Main Footer Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8">
 
           {/* Brand Column */}
@@ -54,7 +111,7 @@ export default function Footer() {
                 aria-label="WhatsApp"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4">
-                  <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.5 3.42 1.46 4.9L2.05 22l5.03-1.32c1.4-.77 2.97-1.18 4.56-1.18 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.82 14.54c-.28.27-.68.42-1.09.42-.41 0-.8-.15-1.09-.42l-.66-.66c-.14-.14-.3-.2-.47-.2s-.33.06-.47.2l-.66.66c-.46.46-1.17.46-1.63 0-.46-.46-.46-1.17 0-1.63l.66-.66c.14-.14.2-.3.2-.47s-.06-.33-.2-.47l-.66-.66c-.27-.28-.42-.68-.42-1.09 0-.41.15-.8.42-1.09l.66-.66c.14-.14.2-.3.2-.47s-.06-.33-.2-.47l-.66-.66c-.46-.46-.46-1.17 0-1.63.46-.46 1.17-.46 1.63 0l.66.66c.14.14.3.2.47.2s.33-.06.47-.2l.66-.66c.28-.27.68-.42 1.09-.42.41 0,.8.15 1.09.42l.66.66c.14.14.3.2.47.2s.33-.06.47-.2l.66-.66c.46-.46 1.17-.46 1.63 0 .46.46.46 1.17 0 1.63l-.66.66c-.14.14-.2.3-.2.47s.06.33.2.47l.66.66c.27.28.42.68.42 1.09 0 .41-.15.8-.42 1.09l-.66.66c-.14.14-.3.2-.47.2s-.33-.06-.47-.2z"/>
+                  <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.5 3.42 1.46 4.9L2.05 22l5.03-1.32c1.4-.77 2.97-1.18 4.56-1.18 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.82 14.54c-.28.27-.68.42-1.09.42-.41 0-.8-.15-1.09-.42l-.66-.66c-.14-.14-.3-.2-.47-.2s-.33.06-.47.2l-.66.66c-.46.46-1.17.46-1.63 0-.46-.46-.46-1.17 0-1.63l.66-.66c.14-.14.2-.3.2-.47s-.06-.33-.2-.47l-.66-.66c-.27-.28-.42-.68-.42-1.09 0-.41.15-.8.42-1.09l.66-.66c.14.14.2-.3.2-.47s-.06-.33-.2-.47l-.66-.66c-.46-.46-.46-1.17 0-1.63.46-.46 1.17-.46 1.63 0l.66.66c.14.14.3.2.47.2s.33-.06.47-.2l.66-.66c.28-.27.68-.42 1.09-.42.41 0,.8.15 1.09.42l.66.66c.14.14.3.2.47.2s.33-.06.47-.2l.66-.66c.46-.46 1.17-.46 1.63 0 .46.46.46 1.17 0 1.63l-.66.66c-.14.14-.2.3-.2.47s.06.33.2.47l.66.66c.27.28.42.68.42 1.09 0 .41-.15.8-.42 1.09l-.66.66c-.14.14-.3.2-.47.2s-.33-.06-.47-.2z"/>
                 </svg>
               </a>
             </div>
@@ -71,6 +128,11 @@ export default function Footer() {
                   </Link>
                 </li>
               ))}
+              <li>
+                 <Link href="/roi-calculator" className="text-blue-400 hover:text-blue-300 text-sm transition-colors font-medium flex items-center gap-2">
+                   <Calculator className="w-3 h-3" /> {t.footer.roiCalculator || "ROI Calculator"}
+                 </Link>
+              </li>
             </ul>
           </div>
 
@@ -85,14 +147,23 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Legal Links */}
+          {/* Legal Links & Tools */}
           <div>
             <h3 className="text-sm font-bold uppercase tracking-wider text-white mb-4">{t.footer.legalTitle}</h3>
-            <ul className="space-y-3">
+            <ul className="space-y-3 mb-6">
               <li><Link href="/legal/privacy-policy" className="text-slate-400 hover:text-white text-sm transition-colors">{t.footer.privacyPolicy}</Link></li>
               <li><Link href="/legal/terms-of-service" className="text-slate-400 hover:text-white text-sm transition-colors">{t.footer.termsOfService}</Link></li>
               <li><Link href="/legal/cookies" className="text-slate-400 hover:text-white text-sm transition-colors">{t.footer.cookies}</Link></li>
             </ul>
+            
+            <Button 
+               onClick={() => setIsAuditOpen(true)}
+               variant="outline" 
+               size="sm" 
+               className="w-full border-slate-700 bg-slate-800 hover:bg-slate-700 text-white hover:text-white border-0"
+            >
+               <Zap className="w-4 h-4 mr-2 text-yellow-400" /> {t.footer.freeAudit || "Free Website Audit"}
+            </Button>
           </div>
         </div>
       </div>
@@ -113,6 +184,8 @@ export default function Footer() {
           </div>
         </div>
       </div>
+
+      <FreeAuditModal isOpen={isAuditOpen} onClose={() => setIsAuditOpen(false)} />
     </footer>
   );
 }

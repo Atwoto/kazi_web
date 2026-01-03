@@ -7,7 +7,7 @@ export const translations = {
       pricing: "Pricing",
       faq: "FAQ",
       contact: "Contact",
-      getStarted: "Get a Demo",
+      getStarted: "Request Proposal",
       viewAllServices: "View All Services",
       servicesList: [
         { title: "Web & Booking", href: "/services/web-design-development", description: "Pro website with auto-booking system." },
@@ -26,13 +26,14 @@ export const translations = {
       }
     },
     hero: {
-      badge: "Local Agency in Catalonia",
-      title: "Stop losing customers <br /> by not answering the phone.",
-      titleLg: "Stop losing customers",
-      titleSm: "by not answering the phone.",
-      subtitle: "Automate your bookings and orders with your own professional website. Serve your customers, we handle the tech.",
-      ctaPrimary: "Request a Demo",
-      ctaSecondary: "How it Works",
+      badge: "Digital Architects",
+      taglines: ["Web Design", "SEO Strategy", "Automation", "eCommerce", "Growth"],
+      title: "Digital Architects for <br /> Ambitious Brands",
+      titleLg: "Digital Architects",
+      titleSm: "for Ambitious Brands",
+      subtitle: "We Build Web Experiences That Convert Vision into Growth. Strategic Design Partners, not just vendors.",
+      ctaPrimary: "Request Quote",
+      ctaSecondary: "View Examples",
       trust: "Local Management.",
       trustBadges: {
         pm: { title: "Local Support", subtitle: "Catalonia" },
@@ -219,10 +220,26 @@ export const translations = {
         oneLiner: "Enterprise-grade websites and platforms, delivered fully managed.",
         deliverables: ["Custom UI/UX Design", "Full-Stack Development (React/Next.js)", "CMS & E-commerce Integration", "QA Testing & Deployment"],
         process: [
-          { step: "Discovery", description: "We align on your business goals and technical requirements." },
-          { step: "Development", description: "Our managed team builds your solution in agile sprints." },
-          { step: "Quality Assurance", description: "Rigorous testing to ensure European standards." },
-          { step: "Launch & Handover", description: "Seamless deployment and full IP transfer." }
+          { 
+            step: "Discovery", 
+            description: "We align on your business goals and technical requirements.",
+            items: ["Kickoff Meeting", "Competitor Analysis", "Site Architecture", "Content Strategy"]
+          },
+          { 
+            step: "Development", 
+            description: "Our managed team builds your solution in agile sprints.",
+            items: ["Frontend Development", "CMS Integration", "Mobile Optimization", "Speed Optimization"]
+          },
+          { 
+            step: "Quality Assurance", 
+            description: "Rigorous testing to ensure European standards.",
+            items: ["Functionality Testing", "Cross-Browser Review", "Security Testing", "SEO Optimization"]
+          },
+          { 
+            step: "Launch & Handover", 
+            description: "Seamless deployment and full IP transfer.",
+            items: ["Live Deployment", "Analytics Setup", "Client Training", "Credentials Handover"]
+          }
         ],
         faqs: [
           { q: "Do you provide hosting?", a: "We can set up hosting for you on preferred providers like Vercel or AWS, but you will own the accounts." },
@@ -235,10 +252,26 @@ export const translations = {
         oneLiner: "Strategic visual identity and marketing assets for your brand.",
         deliverables: ["Brand Strategy & Identity", "Marketing Collateral", "Social Media Suites", "Presentation Design"],
         process: [
-          { step: "Briefing", description: "We gather your brand assets, style preferences, and project goals." },
-          { step: "Concept Design", description: "Our designers create initial concepts for your review." },
-          { step: "Refinement", description: "We iterate based on your feedback to perfect the visuals." },
-          { step: "Delivery", description: "Final files provided in all required formats (AI, PNG, PDF)." },
+          { 
+            step: "Briefing", 
+            description: "We gather your brand assets, style preferences, and project goals.",
+            items: ["Brand Audit", "Style Guide Review", "Goal Definition", "Asset Collection"]
+          },
+          { 
+            step: "Concept Design", 
+            description: "Our designers create initial concepts for your review.",
+            items: ["Moodboards", "Initial Sketches", "Type Exploration", "Color Palette"]
+          },
+          { 
+            step: "Refinement", 
+            description: "We iterate based on your feedback to perfect the visuals.",
+            items: ["Feedback Rounds", "Detail Polishing", "Mockups", "Final Tweaks"]
+          },
+          { 
+            step: "Delivery", 
+            description: "Final files provided in all required formats (AI, PNG, PDF).",
+            items: ["Source Files", "Print Ready", "Web Formats", "Brand Guide"]
+          },
         ],
         faqs: [
            { q: "What formats will I receive?", a: "We provide all industry-standard formats: AI, EPS, PDF, JPG, and PNG." },
@@ -267,10 +300,26 @@ export const translations = {
         oneLiner: "Implementing practical AI workflows to future-proof your business.",
         deliverables: ["Workflow Automation", "Custom Chatbot Integration", "Data Analysis Models", "Process Optimization"],
         process: [
-          { step: "Analysis", description: "We audit your current workflows to identify automation opportunities." },
-          { step: "Implementation", description: "We build and integrate the AI agents or automations." },
-          { step: "Testing", description: "Rigorous testing to ensure accuracy and reliability." },
-          { step: "Handover", description: "We train your team on how to use and monitor the new system." },
+          { 
+            step: "Analysis", 
+            description: "We audit your current workflows to identify automation opportunities.",
+            items: ["Workflow Audit", "Bottleneck ID", "Data Assessment", "Feasibility Report"]
+          },
+          { 
+            step: "Implementation", 
+            description: "We build and integrate the AI agents or automations.",
+            items: ["Agent Configuration", "API Integration", "Prompt Engineering", "Database Setup"]
+          },
+          { 
+            step: "Testing", 
+            description: "Rigorous testing to ensure accuracy and reliability.",
+            items: ["Edge Case Testing", "Latency Check", "Accuracy Review", "User Acceptance"]
+          },
+          { 
+            step: "Handover", 
+            description: "We train your team on how to use and monitor the new system.",
+            items: ["Documentation", "Video Training", "Admin Access", "Support Setup"]
+          },
         ],
         faqs: [
             { q: "Is my data secure?", a: "Yes, we prioritize data privacy and use secure, enterprise-grade APIs." },
@@ -294,10 +343,26 @@ export const translations = {
           "Track performance monthly and adjust based on what performs, not vibes."
         ],
         process: [
-          { step: "Strategy & Setup", description: "We build a premium grid aesthetic and templates so new visitors trust your business fast." },
-          { step: "Content Planning", description: "Weekly content calendars with clear promos and seasonal moments to keep your feed active." },
-          { step: "Daily Management", description: "Near-daily stories and community engagement to turn attention into DMs, calls, and visits." },
-          { step: "Performance Tracking", description: "Monthly reporting based on real data, adjusting strategy to double down on what works." }
+          { 
+            step: "Strategy & Setup", 
+            description: "We build a premium grid aesthetic and templates so new visitors trust your business fast.",
+            items: ["Profile Optimization", "Competitor Research", "Content Pillars", "Visual Identity"]
+          },
+          { 
+            step: "Content Planning", 
+            description: "Weekly content calendars with clear promos and seasonal moments to keep your feed active.",
+            items: ["Topic Ideation", "Script Writing", "Visual Direction", "Calendar Approval"]
+          },
+          { 
+            step: "Daily Management", 
+            description: "Near-daily stories and community engagement to turn attention into DMs, calls, and visits.",
+            items: ["Posting", "Story Engagement", "Comment Reply", "Trend Monitoring"]
+          },
+          { 
+            step: "Performance Tracking", 
+            description: "Monthly reporting based on real data, adjusting strategy to double down on what works.",
+            items: ["Reach Analysis", "Engagement Rates", "Conversion Tracking", "Strategy Adjustments"]
+          }
         ],
         faqs: [
           { q: "Which platforms do you manage?", a: "We focus on Instagram for local business growth, but we can also syndicate content to Facebook and LinkedIn." },
@@ -352,6 +417,7 @@ export const translations = {
       howItWorks: "How It Works",
       recentWork: "Recent Work",
       faq: "Frequently Asked Questions",
+      deliverables: "Deliverables",
       tabs: {
         overview: "Overview",
         process: "Process",
@@ -364,11 +430,51 @@ export const translations = {
       requestSamples: "Request Specific Samples",
       viewGeneralFaq: "View General FAQ",
       professionalDelivery: "Professional Delivery",
+      performance: {
+        title: "Performance Guaranteed",
+        text: "We build for speed. Your site will score 90+ on Google PageSpeed Insights, ensuring better SEO rankings and lower ad costs.",
+        label: "Speed Score"
+      },
+      pricingPlans: {
+        essential: {
+          name: "Essential",
+          price: "€1,500",
+          note: "One-time payment",
+          features: ["Custom One-Pager", "Mobile Optimized", "Basic SEO Setup"],
+          cta: "Start Essential"
+        },
+        growth: {
+          name: "Growth",
+          price: "€3,000",
+          note: "One-time payment",
+          features: ["Multi-Page Strategy", "CMS Integration", "Advanced SEO", "Booking/Lead System"],
+          cta: "Start Growth"
+        },
+        enterprise: {
+          name: "Custom",
+          price: "Book Call",
+          note: "Tailored quote",
+          features: ["Complex Web Apps", "AI Integrations", "Custom APIs"],
+          cta: "Contact Sales"
+        }
+      },
+      pricing: {
+        mostPopular: "Most Popular"
+      },
       cta: {
         title: "Ready to build something great?",
         text: "Get a premium development team without the overhead. Start your project with Kazi today.",
         button: "Get a Quote",
         note: "No commitment required. Reply time: <4 hours."
+      },
+      problem: {
+        title: "The Problem",
+        subtitle: "Does this sound familiar?",
+        problems: [
+          { title: "Low Conversion", text: "Traffic but no sales." },
+          { title: "Outdated Design", text: "Doesn't match your brand quality." },
+          { title: "Hard to Update", text: "Reliance on developers for small changes." }
+        ]
       }
     },
     pricing: {
@@ -995,6 +1101,13 @@ export const translations = {
     },
     footer: {
       blurb: "Kazi is your local digital partner. We help businesses in Catalonia grow with simple and effective technology.",
+      roiCalculator: "ROI Calculator",
+      freeAudit: "Free Website Audit",
+      trustBadges: [
+        { title: "Local Management", text: "Team in Barcelona & Vallès" },
+        { title: "24h Response", text: "Fast support guaranteed" },
+        { title: "European Quality", text: "Code & design standards" }
+      ],
       servicesTitle: "Services",
       companyTitle: "Company",
       legalTitle: "Legal",
@@ -1217,12 +1330,12 @@ export const translations = {
   es: {
     nav: {
       home: "Inicio",
-      services: "Servicios",
+      services: "Services",
       portfolio: "Portafolio",
       pricing: "Precios",
       faq: "Preguntas",
       contact: "Contacto",
-      getStarted: "Solicita una Demo",
+      getStarted: "Solicitar Propuesta",
       viewAllServices: "Ver Todos los Servicios",
       servicesList: [
         { title: "Web y Reservas", href: "/services/web-design-development", description: "Web profesional con sistema de reservas automático." },
@@ -1241,13 +1354,14 @@ export const translations = {
       }
     },
     hero: {
-      badge: "Agencia Local en Cataluña",
-      title: "Deja de perder clientes <br /> por no responder al teléfono.",
-      titleLg: "Deja de perder clientes",
-      titleSm: "por no responder al teléfono.",
-      subtitle: "Automatiza tus reservas y pedidos con tu propia web profesional. Atiende a tus clientes, nosotros nos encargamos de la tecnología.",
-      ctaPrimary: "Solicita una Demo",
-      ctaSecondary: "Cómo Funciona",
+      badge: "Arquitectos Digitales",
+      taglines: ["Diseño Web", "Estrategia SEO", "Automatización", "eCommerce", "Crecimiento"],
+      title: "Arquitectos Digitales para <br /> Marcas Ambiciosas",
+      titleLg: "Arquitectos Digitales",
+      titleSm: "para Marcas Ambiciosas",
+      subtitle: "Construimos Experiencias Web que Convierten Visión en Crecimiento. Socios Estratégicos, no solo proveedores.",
+      ctaPrimary: "Solicitar Presupuesto",
+      ctaSecondary: "Ver Ejemplos",
       trust: "Gestión Local.",
       trustBadges: {
         pm: { title: "Soporte Local", subtitle: "Cataluña" },
@@ -1429,15 +1543,173 @@ export const translations = {
       }
     },
     services: {
+      "diseno-web-barcelona": {
+        name: "Diseño Web en Barcelona",
+        oneLiner: "Diseño Web Premium para Negocios Locales en Barcelona. Construimos experiencias que convierten visitas en clientes.",
+        deliverables: [
+          "Research & estrategia inicial",
+          "Wireframes y arquitectura UX",
+          "Diseño UI responsive (2 revisiones)",
+          "Desarrollo y testing",
+          "SEO on-page básico",
+          "Capacitación (2 sesiones)",
+          "30 días de soporte post-lanzamiento"
+        ],
+        perfectFor: [
+          "Negocios con presupuesto de €3,000+",
+          "Empresas que valoran calidad sobre precio",
+          "Marcas listas para invertir en crecimiento"
+        ],
+        notFor: [
+          "Buscas la opción más económica",
+          "Necesitas entrega en menos de 4 semanas",
+          "No valoras el proceso estratégico"
+        ],
+        process: [
+          { step: "Descubrimiento", description: "Reunión inicial para entender tu negocio y objetivos en el mercado de Barcelona." },
+          { step: "Diseño Estratégico", description: "Creamos wireframes y diseños visuales enfocados en la conversión." },
+          { step: "Desarrollo", description: "Programación limpia y optimizada para velocidad y SEO." },
+          { step: "Lanzamiento", description: "Publicación, formación y soporte inicial para asegurar el éxito." }
+        ],
+        faqs: [
+          { q: "¿Por qué cuesta más que otras opciones?", a: "Inviertes en estrategia, no solo diseño. Nuestros clientes ven ROI en 6-12 meses porque construimos webs que convierten visitantes en clientes. Una web barata que no genera ventas es dinero perdido." },
+          { q: "¿Ofrecen planes de pago?", a: "Sí. 50% al inicio, 30% a mitad de proyecto, 20% al lanzamiento. También aceptamos pago mensual para proyectos de más de €8,000." },
+          { q: "¿Cuánto tarda realmente?", a: "Proyectos típicos: 6-12 semanas desde kickoff hasta lanzamiento. Los retrasos más comunes vienen de clientes (contenido, feedback). Nosotros cumplimos plazos si tú cumples los tuyos." }
+        ]
+      },
+      "desarrollo-web-empresas": {
+        name: "Desarrollo Web para Empresas",
+        oneLiner: "Soluciones web corporativas robustas y escalables para empresas en crecimiento.",
+        deliverables: [
+          "Arquitectura de software a medida",
+          "Integraciones con CRM/ERP",
+          "Panel de administración personalizado",
+          "Seguridad avanzada y backups",
+          "Optimización Core Web Vitals"
+        ],
+        process: [
+          { step: "Análisis Técnico", description: "Evaluamos tus sistemas actuales y definimos la mejor arquitectura." },
+          { step: "Desarrollo Ágil", description: "Entregas parciales cada 2 semanas para validar progreso." },
+          { step: "QA Riguroso", description: "Pruebas de carga, seguridad y usabilidad antes del despliegue." },
+          { step: "Despliegue Controlado", description: "Puesta en marcha sin interrupciones en tu operativa." }
+        ],
+        faqs: [
+          { q: "¿Es escalable el desarrollo?", a: "Absolutamente. Diseñamos la arquitectura pensando en tu crecimiento a 3-5 años vista." },
+          { q: "¿Qué tecnologías usáis?", a: "Principalmente React, Next.js y Node.js, el estándar moderno para webs rápidas y seguras." }
+        ]
+      },
+      "tiendas-online-ecommerce": {
+        name: "Tiendas Online (eCommerce)",
+        oneLiner: "Transforma visitantes en compradores con una tienda online optimizada para la venta.",
+        deliverables: [
+          "Diseño UX enfocado en conversión",
+          "Configuración de pasarelas de pago",
+          "Gestión de inventario y envíos",
+          "Recuperación de carritos abandonados",
+          "Integración Google Shopping"
+        ],
+        process: [
+          { step: "Estrategia de Producto", description: "Organizamos tu catálogo para maximizar el ticket medio." },
+          { step: "Construcción de Tienda", description: "Configuración técnica y diseño visual atractivo." },
+          { step: "Configuración de Pagos", description: "Sistemas seguros y fáciles para tus clientes." },
+          { step: "Lanzamiento y Venta", description: "Te ayudamos a recibir tus primeros pedidos." }
+        ],
+        faqs: [
+          { q: "¿Qué plataforma recomendáis?", a: "Depende de tu volumen. Shopify para empezar rápido, WooCommerce para flexibilidad, o desarrollo a medida para grandes volúmenes." }
+        ]
+      },
+      "seo-local-barcelona": {
+        name: "SEO Local Barcelona y Vallès",
+        oneLiner: "Haz que tu negocio aparezca primero cuando tus vecinos busquen tus servicios.",
+        deliverables: [
+          "Auditoría SEO local completa",
+          "Optimización Google Business Profile",
+          "Estrategia de contenidos locales",
+          "Linkbuilding de autoridad local",
+          "Reportes mensuales transparentes"
+        ],
+        process: [
+          { step: "Auditoría", description: "Vemos cómo te busca la gente en tu zona." },
+          { step: "Optimización Ficha", description: "Ponemos a punto tu perfil de Google Maps." },
+          { step: "Contenido Local", description: "Creamos páginas específicas para cada ciudad/barrio objetivo." },
+          { step: "Autoridad", description: "Conseguimos que otras webs locales enlacen a la tuya." }
+        ],
+        faqs: [
+          { q: "¿Cuándo veré resultados?", a: "El SEO es a medio plazo. Normalmente se notan mejoras en 3 meses y resultados sólidos en 6-12 meses." }
+        ]
+      },
+      "mantenimiento-web": {
+        name: "Mantenimiento y Optimización",
+        oneLiner: "Tu web siempre segura, rápida y actualizada. Nosotros nos ocupamos de la técnica.",
+        deliverables: [
+          "Actualizaciones de seguridad",
+          "Copias de seguridad diarias",
+          "Monitorización 24/7",
+          "Mejoras de velocidad",
+          "Soporte prioritario"
+        ],
+        process: [
+          { step: "Revisión Inicial", description: "Ponemos tu web al día desde el primer momento." },
+          { step: "Monitorización Continua", description: "Vigilamos que nada falle mientras tú duermes." },
+          { step: "Actualizaciones", description: "Aplicamos parches de seguridad y mejoras proactivas." },
+          { step: "Informe Mensual", description: "Te contamos qué hemos hecho y cómo está tu web." }
+        ],
+        faqs: [
+          { q: "¿Qué pasa si mi web se cae?", a: "Nuestro sistema nos avisa al instante y nos ponemos a arreglarlo antes de que te des cuenta." }
+        ]
+      },
+      "consultoria-digital": {
+        name: "Consultoría Digital Estratégica",
+        oneLiner: "Deja de improvisar. Define una hoja de ruta clara para el crecimiento digital de tu negocio.",
+        deliverables: [
+          "Análisis de modelo de negocio",
+          "Auditoría de presencia actual",
+          "Plan de transformación digital",
+          "Selección de tecnología",
+          "Acompañamiento directivo"
+        ],
+        process: [
+          { step: "Diagnóstico", description: "Entendemos dónde estás y a dónde quieres llegar." },
+          { step: "Estrategia", description: "Trazamos el camino más eficiente para tus objetivos." },
+          { step: "Plan de Acción", description: "Pasos concretos, con fechas y responsables." },
+          { step: "Seguimiento", description: "No te dejamos solo; revisamos el avance periódicamente." }
+        ],
+        faqs: [
+          { q: "¿Para quién es esto?", a: "Para gerentes y dueños de negocio que saben que necesitan digitalizarse pero no saben por dónde empezar." }
+        ]
+      },
       "web-design-development": {
         name: "Diseño y Desarrollo Web",
         oneLiner: "Sitios web y plataformas de nivel empresarial, entregados completamente gestionados.",
+        problemTitle: "El Problema",
+        problemSubtitle: "¿Te suena familiar?",
+        problems: [
+          { title: "Baja Conversión", text: "Tienes tráfico, pero el teléfono no suena. Los visitantes se van sin comprar." },
+          { title: "Diseño Anticuado", text: "Tu marca se ve genérica y no refleja la calidad premium de tus servicios." },
+          { title: "Difícil de Actualizar", text: "Cualquier cambio pequeño requiere perseguir a un desarrollador." }
+        ],
         deliverables: ["Diseño UI/UX Personalizado", "Desarrollo Full-Stack (React/Next.js)", "Integración CMS y E-commerce", "Pruebas QA y Despliegue"],
         process: [
-          { step: "Descubrimiento", description: "Nos alineamos con tus objetivos comerciales y requisitos técnicos." },
-          { step: "Desarrollo", description: "Nuestro equipo gestionado construye tu solución en sprints ágiles." },
-          { step: "Aseguramiento de Calidad", description: "Pruebas rigurosas para garantizar estándares europeos." },
-          { step: "Lanzamiento y Entrega", description: "Despliegue sin problemas y transferencia completa de IP." }
+          { 
+            step: "Descubrimiento", 
+            description: "Nos alineamos con tus objetivos comerciales y requisitos técnicos.",
+            items: ["Reunión de Kickoff", "Análisis de Competencia", "Arquitectura del Sitio", "Estrategia de Contenido"]
+          },
+          { 
+            step: "Desarrollo", 
+            description: "Nuestro equipo gestionado construye tu solución en sprints ágiles.",
+            items: ["Desarrollo Frontend", "Integración CMS", "Optimización Móvil", "Optimización de Velocidad"]
+          },
+          { 
+            step: "Aseguramiento de Calidad", 
+            description: "Pruebas rigurosas para garantizar estándares europeos.",
+            items: ["Pruebas de Funcionalidad", "Revisión Cross-Browser", "Pruebas de Seguridad", "Optimización SEO"]
+          },
+          { 
+            step: "Lanzamiento y Entrega", 
+            description: "Despliegue sin problemas y transferencia completa de IP.",
+            items: ["Despliegue en Vivo", "Configuración de Analytics", "Formación al Cliente", "Entrega de Credenciales"]
+          }
         ],
         faqs: [
           { q: "¿Proporcionan alojamiento?", a: "Podemos configurar el alojamiento en proveedores preferidos como Vercel o AWS, pero tú serás el propietario de las cuentas." },
@@ -1450,10 +1722,26 @@ export const translations = {
         oneLiner: "Identidad visual estratégica y activos de marketing para tu marca.",
         deliverables: ["Estrategia de Marca e Identidad", "Material de Marketing", "Suites para Redes Sociales", "Diseño de Presentaciones"],
         process: [
-          { step: "Reunión Informativa", description: "Recopilamos tus activos de marca, preferencias de estilo y objetivos del proyecto." },
-          { step: "Diseño de Conceptos", description: "Nuestros diseñadores crean conceptos iniciales para tu revisión." },
-          { step: "Refinamiento", description: "Iteramos según tus comentarios para perfeccionar los visuales." },
-          { step: "Entrega", description: "Archivos finales proporcionados en todos los formatos requeridos (AI, PNG, PDF)." },
+          { 
+            step: "Reunión Informativa", 
+            description: "Recopilamos tus activos de marca, preferencias de estilo y objetivos del proyecto.",
+            items: ["Auditoría de Marca", "Revisión de Guía de Estilo", "Definición de Objetivos", "Recopilación de Activos"]
+          },
+          { 
+            step: "Diseño de Conceptos", 
+            description: "Nuestros diseñadores crean conceptos iniciales para tu revisión.",
+            items: ["Moodboards", "Bocetos Iniciales", "Exploración Tipográfica", "Paleta de Colores"]
+          },
+          { 
+            step: "Refinamiento", 
+            description: "Iteramos según tus comentarios para perfeccionar los visuales.",
+            items: ["Rondas de Feedback", "Pulido de Detalles", "Mockups", "Ajustes Finales"]
+          },
+          { 
+            step: "Entrega", 
+            description: "Archivos finales proporcionados en todos los formatos requeridos (AI, PNG, PDF).",
+            items: ["Archivos Fuente", "Listos para Impresión", "Formatos Web", "Guía de Marca"]
+          },
         ],
         faqs: [
            { q: "¿Qué formatos recibiré?", a: "Proporcionamos todos los formatos estándar de la industria: AI, EPS, PDF, JPG y PNG." },
@@ -1482,10 +1770,26 @@ export const translations = {
         oneLiner: "Implementación de flujos de trabajo de IA prácticos para preparar tu negocio para el futuro.",
         deliverables: ["Automatización de Flujos de Trabajo", "Integración de Chatbots Personalizados", "Modelos de Análisis de Datos", "Optimización de Procesos"],
         process: [
-          { step: "Análisis", description: "Auditamos tus flujos de trabajo actuales para identificar oportunidades de automatización." },
-          { step: "Implementación", description: "Construimos e integramos los agentes de IA o automatizaciones." },
-          { step: "Pruebas", description: "Pruebas rigurosas para garantizar precisión y fiabilidad." },
-          { step: "Entrega", description: "Formamos a tu equipo sobre cómo usar y monitorizar el nuevo sistema." },
+          { 
+            step: "Análisis", 
+            description: "Auditamos tus flujos de trabajo actuales para identificar oportunidades de automatización.",
+            items: ["Auditoría de Flujo", "Identificación de Cuellos de Botella", "Evaluación de Datos", "Informe de Viabilidad"]
+          },
+          { 
+            step: "Implementación", 
+            description: "Construimos e integramos los agentes de IA o automatizaciones.",
+            items: ["Configuración de Agentes", "Integración API", "Ingeniería de Prompts", "Configuración de Base de Datos"]
+          },
+          { 
+            step: "Pruebas", 
+            description: "Pruebas rigurosas para garantizar precisión y fiabilidad.",
+            items: ["Pruebas de Casos Borde", "Chequeo de Latencia", "Revisión de Precisión", "Aceptación de Usuario"]
+          },
+          { 
+            step: "Entrega", 
+            description: "Formamos a tu equipo sobre cómo usar y monitorizar el nuevo sistema.",
+            items: ["Documentación", "Video de Capacitación", "Acceso Admin", "Configuración de Soporte"]
+          },
         ],
         faqs: [
             { q: "¿Están seguros mis datos?", a: "Sí, priorizamos la privacidad de los datos y utilizamos API seguras de nivel empresarial." },
@@ -1509,10 +1813,26 @@ export const translations = {
           "Seguimiento mensual del rendimiento y ajuste basado en lo que funciona, no en sensaciones."
         ],
         process: [
-          { step: "Estrategia y Configuración", description: "Creamos una estética premium y plantillas para que los nuevos visitantes confíen en tu negocio rápidamente." },
-          { step: "Planificación de Contenido", description: "Calendarios semanales con promociones claras y momentos estacionales para mantener tu feed activo." },
-          { step: "Gestión Diaria", description: "Historias diarias y compromiso con la comunidad para convertir la atención en DMs, llamadas y visitas." },
-          { step: "Seguimiento de Rendimiento", description: "Informes mensuales basados en datos reales, ajustando la estrategia para potenciar lo que funciona." }
+          { 
+            step: "Estrategia y Configuración", 
+            description: "Creamos una estética premium y plantillas para que los nuevos visitantes confíen en tu negocio rápidamente.",
+            items: ["Optimización de Perfil", "Investigación de Competencia", "Pilares de Contenido", "Identidad Visual"]
+          },
+          { 
+            step: "Planificación de Contenido", 
+            description: "Calendarios semanales con promociones claras y momentos estacionales para mantener tu feed activo.",
+            items: ["Ideación de Temas", "Escritura de Guiones", "Dirección Visual", "Aprobación de Calendario"]
+          },
+          { 
+            step: "Gestión Diaria", 
+            description: "Historias diarias y compromiso con la comunidad para convertir la atención en DMs, llamadas y visitas.",
+            items: ["Publicación", "Engagement en Historias", "Respuesta a Comentarios", "Monitoreo de Tendencias"]
+          },
+          { 
+            step: "Seguimiento de Rendimiento", 
+            description: "Informes mensuales basados en datos reales, ajustando la estrategia para potenciar lo que funciona.",
+            items: ["Análisis de Alcance", "Tasas de Engagement", "Seguimiento de Conversión", "Ajustes de Estrategia"]
+          }
         ],
         faqs: [
           { q: "¿Qué plataformas gestionan?", a: "Nos enfocamos en Instagram para el crecimiento de negocios locales, pero también podemos sindicar contenido a Facebook y LinkedIn." },
@@ -1567,6 +1887,7 @@ export const translations = {
       howItWorks: "Cómo Funciona",
       recentWork: "Trabajo Reciente",
       faq: "Preguntas Frecuentes",
+      deliverables: "Entregables",
       tabs: {
         overview: "Resumen",
         process: "Proceso",
@@ -1579,11 +1900,53 @@ export const translations = {
       requestSamples: "Solicitar Muestras Específicas",
       viewGeneralFaq: "Ver FAQ General",
       professionalDelivery: "Entrega Profesional",
+      perfectFor: "Perfecto para:",
+      notFor: "No es para ti si:",
+      performance: {
+        title: "Rendimiento Garantizado",
+        text: "Construimos para la velocidad. Tu sitio obtendrá una puntuación de 90+ en Google PageSpeed Insights, asegurando un mejor posicionamiento SEO y menores costos publicitarios.",
+        label: "Puntuación de Velocidad"
+      },
+      pricingPlans: {
+        essential: {
+          name: "Esencial",
+          price: "€1,500",
+          note: "Pago único",
+          features: ["Web de Una Sola Página", "Optimización Móvil", "Configuración SEO Básica"],
+          cta: "Empezar Esencial"
+        },
+        growth: {
+          name: "Crecimiento",
+          price: "€3,000",
+          note: "Pago único",
+          features: ["Estrategia Multi-Página", "Integración de CMS", "SEO Avanzado", "Sistema de Reservas/Leads"],
+          cta: "Empezar Crecimiento"
+        },
+        enterprise: {
+          name: "Personalizado",
+          price: "Agendar Llamada",
+          note: "Presupuesto a medida",
+          features: ["Web Apps Complejas", "Integraciones de IA", "APIs Personalizadas"],
+          cta: "Contactar Ventas"
+        }
+      },
+      pricing: {
+        mostPopular: "Más Popular"
+      },
       cta: {
         title: "¿Listo para construir algo grandioso?",
         text: "Obtén un equipo de desarrollo premium sin los gastos generales. Comienza tu proyecto con Kazi hoy.",
         button: "Pedir Presupuesto",
         note: "Sin compromiso. Tiempo de respuesta: <4 horas."
+      },
+      problem: {
+        title: "El Problema",
+        subtitle: "¿Te suena familiar?",
+        problems: [
+          { title: "Baja Conversión", text: "Tráfico pero sin ventas." },
+          { title: "Diseño Anticuado", text: "No refleja la calidad de tu marca." },
+          { title: "Difícil de Actualizar", text: "Dependencia de programadores para pequeños cambios." }
+        ]
       }
     },
     pricing: {
@@ -1913,8 +2276,46 @@ export const translations = {
       download: "Descargar Original",
       galleryCounter: "{current} / {total}",
       keyFeatures: "Características Clave",
-      visitLiveSite: "Visitar Sitio Web",
       items: [
+        {
+          id: 101,
+          title: "Clínica Dental Sanitas (Ficticio)",
+          categoryKey: "webDev",
+          imageUrl: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=1000",
+          badge: "Caso de Estudio",
+          description: "Rediseño completo de la presencia digital para una clínica dental líder en Barcelona, enfocado en la captación de pacientes locales.",
+          challenge: "La web anterior era lenta, no adaptada a móviles y no generaba citas. El cliente perdía pacientes frente a competidores con mejor presencia online.",
+          solution: "Implementamos un sistema de reservas directo, optimizamos el SEO local para 'dentista barcelona' y creamos landing pages específicas para tratamientos de alto valor (implantes, ortodoncia).",
+          results: "Aumento del 150% en solicitudes de primera visita en 3 meses. Posicionamiento Top 3 en Google Maps para búsquedas clave.",
+          techStack: ["Next.js", "Calendly API", "Google Maps", "SEO Local"],
+          highlights: ["Reservas Online", "SEO Local", "Diseño Médico Premium"]
+        },
+        {
+          id: 102,
+          title: "Tienda de Moda 'Llum BCN'",
+          categoryKey: "webDev",
+          imageUrl: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=1000",
+          badge: "E-commerce",
+          description: "Lanzamiento de canal de venta online para una boutique de moda sostenible en Gràcia.",
+          challenge: "El cliente dependía 100% del tráfico peatonal. Necesitaba diversificar ingresos y vender a toda España.",
+          solution: "Desarrollamos una tienda Shopify personalizada con gestión de inventario sincronizada y campañas de recuperación de carritos por email.",
+          results: "La tienda online generó €12,000 en ventas el primer mes. Tasa de conversión del 2.8% (superior a la media del sector).",
+          techStack: ["Shopify", "Klaviyo", "Instagram Shop"],
+          highlights: ["Shopify Expert", "Email Marketing", "Pasarela de Pagos"]
+        },
+        {
+          id: 103,
+          title: "Consultora Legal 'Advocats Vallès'",
+          categoryKey: "webDev",
+          imageUrl: "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&q=80&w=1000",
+          badge: "Corporativo",
+          description: "Plataforma corporativa para bufete de abogados con área privada de clientes.",
+          challenge: "Procesos manuales ineficientes para compartir documentación con clientes. Imagen de marca anticuada.",
+          solution: "Web corporativa con portal de cliente seguro para subir/bajar expedientes. Rebranding completo para transmitir modernidad y confianza.",
+          results: "Reducción del 40% en llamadas administrativas. Feedback positivo de clientes sobre la facilidad de uso.",
+          techStack: ["React", "Node.js", "AWS S3", "Seguridad SSL"],
+          highlights: ["Área Privada", "Gestión Documental", "Seguridad"]
+        },
         {
           id: 1,
           title: "Restaurante La Mesa",
@@ -2210,6 +2611,13 @@ export const translations = {
     },
     footer: {
       blurb: "Kazi es tu socio digital local. Ayudamos a negocios en Cataluña a crecer con tecnología simple y efectiva.",
+      roiCalculator: "Calculadora ROI",
+      freeAudit: "Auditoría Web Gratuita",
+      trustBadges: [
+        { title: "Gestión Local", text: "Equipo en Barcelona y Vallès" },
+        { title: "Respuesta 24h", text: "Soporte rápido garantizado" },
+        { title: "Calidad Europea", text: "Estándares de código y diseño" }
+      ],
       servicesTitle: "Servicios",
       companyTitle: "Empresa",
       legalTitle: "Legal",
@@ -2456,8 +2864,9 @@ export const translations = {
       }
     },
     hero: {
-      badge: "Agència Local a Catalunya",
-      title: "Deixa de perdre clients <br /> per no respondre al telèfon.",
+      badge: "Arquitectes Digitals",
+      taglines: ["Disseny Web", "Estratègia SEO", "Automatització", "eCommerce", "Creixement"],
+      title: "Arquitectes Digitals per a <br /> Marques Ambicioses",
       titleLg: "Deixa de perdre clients",
       titleSm: "per no respondre al telèfon.",
       subtitle: "Automatitza les teves reserves i comandes amb la teva pròpia web professional. Atén els teus clients, nosaltres ens encarreguem de la tecnologia.",
@@ -2647,12 +3056,35 @@ export const translations = {
       "web-design-development": {
         name: "Disseny i Desenvolupament Web",
         oneLiner: "Llocs web i plataformes de nivell empresarial, lliurats completament gestionats.",
+        problemTitle: "El Problema",
+        problemSubtitle: "Et sona familiar?",
+        problems: [
+          { title: "Baixa Conversió", text: "Trànsit però sense vendes." },
+          { title: "Disseny Antiquat", text: "No reflecteix la qualitat de la teva marca." },
+          { title: "Difícil d'Actualitzar", text: "Dependència de programadors per a petits canvis." }
+        ],
         deliverables: ["Disseny UI/UX Personalitzat", "Desenvolupament Full-Stack (React/Next.js)", "Integració CMS i E-commerce", "Proves QA i Desplegament"],
         process: [
-          { step: "Descobriment", description: "Ens alineem amb els teus objectius comercials i requisits tècnics." },
-          { step: "Desenvolupament", description: "El nostre equip gestionat construeix la teva solució en sprints àgils." },
-          { step: "Assegurament de Qualitat", description: "Proves rigoroses per garantir estàndards europeus." },
-          { step: "Llançament i Lliurament", description: "Desplegament sense problemes i transferència completa d'IP." }
+          { 
+            step: "Descobriment", 
+            description: "Ens alineem amb els teus objectius comercials i requisits tècnics.",
+            items: ["Reunió de Kickoff", "Anàlisi de Competència", "Arquitectura del Lloc", "Estratègia de Contingut"]
+          },
+          { 
+            step: "Desenvolupament", 
+            description: "El nostre equip gestionat construeix la teva solució en sprints àgils.",
+            items: ["Desenvolupament Frontend", "Integració CMS", "Optimització Mòbil", "Optimització de Velocitat"]
+          },
+          { 
+            step: "Assegurament de Qualitat", 
+            description: "Proves rigoroses per garantir estàndards europeus.",
+            items: ["Proves de Funcionalitat", "Revisió Cross-Browser", "Proves de Seguretat", "Optimització SEO"]
+          },
+          { 
+            step: "Llançament i Lliurament", 
+            description: "Desplegament sense problemes i transferència completa d'IP.",
+            items: ["Desplegament en Viu", "Configuració d'Analytics", "Formació al Client", "Entrega de Credencials"]
+          }
         ],
         faqs: [
           { q: "Proporcioneu allotjament?", a: "Podem configurar l'allotjament en proveïdors preferits com Vercel o AWS, però tu seràs el propietari dels comptes." },
@@ -2665,10 +3097,26 @@ export const translations = {
         oneLiner: "Identitat visual estratègica i actius de màrqueting per a la teva marca.",
         deliverables: ["Estratègia de Marca i Identitat", "Material de Màrqueting", "Suites per a Xarxes Socials", "Disseny de Presentacions"],
         process: [
-          { step: "Briefing", description: "Recopilem els teus actius de marca, preferències d'estil i objectius del projecte." },
-          { step: "Disseny de Conceptes", description: "Els nostres dissenyadors creen conceptes inicials per a la teva revisió." },
-          { step: "Refinament", description: "Iterem segons els teus comentaris per perfeccionar els visuals." },
-          { step: "Lliurament", description: "Fitxers finals proporcionats en tots els formats requerits (AI, PNG, PDF)." },
+          { 
+            step: "Briefing", 
+            description: "Recopilem els teus actius de marca, preferències d'estil i objectius del projecte.",
+            items: ["Auditoria de Marca", "Revisió de Guia d'Estil", "Definició d'Objectius", "Recopilació d'Actius"]
+          },
+          { 
+            step: "Disseny de Conceptes", 
+            description: "Els nostres dissenyadors creen conceptes inicials per a la teva revisió.",
+            items: ["Moodboards", "Esbossos Inicials", "Exploració Tipogràfica", "Paleta de Colors"]
+          },
+          { 
+            step: "Refinament", 
+            description: "Iterem segons els teus comentaris per perfeccionar els visuals.",
+            items: ["Rondes de Feedback", "Poliment de Detalls", "Mockups", "Ajustos Finals"]
+          },
+          { 
+            step: "Lliurament", 
+            description: "Fitxers finals proporcionats en tots els formats requerits (AI, PNG, PDF).",
+            items: ["Arxius Font", "Llestos per Impressió", "Formats Web", "Guia de Marca"]
+          },
         ],
         faqs: [
            { q: "Quins formats rebré?", a: "Proporcionem tots els formats estàndard de la indústria: AI, EPS, PDF, JPG i PNG." },
@@ -2696,11 +3144,36 @@ export const translations = {
         name: "Solucions d'IA",
         oneLiner: "Implementació de fluxos de treball d'IA pràctics per preparar el teu negoci per al futur.",
         deliverables: ["Automatització de Fluxos de Treball", "Integració de Chatbots Personalitzats", "Models d'Anàlisi de Dades", "Optimització de Processos"],
+        examples: [
+          {
+            title: "Xatbot de Vendes IA Billson Solar",
+            description: "Assistent IA intel·ligent integrat en plataforma de comerç electrònic solar, guiant clients a través del procés de compra.",
+            imageUrl: "/samples/AI/bill.jpg",
+            liveUrl: "https://billsonsolar.com/",
+            gallery: ["/samples/AI/bill.jpg", "/samples/AI/bill1.jpg", "/samples/AI/bill2.jpg"],
+          },
+        ],
         process: [
-          { step: "Anàlisi", description: "Auditem els teus fluxos de treball actuals per identificar oportunitats d'automatització." },
-          { step: "Implementació", description: "Construïm i integrem els agents d'IA o automatitzacions." },
-          { step: "Proves", description: "Proves rigoroses per garantir precisió i fiabilitat." },
-          { step: "Entrega", description: "Formem el teu equip sobre com utilitzar i monitoritzar el nou sistema." },
+          { 
+            step: "Anàlisi", 
+            description: "Auditem els teus fluxos de treball actuals per identificar oportunitats d'automatització.",
+            items: ["Auditoria de Flux", "Identificació de Coll d'Ampolla", "Avaluació de Dades", "Informe de Viabilitat"]
+          },
+          { 
+            step: "Implementació", 
+            description: "Construïm i integrem els agents d'IA o automatitzacions.",
+            items: ["Configuració d'Agents", "Integració API", "Enginyeria de Prompts", "Configuració de Base de Dades"]
+          },
+          { 
+            step: "Proves", 
+            description: "Proves rigoroses per garantir precisió i fiabilitat.",
+            items: ["Proves de Casos Vora", "Control de Latència", "Revisió de Precisió", "Acceptació d'Usuari"]
+          },
+          { 
+            step: "Entrega", 
+            description: "Formem el teu equip sobre com utilitzar i monitoritzar el nou sistema.",
+            items: ["Documentació", "Vídeo de Formació", "Accés Admin", "Configuració de Suport"]
+          },
         ],
         faqs: [
             { q: "Estan segures les meves dades?", a: "Sí, prioritzem la privacitat de les dades i utilitzem API segures de nivell empresarial." }
@@ -2724,10 +3197,26 @@ export const translations = {
           "Seguiment mensual del rendiment i ajust basat en el que funciona, no en sensacions."
         ],
         process: [
-          { step: "Estratègia i Configuració", description: "Creem una estètica prèmium i plantilles perquè els nous visitants confiïn en el teu negoci ràpidament." },
-          { step: "Planificació de Contingut", description: "Calendaris setmanals amb promocions clares i moments estacionals per mantenir el teu feed actiu." },
-          { step: "Gestió Diària", description: "Històries diàries i compromís amb la comunitat per convertir l'atenció en DMs, trucades i visites." },
-          { step: "Seguiment de Rendiment", description: "Informes mensuals basats en dades reals, ajustant l'estratègia per potenciar el que funciona." }
+          { 
+            step: "Estratègia i Configuració", 
+            description: "Creem una estètica prèmium i plantilles perquè els nous visitants confiïn en el teu negoci ràpidament.",
+            items: ["Optimització de Perfil", "Investigació de Competència", "Pilars de Contingut", "Identitat Visual"]
+          },
+          { 
+            step: "Planificació de Contingut", 
+            description: "Calendaris setmanals amb promocions clares i moments estacionals per mantenir el teu feed actiu.",
+            items: ["Ideació de Temes", "Escriptura de Guions", "Direcció Visual", "Aprovació de Calendari"]
+          },
+          { 
+            step: "Gestió Diària", 
+            description: "Històries diàries i compromís amb la comunitat per convertir l'atenció en DMs, trucades i visites.",
+            items: ["Publicació", "Engagement en Històries", "Resposta a Comentaris", "Monitorització de Tendències"]
+          },
+          { 
+            step: "Seguiment de Rendiment", 
+            description: "Informes mensuals basats en dades reals, ajustant l'estratègia per potenciar el que funciona.",
+            items: ["Anàlisi d'Abast", "Taxes d'Engagement", "Seguiment de Conversió", "Ajustos d'Estratègia"]
+          }
         ],
         faqs: [
           { q: "Quines plataformes gestioneu?", a: "Ens enfoquem en Instagram per al creixement de negocis locals, però també podem sindicar contingut a Facebook i LinkedIn." },
@@ -2778,10 +3267,11 @@ export const translations = {
       startsFrom: "Des de",
       revisions: "Revisions Incl.",
       whatYouGet: "El Que Obtens",
-      serviceGoals: "Objectius del Servei",
-      howItWorks: "Com Funciona",
+      serviceGoals: "Com ho fem",
+      howItWorks: "El nostre procés",
       recentWork: "Treball Recent",
       faq: "Preguntes Freqüents",
+      deliverables: "Lliurables",
       tabs: {
         overview: "Resum",
         process: "Procés",
@@ -2793,12 +3283,52 @@ export const translations = {
       portfolioPlaceholder: "Els portafolis es personalitzen segons la sol·licitud del client per garantir rellevància.",
       requestSamples: "Sol·licitar Mostres Específiques",
       viewGeneralFaq: "Veure FAQ General",
-      professionalDelivery: "Lliurament Professional",
+      professionalDelivery: "Construïm motors de conversió mitjançant un procés arquitectònic provat.",
+      performance: {
+        title: "Rendiment Garantit",
+        text: "Construïm per a la velocitat. El teu lloc obtindrà una puntuació de 90+ a Google PageSpeed Insights, assegurant un millor posicionament SEO i menors costos publicitaris.",
+        label: "Puntuació de Velocitat"
+      },
+      pricingPlans: {
+        essential: {
+          name: "Essencial",
+          price: "€1.500",
+          note: "Pagament únic",
+          features: ["Web d'una sola pàgina personalitzada", "Optimitzat per a mòbils", "Configuració SEO bàsica"],
+          cta: "Començar Essencial"
+        },
+        growth: {
+          name: "Creixement",
+          price: "€3.000",
+          note: "Pagament únic",
+          features: ["Estratègia multipàgina", "Integració de CMS", "SEO Avançat", "Sistema de reserves/leads"],
+          cta: "Començar Creixement"
+        },
+        enterprise: {
+          name: "Personalitzat",
+          price: "Agendar trucada",
+          note: "Pressupost a mida",
+          features: ["Aplicacions web complexes", "Integracions d'IA", "APIs personalitzades"],
+          cta: "Contactar amb vendes"
+        }
+      },
+      pricing: {
+        mostPopular: "El més popular"
+      },
       cta: {
         title: "A punt per construir alguna cosa gran?",
         text: "Obté un equip de desenvolupament prèmium sense les despeses generals. Comença el teu projecte amb Kazi avui.",
         button: "Demanar Pressupost",
         note: "Sense compromís. Temps de resposta: <4 hores."
+      },
+      problem: {
+        title: "El Problema",
+        subtitle: "Et sona familiar?",
+        problems: [
+          { title: "Baixa Conversió", text: "Trànsit però sense vendes." },
+          { title: "Disseny Antiquat", text: "No reflecteix la qualitat de la teva marca." },
+          { title: "Difícil d'Actualitzar", text: "Dependència de programadors per a petits canvis." }
+        ]
       }
     },
     pricing: {
@@ -3425,6 +3955,13 @@ export const translations = {
     },
     footer: {
       blurb: "Kazi és el teu soci digital local. Ajudem els negocis a Catalunya a créixer amb tecnologia simple i efectiva.",
+      roiCalculator: "Calculadora ROI",
+      freeAudit: "Auditoria Web Gratuïta",
+      trustBadges: [
+        { title: "Gestió Local", text: "Equip a Barcelona i Vallès" },
+        { title: "Resposta 24h", text: "Suport ràpid garantit" },
+        { title: "Qualitat Europea", text: "Estàndards de codi i disseny" }
+      ],
       servicesTitle: "Serveis",
       companyTitle: "Empresa",
       legalTitle: "Legal",

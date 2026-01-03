@@ -125,7 +125,7 @@ export default function Navbar() {
               <Search className="h-5 w-5" />
             </Button>
             <LanguageSwitcher />
-            <Button asChild className="hidden sm:flex rounded-full px-6 bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm shadow-lg shadow-blue-500/20 transition-all hover:scale-105">
+            <Button asChild className="hidden sm:flex rounded-full px-6 bg-slate-900 hover:bg-slate-800 text-white font-semibold text-sm shadow-lg shadow-slate-900/20 transition-all hover:scale-105">
               <Link href="/pricing">{t.nav.getStarted}</Link>
             </Button>
             
@@ -162,7 +162,7 @@ export default function Navbar() {
             <Link href="/contact" className="text-xl font-semibold text-foreground border-b border-border pb-2" onClick={toggleMobileMenu}>
               {t.nav.contact}
             </Link>
-            <Button asChild className="w-full rounded-full py-6 text-lg mt-4 bg-blue-600 hover:bg-blue-700 text-white">
+            <Button asChild className="w-full rounded-full py-6 text-lg mt-4 bg-slate-900 hover:bg-slate-800 text-white">
               <Link href="/pricing" onClick={toggleMobileMenu}>{t.nav.getStarted}</Link>
             </Button>
           </div>
