@@ -18,10 +18,10 @@ function ServiceTile({ icon: Icon, title, description, href }: ServiceTileProps)
     <Link href={href} className="group block h-full">
       <Card className="h-full flex flex-col p-8 rounded-2xl border-none shadow-sm hover:shadow-xl transition-all duration-300 bg-white group-hover:-translate-y-1">
         <CardHeader className="p-0 mb-6">
-          <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center mb-4 group-hover:bg-primary transition-colors duration-300">
-            <Icon className="h-6 w-6 text-primary group-hover:text-white transition-colors duration-300" />
+          <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+            <Icon className="h-6 w-6 text-primary" />
           </div>
-          <CardTitle className="text-xl font-heading font-bold text-gray-900">{title}</CardTitle>
+          <CardTitle className="text-xl font-heading font-bold text-gray-900 group-hover:text-primary transition-colors duration-300">{title}</CardTitle>
         </CardHeader>
         <CardContent className="p-0">
           <p className="text-sm leading-relaxed text-gray-500">{description}</p>

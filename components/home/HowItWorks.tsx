@@ -18,10 +18,10 @@ export default function HowItWorks() {
           {t.home.howItWorks.steps.map((item, index) => (
             <ScrollAnimation key={index} animation="fade-up" delay={index * 150}>
               <div className="flex flex-col items-center text-center group">
-                <div className="flex items-center justify-center w-16 h-16 rounded-full bg-blue-50 text-primary text-2xl font-bold mb-6 group-hover:bg-primary group-hover:text-white transition-colors duration-300 shadow-sm">
+                <div className="flex items-center justify-center w-16 h-16 rounded-full bg-blue-50 text-primary text-2xl font-bold mb-6 group-hover:scale-110 transition-transform duration-300 shadow-sm">
                   {index + 1}
                 </div>
-                <h3 className="text-xl font-heading font-bold mb-3 text-gray-900">{item.title}</h3>
+                <h3 className="text-xl font-heading font-bold mb-3 text-gray-900 group-hover:text-primary transition-colors duration-300">{item.title}</h3>
                 <p className="text-gray-500 leading-relaxed">{item.description}</p>
               </div>
             </ScrollAnimation>

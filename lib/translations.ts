@@ -1089,6 +1089,28 @@ export const translations = {
       recent: "Recent Searches",
       quickLinks: "Quick Links",
     },
+    roi: {
+      pageHeading: "Calculate Your Potential Growth",
+      pageDescription: "See exactly how much revenue you're leaving on the table with a standard website versus a conversion-optimized Kazi platform.",
+      title: "ROI Calculator",
+      subtitle: "See how much revenue you're leaving on the table with a standard website.",
+      visitors: "Monthly Visitors",
+      conversion: "Current Conversion Rate (%)",
+      value: "Avg. Client Value (€)",
+      resultTitle: "Potential Extra Revenue",
+      resultSubtitle: "per month with a Kazi-optimized site",
+      cta: "Get My Growth Plan"
+    },
+    audit: {
+      title: "Get a Free Website Audit",
+      subtitle: "See exactly why your competitors are ranking higher than you. No strings attached.",
+      placeholderUrl: "https://yourwebsite.com",
+      placeholderEmail: "Where should we send the report?",
+      cta: "Scan My Website",
+      successTitle: "Scanning in progress!",
+      successSubtitle: "We're analyzing your site now. Expect your detailed report in your inbox within 15 minutes.",
+      close: "Close"
+    },
     exitIntent: {
       title: "Wait! Don't miss this.",
       text: "Get 5% OFF your first project when you book a consultation today.",
@@ -2599,6 +2621,28 @@ export const translations = {
       recent: "Búsquedas Recientes",
       quickLinks: "Enlaces Rápidos",
     },
+    roi: {
+      pageHeading: "Calcula tu Crecimiento Potencial",
+      pageDescription: "Mira exactamente cuántos ingresos estás dejando sobre la mesa con un sitio web estándar frente a una plataforma optimizada para conversión de Kazi.",
+      title: "Calculadora ROI",
+      subtitle: "Descubre cuántos ingresos estás perdiendo con una web estándar.",
+      visitors: "Visitantes Mensuales",
+      conversion: "Tasa de Conversión Actual (%)",
+      value: "Valor Promedio Cliente (€)",
+      resultTitle: "Ingresos Extra Potenciales",
+      resultSubtitle: "al mes con una web optimizada por Kazi",
+      cta: "Obtener Mi Plan de Crecimiento"
+    },
+    audit: {
+      title: "Auditoría Web Gratuita",
+      subtitle: "Descubre por qué tus competidores posicionan mejor que tú. Sin compromiso.",
+      placeholderUrl: "https://tuweb.com",
+      placeholderEmail: "¿Dónde enviamos el informe?",
+      cta: "Escanear Mi Web",
+      successTitle: "¡Escaneo en curso!",
+      successSubtitle: "Estamos analizando tu sitio. Recibirás el informe detallado en tu email en 15 minutos.",
+      close: "Cerrar"
+    },
     exitIntent: {
       title: "¡Espera! No te pierdas esto.",
       text: "Obtén un 5% DE DESCUENTO en tu primer proyecto si reservas una consulta hoy.",
@@ -3942,6 +3986,28 @@ export const translations = {
       noResults: "No s'han trobat resultats.",
       recent: "Cerques Recents",
       quickLinks: "Enllaços Ràpids",
+    },
+    roi: {
+      pageHeading: "Calcula el teu Creixement Potencial",
+      pageDescription: "Mira exactament quants ingressos estàs deixant sobre la taula amb un lloc web estàndard enfront d'una plataforma optimitzada per a conversió de Kazi.",
+      title: "Calculadora ROI",
+      subtitle: "Descobreix quants ingressos estàs perdent amb una web estàndard.",
+      visitors: "Visitants Mensuals",
+      conversion: "Taxa de Conversió Actual (%)",
+      value: "Valor Mitjà Client (€)",
+      resultTitle: "Ingressos Extra Potencials",
+      resultSubtitle: "al mes amb una web optimitzada per Kazi",
+      cta: "Obtenir el Meu Pla de Creixement"
+    },
+    audit: {
+      title: "Auditoria Web Gratuïta",
+      subtitle: "Descobreix per què els teus competidors posicionen millor que tu. Sense compromís.",
+      placeholderUrl: "https://tevaweb.com",
+      placeholderEmail: "On enviem l'informe?",
+      cta: "Escaner La Meva Web",
+      successTitle: "Escaneig en curs!",
+      successSubtitle: "Estem analitzant el teu lloc. Rebràs l'informe detallat al teu correu en 15 minuts.",
+      close: "Tancar"
     },
     exitIntent: {
       title: "Espera! No t'ho perdis.",
