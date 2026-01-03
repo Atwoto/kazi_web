@@ -2300,32 +2300,6 @@ export const translations = {
       keyFeatures: "Características Clave",
       items: [
         {
-          id: 102,
-          title: "Tienda de Moda 'Llum BCN'",
-          categoryKey: "webDev",
-          imageUrl: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=1000",
-          badge: "E-commerce",
-          description: "Lanzamiento de canal de venta online para una boutique de moda sostenible en Gràcia.",
-          challenge: "El cliente dependía 100% del tráfico peatonal. Necesitaba diversificar ingresos y vender a toda España.",
-          solution: "Desarrollamos una tienda Shopify personalizada con gestión de inventario sincronizada y campañas de recuperación de carritos por email.",
-          results: "La tienda online generó €12,000 en ventas el primer mes. Tasa de conversión del 2.8% (superior a la media del sector).",
-          techStack: ["Shopify", "Klaviyo", "Instagram Shop"],
-          highlights: ["Shopify Expert", "Email Marketing", "Pasarela de Pagos"]
-        },
-        {
-          id: 103,
-          title: "Consultora Legal 'Advocats Vallès'",
-          categoryKey: "webDev",
-          imageUrl: "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&q=80&w=1000",
-          badge: "Corporativo",
-          description: "Plataforma corporativa para bufete de abogados con área privada de clientes.",
-          challenge: "Procesos manuales ineficientes para compartir documentación con clientes. Imagen de marca anticuada.",
-          solution: "Web corporativa con portal de cliente seguro para subir/bajar expedientes. Rebranding completo para transmitir modernidad y confianza.",
-          results: "Reducción del 40% en llamadas administrativas. Feedback positivo de clientes sobre la facilidad de uso.",
-          techStack: ["React", "Node.js", "AWS S3", "Seguridad SSL"],
-          highlights: ["Área Privada", "Gestión Documental", "Seguridad"]
-        },
-        {
           id: 1,
           title: "Restaurante La Mesa",
           categoryKey: "webDev",
