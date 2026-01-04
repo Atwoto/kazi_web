@@ -37,7 +37,7 @@ export default function CityPageContent({ city }: CityPageContentProps) {
           </ScrollAnimation>
 
           <ScrollAnimation animation="fade-up" delay={100}>
-            <h1 className="text-5xl md:text-7xl font-heading font-bold mb-6 leading-tight">
+            <h1 className="text-5xl md:text-7xl font-heading font-bold mb-6 leading-tight text-white">
               {t.cityPage?.heroTitle || "Diseño Web en"} <span className="text-blue-400">{city.nameEs}</span>
             </h1>
           </ScrollAnimation>
@@ -56,7 +56,7 @@ export default function CityPageContent({ city }: CityPageContentProps) {
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Link>
               </Button>
-              <Button asChild variant="outline" className="h-14 px-8 rounded-full border-white/30 text-white hover:bg-white/10">
+              <Button asChild variant="outline" className="h-14 px-8 rounded-full border-white/30 bg-transparent text-white hover:bg-white/10 hover:text-white">
                 <Link href="/contact">
                   <Phone className="mr-2 w-4 h-4" />
                   {t.cityPage?.callUs || "Llámanos"}
@@ -166,7 +166,7 @@ export default function CityPageContent({ city }: CityPageContentProps) {
       {/* CTA Section */}
       <section className="py-24 bg-slate-900 text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-heading font-bold mb-6">
+          <h2 className="text-4xl font-heading font-bold mb-6 text-white">
             {t.cityPage?.ctaTitle || "¿Listo para crecer en"} {city.nameEs}?
           </h2>
           <p className="text-xl text-slate-300 mb-10 max-w-2xl mx-auto">
@@ -180,7 +180,7 @@ export default function CityPageContent({ city }: CityPageContentProps) {
               </Link>
             </Button>
           </div>
-          <p className="mt-6 text-sm text-slate-500">
+          <p className="mt-6 text-sm text-slate-400">
             {t.cityPage?.ctaNote || "Respuesta en menos de 24 horas • Sin compromiso"}
           </p>
         </div>
