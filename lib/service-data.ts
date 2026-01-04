@@ -191,15 +191,16 @@ export const servicesData: Service[] = [
   },
   {
     slug: "web-design-development",
-    name: "Web Development",
-    oneLiner: "Enterprise-grade websites and platforms, delivered fully managed.",
+    name: "Web Design & Development",
+    oneLiner: "Digital Architects for Brands Ready to Scale",
     heroImage: "/web.png",
     ctaLink: "/pricing",
     deliverables: [
-      "Custom UI/UX Design",
-      "Full-Stack Development (React/Next.js)",
+      "Strategic UX/UI Design",
+      "Full-Stack Development (Next.js, React)",
+      "Conversion-Optimized Architecture",
       "CMS & E-commerce Integration",
-      "QA Testing & Deployment",
+      "Performance & Security Hardening",
     ],
     examples: [
       {

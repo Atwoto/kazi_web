@@ -28,10 +28,10 @@ export const translations = {
     hero: {
       badge: "Digital Architects",
       taglines: ["Web Design", "SEO Strategy", "Automation", "eCommerce", "Growth"],
-      title: "Digital Architects for <br /> Ambitious Brands",
+      title: "Digital Architects for <br /> Brands Ready to Scale",
       titleLg: "Digital Architects",
-      titleSm: "for Ambitious Brands",
-      subtitle: "We Build Web Experiences That Convert Vision into Growth. Strategic Design Partners, not just vendors.",
+      titleSm: "for Brands Ready to Scale",
+      subtitle: "We Design, Build, and Run Revenue-Ready Websites. Strategic Design Partners, not just vendors.",
       ctaPrimary: "Request Quote",
       ctaSecondary: "View Examples",
       trust: "Local Management.",
@@ -1378,10 +1378,10 @@ export const translations = {
     hero: {
       badge: "Arquitectos Digitales",
       taglines: ["Diseño Web", "Estrategia SEO", "Automatización", "eCommerce", "Crecimiento"],
-      title: "Arquitectos Digitales para <br /> Marcas Ambiciosas",
+      title: "Arquitectos Digitales para <br /> Marcas Listas para Escalar",
       titleLg: "Arquitectos Digitales",
-      titleSm: "para Marcas Ambiciosas",
-      subtitle: "Construimos Experiencias Web que Convierten Visión en Crecimiento. Socios Estratégicos, no solo proveedores.",
+      titleSm: "para Marcas Listas para Escalar",
+      subtitle: "Diseñamos, Construimos y Gestionamos Webs Listas para Generar Ingresos. Socios Estratégicos, no solo proveedores.",
       ctaPrimary: "Solicitar Presupuesto",
       ctaSecondary: "Ver Ejemplos",
       trust: "Gestión Local.",
@@ -1702,7 +1702,7 @@ export const translations = {
       },
       "web-design-development": {
         name: "Diseño y Desarrollo Web",
-        oneLiner: "Sitios web y plataformas de nivel empresarial, entregados completamente gestionados.",
+        oneLiner: "Arquitectos Digitales para Marcas Listas para Escalar",
         problemTitle: "El Problema",
         problemSubtitle: "¿Te suena familiar?",
         problems: [
@@ -2871,10 +2871,10 @@ export const translations = {
     hero: {
       badge: "Arquitectes Digitals",
       taglines: ["Disseny Web", "Estratègia SEO", "Automatització", "eCommerce", "Creixement"],
-      title: "Arquitectes Digitals per a <br /> Marques Ambicioses",
-      titleLg: "Deixa de perdre clients",
-      titleSm: "per no respondre al telèfon.",
-      subtitle: "Automatitza les teves reserves i comandes amb la teva pròpia web professional. Atén els teus clients, nosaltres ens encarreguem de la tecnologia.",
+      title: "Arquitectes Digitals per a <br /> Marques Llestes per Escalar",
+      titleLg: "Arquitectes Digitals",
+      titleSm: "per Marques Llestes per Escalar",
+      subtitle: "Dissenyem, Construïm i Gestionem Webs Llestes per Generar Ingressos. Socis Estratègics, no només proveïdors.",
       ctaPrimary: "Sol·licita una Demo",
       ctaSecondary: "Com Funciona",
       trust: "Gestió Local.",
@@ -3060,7 +3060,7 @@ export const translations = {
     services: {
       "web-design-development": {
         name: "Disseny i Desenvolupament Web",
-        oneLiner: "Llocs web i plataformes de nivell empresarial, lliurats completament gestionats.",
+        oneLiner: "Arquitectes Digitals per a Marques Llestes per Escalar",
         problemTitle: "El Problema",
         problemSubtitle: "Et sona familiar?",
         problems: [
