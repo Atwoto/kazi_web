@@ -10,19 +10,27 @@ export default function Testimonials() {
   const { t } = useLanguage();
 
   const images = [
-    "/logo4.jpg",
     "/logo5.jpg",
+    "/logo4.jpg",
     "/logo6.jpg",
     "/logo.jpg"
   ];
 
-  const testimonials = t.home.testimonials.cases.map((caseItem, index) => ({
-    name: t.home.testimonials.caseStudy,
-    role: caseItem.role,
-    text: caseItem.text,
-    rating: 5,
-    image: images[index % images.length]
-  }));
+  const testimonials = t.home.testimonials.cases.map((caseItem, index, array) => {
+    let image = images[index % images.length];
+    
+    // Use specific images for last and second last as requested
+    if (index === array.length - 1) image = "/last.jpg";
+    else if (index === array.length - 2) image = "/2nd.jpg";
+
+    return {
+      name: t.home.testimonials.caseStudy,
+      role: caseItem.role,
+      text: caseItem.text,
+      rating: 5,
+      image
+    };
+  });
 
   return (
     <section className="py-20 md:py-28 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
