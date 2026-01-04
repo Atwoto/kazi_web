@@ -5,10 +5,11 @@ import { useState } from "react";
 import { cn } from "@/lib/utils";
 
 interface TimelineStep {
-  title: string;
-  duration: string;
+  title?: string;
+  step?: string;
+  duration?: string;
   description: string;
-  items: string[];
+  items?: string[];
 }
 
 interface ProcessTimelineProps {
@@ -41,8 +42,8 @@ export default function ProcessTimeline({ steps, deliverablesLabel = "Deliverabl
                   {index + 1}
                 </span>
                 <div className="flex flex-col">
-                   <h3 className="text-lg font-bold text-slate-900 leading-tight">{step.title}</h3>
-                   {activeStep !== index && (
+                   <h3 className="text-lg font-bold text-slate-900 leading-tight">{step.title || step.step}</h3>
+                   {activeStep !== index && step.duration && (
                      <span className="text-xs font-bold text-slate-400 uppercase tracking-wider mt-1">{step.duration}</span>
                    )}
                 </div>
@@ -52,19 +53,23 @@ export default function ProcessTimeline({ steps, deliverablesLabel = "Deliverabl
             
             {activeStep === index && (
                <div className="animate-in fade-in slide-in-from-top-2 pl-14">
-                 <span className="inline-block text-xs font-bold text-blue-600 uppercase tracking-wider mb-2 bg-blue-100 px-2 py-0.5 rounded-full">{step.duration}</span>
+                 {step.duration && (
+                   <span className="inline-block text-xs font-bold text-blue-600 uppercase tracking-wider mb-2 bg-blue-100 px-2 py-0.5 rounded-full">{step.duration}</span>
+                 )}
                  <p className="text-slate-600 mb-4 text-sm leading-relaxed">{step.description}</p>
-                 <div className="bg-white/50 rounded-xl p-4 border border-blue-100/50">
-                   <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider mb-3">{deliverablesLabel}</h4>
-                   <ul className="space-y-2">
-                     {(step.items || []).map((item, idx) => (
-                       <li key={idx} className="flex items-start gap-2 text-sm text-slate-700">
-                         <CheckCircle2 className="w-4 h-4 text-blue-500 mt-0.5 shrink-0" />
-                         {item}
-                       </li>
-                     ))}
-                   </ul>
-                 </div>
+                 {step.items && step.items.length > 0 && (
+                   <div className="bg-white/50 rounded-xl p-4 border border-blue-100/50">
+                     <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider mb-3">{deliverablesLabel}</h4>
+                     <ul className="space-y-2">
+                       {step.items.map((item, idx) => (
+                         <li key={idx} className="flex items-start gap-2 text-sm text-slate-700">
+                           <CheckCircle2 className="w-4 h-4 text-blue-500 mt-0.5 shrink-0" />
+                           {item}
+                         </li>
+                       ))}
+                     </ul>
+                   </div>
+                 )}
                </div>
             )}
           </div>
@@ -94,7 +99,7 @@ export default function ProcessTimeline({ steps, deliverablesLabel = "Deliverabl
              >
                {index + 1}
                <span className="absolute -bottom-8 text-xs font-bold text-slate-500 w-32 text-center">
-                 {step.title}
+                 {step.title || step.step}
                </span>
              </button>
            ))}
@@ -102,30 +107,34 @@ export default function ProcessTimeline({ steps, deliverablesLabel = "Deliverabl
 
         {/* Content Card */}
         <div className="bg-white border border-slate-100 rounded-3xl p-12 shadow-xl min-h-[300px] flex gap-12 items-center">
-           <div className="w-1/2">
-              <span className="inline-block bg-blue-100 text-blue-700 px-4 py-1 rounded-full text-sm font-bold mb-4">
-                {steps[activeStep].duration}
-              </span>
+           <div className={cn(steps[activeStep].items && steps[activeStep].items.length > 0 ? "w-1/2" : "w-full text-center max-w-3xl mx-auto")}>
+              {steps[activeStep].duration && (
+                <span className="inline-block bg-blue-100 text-blue-700 px-4 py-1 rounded-full text-sm font-bold mb-4">
+                  {steps[activeStep].duration}
+                </span>
+              )}
               <h3 className="text-4xl font-heading font-bold text-slate-900 mb-4">
-                {steps[activeStep].title}
+                {steps[activeStep].title || steps[activeStep].step}
               </h3>
               <p className="text-lg text-slate-600 leading-relaxed">
                 {steps[activeStep].description}
               </p>
            </div>
-           <div className="w-1/2 bg-slate-50 rounded-2xl p-8 border border-slate-100">
-              <h4 className="font-bold text-slate-900 mb-4 uppercase text-sm tracking-wider">{deliverablesLabel}</h4>
-              <ul className="space-y-3">
-                {(steps[activeStep].items || []).map((item, idx) => (
-                  <li key={idx} className="flex items-center gap-3 text-slate-700">
-                    <div className="w-6 h-6 rounded-full bg-white border border-slate-200 flex items-center justify-center shadow-sm text-blue-600">
-                       <CheckCircle2 className="w-4 h-4" />
-                    </div>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-           </div>
+           {steps[activeStep].items && steps[activeStep].items.length > 0 && (
+             <div className="w-1/2 bg-slate-50 rounded-2xl p-8 border border-slate-100">
+                <h4 className="font-bold text-slate-900 mb-4 uppercase text-sm tracking-wider">{deliverablesLabel}</h4>
+                <ul className="space-y-3">
+                  {steps[activeStep].items.map((item, idx) => (
+                    <li key={idx} className="flex items-center gap-3 text-slate-700">
+                      <div className="w-6 h-6 rounded-full bg-white border border-slate-200 flex items-center justify-center shadow-sm text-blue-600">
+                         <CheckCircle2 className="w-4 h-4" />
+                      </div>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+             </div>
+           )}
         </div>
       </div>
     </div>

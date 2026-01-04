@@ -22,7 +22,12 @@ export interface Service {
     highlights?: string[];
     isDocument?: boolean;
   }[];
-  process: { step: string; description: string }[];
+  process: { 
+    step: string; 
+    description: string;
+    duration?: string;
+    items?: string[];
+  }[];
   faqs: { question: string; answer: string }[];
   targetAudience?: string;
   startingPrice?: string;
