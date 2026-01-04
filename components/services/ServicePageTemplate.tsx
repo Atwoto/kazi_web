@@ -135,9 +135,11 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
                <Image
                  src={service.heroImage}
                  alt={name}
-                 layout="fill"
-                 objectFit="cover"
-                 className="opacity-80"
+                 fill
+                 priority
+                 sizes="(max-width: 768px) 100vw, 50vw"
+                 quality={80}
+                 className="opacity-80 object-cover"
                />
                {/* Overlay Text/Badge Mock */}
                <div className="absolute bottom-6 left-6 text-white p-4 bg-black/50 backdrop-blur rounded-xl">

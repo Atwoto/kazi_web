@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -17,6 +18,11 @@ interface ServicePageTemplateV2Props {
 
 export default function ServicePageTemplateV2({ service }: ServicePageTemplateV2Props) {
   const { t } = useLanguage();
+  const [videoLoaded, setVideoLoaded] = useState(false);
+
+  useEffect(() => {
+    setVideoLoaded(true);
+  }, []);
 
   // Get translated service data, fallback to English/default if not found
   // We use 'any' casting here because the structure of translations might vary slightly per service
@@ -76,19 +82,35 @@ export default function ServicePageTemplateV2({ service }: ServicePageTemplateV2
       <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 bg-slate-900 text-white overflow-hidden">
         {/* Video Background */}
         <div className="absolute inset-0 z-0">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            poster="/video.jpg"
-            className="absolute inset-0 w-full h-full object-cover"
-          >
-            <source src="/video.mp4" type="video/mp4" />
-          </video>
+          <div className="absolute inset-0 bg-slate-900 z-[1]">
+             <Image
+                src="/video.jpg"
+                alt="Video Background"
+                fill
+                priority
+                className="object-cover opacity-50"
+                quality={60}
+            />
+          </div>
+
+          {videoLoaded && (
+             <video
+               autoPlay
+               loop
+               muted
+               playsInline
+               controls={false}
+               className="absolute inset-0 w-full h-full object-cover z-[2]"
+               onLoadedData={(e) => (e.currentTarget.style.opacity = "1")}
+               style={{ opacity: 0, transition: "opacity 1s ease-in-out" }}
+             >
+               <source src="/video.mp4" type="video/mp4" />
+             </video>
+          )}
+
           {/* Modern Gradient Overlay for legibility without hiding video */}
-          <div className="absolute inset-0 bg-slate-900/30" />
-          <div className="absolute inset-0 bg-gradient-to-b from-slate-900/60 via-transparent to-slate-900/80" />
+          <div className="absolute inset-0 bg-slate-900/30 z-[3]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-900/60 via-transparent to-slate-900/80 z-[3]" />
         </div>
 
         <div className="container mx-auto px-4 relative z-10">

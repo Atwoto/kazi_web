@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -8,28 +9,54 @@ import TaglineCarousel from "@/components/home/TaglineCarousel";
 import { useLanguage } from "@/context/LanguageContext";
 import { ArrowRight } from "lucide-react";
 
+const CLIENT_LOGOS = [
+  "/logo4.jpg",
+  "/logo5.jpg",
+  "/logo6.jpg"
+];
+
 export default function HeroSection() {
   const { t } = useLanguage();
+  const [videoLoaded, setVideoLoaded] = useState(false);
+
+  useEffect(() => {
+    setVideoLoaded(true);
+  }, []);
 
   return (
     <section className="relative w-full min-h-[calc(100vh-72px)] flex items-center pt-20 pb-8 md:pt-24 md:pb-16 bg-slate-900 text-white overflow-hidden">
       {/* Video Background */}
       <div className="absolute inset-0 z-0">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          controls={false}
-          poster="/video.jpg"
-          className="absolute inset-0 w-full h-full object-cover"
-        >
-          <source src="/video.mp4" type="video/mp4" />
-        </video>
+        <div className="absolute inset-0 bg-slate-900 z-[1]">
+            <Image
+                src="/video.jpg"
+                alt="Video Background"
+                fill
+                priority
+                className="object-cover opacity-50"
+                quality={60}
+            />
+        </div>
+        
+        {videoLoaded && (
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              controls={false}
+              className="absolute inset-0 w-full h-full object-cover z-[2]"
+              onLoadedData={(e) => (e.currentTarget.style.opacity = "1")}
+              style={{ opacity: 0, transition: "opacity 1s ease-in-out" }}
+            >
+              <source src="/video.mp4" type="video/mp4" />
+            </video>
+        )}
+        
         {/* Modern Gradient Overlay for legibility */}
-        <div className="absolute inset-0 bg-slate-900/40" />
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/70 via-transparent to-slate-900/90" />
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:40px_40px]" />
+        <div className="absolute inset-0 bg-slate-900/40 z-[3]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/70 via-transparent to-slate-900/90 z-[3]" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:40px_40px] z-[3]" />
       </div>
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
@@ -83,16 +110,14 @@ export default function HeroSection() {
             <ScrollAnimation animation="fade-up" delay={500}>
                 <div className="flex items-center gap-4 text-sm text-slate-300 pt-4">
                     <div className="flex -space-x-3">
-                        {[
-                          "/logo4.jpg",
-                          "/logo5.jpg",
-                          "/logo6.jpg"
-                        ].map((src, i) => (
+                        {CLIENT_LOGOS.map((src, i) => (
                             <div key={i} className="relative w-10 h-10 rounded-full border-2 border-slate-800 overflow-hidden bg-white">
                                 <Image 
                                   src={src} 
                                   alt={`Trusted Client ${i + 1}`}
                                   fill
+                                  sizes="40px"
+                                  quality={60}
                                   className="object-cover"
                                 />
                             </div>
