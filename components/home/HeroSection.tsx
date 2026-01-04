@@ -20,6 +20,7 @@ export default function HeroSection() {
           loop
           muted
           playsInline
+          controls={false}
           className="absolute inset-0 w-full h-full object-cover"
         >
           <source src="/video.mp4" type="video/mp4" />

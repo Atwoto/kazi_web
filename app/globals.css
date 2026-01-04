@@ -159,6 +159,14 @@
 }
 
 @layer utilities {
+  /* Hide video default controls and ensure autoplay */
+  video::-webkit-media-controls {
+    display: none !important;
+  }
+  video::-webkit-media-controls-enclosure {
+    display: none !important;
+  }
+
   .no-scrollbar::-webkit-scrollbar {
     display: none;
   }
