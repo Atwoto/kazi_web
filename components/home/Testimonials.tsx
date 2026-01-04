@@ -4,15 +4,24 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Star, Quote } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import ScrollAnimation from "@/components/common/ScrollAnimation";
+import Image from "next/image";
 
 export default function Testimonials() {
   const { t } = useLanguage();
 
-  const testimonials = t.home.testimonials.cases.map((caseItem) => ({
+  const images = [
+    "/logo4.jpg",
+    "/logo5.jpg",
+    "/logo6.jpg",
+    "/logo.jpg"
+  ];
+
+  const testimonials = t.home.testimonials.cases.map((caseItem, index) => ({
     name: t.home.testimonials.caseStudy,
     role: caseItem.role,
     text: caseItem.text,
     rating: 5,
+    image: images[index % images.length]
   }));
 
   return (
@@ -46,12 +55,14 @@ function TestimonialCard({
   name, 
   role, 
   text, 
-  rating, 
+  rating,
+  image
 }: { 
   name: string; 
   role: string; 
   text: string; 
-  rating: number; 
+  rating: number;
+  image: string;
 }) {
   return (
     <Card 
@@ -72,8 +83,13 @@ function TestimonialCard({
         </div>
 
         <div className="flex items-center gap-3 pt-4 border-t border-gray-100 mt-auto">
-          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center text-white font-bold text-sm shrink-0">
-            {name.split(' ').map(n => n[0]).join('')}
+          <div className="w-10 h-10 rounded-full overflow-hidden relative shrink-0 border border-gray-100">
+            <Image 
+              src={image} 
+              alt={name} 
+              fill 
+              className="object-cover"
+            />
           </div>
           <div className="min-w-0">
             <p className="font-semibold text-gray-900 text-sm truncate">{name}</p>

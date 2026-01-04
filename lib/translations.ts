@@ -9,6 +9,7 @@ export const translations = {
       contact: "Contact",
       getStarted: "Request Proposal",
       viewAllServices: "View All Services",
+      cityPagesTitle: "Webs by City",
       servicesList: [
         { title: "Web & Booking", href: "/services/web-design-development", description: "Pro website with auto-booking system." },
         { title: "Social Media", href: "/services/social-media-management", description: "Content management & Instagram growth." },
@@ -24,6 +25,39 @@ export const translations = {
         socialMediaManagement: "Content, engagement & growth strategy.",
         academicSupport: "Editing, proofreading & coaching.",
       }
+    },
+    cityPage: {
+      heroTitle: "Web Design in",
+      heroSubtitle: "Your local digital partner in {city}. We create professional websites that turn visitors into customers for businesses across the region.",
+      viewPlans: "View Plans & Pricing",
+      callUs: "Call Us",
+      localTeam: "Local Team",
+      localKnowledge: "Local Knowledge",
+      localSupport: "Support in Your Area",
+      servicesTitle: "Web Services in",
+      servicesSubtitle: "Everything your business needs to stand out online",
+      webDesign: {
+        title: "Professional Web Design",
+        desc: "Modern, fast websites optimized for conversion.",
+        features: ["Responsive design", "SEO included", "Admin panel"],
+        more: "More information"
+      },
+      ecommerce: {
+        title: "Online Stores",
+        desc: "Sell your products online 24/7.",
+        features: ["Payment gateways", "Inventory management", "SEO Optimization"],
+        more: "More information"
+      },
+      seo: {
+        title: "Local SEO",
+        desc: "Appear first when your neighbors search for your services.",
+        features: ["Google Business", "Local Keywords", "Reviews and citations"],
+        more: "More information"
+      },
+      ctaTitle: "Ready to grow in",
+      ctaSubtitle: "Contact us today and get a personalized proposal without obligation.",
+      ctaButton: "Request Proposal",
+      ctaNote: "Response in less than 24 hours • No commitment"
     },
     hero: {
       badge: "Digital Architects",
@@ -218,6 +252,12 @@ export const translations = {
       "web-design-development": {
         name: "Web Development",
         oneLiner: "Enterprise-grade websites and platforms, delivered fully managed.",
+        problems: [
+          { title: "Missed Bookings", text: "Is your business missing out on after-hours bookings?" },
+          { title: "Phone Bottleneck", text: "Are phone-only appointments creating a bottleneck?" },
+          { title: "Outdated Look", text: "Does your website look outdated or not exist at all?" },
+          { title: "Manual Errors", text: "Are manual errors leading to double-bookings?" }
+        ],
         deliverables: ["Custom UI/UX Design", "Full-Stack Development (React/Next.js)", "CMS & E-commerce Integration", "QA Testing & Deployment"],
         process: [
           { 
@@ -250,6 +290,12 @@ export const translations = {
       "graphic-design": {
         name: "Graphic Design",
         oneLiner: "Strategic visual identity and marketing assets for your brand.",
+        problems: [
+          { title: "Outdated Brand", text: "Is your outdated logo holding your brand back?" },
+          { title: "Amateur Look", text: "Do your marketing materials look amateur?" },
+          { title: "Inconsistency", text: "Is your branding inconsistent across different platforms?" },
+          { title: "Perception Gap", text: "Does your design fail to reflect your true expertise?" }
+        ],
         deliverables: ["Brand Strategy & Identity", "Marketing Collateral", "Social Media Suites", "Presentation Design"],
         process: [
           { 
@@ -298,6 +344,12 @@ export const translations = {
       "ai-services": {
         name: "AI Solutions",
         oneLiner: "Implementing practical AI workflows to future-proof your business.",
+        problems: [
+          { title: "Repetition", text: "Are you answering the same basic questions 50+ times a week?" },
+          { title: "Lost Leads", text: "Is a slow response time costing you leads?" },
+          { title: "Limited Hours", text: "Is your business 'closed' on nights and weekends?" },
+          { title: "Manual Grind", text: "Are you manually following up every single lead?" }
+        ],
         deliverables: ["Workflow Automation", "Custom Chatbot Integration", "Data Analysis Models", "Process Optimization"],
         process: [
           { 
@@ -328,6 +380,12 @@ export const translations = {
       "social-media-management": {
         name: "Social Media Management",
         oneLiner: "Full-service Instagram management for local businesses. We handle strategy, content, and community so your brand looks consistent and sells more without you thinking about it.",
+        problems: [
+          { title: "Inconsistency", text: "Is your posting schedule inconsistent or non-existent?" },
+          { title: "Low Quality", text: "Is low-quality content making people scroll past?" },
+          { title: "Disengagement", text: "Are you ignoring your followers and community?" },
+          { title: "Stress", text: "Are you stressing about 'what to post' every single day?" }
+        ],
         deliverables: [
           "Custom Grid Aesthetic & Brand System",
           "Weekly Content Plan & Scheduling",
@@ -1121,6 +1179,27 @@ export const translations = {
       successText: "Check your inbox. We've sent your 5% discount code to",
       close: "Close",
     },
+    newsletter: {
+      title: "Stay Ahead of the Curve",
+      subtitle: "Get digital growth tips, local SEO insights, and exclusive offers delivered to your inbox.",
+      placeholder: "Enter your email",
+      button: "Subscribe",
+      success: "You're in! Check your inbox for a welcome gift.",
+      alreadySubscribed: "You're already subscribed!",
+    },
+    servicePage: {
+      faq: {
+        title: "Questions You Might Have",
+        subtitle: "We believe in transparency. Here are the answers to common questions.",
+        defaultFaqs: [
+          { q: "Why does this cost more than other options?", a: "You're investing in strategy, not just design. Our clients see ROI in 6-12 months because we build websites that convert visitors into customers. A cheap website that doesn't generate sales is money lost." },
+          { q: "Do you offer payment plans?", a: "Yes. 50% at start, 30% at midpoint, 20% at launch. We also accept monthly payments for projects over €8,000." },
+          { q: "How long does it really take?", a: "Typical projects: 6-12 weeks from kickoff to launch. Most delays come from clients (content, feedback). We meet deadlines if you meet yours." },
+          { q: "What if I'm not satisfied?", a: "We offer unlimited revisions during the design phase. Our process includes multiple feedback rounds to ensure you love the final result before development begins." },
+          { q: "Do you provide ongoing support?", a: "Yes! We offer maintenance packages starting at €200/month to keep your site secure, fast, and updated. We're always here to help." }
+        ]
+      }
+    },
     footer: {
       blurb: "Kazi is your local digital partner. We help businesses in Catalonia grow with simple and effective technology.",
       roiCalculator: "ROI Calculator",
@@ -1359,6 +1438,7 @@ export const translations = {
       contact: "Contacto",
       getStarted: "Solicitar Propuesta",
       viewAllServices: "Ver Todos los Servicios",
+      cityPagesTitle: "Webs por Ciudad",
       servicesList: [
         { title: "Web y Reservas", href: "/services/web-design-development", description: "Web profesional con sistema de reservas automático." },
         { title: "Redes Sociales", href: "/services/social-media-management", description: "Gestión de contenido y crecimiento en Instagram." },
@@ -1374,6 +1454,39 @@ export const translations = {
         socialMediaManagement: "Gestión de contenido y crecimiento.",
         academicSupport: "Edición y corrección.",
       }
+    },
+    cityPage: {
+      heroTitle: "Diseño Web en",
+      heroSubtitle: "Tu socio digital local en {city}. Creamos websites profesionales que convierten visitantes en clientes para negocios en toda la región.",
+      viewPlans: "Ver Planes y Precios",
+      callUs: "Llámanos",
+      localTeam: "Equipo Local",
+      localKnowledge: "Conocimiento Local",
+      localSupport: "Soporte en tu Zona",
+      servicesTitle: "Servicios Web en",
+      servicesSubtitle: "Todo lo que tu negocio necesita para destacar online",
+      webDesign: {
+        title: "Diseño Web Profesional",
+        desc: "Websites modernos, rápidos y optimizados para conversión.",
+        features: ["Diseño responsive", "SEO incluido", "Panel de administración"],
+        more: "Más información"
+      },
+      ecommerce: {
+        title: "Tiendas Online",
+        desc: "Vende tus productos online las 24 horas del día.",
+        features: ["Pasarelas de pago", "Gestión de inventario", "Optimización SEO"],
+        more: "Más información"
+      },
+      seo: {
+        title: "SEO Local",
+        desc: "Aparece primero cuando tus vecinos buscan tus servicios.",
+        features: ["Google Business", "Keywords locales", "Reseñas y citas"],
+        more: "Más información"
+      },
+      ctaTitle: "¿Listo para crecer en",
+      ctaSubtitle: "Contáctanos hoy y recibe una propuesta personalizada sin compromiso.",
+      ctaButton: "Solicitar Propuesta",
+      ctaNote: "Respuesta en menos de 24 horas • Sin compromiso"
     },
     hero: {
       badge: "Arquitectos Digitales",
@@ -1706,9 +1819,10 @@ export const translations = {
         problemTitle: "El Problema",
         problemSubtitle: "¿Te suena familiar?",
         problems: [
-          { title: "Baja Conversión", text: "Tienes tráfico, pero el teléfono no suena. Los visitantes se van sin comprar." },
-          { title: "Diseño Anticuado", text: "Tu marca se ve genérica y no refleja la calidad premium de tus servicios." },
-          { title: "Difícil de Actualizar", text: "Cualquier cambio pequeño requiere perseguir a un desarrollador." }
+          { title: "Pérdida de Reservas", text: "¿Tu negocio pierde reservas fuera del horario laboral?" },
+          { title: "Cuello de Botella", text: "¿Las citas telefónicas están creando un cuello de botella?" },
+          { title: "Web Anticuada", text: "¿Tu web parece anticuada o no existe?" },
+          { title: "Errores Manuales", text: "¿Los errores manuales provocan dobles reservas?" }
         ],
         deliverables: ["Diseño UI/UX Personalizado", "Desarrollo Full-Stack (React/Next.js)", "Integración CMS y E-commerce", "Pruebas QA y Despliegue"],
         process: [
@@ -1742,6 +1856,12 @@ export const translations = {
       "graphic-design": {
         name: "Diseño Gráfico",
         oneLiner: "Identidad visual estratégica y activos de marketing para tu marca.",
+        problems: [
+          { title: "Marca Anticuada", text: "¿Tu logotipo anticuado frena tu marca?" },
+          { title: "Look Amateur", text: "¿Tus materiales de marketing parecen de aficionado?" },
+          { title: "Inconsistencia", text: "¿Tu imagen de marca es inconsistente en diferentes plataformas?" },
+          { title: "Brecha de Percepción", text: "¿Tu diseño no refleja tu verdadera experiencia?" }
+        ],
         deliverables: ["Estrategia de Marca e Identidad", "Material de Marketing", "Suites para Redes Sociales", "Diseño de Presentaciones"],
         process: [
           { 
@@ -1790,6 +1910,12 @@ export const translations = {
       "ai-services": {
         name: "Soluciones de IA",
         oneLiner: "Implementación de flujos de trabajo de IA prácticos para preparar tu negocio para el futuro.",
+        problems: [
+          { title: "Repetición", text: "¿Respondes las mismas preguntas básicas 50 veces a la semana?" },
+          { title: "Clientes Perdidos", text: "¿Una respuesta lenta te está costando clientes?" },
+          { title: "Horario Limitado", text: "¿Tu negocio está 'cerrado' por las noches y fines de semana?" },
+          { title: "Trabajo Manual", text: "¿Haces seguimiento manual de cada cliente potencial?" }
+        ],
         deliverables: ["Automatización de Flujos de Trabajo", "Integración de Chatbots Personalizados", "Modelos de Análisis de Datos", "Optimización de Procesos"],
         process: [
           { 
@@ -1820,6 +1946,12 @@ export const translations = {
       "social-media-management": {
         name: "Gestión de Redes Sociales",
         oneLiner: "Gestión integral de Instagram para negocios locales. Manejamos estrategia, contenido y comunidad para que tu marca se vea consistente y venda más sin que tengas que pensar en ello.",
+        problems: [
+          { title: "Inconsistencia", text: "¿Tu calendario de publicaciones es inconsistente?" },
+          { title: "Baja Calidad", text: "¿El contenido de baja calidad hace que la gente pase de largo?" },
+          { title: "Desconexión", text: "¿Estás ignorando a tus seguidores y comunidad?" },
+          { title: "Estrés", text: "¿Te estresa pensar 'qué publicar' cada día?" }
+        ],
         deliverables: [
           "Estética de Cuadrícula y Sistema de Marca",
           "Plan de Contenido Semanal y Programación",
@@ -2614,6 +2746,27 @@ export const translations = {
       successText: "Revisa tu bandeja de entrada. Hemos enviado tu código de descuento del 5% a",
       close: "Cerrar",
     },
+    newsletter: {
+      title: "Mantente Adelante",
+      subtitle: "Recibe consejos de crecimiento digital, insights de SEO local y ofertas exclusivas en tu correo.",
+      placeholder: "Ingresa tu correo",
+      button: "Suscribirse",
+      success: "¡Estás dentro! Revisa tu bandeja para un regalo de bienvenida.",
+      alreadySubscribed: "¡Ya estás suscrito!",
+    },
+    servicePage: {
+      faq: {
+        title: "Preguntas Que Puedes Tener",
+        subtitle: "Creemos en la transparencia. Aquí tienes las respuestas a las preguntas más frecuentes.",
+        defaultFaqs: [
+          { q: "¿Por qué cuesta más que otras opciones?", a: "Estás invirtiendo en estrategia, no solo diseño. Nuestros clientes ven ROI en 6-12 meses porque creamos webs que convierten visitantes en clientes. Una web barata que no genera ventas es dinero perdido." },
+          { q: "¿Ofrecen planes de pago?", a: "Sí. 50% al inicio, 30% a mitad de proyecto, 20% al lanzamiento. También aceptamos pagos mensuales para proyectos de más de €8,000." },
+          { q: "¿Cuánto tarda realmente?", a: "Proyectos típicos: 6-12 semanas desde el inicio hasta el lanzamiento. Los retrasos más comunes vienen de los clientes (contenido, feedback). Nosotros cumplimos plazos si tú cumples los tuyos." },
+          { q: "¿Y si no quedo satisfecho?", a: "Ofrecemos revisiones ilimitadas durante la fase de diseño. Nuestro proceso incluye múltiples rondas de feedback para asegurar que te encanta el resultado antes de comenzar el desarrollo." },
+          { q: "¿Ofrecen soporte continuo?", a: "¡Sí! Ofrecemos paquetes de mantenimiento desde €200/mes para mantener tu web segura, rápida y actualizada. Siempre estamos aquí para ayudarte." }
+        ]
+      }
+    },
     footer: {
       blurb: "Kazi es tu socio digital local. Ayudamos a negocios en Cataluña a crecer con tecnología simple y efectiva.",
       roiCalculator: "Calculadora ROI",
@@ -2852,6 +3005,7 @@ export const translations = {
       contact: "Contacte",
       getStarted: "Demanar Pressupost",
       viewAllServices: "Veure Tots els Serveis",
+      cityPagesTitle: "Webs per Ciutat",
       servicesList: [
         { title: "Web i Reserves", href: "/services/web-design-development", description: "Web professional amb sistema de reserves automàtic." },
         { title: "Xarxes Socials", href: "/services/social-media-management", description: "Gestió de contingut i creixement a Instagram." },
@@ -2867,6 +3021,39 @@ export const translations = {
         socialMediaManagement: "Estratègia de contingut, engagement i creixement.",
         academicSupport: "Edició, correcció i coaching.",
       }
+    },
+    cityPage: {
+      heroTitle: "Disseny Web a",
+      heroSubtitle: "El teu soci digital local a {city}. Creem llocs web professionals que converteixen visitants en clients per a negocis de tota la regió.",
+      viewPlans: "Veure Plans i Preus",
+      callUs: "Truca'ns",
+      localTeam: "Equip Local",
+      localKnowledge: "Coneixement Local",
+      localSupport: "Suport a la teva Zona",
+      servicesTitle: "Serveis Web a",
+      servicesSubtitle: "Tot el que el teu negoci necessita per destacar en línia",
+      webDesign: {
+        title: "Disseny Web Professional",
+        desc: "Llocs web moderns, ràpids i optimitzats per a la conversió.",
+        features: ["Disseny responsive", "SEO inclòs", "Panell d'administració"],
+        more: "Més informació"
+      },
+      ecommerce: {
+        title: "Botigues En Línia",
+        desc: "Ven els teus productes en línia les 24 hores del dia.",
+        features: ["Passarel·les de pagament", "Gestió d'inventari", "Optimització SEO"],
+        more: "Més informació"
+      },
+      seo: {
+        title: "SEO Local",
+        desc: "Apareix primer quan els teus veïns busquen els teus serveis.",
+        features: ["Google Business", "Paraules clau locals", "Ressenyes i cites"],
+        more: "Més informació"
+      },
+      ctaTitle: "A punt per créixer a",
+      ctaSubtitle: "Contacta'ns avui i rep una proposta personalitzada sense compromís.",
+      ctaButton: "Demanar Pressupost",
+      ctaNote: "Resposta en menys de 24 hores • Sense compromís"
     },
     hero: {
       badge: "Arquitectes Digitals",
@@ -3064,9 +3251,10 @@ export const translations = {
         problemTitle: "El Problema",
         problemSubtitle: "Et sona familiar?",
         problems: [
-          { title: "Baixa Conversió", text: "Trànsit però sense vendes." },
-          { title: "Disseny Antiquat", text: "No reflecteix la qualitat de la teva marca." },
-          { title: "Difícil d'Actualitzar", text: "Dependència de programadors per a petits canvis." }
+          { title: "Pèrdua de Reserves", text: "El teu negoci perd reserves fora de l'horari laboral?" },
+          { title: "Coll d'Ampolla", text: "Les cites telefòniques estan creant un coll d'ampolla?" },
+          { title: "Web Antiquada", text: "La teva web sembla antiquada o no existeix?" },
+          { title: "Errors Manuals", text: "Els errors manuals provoquen dobles reserves?" }
         ],
         deliverables: ["Disseny UI/UX Personalitzat", "Desenvolupament Full-Stack (React/Next.js)", "Integració CMS i E-commerce", "Proves QA i Desplegament"],
         process: [
@@ -3100,6 +3288,12 @@ export const translations = {
       "graphic-design": {
         name: "Disseny Gràfic",
         oneLiner: "Identitat visual estratègica i actius de màrqueting per a la teva marca.",
+        problems: [
+          { title: "Marca Antiquada", text: "El teu logotip antiquat frena la teva marca?" },
+          { title: "Look Amateur", text: "Els teus materials de màrqueting semblen d'aficionat?" },
+          { title: "Inconsistència", text: "La teva imatge de marca és inconsistent en diferents plataformes?" },
+          { title: "Bretxa de Percepció", text: "El teu disseny no reflecteix la teva veritable experiència?" }
+        ],
         deliverables: ["Estratègia de Marca i Identitat", "Material de Màrqueting", "Suites per a Xarxes Socials", "Disseny de Presentacions"],
         process: [
           { 
@@ -3148,6 +3342,12 @@ export const translations = {
       "ai-services": {
         name: "Solucions d'IA",
         oneLiner: "Implementació de fluxos de treball d'IA pràctics per preparar el teu negoci per al futur.",
+        problems: [
+          { title: "Repetició", text: "Respons les mateixes preguntes bàsiques 50 vegades a la setmana?" },
+          { title: "Clients Perduts", text: "Una resposta lenta t'està costant clients?" },
+          { title: "Horari Limitat", text: "El teu negoci està 'tancat' a les nits i caps de setmana?" },
+          { title: "Treball Manual", text: "Fas seguiment manual de cada client potencial?" }
+        ],
         deliverables: ["Automatització de Fluxos de Treball", "Integració de Chatbots Personalitzats", "Models d'Anàlisi de Dades", "Optimització de Processos"],
         examples: [
           {
@@ -3187,6 +3387,12 @@ export const translations = {
       "social-media-management": {
         name: "Gestió de Xarxes Socials",
         oneLiner: "Gestió integral d'Instagram per a negocis locals. Gestionem estratègia, contingut i comunitat perquè la teva marca es vegi consistent i vengui més sense que hi hagis de pensar.",
+        problems: [
+          { title: "Inconsistència", text: "El teu calendari de publicacions és inconsistent?" },
+          { title: "Baixa Qualitat", text: "El contingut de baixa qualitat fa que la gent passi de llarg?" },
+          { title: "Desconnexió", text: "Estàs ignorant als teus seguidors i comunitat?" },
+          { title: "Estrès", text: "T'estressa pensar 'què publicar' cada dia?" }
+        ],
         deliverables: [
           "Estètica de Quadrícula i Sistema de Marca",
           "Pla de Contingut Setmanal i Programació",
@@ -3979,6 +4185,27 @@ export const translations = {
       successTitle: "Descompte Desbloquejat! 🎉",
       successText: "Revisa la teva safata d'entrada. Hem enviat el teu codi de descompte del 5% a",
       close: "Tancar",
+    },
+    newsletter: {
+      title: "Mantén-te Al Davant",
+      subtitle: "Rep consells de creixement digital, insights de SEO local i ofertes exclusives al teu correu.",
+      placeholder: "Introdueix el teu correu",
+      button: "Subscriure's",
+      success: "¡Estàs dins! Revisa la teva safata per un regal de benvinguda.",
+      alreadySubscribed: "Ja estàs subscrit!",
+    },
+    servicePage: {
+      faq: {
+        title: "Preguntes Que Pots Tenir",
+        subtitle: "Creiem en la transparència. Aquí tens les respostes a les preguntes més freqüents.",
+        defaultFaqs: [
+          { q: "Per què costa més que altres opcions?", a: "Estàs invertint en estratègia, no només disseny. Els nostres clients veuen ROI en 6-12 mesos perquè creem webs que converteixen visitants en clients. Una web barata que no genera vendes és diners perduts." },
+          { q: "Ofereixeu plans de pagament?", a: "Sí. 50% a l'inici, 30% a la meitat del projecte, 20% al llançament. També acceptem pagaments mensuals per projectes de més de €8,000." },
+          { q: "Quant de temps triga realment?", a: "Projectes típics: 6-12 setmanes des de l'inici fins al llançament. Els retards més comuns vénen dels clients (contingut, feedback). Nosaltres complim terminis si tu compleixes els teus." },
+          { q: "I si no quedo satisfet?", a: "Oferim revisions il·limitades durant la fase de disseny. El nostre procés inclou múltiples rondes de feedback per assegurar que t'encanta el resultat abans de començar el desenvolupament." },
+          { q: "Ofereixeu suport continu?", a: "Sí! Oferim paquets de manteniment des de €200/mes per mantenir la teva web segura, ràpida i actualitzada. Sempre estem aquí per ajudar-te." }
+        ]
+      }
     },
     footer: {
       blurb: "Kazi és el teu soci digital local. Ajudem els negocis a Catalunya a créixer amb tecnologia simple i efectiva.",

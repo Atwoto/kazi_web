@@ -64,9 +64,45 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Kazi Agency",
+    "url": "https://kazi.agency",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://kazi.agency/search?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  };
+
+  const orgSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Kazi Agency",
+    "url": "https://kazi.agency",
+    "logo": "https://kazi.agency/logo.jpg",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+34-600-000-000",
+      "contactType": "customer service",
+      "availableLanguage": ["Spanish", "Catalan", "English"]
+    }
+  };
+
   return (
     <html lang="es" suppressHydrationWarning>
-      <body className={`${quicksand.variable} ${inter.variable} flex flex-col min-h-screen notranslate`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
+        />
+      </head>
+      <body className={`${quicksand.variable} ${inter.variable} flex flex-col min-h-screen notranslate`} suppressHydrationWarning>
         <Analytics />
         <LanguageProvider>
           <LayoutWrapper>{children}</LayoutWrapper>

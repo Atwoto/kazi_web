@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import HeroSection from "@/components/home/HeroSection";
-import ServiceTiles from "@/components/home/ServiceTiles";
+import InteractiveServiceShowcase from "@/components/home/InteractiveServiceShowcase";
 import HowItWorks from "@/components/home/HowItWorks";
 import QualityControlSection from "@/components/home/QualityControlSection";
 import PMStandards from "@/components/home/PMStandards";
@@ -19,7 +19,7 @@ export default function Home() {
   return (
     <>
       <HeroSection />
-      <ServiceTiles />
+      <InteractiveServiceShowcase />
       <HowItWorks />
       <QualityControlSection />
       <PMStandards />

@@ -49,7 +49,7 @@ export default function Navbar() {
       >
         <div className="container mx-auto px-4 md:px-6 flex items-center justify-between relative z-50">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2 mr-8">
+          <Link href="/" className="flex items-center space-x-2 mr-8" suppressHydrationWarning>
             <Image 
               src="/logo.jpg" 
               alt="Kazi Agency Logo" 
@@ -62,7 +62,7 @@ export default function Navbar() {
 
           {/* Desktop Navigation Links - Centered */}
           <div className="hidden lg:flex items-center space-x-1 absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
-            <Link href="/" className={cn(navigationMenuTriggerStyle(), "bg-transparent hover:bg-accent hover:text-accent-foreground text-muted-foreground")}>
+            <Link href="/" className={cn(navigationMenuTriggerStyle(), "bg-transparent hover:bg-accent hover:text-accent-foreground text-muted-foreground")} suppressHydrationWarning>
               {t.nav.home}
             </Link>
 
@@ -78,6 +78,7 @@ export default function Navbar() {
                             <Link
                               href={service.href}
                               className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                              suppressHydrationWarning
                             >
                               <div className="text-sm font-medium leading-none text-foreground">{service.title}</div>
                               <p className="line-clamp-2 text-sm leading-snug text-muted-foreground mt-1">
@@ -87,28 +88,48 @@ export default function Navbar() {
                           </NavigationMenuLink>
                         </li>
                       ))}
-                                          <li className="col-span-2 border-t border-border pt-3 mt-1">
-                                              <NavigationMenuLink asChild>
-                                                  <Link href="/services" className="flex items-center justify-center text-sm font-medium text-blue-500 hover:underline">
-                                                      {t.nav.viewAllServices} →
-                                                  </Link>
-                                              </NavigationMenuLink>
-                                          </li>                    </ul>
+                      <li className="col-span-2">
+                        <div className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-2 px-3 pt-2">
+                          {t.nav.cityPagesTitle || "Webs por Ciudad"}
+                        </div>
+                        <div className="grid grid-cols-2 gap-2">
+                          <Link href="/servicios-web/barcelona" className="block select-none rounded-md p-2 text-sm hover:bg-accent hover:text-accent-foreground transition-colors" suppressHydrationWarning>
+                            Barcelona
+                          </Link>
+                          <Link href="/servicios-web/sabadell" className="block select-none rounded-md p-2 text-sm hover:bg-accent hover:text-accent-foreground transition-colors" suppressHydrationWarning>
+                            Sabadell
+                          </Link>
+                          <Link href="/servicios-web/terrassa" className="block select-none rounded-md p-2 text-sm hover:bg-accent hover:text-accent-foreground transition-colors" suppressHydrationWarning>
+                            Terrassa
+                          </Link>
+                          <Link href="/servicios-web/sant-cugat" className="block select-none rounded-md p-2 text-sm hover:bg-accent hover:text-accent-foreground transition-colors" suppressHydrationWarning>
+                            Sant Cugat
+                          </Link>
+                        </div>
+                      </li>
+                      <li className="col-span-2 border-t border-border pt-3 mt-1">
+                        <NavigationMenuLink asChild>
+                          <Link href="/services" className="flex items-center justify-center text-sm font-medium text-blue-500 hover:underline" suppressHydrationWarning>
+                            {t.nav.viewAllServices} →
+                          </Link>
+                        </NavigationMenuLink>
+                      </li>
+                    </ul>
                   </NavigationMenuContent>
                 </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>
 
-            <Link href="/portfolio" className={cn(navigationMenuTriggerStyle(), "bg-transparent hover:bg-accent hover:text-accent-foreground text-muted-foreground")}>
+            <Link href="/portfolio" className={cn(navigationMenuTriggerStyle(), "bg-transparent hover:bg-accent hover:text-accent-foreground text-muted-foreground")} suppressHydrationWarning>
               {t.nav.portfolio}
             </Link>
-            <Link href="/pricing" className={cn(navigationMenuTriggerStyle(), "bg-transparent hover:bg-accent hover:text-accent-foreground text-muted-foreground")}>
+            <Link href="/pricing" className={cn(navigationMenuTriggerStyle(), "bg-transparent hover:bg-accent hover:text-accent-foreground text-muted-foreground")} suppressHydrationWarning>
               {t.nav.pricing}
             </Link>
-            <Link href="/faq" className={cn(navigationMenuTriggerStyle(), "bg-transparent hover:bg-accent hover:text-accent-foreground text-muted-foreground")}>
+            <Link href="/faq" className={cn(navigationMenuTriggerStyle(), "bg-transparent hover:bg-accent hover:text-accent-foreground text-muted-foreground")} suppressHydrationWarning>
               {t.nav.faq}
             </Link>
-            <Link href="/contact" className={cn(navigationMenuTriggerStyle(), "bg-transparent hover:bg-accent hover:text-accent-foreground text-muted-foreground")}>
+            <Link href="/contact" className={cn(navigationMenuTriggerStyle(), "bg-transparent hover:bg-accent hover:text-accent-foreground text-muted-foreground")} suppressHydrationWarning>
               {t.nav.contact}
             </Link>
           </div>
@@ -130,7 +151,12 @@ export default function Navbar() {
             </Button>
             
             {/* Mobile Menu Button */}
-            <button className="lg:hidden p-2 text-muted-foreground hover:text-foreground transition-colors" onClick={toggleMobileMenu} aria-label="Toggle mobile menu">
+            <button
+              className="lg:hidden p-2 text-muted-foreground hover:text-foreground transition-colors"
+              onClick={toggleMobileMenu}
+              aria-label="Toggle mobile menu"
+              suppressHydrationWarning
+            >
               {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
           </div>

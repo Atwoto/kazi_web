@@ -17,9 +17,11 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const [language, setLanguage] = useState<Language>("es");
   const [isAutoDetected, setIsAutoDetected] = useState(false);
   const [isInitialized, setIsInitialized] = useState(false);
+  const [hasMounted, setHasMounted] = useState(false);
 
   // Initialize language on mount
   useEffect(() => {
+    setHasMounted(true);
     async function initLanguage() {
       // Check if user has previously selected a language
       const savedLang = localStorage.getItem("kazi-lang") as Language;
@@ -32,7 +34,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
       }
 
       // No saved language, force Spanish default as requested
-      /* 
+      /*
       try {
         const detectedLang = await detectLanguage();
         setLanguage(detectedLang);
@@ -44,7 +46,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
         setIsAutoDetected(false);
       }
       */
-      
+
       // Default to Spanish
       setLanguage("es");
       setIsAutoDetected(false);
@@ -61,15 +63,27 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     setIsAutoDetected(false);
   };
 
-  // Don't render children until language is initialized
-  if (!isInitialized) {
+  // On server, always render with Spanish
+  if (!hasMounted) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
-      </div>
+      <LanguageContext.Provider
+        value={{
+          language: "es",
+          setLanguage: () => {},
+          t: translations["es"],
+          isAutoDetected: false,
+        }}
+      >
+        <div suppressHydrationWarning>{children}</div>
+      </LanguageContext.Provider>
     );
   }
 
+  // To prevent hydration mismatch, we render the children but can handle 
+  // the initialization state. If we render a spinner here, it MUST match 
+  // what was on the server. Since server rendered {children}, client must 
+  // initially render {children} too.
+  
   return (
     <LanguageContext.Provider
       value={{
@@ -79,7 +93,13 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
         isAutoDetected,
       }}
     >
-      {children}
+      <div suppressHydrationWarning>
+        {!isInitialized && !language ? (
+           <div className="min-h-screen flex items-center justify-center bg-white">
+             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+           </div>
+        ) : children}
+      </div>
     </LanguageContext.Provider>
   );
 }

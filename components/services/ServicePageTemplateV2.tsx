@@ -84,8 +84,8 @@ export default function ServicePageTemplateV2({ service }: ServicePageTemplateV2
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-slate-900 z-[1]">
              <Image
-                src="/video.jpg"
-                alt="Video Background"
+                src={service.heroImage || "/video.jpg"}
+                alt={`${service.name} Background`}
                 fill
                 priority
                 className="object-cover opacity-50"
@@ -93,7 +93,7 @@ export default function ServicePageTemplateV2({ service }: ServicePageTemplateV2
             />
           </div>
 
-          {videoLoaded && (
+          {videoLoaded && service.heroVideo && (
              <video
                autoPlay
                loop
@@ -104,7 +104,7 @@ export default function ServicePageTemplateV2({ service }: ServicePageTemplateV2
                onLoadedData={(e) => (e.currentTarget.style.opacity = "1")}
                style={{ opacity: 0, transition: "opacity 1s ease-in-out" }}
              >
-               <source src="/video.mp4" type="video/mp4" />
+               <source src={service.heroVideo} type="video/mp4" />
              </video>
           )}
 
@@ -385,7 +385,56 @@ export default function ServicePageTemplateV2({ service }: ServicePageTemplateV2
         </div>
       </section>
 
-      {/* 7. FINAL CTA */}
+      {/* 7. OBJECTION FAQ */}
+      <section className="py-24 bg-white">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <div className="text-center mb-16">
+            <span className="inline-block py-1 px-3 rounded-full bg-amber-100 border border-amber-200 text-amber-700 text-sm font-bold tracking-wider mb-4">
+              FAQ
+            </span>
+            <h2 className="text-3xl font-heading font-bold text-slate-900 mb-4">
+              {t.servicePage?.faq?.title || "Questions You Might Have"}
+            </h2>
+            <p className="text-slate-600">
+              {t.servicePage?.faq?.subtitle || "We believe in transparency. Here are the answers to common questions."}
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            {(() => {
+              // Prioritize translated service-specific FAQs, then default service FAQs, then generic fallback
+              const faqs = (translatedService.faqs && translatedService.faqs.length > 0)
+                ? translatedService.faqs 
+                : (service.faqs && service.faqs.length > 0)
+                  ? service.faqs
+                  : (t.servicePage?.faq?.defaultFaqs || [
+                      { q: "Why does this cost more?", a: "You're investing in strategy, not just design." },
+                      { q: "Do you offer payment plans?", a: "Yes. 50% at start, 30% at midpoint, 20% at launch." }
+                    ]);
+
+              return faqs.map((faq: any, idx: number) => (
+                <div key={idx} className="border border-slate-200 rounded-2xl overflow-hidden hover:border-blue-200 transition-colors">
+                  <details className="group">
+                    <summary className="flex items-center justify-between p-6 cursor-pointer bg-white list-none">
+                      <h3 className="text-lg font-bold text-slate-900 pr-4">{faq.q || faq.question}</h3>
+                      <span className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center transition-transform group-open:rotate-180">
+                        <svg className="w-4 h-4 text-slate-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        </svg>
+                      </span>
+                    </summary>
+                    <div className="px-6 pb-6 text-slate-600 leading-relaxed animate-in fade-in slide-in-from-top-2">
+                      {faq.a || faq.answer}
+                    </div>
+                  </details>
+                </div>
+              ));
+            })()}
+          </div>
+        </div>
+      </section>
+
+      {/* 8. FINAL CTA */}
       <section className="relative py-24 bg-slate-900 text-white text-center overflow-hidden">
          {/* Abstract Background for CTA */}
          <div className="absolute inset-0 z-0 opacity-30">

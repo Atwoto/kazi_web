@@ -3,6 +3,7 @@ export interface Service {
   name: string;
   oneLiner: string;
   heroImage: string;
+  heroVideo?: string;
   ctaLink: string;
   deliverables: string[];
   goals?: string[];
@@ -42,6 +43,7 @@ export const servicesData: Service[] = [
     name: "Diseño Web en Barcelona",
     oneLiner: "Diseño Web Premium para Negocios Locales en Barcelona. Convierte visitantes en clientes.",
     heroImage: "/web.png",
+    heroVideo: "/WEB.mp4",
     ctaLink: "/pricing",
     deliverables: [
       "Research & estrategia inicial",
@@ -194,6 +196,7 @@ export const servicesData: Service[] = [
     name: "Web Design & Development",
     oneLiner: "Digital Architects for Brands Ready to Scale",
     heroImage: "/web.png",
+    heroVideo: "/WEB.mp4",
     ctaLink: "/pricing",
     deliverables: [
       "Strategic UX/UI Design",
@@ -234,6 +237,7 @@ export const servicesData: Service[] = [
     name: "Graphic Design",
     oneLiner: "Strategic visual identity and marketing assets for your brand.",
     heroImage: "/graphics.jpg",
+    heroVideo: "/GRAPHICS.mp4",
     ctaLink: "/pricing",
     deliverables: ["Brand Strategy & Identity", "Marketing Collateral", "Social Media Suites", "Presentation Design"],
     examples: [
@@ -316,6 +320,7 @@ export const servicesData: Service[] = [
     name: "AI Solutions",
     oneLiner: "Implementing practical AI workflows to future-proof your business.",
     heroImage: "/AI.jpg",
+    heroVideo: "/AI.mp4",
     ctaLink: "/pricing",
     deliverables: ["Workflow Automation", "Custom Chatbot Integration", "Data Analysis Models", "Process Optimization"],
     examples: [
@@ -363,6 +368,7 @@ export const servicesData: Service[] = [
     name: "Social Media Management",
     oneLiner: "Full-service Instagram management for local businesses to increase reach, foot traffic, and sales.",
     heroImage: "/samples/social/social4.jpg",
+    heroVideo: "/SOCIAL.mp4",
     ctaLink: "/pricing",
     deliverables: [
       "Custom Grid Aesthetic & Brand System",
