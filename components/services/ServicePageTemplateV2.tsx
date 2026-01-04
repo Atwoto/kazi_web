@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Check, ArrowRight, X, Play } from "lucide-react";
+import { Check, ArrowRight, X } from "lucide-react";
 import { Service } from "@/lib/service-data";
 import { useLanguage } from "@/context/LanguageContext";
 import ScrollAnimation from "@/components/common/ScrollAnimation";
@@ -122,7 +122,7 @@ export default function ServicePageTemplateV2({ service }: ServicePageTemplateV2
                 </Button>
                 <Button asChild variant="outline" className="h-14 px-10 rounded-full text-lg border-white/30 bg-white/10 text-white backdrop-blur-md hover:bg-white/20 transition-all hover:scale-105 shadow-xl">
                   <Link href="#examples">
-                    <Play className="w-4 h-4 mr-2 fill-current" /> {t.servicePage?.viewPortfolio || "View Examples"}
+                    {t.servicePage?.viewPortfolio || "View Examples"}
                   </Link>
                 </Button>
               </div>

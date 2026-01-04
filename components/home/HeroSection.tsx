@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import ScrollAnimation from "@/components/common/ScrollAnimation";
 import TaglineCarousel from "@/components/home/TaglineCarousel";
 import { useLanguage } from "@/context/LanguageContext";
-import { ArrowRight, Briefcase, CheckCircle2, Play } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export default function HeroSection() {
   const { t } = useLanguage();
@@ -73,7 +73,6 @@ export default function HeroSection() {
                 </Button>
                 <Button asChild variant="outline" className="h-14 px-8 rounded-full text-base border-white/30 bg-white/10 text-white backdrop-blur-md hover:bg-white/20 transition-all group">
                   <Link href="/portfolio">
-                    <Play className="mr-2 w-4 h-4 fill-current group-hover:scale-110 transition-transform" />
                     {t.hero.ctaSecondary}
                   </Link>
                 </Button>
