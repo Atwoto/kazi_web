@@ -103,7 +103,7 @@ export default function InteractiveServiceShowcase() {
             Everything Your Business Needs
           </h2>
           <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-            From websites that convert to AI that scales — we build the digital infrastructure that grows your business.
+            From websites that convert to AI that scales we build the digital infrastructure that grows your business.
           </p>
         </div>
 
