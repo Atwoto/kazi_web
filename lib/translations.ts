@@ -2037,10 +2037,21 @@ export const translations = {
       startsFrom: "Desde",
       revisions: "Revisiones Incl.",
       whatYouGet: "Lo Que Obtienes",
-      serviceGoals: "Objetivos del Servicio",
-      howItWorks: "Cómo Funciona",
+      serviceGoals: "Cómo lo resolvemos",
+      howItWorks: "Nuestro Proceso",
+      professionalDelivery: "Construimos motores de conversión utilizando un proceso arquitectónico probado.",
       recentWork: "Trabajo Reciente",
-      faq: "Preguntas Frecuentes",
+      faq: {
+        title: "Preguntas Que Puedes Tener",
+        subtitle: "Creemos en la transparencia. Aquí tienes las respuestas a las preguntas más frecuentes.",
+        defaultFaqs: [
+          { q: "¿Por qué cuesta más que otras opciones?", a: "Estás invirtiendo en estrategia, no solo diseño. Nuestros clientes ven ROI en 6-12 meses porque creamos webs que convierten visitantes en clientes. Una web barata que no genera ventas es dinero perdido." },
+          { q: "¿Ofrecen planes de pago?", a: "Sí. 50% al inicio, 30% a mitad de proyecto, 20% al lanzamiento. También aceptamos pagos mensuales para proyectos de más de €8,000." },
+          { q: "¿Cuánto tarda realmente?", a: "Proyectos típicos: 6-12 semanas desde el inicio hasta el lanzamiento. Los retrasos más comunes vienen de los clientes (contenido, feedback). Nosotros cumplimos plazos si tú cumples los tuyos." },
+          { q: "¿Y si no quedo satisfecho?", a: "Ofrecemos revisiones ilimitadas durante la fase de diseño. Nuestro proceso incluye múltiples rondas de feedback para asegurar que te encanta el resultado antes de comenzar el desarrollo." },
+          { q: "¿Ofrecen soporte continuo?", a: "¡Sí! Ofrecemos paquetes de mantenimiento desde €200/mes para mantener tu web segura, rápida y actualizada. Siempre estamos aquí para ayudarte." }
+        ]
+      },
       deliverables: "Entregables",
       tabs: {
         overview: "Resumen",
@@ -2754,19 +2765,7 @@ export const translations = {
       success: "¡Estás dentro! Revisa tu bandeja para un regalo de bienvenida.",
       alreadySubscribed: "¡Ya estás suscrito!",
     },
-    servicePage: {
-      faq: {
-        title: "Preguntas Que Puedes Tener",
-        subtitle: "Creemos en la transparencia. Aquí tienes las respuestas a las preguntas más frecuentes.",
-        defaultFaqs: [
-          { q: "¿Por qué cuesta más que otras opciones?", a: "Estás invirtiendo en estrategia, no solo diseño. Nuestros clientes ven ROI en 6-12 meses porque creamos webs que convierten visitantes en clientes. Una web barata que no genera ventas es dinero perdido." },
-          { q: "¿Ofrecen planes de pago?", a: "Sí. 50% al inicio, 30% a mitad de proyecto, 20% al lanzamiento. También aceptamos pagos mensuales para proyectos de más de €8,000." },
-          { q: "¿Cuánto tarda realmente?", a: "Proyectos típicos: 6-12 semanas desde el inicio hasta el lanzamiento. Los retrasos más comunes vienen de los clientes (contenido, feedback). Nosotros cumplimos plazos si tú cumples los tuyos." },
-          { q: "¿Y si no quedo satisfecho?", a: "Ofrecemos revisiones ilimitadas durante la fase de diseño. Nuestro proceso incluye múltiples rondas de feedback para asegurar que te encanta el resultado antes de comenzar el desarrollo." },
-          { q: "¿Ofrecen soporte continuo?", a: "¡Sí! Ofrecemos paquetes de mantenimiento desde €200/mes para mantener tu web segura, rápida y actualizada. Siempre estamos aquí para ayudarte." }
-        ]
-      }
-    },
+
     footer: {
       blurb: "Kazi es tu socio digital local. Ayudamos a negocios en Cataluña a crecer con tecnología simple y efectiva.",
       roiCalculator: "Calculadora ROI",
