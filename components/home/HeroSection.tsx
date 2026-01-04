@@ -21,6 +21,7 @@ export default function HeroSection() {
           muted
           playsInline
           controls={false}
+          poster="/video.jpg"
           className="absolute inset-0 w-full h-full object-cover"
         >
           <source src="/video.mp4" type="video/mp4" />

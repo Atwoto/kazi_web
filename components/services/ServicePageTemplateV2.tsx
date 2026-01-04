@@ -81,6 +81,7 @@ export default function ServicePageTemplateV2({ service }: ServicePageTemplateV2
             loop
             muted
             playsInline
+            poster="/video.jpg"
             className="absolute inset-0 w-full h-full object-cover"
           >
             <source src="/video.mp4" type="video/mp4" />
