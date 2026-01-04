@@ -175,11 +175,29 @@ export default function ServicePageTemplateV2({ service }: ServicePageTemplateV2
                 ))}
               </div>
             </div>
-            <div className="relative">
-               {/* Decorative "Frustration" Image Placeholder */}
-               <div className="bg-slate-200 rounded-2xl w-full h-[500px] flex items-center justify-center relative overflow-hidden">
-                  <div className="absolute inset-0 bg-slate-300/50 pattern-grid-lg opacity-20" />
-                  <p className="text-slate-400 font-bold text-2xl rotate-12">"Why is this so hard?"</p>
+            <div className="relative h-[500px] w-full">
+               {/* Service Specific "Problem" Image */}
+               <div className="relative h-full w-full rounded-2xl overflow-hidden shadow-2xl border border-slate-200">
+                  <Image
+                    src={
+                      service.slug === "web-design-development" ? "/website.jpg" :
+                      service.slug === "social-media-management" ? "/socialp.jpg" :
+                      service.slug === "graphic-design" ? "/graphics.jpg" :
+                      "/photo.jpg" // Fallback
+                    }
+                    alt="The Problem Illustration"
+                    fill
+                    className="object-cover"
+                  />
+                  {/* Overlay for dramatic effect */}
+                  <div className="absolute inset-0 bg-slate-900/10" />
+               </div>
+               
+               {/* Floating Badge */}
+               <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-2xl shadow-xl border border-slate-100 max-w-[200px] hidden md:block animate-bounce-slow">
+                  <p className="text-slate-900 font-bold text-sm leading-tight">
+                    "{t.servicePage?.problem?.quote || "Why is this so hard?"}"
+                  </p>
                </div>
             </div>
           </div>
@@ -438,7 +456,6 @@ export default function ServicePageTemplateV2({ service }: ServicePageTemplateV2
       <section className="relative py-24 bg-slate-900 text-white text-center overflow-hidden">
          {/* Abstract Background for CTA */}
          <div className="absolute inset-0 z-0 opacity-30">
-            <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:40px_40px]" />
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-600/20 rounded-full blur-[120px]" />
          </div>
 

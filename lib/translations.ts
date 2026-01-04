@@ -83,6 +83,45 @@ export const translations = {
         title: "Everything your business needs",
         subtitle: "Simple and effective digital solutions for local businesses.",
       },
+      interactiveShowcase: {
+        badge: "SERVICES",
+        title: "Everything Your Business Needs",
+        subtitle: "From websites that convert to AI that scales we build the digital infrastructure that grows your business.",
+        services: {
+          webDesign: {
+            title: "Web Design",
+            shortDesc: "Professional websites that convert",
+            features: ["Custom UI/UX Design", "Full-Stack Development", "CMS Integration", "SEO Optimized"]
+          },
+          eCommerce: {
+            title: "eCommerce",
+            shortDesc: "Online stores that sell 24/7",
+            features: ["Payment Integration", "Inventory Management", "Product Optimization", "Order Automation"]
+          },
+          seo: {
+            title: "SEO Local",
+            shortDesc: "Rank first in your neighborhood",
+            features: ["Google Business", "Local Keywords", "Review Management", "Citation Building"]
+          },
+          ai: {
+            title: "AI Solutions",
+            shortDesc: "Automate and scale your business",
+            features: ["Chatbots", "Workflow Automation", "Lead Generation", "Process Optimization"]
+          },
+          social: {
+            title: "Social Media",
+            shortDesc: "Grow your Instagram presence",
+            features: ["Content Strategy", "Reels Production", "Community Management", "Analytics"]
+          },
+          graphic: {
+            title: "Graphic Design",
+            shortDesc: "Brand identity & visual assets",
+            features: ["Logo Design", "Marketing Materials", "Social Templates", "Brand Guidelines"]
+          }
+        },
+        learnMore: "Learn More",
+        viewAll: "View All Services"
+      },
       serviceTiles_new: [
         { title: "Web & Booking", description: "Professional website with automatic booking system. Your business open 24/7.", icon: "Calendar", href: "/services/web-design-development" },
         { title: "Social Media", description: "Content management and growth on Instagram/Google Maps. Get found.", icon: "Instagram", href: "/services/social-media-management" },
@@ -1511,6 +1550,45 @@ export const translations = {
       serviceTiles: {
         title: "Todo lo que tu negocio necesita",
         subtitle: "Soluciones digitales simples y efectivas para negocios locales.",
+      },
+      interactiveShowcase: {
+        badge: "SERVICIOS",
+        title: "Todo lo que tu Negocio Necesita",
+        subtitle: "Desde sitios web que convierten hasta IA que escala, construimos la infraestructura digital que hace crecer tu negocio.",
+        services: {
+          webDesign: {
+            title: "Diseño Web",
+            shortDesc: "Sitios web profesionales que convierten",
+            features: ["Diseño UI/UX Personalizado", "Desarrollo Full-Stack", "Integración CMS", "Optimizado para SEO"]
+          },
+          eCommerce: {
+            title: "Comercio Electrónico",
+            shortDesc: "Tiendas online que venden 24/7",
+            features: ["Integración de Pagos", "Gestión de Inventario", "Optimización de Productos", "Automatización de Pedidos"]
+          },
+          seo: {
+            title: "SEO Local",
+            shortDesc: "Posiciónate primero en tu barrio",
+            features: ["Google Business", "Palabras Clave Locales", "Gestión de Reseñas", "Construcción de Citas"]
+          },
+          ai: {
+            title: "Soluciones IA",
+            shortDesc: "Automatiza y escala tu negocio",
+            features: ["Chatbots", "Automatización de Flujos", "Generación de Leads", "Optimización de Procesos"]
+          },
+          social: {
+            title: "Redes Sociales",
+            shortDesc: "Haz crecer tu presencia en Instagram",
+            features: ["Estrategia de Contenido", "Producción de Reels", "Gestión de Comunidad", "Analíticas"]
+          },
+          graphic: {
+            title: "Diseño Gráfico",
+            shortDesc: "Identidad de marca y activos visuales",
+            features: ["Diseño de Logotipos", "Materiales de Marketing", "Plantillas Sociales", "Guías de Marca"]
+          }
+        },
+        learnMore: "Saber Más",
+        viewAll: "Ver Todos los Servicios"
       },
       serviceTiles_new: [
         { title: "Web y Reservas", description: "Web profesional con sistema de reservas automático. Tu negocio abierto 24/7.", icon: "Calendar", href: "/services/web-design-development" },
@@ -3077,6 +3155,45 @@ export const translations = {
       serviceTiles: {
         title: "Tot el que el teu negoci necessita",
         subtitle: "Solucions digitals simples i efectives per a negocis locals.",
+      },
+      interactiveShowcase: {
+        badge: "SERVEIS",
+        title: "Tot el que el teu Negoci Necessita",
+        subtitle: "Des de llocs web que converteixen fins a IA que escala, construïm la infraestructura digital que fa créixer el teu negoci.",
+        services: {
+          webDesign: {
+            title: "Disseny Web",
+            shortDesc: "Llocs web professionals que converteixen",
+            features: ["Disseny UI/UX Personalitzat", "Desenvolupament Full-Stack", "Integració CMS", "Optimitzat per a SEO"]
+          },
+          eCommerce: {
+            title: "Comerç Electrònic",
+            shortDesc: "Botigues online que venen 24/7",
+            features: ["Integració de Pagaments", "Gestió d'Inventari", "Optimització de Productes", "Automatització de Comandes"]
+          },
+          seo: {
+            title: "SEO Local",
+            shortDesc: "Posiciona't primer al teu barri",
+            features: ["Google Business", "Paraules Clau Locals", "Gestió de Ressenyes", "Construcció de Cites"]
+          },
+          ai: {
+            title: "Solucions IA",
+            shortDesc: "Automatitza i escala el teu negoci",
+            features: ["Xatbots", "Automatització de Fluxos", "Generació de Leads", "Optimització de Processos"]
+          },
+          social: {
+            title: "Xarxes Socials",
+            shortDesc: "Fes créixer la teva presència a Instagram",
+            features: ["Estratègia de Contingut", "Producció de Reels", "Gestió de Comunitat", "Analítiques"]
+          },
+          graphic: {
+            title: "Disseny Gràfic",
+            shortDesc: "Identitat de marca i actius visuals",
+            features: ["Disseny de Logotips", "Materials de Màrqueting", "Plantilles Socials", "Guies de Marca"]
+          }
+        },
+        learnMore: "Saber-ne Més",
+        viewAll: "Veure Tots els Serveis"
       },
       serviceTiles_new: [
         { title: "Web i Reserves", description: "Web professional amb sistema de reserves automàtic. El teu negoci obert 24/7.", icon: "Calendar", href: "/services/web-design-development" },

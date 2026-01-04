@@ -56,7 +56,6 @@ export default function HeroSection() {
         {/* Modern Gradient Overlay for legibility */}
         <div className="absolute inset-0 bg-slate-900/40 z-[3]" />
         <div className="absolute inset-0 bg-gradient-to-b from-slate-900/70 via-transparent to-slate-900/90 z-[3]" />
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:40px_40px] z-[3]" />
       </div>
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">

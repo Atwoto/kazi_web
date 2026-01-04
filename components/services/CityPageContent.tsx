@@ -24,8 +24,18 @@ export default function CityPageContent({ city }: CityPageContentProps) {
     <div className="min-h-screen bg-white">
       {/* Hero Section with City Focus */}
       <section className="relative py-32 bg-slate-900 text-white overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:40px_40px]" />
+        {/* Video Background */}
+        <div className="absolute inset-0 z-0">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover opacity-40"
+          >
+            <source src="/WEB.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-900/80 via-slate-900/40 to-slate-900/90" />
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
