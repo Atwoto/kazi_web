@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Check } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
-import ScrollAnimation from "@/components/common/ScrollAnimation";
+import ScrollReveal from "@/components/common/ScrollReveal";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 
 export default function PricingTeaser() {
@@ -15,7 +15,7 @@ export default function PricingTeaser() {
   return (
     <section className="py-20 bg-gray-50">
       <div className="container mx-auto px-4 md:px-6">
-        <ScrollAnimation animation="fade-up">
+        <ScrollReveal direction="up">
           <div className="text-center mb-16 max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-4">
               {t.home.pricing.title} <span className="text-blue-600">{t.home.pricing.titleHighlight}</span>
@@ -24,11 +24,11 @@ export default function PricingTeaser() {
               {t.home.pricing.subtitle}
             </p>
           </div>
-        </ScrollAnimation>
+        </ScrollReveal>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {plans.map((plan, index) => (
-            <ScrollAnimation key={plan.name} animation="fade-up" delay={index * 100} className="h-full">
+            <ScrollReveal key={plan.name} direction="up" delay={index * 0.1} className="h-full">
               <Card className={`relative h-full flex flex-col ${plan.highlight ? 'border-blue-500 shadow-2xl scale-105 z-10' : 'border-gray-200 shadow-sm hover:shadow-lg'} transition-all duration-300`}>
                 {plan.highlight && (
                   <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-blue-600 text-white px-4 py-1 rounded-full text-sm font-bold tracking-wide">
@@ -65,7 +65,7 @@ export default function PricingTeaser() {
                   </Button>
                 </CardFooter>
               </Card>
-            </ScrollAnimation>
+            </ScrollReveal>
           ))}
         </div>
       </div>

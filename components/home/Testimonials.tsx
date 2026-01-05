@@ -3,7 +3,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Star, Quote } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
-import ScrollAnimation from "@/components/common/ScrollAnimation";
+import ScrollReveal from "@/components/common/ScrollReveal";
 import Image from "next/image";
 
 export default function Testimonials() {
@@ -35,23 +35,23 @@ export default function Testimonials() {
   return (
     <section className="py-20 md:py-28 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
       <div className="container mx-auto px-4 mb-12 md:mb-16 text-center">
-        <ScrollAnimation animation="fade-up">
+        <ScrollReveal direction="up">
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-4">
             {t.home.testimonials.title}
           </h2>
           <p className="text-gray-500 max-w-2xl mx-auto text-base md:text-lg">
             {t.home.testimonials.subtitle}
           </p>
-        </ScrollAnimation>
+        </ScrollReveal>
       </div>
 
       {/* Grid Container */}
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {testimonials.map((item, i) => (
-            <ScrollAnimation key={i} animation="fade-up" delay={i * 150} className="h-full">
+            <ScrollReveal key={i} direction="up" delay={i * 0.15} className="h-full">
               <TestimonialCard {...item} />
-            </ScrollAnimation>
+            </ScrollReveal>
           ))}
         </div>
       </div>

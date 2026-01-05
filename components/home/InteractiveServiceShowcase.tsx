@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowRight, Zap, Globe, ShoppingCart, Search, Shield, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/context/LanguageContext";
+import ScrollReveal from "@/components/common/ScrollReveal";
 
 interface ServiceConfig {
   translationKey: "webDesign" | "eCommerce" | "seo" | "ai" | "social" | "graphic";
@@ -83,17 +84,19 @@ export default function InteractiveServiceShowcase() {
     <section className="py-24 bg-slate-50 overflow-hidden">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <span className="inline-block py-1 px-3 rounded-full bg-blue-100 border border-blue-200 text-blue-700 text-sm font-bold tracking-wider mb-4">
-            {t.home.interactiveShowcase.badge}
-          </span>
-          <h2 className="text-4xl md:text-5xl font-heading font-bold text-slate-900 mb-6">
-            {t.home.interactiveShowcase.title}
-          </h2>
-          <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-            {t.home.interactiveShowcase.subtitle}
-          </p>
-        </div>
+        <ScrollReveal direction="up" duration={0.6}>
+          <div className="text-center mb-16">
+            <span className="inline-block py-1 px-3 rounded-full bg-blue-100 border border-blue-200 text-blue-700 text-sm font-bold tracking-wider mb-4">
+              {t.home.interactiveShowcase.badge}
+            </span>
+            <h2 className="text-4xl md:text-5xl font-heading font-bold text-slate-900 mb-6">
+              {t.home.interactiveShowcase.title}
+            </h2>
+            <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+              {t.home.interactiveShowcase.subtitle}
+            </p>
+          </div>
+        </ScrollReveal>
 
         {/* Interactive Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto">
@@ -110,14 +113,17 @@ export default function InteractiveServiceShowcase() {
             const features = serviceData?.features || [];
 
             return (
-              <div
+              <ScrollReveal
                 key={service.slug}
+                direction="up"
+                delay={index * 0.1}
+                duration={0.5}
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
-                className="relative group"
+                className="relative group h-full"
               >
                 {/* Card */}
-                <Link href={service.href}>
+                <Link href={service.href} className="block h-full">
                   <div className={cn(
                     "relative h-full min-h-[280px] bg-white rounded-3xl p-8 border border-slate-200 overflow-hidden transition-all duration-500",
                     isHovered
@@ -184,18 +190,18 @@ export default function InteractiveServiceShowcase() {
                     )} />
                   </div>
                 </Link>
-              </div>
+              </ScrollReveal>
             );
           })}
         </div>
 
         {/* Bottom CTA */}
-        <div className="text-center mt-12">
+        <ScrollReveal direction="up" delay={0.4} className="text-center mt-12">
           <Link href="/services" className="inline-flex items-center gap-2 text-slate-600 hover:text-blue-600 font-semibold transition-colors">
             {t.home.interactiveShowcase.viewAll}
             <ArrowRight className="w-4 h-4" />
           </Link>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );

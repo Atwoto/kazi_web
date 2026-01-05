@@ -1,13 +1,14 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import ScrollAnimation from "@/components/common/ScrollAnimation";
+import ScrollReveal from "@/components/common/ScrollReveal";
 import TaglineCarousel from "@/components/home/TaglineCarousel";
 import { useLanguage } from "@/context/LanguageContext";
 import { ArrowRight } from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 const CLIENT_LOGOS = [
   "/logo4.jpg",
@@ -18,15 +19,22 @@ const CLIENT_LOGOS = [
 export default function HeroSection() {
   const { t } = useLanguage();
   const [videoLoaded, setVideoLoaded] = useState(false);
+  const containerRef = useRef<HTMLElement>(null);
+  
+  const { scrollY } = useScroll();
+  const y = useTransform(scrollY, [0, 1000], [0, 300]); // Parallax effect
 
   useEffect(() => {
     setVideoLoaded(true);
   }, []);
 
   return (
-    <section className="relative w-full min-h-[calc(100vh-72px)] flex items-center pt-20 pb-8 md:pt-24 md:pb-16 bg-slate-900 text-white overflow-hidden">
-      {/* Video Background */}
-      <div className="absolute inset-0 z-0">
+    <section ref={containerRef} className="relative w-full min-h-[calc(100vh-72px)] flex items-center pt-20 pb-8 md:pt-24 md:pb-16 bg-slate-900 text-white overflow-hidden">
+      {/* Video Background with Parallax */}
+      <motion.div 
+        className="absolute inset-0 z-0"
+        style={{ y }}
+      >
         <div className="absolute inset-0 bg-slate-900 z-[1]">
             <Image
                 src="/video.jpg"
@@ -56,14 +64,14 @@ export default function HeroSection() {
         {/* Modern Gradient Overlay for legibility */}
         <div className="absolute inset-0 bg-slate-900/40 z-[3]" />
         <div className="absolute inset-0 bg-gradient-to-b from-slate-900/70 via-transparent to-slate-900/90 z-[3]" />
-      </div>
+      </motion.div>
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           
           {/* Left Column: Text Content */}
           <div className="flex flex-col text-left space-y-6">
-            <ScrollAnimation animation="fade-up" delay={100}>
+            <ScrollReveal direction="up" delay={0.1} duration={0.5}>
               <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-md border border-white/20 px-3 py-1 rounded-full">
                 <span className="flex h-2 w-2 relative">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
@@ -73,24 +81,24 @@ export default function HeroSection() {
                   {t.hero.badge}
                 </span>
               </div>
-            </ScrollAnimation>
+            </ScrollReveal>
             
-            <ScrollAnimation animation="fade-up" delay={200}>
+            <ScrollReveal direction="up" delay={0.2} duration={0.6}>
               <h1 className="text-4xl md:text-5xl lg:text-7xl font-heading font-bold text-white leading-[1.1] tracking-tight drop-shadow-2xl">
                 {t.hero.titleLg} <br />
                 <span className="block mt-2">
                     <TaglineCarousel />
                 </span>
               </h1>
-            </ScrollAnimation>
+            </ScrollReveal>
             
-            <ScrollAnimation animation="fade-up" delay={300}>
+            <ScrollReveal direction="up" delay={0.3} duration={0.6}>
               <p className="text-lg text-slate-200 max-w-lg leading-relaxed font-light drop-shadow-lg">
                 {t.hero.subtitle}
               </p>
-            </ScrollAnimation>
+            </ScrollReveal>
             
-            <ScrollAnimation animation="fade-up" delay={400}>
+            <ScrollReveal direction="up" delay={0.4} duration={0.6}>
               <div className="flex flex-col sm:flex-row gap-4 pt-2">
                 <Button asChild className="h-14 px-8 rounded-full text-base bg-blue-600 hover:bg-blue-700 text-white shadow-xl transition-all hover:scale-105 hover:shadow-2xl group border-0">
                   <Link href="/pricing">
@@ -104,9 +112,9 @@ export default function HeroSection() {
                   </Link>
                 </Button>
               </div>
-            </ScrollAnimation>
+            </ScrollReveal>
             
-            <ScrollAnimation animation="fade-up" delay={500}>
+            <ScrollReveal direction="up" delay={0.5} duration={0.6}>
                 <div className="flex items-center gap-4 text-sm text-slate-300 pt-4">
                     <div className="flex -space-x-3">
                         {CLIENT_LOGOS.map((src, i) => (
@@ -127,7 +135,7 @@ export default function HeroSection() {
                     </div>
                     <p>Trusted by <strong className="text-white">Local Brands</strong></p>
                 </div>
-            </ScrollAnimation>
+            </ScrollReveal>
           </div>
         </div>
       </div>

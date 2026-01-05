@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 import { Star, Quote } from "lucide-react";
-import ScrollAnimation from "@/components/common/ScrollAnimation";
+import ScrollReveal from "@/components/common/ScrollReveal";
 
 interface Testimonial {
   id: number;
@@ -88,7 +88,7 @@ export default function TestimonialsSection() {
   return (
     <section className="py-24 bg-white">
       <div className="container mx-auto px-4 md:px-6">
-        <ScrollAnimation animation="fade-up">
+        <ScrollReveal direction="up">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-6">
               What Our Clients Say
@@ -97,11 +97,11 @@ export default function TestimonialsSection() {
               Don't just take our word for it. Here's what European businesses say about working with Kazi.
             </p>
           </div>
-        </ScrollAnimation>
+        </ScrollReveal>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
-            <ScrollAnimation key={testimonial.id} animation="fade-up" delay={index * 100}>
+            <ScrollReveal key={testimonial.id} direction="up" delay={index * 0.1} className="h-full">
               <Card
                 className="border border-gray-100 shadow-lg hover:shadow-xl transition-all duration-300 rounded-2xl overflow-hidden group hover:-translate-y-1 h-full"
               >
@@ -150,7 +150,7 @@ export default function TestimonialsSection() {
                   </div>
                 </CardContent>
               </Card>
-            </ScrollAnimation>
+            </ScrollReveal>
           ))}
         </div>
 
@@ -161,7 +161,7 @@ export default function TestimonialsSection() {
             { label: "Happy Clients", val: "100+", sub: "Across 6 European countries" },
             { label: "Client Retention", val: "98%", sub: "Clients come back for more" },
           ].map((item, i) => (
-            <ScrollAnimation key={i} animation="fade-up" delay={600 + (i * 100)}>
+            <ScrollReveal key={i} direction="up" delay={0.6 + (i * 0.1)}>
               <div className="p-6">
                 <div className="text-4xl font-bold text-blue-600 mb-2">{item.val}</div>
                 <div className="text-gray-600 mb-2 font-semibold">{item.label}</div>
@@ -175,11 +175,12 @@ export default function TestimonialsSection() {
                   <div className="text-sm text-gray-500">{item.sub}</div>
                 )}
               </div>
-            </ScrollAnimation>
+            </ScrollReveal>
           ))}
         </div>
       </div>
     </section>
   );
 }
+
 

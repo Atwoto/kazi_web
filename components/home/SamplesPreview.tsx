@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { useLanguage } from "@/context/LanguageContext";
-import ScrollAnimation from "@/components/common/ScrollAnimation";
+import ScrollReveal from "@/components/common/ScrollReveal";
 
 export default function SamplesPreview() {
   const { t } = useLanguage();
@@ -26,7 +26,7 @@ export default function SamplesPreview() {
   return (
     <section className="py-24 bg-gray-50">
       <div className="container mx-auto px-4 md:px-6">
-        <ScrollAnimation animation="fade-up">
+        <ScrollReveal direction="up">
           <div className="flex justify-between items-end mb-12">
             <div>
               <h2 className="text-3xl font-heading font-bold text-gray-900 mb-4">{t.home.samples.title}</h2>
@@ -38,11 +38,11 @@ export default function SamplesPreview() {
               <Link href="/portfolio">{t.home.samples.cta}</Link>
             </Button>
           </div>
-        </ScrollAnimation>
+        </ScrollReveal>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {samples.map((sample, index) => (
-            <ScrollAnimation key={index} animation="fade-up" delay={index * 100}>
+            <ScrollReveal key={index} direction="up" delay={index * 0.1}>
               <Card className="border-none shadow-md hover:shadow-xl transition-all duration-300 group overflow-hidden h-full">
                 <div className="relative w-full h-64 bg-gray-200 overflow-hidden">
                   <Image
@@ -59,17 +59,17 @@ export default function SamplesPreview() {
                   </CardDescription>
                 </CardHeader>
               </Card>
-            </ScrollAnimation>
+            </ScrollReveal>
           ))}
         </div>
 
-        <ScrollAnimation animation="fade-up" delay={400} className="md:hidden">
+        <ScrollReveal direction="up" delay={0.4} className="md:hidden">
           <div className="mt-8 text-center">
              <Button asChild variant="outline" className="rounded-full w-full">
               <Link href="/portfolio">{t.home.samples.cta}</Link>
             </Button>
           </div>
-        </ScrollAnimation>
+        </ScrollReveal>
       </div>
     </section>
   );
