@@ -21,6 +21,11 @@ export default function SamplesPreview() {
       categoryKey: "webDev" as const,
       image: "https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&q=80&w=1000",
     },
+    {
+      titleKey: "ramonedaLogo" as const,
+      categoryKey: "graphicDesign" as const,
+      image: "/samples/graphic/remo-difference.jpg",
+    },
   ];
 
   return (

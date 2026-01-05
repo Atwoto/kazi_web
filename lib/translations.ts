@@ -183,7 +183,9 @@ export const translations = {
           sokoBridge: "Restaurante La Mesa",
           billsSolar: "Barbería Estilo",
           whatsappBot: "WhatsApp Car Rental Bot",
+          ramonedaLogo: "Logo Redesign: Estanc Ramoneda",
         },
+
       },
       impact: {
         title: "Work that Changes Lives",
@@ -1062,45 +1064,9 @@ export const translations = {
           title: "Machine Vision for Medical Image Analysis",
           categoryKey: "aiServices",
           imageUrl: "/file.svg",
-          description: "Deep learning framework for medical imaging with CNN & explainable AI.",
+          description: "Deep learning framework for medical imaging using CNNs and explainable AI.",
           isDocument: true,
           documentUrl: "/samples/academic/Machine Vision for Medical Image Analysis (1) (1).docx",
-        },
-        {
-          id: 19,
-          title: "Casa Ramoneda, Sentmenat. Brand identity system",
-          categoryKey: "graphicDesign",
-          imageUrl: "/samples/graphic/Front Black (1).png",
-          badge: "Client Selected",
-          description: "A visual identity refresh for a well known estanc in Sentmenat, founded in 1860. The goal was a premium look that still feels classic and local.\n\n**Deliverables**\n• Logo redesign with variations\n• Color system and typography pairing\n• Business cards and stationery\n• Print ready signage layout\n• Final files for print and digital\n\n**Process**\nWe explored three directions (Gold, Maroon, Green). The client selected Black and Gold for the final rollout.",
-          gallery: [
-            "/samples/graphic/Front Black (1).png",
-            "/samples/graphic/Back Gold Final.png",
-            "/samples/graphic/Front Gold.png",
-            "/samples/graphic/Variation 1 Logo.png"
-          ],
-          highlights: [
-            "Heritage Brand Refresh",
-            "Complete Stationery Set",
-            "Signage & Print Ready"
-          ]
-        },
-        {
-          id: 20,
-          title: "Casa Ramoneda. Concept Exploration",
-          categoryKey: "graphicDesign",
-          imageUrl: "/samples/graphic/Variation 2 (1).png",
-          description: "During the discovery phase, we explored multiple creative directions to capture the essence of the brand's 160-year history. \n\n**Directions Explored**\n• **Maroon & Classic:** Focusing on the traditional tobacco roots.\n• **Forest Green:** A nod to local heritage and nature.\n• **Black & Gold:** The eventual winner, focusing on premium luxury.",
-          gallery: [
-            "/samples/graphic/Variation 2 (1).png",
-            "/samples/graphic/Variation 3 (1).png",
-            "/samples/graphic/Front White (1).png"
-          ],
-          highlights: [
-            "Multiple Directions",
-            "Heritage Research",
-            "Color Psychology"
-          ]
         },
         {
           id: 21,
@@ -1121,6 +1087,18 @@ export const translations = {
             "Daily Stories & CTAs",
             "Reels for Reach",
             "Monthly Reporting"
+          ]
+        },
+        {
+          id: 22,
+          title: "Logo Redesign: Estanc Ramoneda",
+          categoryKey: "graphicDesign",
+          imageUrl: "/samples/graphic/remo-difference.jpg",
+          description: "A complete logo modernization for a 160-year-old business. We preserved the legacy elements while introducing a clean, architectural vector style that works perfectly on both digital screens and physical signage.\n\n**The Transformation**\n• **Before:** Hand-drawn style with complex textures that were hard to reproduce at small scales.\n• **After:** High-contrast, symmetrical design featuring the iconic Ramoneda building, symbolizing stability and heritage.",
+          highlights: [
+            "Heritage Preservation",
+            "Vector Optimization",
+            "Modern Typography"
           ]
         },
       ]
@@ -1651,6 +1629,7 @@ export const translations = {
           sokoBridge: "Restaurante La Mesa",
           billsSolar: "Barbería Estilo",
           whatsappBot: "WhatsApp Car Rental Bot",
+          ramonedaLogo: "Rediseño de Logo: Estanc Ramoneda",
         },
       },
       impact: {
@@ -2684,42 +2663,6 @@ export const translations = {
           documentUrl: "/samples/academic/Machine Vision for Medical Image Analysis (1) (1).docx",
         },
         {
-          id: 19,
-          title: "Casa Ramoneda, Sentmenat. Brand identity system",
-          categoryKey: "graphicDesign",
-          imageUrl: "/samples/graphic/Front Black (1).png",
-          badge: "Seleccionado por Cliente",
-          description: "Una renovación de identidad visual para un conocido estanc en Sentmenat, fundado en 1860. El objetivo era un aspecto premium que aún se sienta clásico y local.\n\n**Entregables**\n• Rediseño de logotipo con variaciones\n• Sistema de color y tipografía\n• Tarjetas de visita y papelería\n• Diseño de señalización listo para imprimir\n• Archivos finales para impresión y digital\n\n**Proceso**\nExploramos tres direcciones (Dorado, Granate, Verde). El cliente seleccionó Negro y Dorado para el lanzamiento final.",
-          gallery: [
-            "/samples/graphic/Front Black (1).png",
-            "/samples/graphic/Back Gold Final.png",
-            "/samples/graphic/Front Gold.png",
-            "/samples/graphic/Variation 1 Logo.png"
-          ],
-          highlights: [
-            "Renovación de Marca Patrimonial",
-            "Set Completo de Papelería",
-            "Señalización Lista para Imprimir"
-          ]
-        },
-        {
-          id: 20,
-          title: "Casa Ramoneda. Exploración de Conceptos",
-          categoryKey: "graphicDesign",
-          imageUrl: "/samples/graphic/Variation 2 (1).png",
-          description: "Durante la fase de descubrimiento, exploramos múltiples direcciones creativas para capturar la esencia de los 160 años de historia de la marca.\n\n**Direcciones Exploradas**\n• **Granate y Clásico:** Enfocado en las raíces tradicionales.\n• **Verde Bosque:** Un guiño al patrimonio local y la naturaleza.\n• **Negro y Dorado:** El ganador final, enfocado en el lujo premium.",
-          gallery: [
-            "/samples/graphic/Variation 2 (1).png",
-            "/samples/graphic/Variation 3 (1).png",
-            "/samples/graphic/Front White (1).png"
-          ],
-          highlights: [
-            "Múltiples Direcciones",
-            "Investigación de Patrimonio",
-            "Psicología del Color"
-          ]
-        },
-        {
           id: 21,
           title: "Estanc Ramoneda. Gestión de Instagram",
           categoryKey: "socialMediaManagement",
@@ -2738,6 +2681,18 @@ export const translations = {
             "Historias Diarias",
             "Reels de Alcance",
             "Informes Mensuales"
+          ]
+        },
+        {
+          id: 22,
+          title: "Rediseño de Logo: Estanc Ramoneda",
+          categoryKey: "graphicDesign",
+          imageUrl: "/samples/graphic/remo-difference.jpg",
+          description: "Modernización completa de logotip para un negocio con 160 años de historia. Preservamos los elementos del legado mientras introducimos un estilo vectorial limpio y arquitectónico que funciona perfectamente tanto en pantallas digitales como en cartelería física.\n\n**La Transformación**\n• **Antes:** Estilo dibujado a mano con texturas complejas difíciles de reproducir a pequeña escala.\n• **Después:** Diseño de alto contraste y simétrico que destaca el icónico edificio Ramoneda, simbolizando estabilidad y herencia.",
+          highlights: [
+            "Preservación de Herencia",
+            "Optimización Vectorial",
+            "Tipografía Moderna"
           ]
         },
       ]
@@ -3256,6 +3211,7 @@ export const translations = {
           sokoBridge: "SokoBridge",
           billsSolar: "Bills On Solar EA Limited",
           whatsappBot: "Bot de Lloguer de Cotxes WhatsApp",
+          ramonedaLogo: "Redisseny de Logotip: Estanc Ramoneda",
         },
       },
       impact: {
@@ -4151,42 +4107,6 @@ export const translations = {
           documentUrl: "/samples/academic/Machine Vision for Medical Image Analysis (1) (1).docx",
         },
         {
-          id: 19,
-          title: "Casa Ramoneda, Sentmenat. Brand identity system",
-          categoryKey: "graphicDesign",
-          imageUrl: "/samples/graphic/Front Black (1).png",
-          badge: "Seleccionat per Client",
-          description: "Una renovació d'identitat visual per a un conegut estanc a Sentmenat, fundat el 1860. L'objectiu era un aspecte prèmium que encara se senti clàssic i local.\n\n**Lliurables**\n• Redisseny de logotip amb variacions\n• Sistema de color i tipografia\n• Targetes de visita i papereria\n• Disseny de senyalització llest per imprimir\n• Arxius finals per a impressió i digital\n\n**Procés**\nVam explorar tres direccions (Daurat, Granat, Verd). El client va seleccionar Negre i Daurat per al llançament final.",
-          gallery: [
-            "/samples/graphic/Front Black (1).png",
-            "/samples/graphic/Back Gold Final.png",
-            "/samples/graphic/Front Gold.png",
-            "/samples/graphic/Variation 1 Logo.png"
-          ],
-          highlights: [
-            "Renovació de Marca Patrimonial",
-            "Set Complet de Papereria",
-            "Senyalització Llesta per Imprimir"
-          ]
-        },
-        {
-          id: 20,
-          title: "Casa Ramoneda. Exploració de Conceptes",
-          categoryKey: "graphicDesign",
-          imageUrl: "/samples/graphic/Variation 2 (1).png",
-          description: "Durant la fase de descoberta, vam explorar múltiples direccions creatives per capturar l'essència dels 160 anys d'història de la marca.\n\n**Direccions Explorades**\n• **Granat i Clàssic:** Enfocat en les arrels tradicionals.\n• **Verd Bosc:** Una picada d'ullet al patrimoni local i la natura.\n• **Negre i Daurat:** El guanyador final, enfocat en el luxe prèmium.",
-          gallery: [
-            "/samples/graphic/Variation 2 (1).png",
-            "/samples/graphic/Variation 3 (1).png",
-            "/samples/graphic/Front White (1).png"
-          ],
-          highlights: [
-            "Múltiples Direccions",
-            "Investigació de Patrimoni",
-            "Psicologia del Color"
-          ]
-        },
-        {
           id: 21,
           title: "Estanc Ramoneda. Gestió d'Instagram",
           categoryKey: "socialMediaManagement",
@@ -4205,6 +4125,18 @@ export const translations = {
             "Històries Diàries",
             "Reels d'Abast",
             "Informes Mensuales"
+          ]
+        },
+        {
+          id: 22,
+          title: "Redisseny de Logotip: Estanc Ramoneda",
+          categoryKey: "graphicDesign",
+          imageUrl: "/samples/graphic/remo-difference.jpg",
+          description: "Modernització completa de logotip per a un negoci amb 160 anys d'història. Vam preservar els elements del llegat mentre introduïm un estil vectorial net i arquitectònic que funciona perfectament tant en pantalles digitals com en senyalització física.\n\n**La Transformació**\n• **Abans:** Estil dibuixat a mà amb textures complexes difícils de reproduir a petita escala.\n• **Després:** Disseny d'alt contrast i simètric que destaca l'icònic edifici Ramoneda, simbolitzant estabilitat i herència.",
+          highlights: [
+            "Preservació d'Herència",
+            "Optimització Vectorial",
+            "Tipografia Moderna"
           ]
         },
       ]

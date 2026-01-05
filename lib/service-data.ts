@@ -242,20 +242,9 @@ export const servicesData: Service[] = [
     deliverables: ["Brand Strategy & Identity", "Marketing Collateral", "Social Media Suites", "Presentation Design"],
     examples: [
       {
-        title: "Premium Brand Identity",
-        description: "Complete visual identity system including luxury logo variations and corporate stationery design in black, gold, and white.",
-        imageUrl: "/samples/graphic/Variation 1 Logo.png",
-        gallery: [
-          "/samples/graphic/Variation 1 Logo.png",
-          "/samples/graphic/Front Gold.png",
-          "/samples/graphic/Back Gold Final.png",
-          "/samples/graphic/Variation 2 (1).png",
-          "/samples/graphic/Variation 3 (1).png",
-          "/samples/graphic/Front Black (1).png",
-          "/samples/graphic/Back black final.png",
-          "/samples/graphic/Front White (1).png",
-          "/samples/graphic/Back White final.png"
-        ],
+        title: "Logo Redesign: Estanc Ramoneda",
+        description: "Modernizing a 160-year-old brand identity while preserving its heritage. The redesign introduces a cleaner, more architectural feel that works across both traditional and digital media.",
+        imageUrl: "/samples/graphic/remo-difference.jpg",
       },
     ],
     process: [
@@ -388,9 +377,10 @@ export const servicesData: Service[] = [
       {
         title: "Estanc Ramoneda. Instagram Management",
         description: "Full Instagram rollout for a 160-year-old retail business. We transformed their digital presence into a consistent, trust-building sales tool that drives local discovery and customer action.",
-        imageUrl: "/samples/graphic/Front Gold.png",
+        imageUrl: "/samples/graphic/remo-difference.jpg",
         liveUrl: "https://www.instagram.com/estanc.ramoneda/",
         gallery: [
+          "/samples/graphic/remo-difference.jpg",
           "/samples/graphic/Front Gold.png",
           "/samples/graphic/Back Gold Final.png",
           "/samples/graphic/Front Black (1).png",
