@@ -37,7 +37,7 @@ export default function HeroSection() {
       >
         <div className="absolute inset-0 bg-slate-900 z-[1]">
             <Image
-                src="/video.jpg"
+                src="/homepage.jpg"
                 alt="Video Background"
                 fill
                 priority

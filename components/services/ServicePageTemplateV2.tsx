@@ -183,6 +183,7 @@ export default function ServicePageTemplateV2({ service }: ServicePageTemplateV2
                       service.slug === "web-design-development" ? "/website.jpg" :
                       service.slug === "social-media-management" ? "/socialp.jpg" :
                       service.slug === "graphic-design" ? "/graphics.jpg" :
+                      service.slug === "ai-services" ? "/samples/AI/sideAI.jpg" :
                       "/photo.jpg" // Fallback
                     }
                     alt="The Problem Illustration"
