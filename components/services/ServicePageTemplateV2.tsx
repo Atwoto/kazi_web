@@ -291,7 +291,7 @@ export default function ServicePageTemplateV2({ service }: ServicePageTemplateV2
              <MiniCaseStudy 
                title="Restaurant La Mesa" 
                description="We transformed a local restaurant's outdated generic site into a high-conversion booking engine. By implementing direct reservations and a digital menu, we reduced phone admin time by 40%."
-               imageUrl="/samples/web/sambright.jpg" 
+               imageUrl="/samples/web/restaurant.jpg" 
                stats={caseStudyStats}
                quote="Kazi changed how we do business. The website isn't just a brochure, it's our best employee."
                link="/portfolio"

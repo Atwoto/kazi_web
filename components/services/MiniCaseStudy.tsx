@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, TrendingUp, Users, Clock } from "lucide-react";
 import Link from "next/link";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface MiniCaseStudyProps {
   title: string;
@@ -15,6 +16,7 @@ interface MiniCaseStudyProps {
 }
 
 export default function MiniCaseStudy({ title, description, imageUrl, stats, quote, link }: MiniCaseStudyProps) {
+  const { t } = useLanguage();
   const getIcon = (iconName: string) => {
     switch (iconName) {
       case "trend": return <TrendingUp className="w-5 h-5 text-green-600" />;
@@ -28,14 +30,14 @@ export default function MiniCaseStudy({ title, description, imageUrl, stats, quo
     <div className="bg-white rounded-3xl overflow-hidden shadow-2xl border border-slate-100">
       <div className="grid grid-cols-1 lg:grid-cols-2">
         {/* Image Side */}
-        <div className="relative h-[300px] lg:h-auto min-h-[400px]">
+        <div className="relative h-[300px] lg:h-auto min-h-[400px] bg-slate-100">
           <Image
             src={imageUrl}
             alt={title}
             fill
-            className="object-cover"
+            className="object-contain p-4 lg:p-12 drop-shadow-2xl"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/60 to-transparent lg:hidden" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent lg:hidden" />
           <div className="absolute bottom-6 left-6 lg:hidden text-white">
             <p className="text-xs font-bold uppercase tracking-widest mb-2 opacity-80">Success Story</p>
             <h3 className="text-2xl font-heading font-bold">{title}</h3>
@@ -83,8 +85,12 @@ export default function MiniCaseStudy({ title, description, imageUrl, stats, quo
 
           {link && (
             <Button asChild variant="outline" className="w-fit rounded-full border-2 border-slate-200 hover:border-blue-600 hover:text-blue-600 hover:bg-blue-50 transition-all">
-              <Link href={link}>
-                Read Full Story <ArrowRight className="ml-2 w-4 h-4" />
+              <Link 
+                href={link} 
+                target={link.startsWith('http') ? "_blank" : undefined}
+                rel={link.startsWith('http') ? "noopener noreferrer" : undefined}
+              >
+                {t.portfolio?.readFullStory || "Read Full Story"} <ArrowRight className="ml-2 w-4 h-4" />
               </Link>
             </Button>
           )}

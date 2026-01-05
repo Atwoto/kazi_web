@@ -14,17 +14,20 @@ export default function SamplesPreview() {
     {
       titleKey: "sokoBridge" as const,
       categoryKey: "webDev" as const,
-      image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=1000",
+      image: "/samples/web/restaurant.jpg",
+      link: "https://restaurant.kaziagency.es/",
     },
     {
       titleKey: "billsSolar" as const,
       categoryKey: "webDev" as const,
-      image: "https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&q=80&w=1000",
+      image: "/samples/web/barber.jpg",
+      link: "https://barber.kaziagency.es/",
     },
     {
       titleKey: "ramonedaLogo" as const,
       categoryKey: "graphicDesign" as const,
       image: "/samples/graphic/remo-difference.jpg",
+      link: "https://www.instagram.com/estanc.ramoneda/",
     },
   ];
 
@@ -48,22 +51,34 @@ export default function SamplesPreview() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {samples.map((sample, index) => (
             <ScrollReveal key={index} direction="up" delay={index * 0.1}>
-              <Card className="border-none shadow-md hover:shadow-xl transition-all duration-300 group overflow-hidden h-full">
-                <div className="relative w-full h-64 bg-gray-200 overflow-hidden">
-                  <Image
-                    src={sample.image}
-                    alt={t.home.samples.projects[sample.titleKey]}
-                    fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
-                  />
-                </div>
-                <CardHeader className="bg-white">
-                  <CardTitle className="font-heading text-lg font-bold">{t.home.samples.projects[sample.titleKey]}</CardTitle>
-                  <CardDescription className="text-blue-600 font-medium uppercase tracking-wide text-xs">
-                    {t.home.samples.categories[sample.categoryKey]}
-                  </CardDescription>
-                </CardHeader>
-              </Card>
+              <a 
+                href={sample.link} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="block group h-full"
+              >
+                <Card className="border-none shadow-md group-hover:shadow-2xl transition-all duration-500 overflow-hidden h-full bg-white">
+                  <div className="relative w-full h-64 bg-gray-200 overflow-hidden">
+                    <Image
+                      src={sample.image}
+                      alt={t.home.samples.projects[sample.titleKey]}
+                      fill
+                      className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                    />
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500 flex items-center justify-center">
+                      <div className="bg-white/90 text-blue-600 px-4 py-2 rounded-full text-sm font-bold opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 shadow-lg">
+                        {t.portfolio?.viewSite || "View Live Site"}
+                      </div>
+                    </div>
+                  </div>
+                  <CardHeader className="bg-white">
+                    <CardTitle className="font-heading text-lg font-bold group-hover:text-blue-600 transition-colors">{t.home.samples.projects[sample.titleKey]}</CardTitle>
+                    <CardDescription className="text-blue-600 font-medium uppercase tracking-wide text-xs">
+                      {t.home.samples.categories[sample.categoryKey]}
+                    </CardDescription>
+                  </CardHeader>
+                </Card>
+              </a>
             </ScrollReveal>
           ))}
         </div>

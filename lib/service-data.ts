@@ -209,12 +209,14 @@ export const servicesData: Service[] = [
       {
         title: "Restaurante La Mesa",
         description: "Professional website for a local restaurant with digital QR menu and reservation integration.",
-        imageUrl: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=1000",
+        imageUrl: "/samples/web/restaurant.jpg",
+        liveUrl: "https://restaurant.kaziagency.es/",
       },
       {
         title: "Barbería Estilo",
         description: "Modern booking system for a local barbershop, allowing 24/7 automated appointments.",
-        imageUrl: "https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&q=80&w=1000",
+        imageUrl: "/samples/web/barber.jpg",
+        liveUrl: "https://barber.kaziagency.es/",
       },
     ],
     process: [
