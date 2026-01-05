@@ -79,7 +79,7 @@ export default function ServicePageTemplateV2({ service }: ServicePageTemplateV2
     <div className="bg-white overflow-hidden">
       
       {/* 1. HERO SECTION */}
-      <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 bg-slate-900 text-white overflow-hidden">
+      <section className="relative min-h-[100svh] flex items-center pt-32 pb-20 md:pt-48 md:pb-32 bg-slate-900 text-white overflow-hidden">
         {/* Video Background */}
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-slate-900 z-[1]">

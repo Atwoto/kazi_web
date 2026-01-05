@@ -4,7 +4,6 @@ import { usePathname } from "next/navigation";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import WhatsAppButton from "@/components/common/WhatsAppButton";
-import AIAssistantWidget from "@/components/common/AIAssistantWidget";
 
 export default function LayoutWrapper({
   children,
@@ -26,7 +25,6 @@ export default function LayoutWrapper({
       <main className="flex-grow">{children}</main>
       <Footer />
       <WhatsAppButton />
-      <AIAssistantWidget />
     </>
   );
 }

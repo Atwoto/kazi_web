@@ -65,9 +65,62 @@ export default function AIAssistantWidget() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  
+  // Smart tooltip state
+  const [showTooltip, setShowTooltip] = useState(false);
+  const [hasInteracted, setHasInteracted] = useState(false);
+
   const scrollRef = useRef<HTMLDivElement>(null);
   const scrollAreaRef = useRef<HTMLDivElement>(null);
   const { t } = useLanguage();
+
+  // Check storage on mount
+  useEffect(() => {
+    const interacted = localStorage.getItem("kazi_chat_interacted");
+    if (interacted) {
+      setHasInteracted(true);
+    }
+  }, []);
+
+  // Scroll listener
+  useEffect(() => {
+    if (hasInteracted) return;
+
+    const handleScroll = () => {
+      // If we already showed it (and user hasn't closed it yet) or already interacted, skip logic
+      // Actually, we want to show it *once* when entering the zone.
+      // If the user scrolls past, we let it stay until dismissed? "show a subtle tooltip once"
+      // Let's make it appear and stay.
+      if (hasInteracted || showTooltip) return;
+
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercent = scrollTop / docHeight;
+
+      if (scrollPercent >= 0.5 && scrollPercent <= 0.6) {
+        setShowTooltip(true);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [hasInteracted, showTooltip]);
+
+  const handleInteraction = () => {
+    setHasInteracted(true);
+    setShowTooltip(false);
+    localStorage.setItem("kazi_chat_interacted", "true");
+  };
+
+  const handleOpenChat = () => {
+    setIsOpen(true);
+    handleInteraction();
+  };
+
+  const handleCloseTooltip = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    handleInteraction();
+  };
 
   useEffect(() => {
     // Scroll to bottom when messages change
@@ -145,20 +198,31 @@ export default function AIAssistantWidget() {
 
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2 fixed-floating-button transition-all duration-300">
-      {!isOpen && (
+      {!isOpen && showTooltip && (
         <div
-          className="bg-blue-600 text-white text-xs font-semibold px-3 py-1.5 rounded-full shadow-lg cursor-pointer hover:bg-blue-700 transition-colors animate-bounce"
-          onClick={() => setIsOpen(true)}
+          className="bg-blue-600 text-white text-xs font-semibold px-4 py-2 rounded-full shadow-lg cursor-pointer hover:bg-blue-700 transition-all animate-in fade-in slide-in-from-bottom-2 duration-500 relative pr-8"
+          onClick={handleOpenChat}
         >
-          {t.chatbot.needHelp}
+          {t.chatbot.tooltip || t.chatbot.needHelp}
+          <button 
+            onClick={handleCloseTooltip}
+            className="absolute right-1 top-1/2 -translate-y-1/2 p-1 hover:bg-blue-500 rounded-full transition-colors"
+            aria-label="Close tooltip"
+          >
+            <X className="w-3 h-3 text-blue-100 hover:text-white" />
+          </button>
         </div>
       )}
 
-      <Dialog open={isOpen} onOpenChange={setIsOpen}>
+      <Dialog open={isOpen} onOpenChange={(open) => {
+        setIsOpen(open);
+        if (open) handleInteraction();
+      }}>
         <DialogTrigger asChild>
           <Button
             className="w-14 h-14 rounded-full shadow-xl bg-blue-600 hover:bg-blue-700 transition-all duration-300 flex items-center justify-center hover:scale-105"
             aria-label="Open AI Assistant"
+            onClick={handleInteraction}
           >
             {isOpen ? (
               <X className="h-6 w-6 text-white" />

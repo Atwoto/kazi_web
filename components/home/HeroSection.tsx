@@ -29,7 +29,7 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section ref={containerRef} className="relative w-full min-h-[calc(100vh-72px)] flex items-center pt-20 pb-8 md:pt-24 md:pb-16 bg-slate-900 text-white overflow-hidden">
+    <section ref={containerRef} className="relative w-full min-h-[100svh] flex items-center pt-20 pb-8 md:pt-24 md:pb-16 bg-slate-900 text-white overflow-hidden">
       {/* Video Background with Parallax */}
       <motion.div 
         className="absolute inset-0 z-0"

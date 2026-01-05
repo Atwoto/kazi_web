@@ -1311,6 +1311,7 @@ export const translations = {
     },
     chatbot: {
       needHelp: "Need help?",
+      tooltip: "Questions? Chat with us.",
       greeting: "Hi! I'm Kazi Agency's AI assistant, your local partner in Catalonia. Ask me anything about our services!",
       placeholder: "Type your question...",
       waiting: "Waiting...",
@@ -2932,6 +2933,7 @@ export const translations = {
     },
     chatbot: {
       needHelp: "¿Necesitas ayuda?",
+      tooltip: "¿Preguntas? Chatea con nosotros.",
       greeting: "¡Hola! Soy el asistente de IA de Kazi Agency, tu socio local en Cataluña. ¡Pregúntame lo que quieras sobre nuestros servicios!",
       placeholder: "Escribe tu pregunta...",
       waiting: "Esperando...",
@@ -4427,6 +4429,7 @@ export const translations = {
     },
     chatbot: {
       needHelp: "Necessites ajuda?",
+      tooltip: "Preguntes? Xateja amb nosaltres.",
       greeting: "Hola! Sóc l'assistent d'IA de Kazi Agency, el teu soci local a Catalunya. Pregunta'm el que vulguis sobre els nostres serveis!",
       placeholder: "Escriu la teva pregunta...",
       waiting: "Esperant...",
