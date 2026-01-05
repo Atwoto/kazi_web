@@ -1104,6 +1104,42 @@ export const translations = {
             "Modern Typography"
           ]
         },
+        {
+          id: 23,
+          title: "Logo Redesign: BurgerGo",
+          categoryKey: "graphicDesign",
+          imageUrl: "/samples/graphic/burger-difference.jpg",
+          description: "Complete brand refresh for a modern burger joint. Transformed a generic clip-art style logo into a bold, custom wordmark that captures the energy and appetite appeal of the brand.",
+          highlights: [
+            "Brand Modernization",
+            "Custom Typography",
+            "Appetite Appeal"
+          ]
+        },
+        {
+          id: 24,
+          title: "Logo Redesign: Bella Salon",
+          categoryKey: "graphicDesign",
+          imageUrl: "/samples/graphic/salon-difference.jpg",
+          description: "Rebranding for a luxury beauty salon. Moved from a dated icon to a sophisticated, elegant typographic logo that better reflects the high-end services and clientele.",
+          highlights: [
+            "Luxury Branding",
+            "Minimalist Design",
+            "Elegant Typography"
+          ]
+        },
+        {
+          id: 25,
+          title: "Logo Redesign: Barbería Estilo",
+          categoryKey: "graphicDesign",
+          imageUrl: "/samples/graphic/barber-difference.jpg",
+          description: "Logo evolution for a classic barbershop. Refined the vintage aesthetic into a clean, sharp emblem that works perfectly on signage, merchandise, and digital platforms.",
+          highlights: [
+            "Vintage Modern",
+            "Emblem Design",
+            "Versatile Application"
+          ]
+        },
       ]
     },
     contact: {
@@ -2701,6 +2737,42 @@ export const translations = {
             "Tipografía Moderna"
           ]
         },
+        {
+          id: 23,
+          title: "Rediseño de Logo: BurgerGo",
+          categoryKey: "graphicDesign",
+          imageUrl: "/samples/graphic/burger-difference.jpg",
+          description: "Renovación completa de marca para hamburguesería moderna. Transformamos un logo genérico en una marca denominativa audaz y personalizada que captura la energía y el apetito.",
+          highlights: [
+            "Modernización de Marca",
+            "Tipografía Personalizada",
+            "Atractivo Visual"
+          ]
+        },
+        {
+          id: 24,
+          title: "Rediseño de Logo: Bella Salon",
+          categoryKey: "graphicDesign",
+          imageUrl: "/samples/graphic/salon-difference.jpg",
+          description: "Rebranding para salón de belleza de lujo. Pasamos de un icono anticuado a un logo tipográfico sofisticado y elegante que refleja mejor los servicios de alta gama.",
+          highlights: [
+            "Branding de Lujo",
+            "Diseño Minimalista",
+            "Tipografía Elegante"
+          ]
+        },
+        {
+          id: 25,
+          title: "Rediseño de Logo: Barbería Estilo",
+          categoryKey: "graphicDesign",
+          imageUrl: "/samples/graphic/barber-difference.jpg",
+          description: "Evolución de logo para barbería clásica. Refinamos la estética vintage en un emblema limpio y nítido que funciona perfectamente en cartelería y digital.",
+          highlights: [
+            "Vintage Moderno",
+            "Diseño de Emblema",
+            "Aplicación Versátil"
+          ]
+        },
       ]
     },
     contact: {
@@ -4143,9 +4215,45 @@ export const translations = {
           imageUrl: "/samples/graphic/remo-difference.jpg",
           description: "Modernització completa de logotip per a un negoci amb 160 anys d'història. Vam preservar els elements del llegat mentre introduïm un estil vectorial net i arquitectònic que funciona perfectament tant en pantalles digitals com en senyalització física.\n\n**La Transformació**\n• **Abans:** Estil dibuixat a mà amb textures complexes difícils de reproduir a petita escala.\n• **Després:** Disseny d'alt contrast i simètric que destaca l'icònic edifici Ramoneda, simbolitzant estabilitat i herència.",
           highlights: [
-            "Preservació d'Herència",
+            "Preservació de Herència",
             "Optimització Vectorial",
             "Tipografia Moderna"
+          ]
+        },
+        {
+          id: 23,
+          title: "Redisseny de Logotip: BurgerGo",
+          categoryKey: "graphicDesign",
+          imageUrl: "/samples/graphic/burger-difference.jpg",
+          description: "Renovació completa de marca per a hamburgueseria moderna. Vam transformar un logotip genèric en una marca denominativa audaç que captura l'energia i l'apetit.",
+          highlights: [
+            "Modernització de Marca",
+            "Tipografia Personalitzada",
+            "Atractiu Visual"
+          ]
+        },
+        {
+          id: 24,
+          title: "Redisseny de Logotip: Bella Salon",
+          categoryKey: "graphicDesign",
+          imageUrl: "/samples/graphic/salon-difference.jpg",
+          description: "Rebranding per a saló de bellesa de luxe. Vam passar d'una icona antiquada a un logotip tipogràfic sofisticat i elegant que reflecteix millor els serveis d'alta gamma.",
+          highlights: [
+            "Branding de Luxe",
+            "Disseny Minimalista",
+            "Tipografia Elegant"
+          ]
+        },
+        {
+          id: 25,
+          title: "Redisseny de Logotip: Barbería Estilo",
+          categoryKey: "graphicDesign",
+          imageUrl: "/samples/graphic/barber-difference.jpg",
+          description: "Evolució de logotip per a barberia clàssica. Vam refinar l'estètica vintage en un emblema net i nítid que funciona perfectament en cartelleria i digital.",
+          highlights: [
+            "Vintage Modern",
+            "Disseny d'Emblema",
+            "Aplicació Versàtil"
           ]
         },
       ]
