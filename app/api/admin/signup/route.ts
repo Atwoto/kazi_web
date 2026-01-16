@@ -5,7 +5,7 @@ import bcrypt from 'bcryptjs';
 export async function POST(request: Request) {
   try {
     // Check if signup is enabled
-    if (process.env.NEXT_PUBLIC_ENABLE_SIGNUP === 'false') {
+    if (process.env.NEXT_PUBLIC_ENABLE_SIGNUP !== 'true') {
       return NextResponse.json({ error: 'Signup is disabled' }, { status: 403 });
     }
 

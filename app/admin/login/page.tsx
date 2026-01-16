@@ -119,7 +119,7 @@ export default function AdminLoginPage() {
             </Button>
           </form>
 
-          {process.env.NEXT_PUBLIC_ENABLE_SIGNUP !== "false" && (
+          {process.env.NEXT_PUBLIC_ENABLE_SIGNUP === "true" && (
             <div className="mt-6 text-center text-sm text-slate-500">
               <p>
                 Need to create an admin account?{" "}

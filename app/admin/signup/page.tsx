@@ -24,7 +24,7 @@ export default function AdminSignupPage() {
 
   useEffect(() => {
     // Check if signup is enabled
-    const isEnabled = process.env.NEXT_PUBLIC_ENABLE_SIGNUP !== "false";
+    const isEnabled = process.env.NEXT_PUBLIC_ENABLE_SIGNUP === "true";
     setSignupEnabled(isEnabled);
   }, []);
 
