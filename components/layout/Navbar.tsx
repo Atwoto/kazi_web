@@ -120,6 +120,9 @@ export default function Navbar() {
               </NavigationMenuList>
             </NavigationMenu>
 
+            <Link href="/kazi-citas" className={cn(navigationMenuTriggerStyle(), "bg-transparent hover:bg-accent hover:text-accent-foreground text-muted-foreground font-semibold text-blue-600")} suppressHydrationWarning>
+              {t.nav.kaziCitas}
+            </Link>
             <Link href="/portfolio" className={cn(navigationMenuTriggerStyle(), "bg-transparent hover:bg-accent hover:text-accent-foreground text-muted-foreground")} suppressHydrationWarning>
               {t.nav.portfolio}
             </Link>
@@ -176,6 +179,9 @@ export default function Navbar() {
                   </Link>
               ))}
             </div>
+            <Link href="/kazi-citas" className="text-xl font-semibold text-blue-600 border-b border-border pb-2" onClick={toggleMobileMenu}>
+              {t.nav.kaziCitas}
+            </Link>
             <Link href="/portfolio" className="text-xl font-semibold text-foreground border-b border-border pb-2" onClick={toggleMobileMenu}>
               {t.nav.portfolio}
             </Link>

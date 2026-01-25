@@ -3,6 +3,7 @@ export const translations = {
     nav: {
       home: "Home",
       services: "Services",
+      kaziCitas: "Kazi Citas",
       portfolio: "Portfolio",
       pricing: "Pricing",
       faq: "FAQ",
@@ -24,6 +25,26 @@ export const translations = {
         aiServices: "Automation & data solutions.",
         socialMediaManagement: "Content, engagement & growth strategy.",
         academicSupport: "Editing, proofreading & coaching.",
+      }
+    },
+    kaziCitas: {
+      hero: {
+        title: "Kazi Citas.",
+        titleHighlight: "Smart booking.",
+        titleEnd: "Real growth.",
+        description: "We help businesses stay booked and organized, while clients easily find and book trusted local professionals.",
+        features: {
+            growth: "Business Growth",
+            growthDesc: "Data-driven tools",
+            simplicity: "Client Simplicity",
+            simplicityDesc: "Effortless booking"
+        },
+        cta: "Join the movement",
+        note: "No credit card required · Cancel anytime"
+      },
+      comingSoon: {
+        title: "More features coming soon",
+        description: "We are currently integrating the full Kazi Citas experience."
       }
     },
     cityPage: {
@@ -1488,7 +1509,8 @@ export const translations = {
   es: {
     nav: {
       home: "Inicio",
-      services: "Services",
+      services: "Servicios",
+      kaziCitas: "Kazi Citas",
       portfolio: "Portafolio",
       pricing: "Precios",
       faq: "Preguntas",
@@ -1510,6 +1532,26 @@ export const translations = {
         aiServices: "Chatbots y automatización.",
         socialMediaManagement: "Gestión de contenido y crecimiento.",
         academicSupport: "Edición y corrección.",
+      }
+    },
+    kaziCitas: {
+      hero: {
+        title: "Kazi Citas.",
+        titleHighlight: "Reservas inteligentes.",
+        titleEnd: "Crecimiento real.",
+        description: "Ayudamos a los negocios a mantenerse organizados y con reservas, mientras los clientes encuentran y reservan fácilmente profesionales locales de confianza.",
+        features: {
+            growth: "Crecimiento del Negocio",
+            growthDesc: "Herramientas basadas en datos",
+            simplicity: "Simplicidad para el Cliente",
+            simplicityDesc: "Reservas sin esfuerzo"
+        },
+        cta: "Únete al movimiento",
+        note: "No se requiere tarjeta de crédito · Cancela cuando quieras"
+      },
+      comingSoon: {
+        title: "Más funciones próximamente",
+        description: "Actualmente estamos integrando la experiencia completa de Kazi Citas."
       }
     },
     cityPage: {
@@ -3111,6 +3153,7 @@ export const translations = {
     nav: {
       home: "Inici",
       services: "Serveis",
+      kaziCitas: "Kazi Citas",
       portfolio: "Portafoli",
       pricing: "Preus",
       faq: "Preguntes",
@@ -3132,6 +3175,26 @@ export const translations = {
         aiServices: "Automatització i solucions de dades.",
         socialMediaManagement: "Estratègia de contingut, engagement i creixement.",
         academicSupport: "Edició, correcció i coaching.",
+      }
+    },
+    kaziCitas: {
+      hero: {
+        title: "Kazi Citas.",
+        titleHighlight: "Reserves intel·ligents.",
+        titleEnd: "Creixement real.",
+        description: "Ajudem els negocis a mantenir-se organitzats i amb reserves, mentre els clients troben i reserven fàcilment professionals locals de confiança.",
+        features: {
+            growth: "Creixement del Negoci",
+            growthDesc: "Eines basades en dades",
+            simplicity: "Simplicitat per al Client",
+            simplicityDesc: "Reserves sense esforç"
+        },
+        cta: "Uneix-te al moviment",
+        note: "No es requereix targeta de crèdit · Cancel·la quan vulguis"
+      },
+      comingSoon: {
+        title: "Més funcions properament",
+        description: "Actualment estem integrant l'experiència completa de Kazi Citas."
       }
     },
     cityPage: {

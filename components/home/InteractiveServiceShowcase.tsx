@@ -123,7 +123,7 @@ export default function InteractiveServiceShowcase() {
                 className="relative group h-full"
               >
                 {/* Card */}
-                <Link href={service.href} className="block h-full">
+                <Link href={service.href} className="block h-full" suppressHydrationWarning>
                   <div className={cn(
                     "relative h-full min-h-[280px] bg-white rounded-3xl p-8 border border-slate-200 overflow-hidden transition-all duration-500",
                     isHovered
