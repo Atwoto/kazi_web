@@ -113,7 +113,7 @@ export default function HeroSection() {
               className="flex flex-col gap-4"
             >
                 <Button asChild className="w-fit h-14 px-8 rounded-xl text-base bg-blue-600 hover:bg-blue-700 text-white shadow-xl transition-all hover:scale-105 hover:shadow-2xl group border-0">
-                  <Link href="#">
+                  <Link href="https://kazi-cite.vercel.app/" target="_blank" rel="noopener noreferrer">
                     {t.kaziCitas.hero.cta}
                     <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </Link>
