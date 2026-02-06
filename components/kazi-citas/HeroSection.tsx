@@ -15,7 +15,7 @@ export default function HeroSection() {
   const y = useTransform(scrollY, [0, 1000], [0, 300]); // Parallax effect
 
   return (
-    <section ref={containerRef} className="relative w-full min-h-[100svh] flex items-center pt-20 pb-8 md:pt-24 md:pb-16 bg-slate-900 text-white overflow-hidden">
+    <section ref={containerRef} className="relative w-full min-h-[100svh] flex items-center pt-24 pb-12 md:pt-32 md:pb-24 bg-slate-900 text-white overflow-hidden">
       {/* Background with Parallax */}
       <motion.div 
         className="absolute inset-0 z-0"
@@ -28,24 +28,24 @@ export default function HeroSection() {
         <img 
           src="/kazi_cita.jpg"
           alt="Kazi Citas Background"
-          className="absolute inset-0 w-full h-full object-cover z-[2]"
+          className="absolute inset-0 w-full h-full object-cover object-center z-[2]"
         />
         
         {/* Dark Overlay for legibility - Symmetrical for centered layout */}
-        <div className="absolute inset-0 bg-slate-900/50 z-[3]" />
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/40 via-transparent to-slate-900/40 z-[3]" />
-        <div className="absolute inset-0 bg-slate-900/20 z-[3] backdrop-blur-[2px]" />
+        <div className="absolute inset-0 bg-slate-900/60 md:bg-slate-900/50 z-[3]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/60 via-transparent to-slate-900/60 z-[3]" />
+        <div className="absolute inset-0 bg-slate-900/20 z-[3] backdrop-blur-[1px] md:backdrop-blur-[2px]" />
       </motion.div>
 
-      <div className="container mx-auto px-4 md:px-6 relative z-10">
-        <div className="flex flex-col items-center justify-center text-center max-w-4xl mx-auto space-y-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+        <div className="flex flex-col items-center justify-center text-center max-w-4xl mx-auto space-y-8 md:space-y-10">
           
           <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
           >
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white leading-[1.05] tracking-tight drop-shadow-2xl">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold text-white leading-[1.1] md:leading-[1.05] tracking-tight drop-shadow-2xl">
               {t.kaziCitas.hero.title.split("").map((char: string, i: number) => (
                 <motion.span
                   key={i}
@@ -62,7 +62,7 @@ export default function HeroSection() {
               ))}
               <br />
               <motion.span 
-                className="text-blue-500 inline-block"
+                className="text-blue-500 inline-block py-1"
                 initial={{ opacity: 0, width: 0 }}
                 animate={{ 
                   opacity: 1,
@@ -94,7 +94,7 @@ export default function HeroSection() {
               <motion.span
                 animate={{ opacity: [1, 0] }}
                 transition={{ duration: 0.8, repeat: Infinity, ease: "steps(2)" }}
-                className="inline-block w-[4px] h-[1em] bg-blue-500 ml-1 translate-y-[0.1em]"
+                className="inline-block w-[3px] md:w-[4px] h-[0.9em] md:h-[1em] bg-blue-500 ml-1 translate-y-[0.1em]"
               />
             </h1>
           </motion.div>
@@ -112,7 +112,7 @@ export default function HeroSection() {
                 }
               }
             }}
-            className="text-xl md:text-2xl text-slate-200 max-w-2xl leading-relaxed font-light drop-shadow-lg"
+            className="text-lg md:text-2xl text-slate-200 max-w-2xl leading-relaxed font-light drop-shadow-lg px-2"
           >
             {t.kaziCitas.hero.description.split(" ").map((word: string, i: number) => (
               <motion.span
@@ -133,20 +133,20 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.5, ease: "easeOut" }}
-            className="flex flex-col items-center gap-6"
+            className="flex flex-col items-center gap-6 pt-4 md:pt-0"
           >
-              <Button asChild className="h-16 px-10 rounded-2xl text-lg bg-blue-600 hover:bg-blue-700 text-white shadow-[0_0_20px_rgba(59,130,246,0.5)] transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(59,130,246,0.6)] group border-0">
+              <Button asChild className="h-14 md:h-16 px-8 md:px-10 rounded-2xl text-base md:text-lg bg-blue-600 hover:bg-blue-700 text-white shadow-[0_0_20px_rgba(59,130,246,0.5)] transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(59,130,246,0.6)] group border-0">
                 <Link href="https://kazi-cite.vercel.app/" target="_blank" rel="noopener noreferrer">
                   {t.kaziCitas.hero.cta}
-                  <ArrowRight className="ml-2 w-6 h-6 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="ml-2 w-5 h-5 md:w-6 md:h-6 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </Button>
               
               <motion.span 
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 1, duration: 1 }}
-                className="text-xs text-slate-400 uppercase tracking-[0.2em] font-bold"
+                transition={{ delay: 2, duration: 1 }}
+                className="text-[10px] md:text-xs text-slate-400 uppercase tracking-[0.15em] md:tracking-[0.2em] font-bold"
               >
                   {t.kaziCitas.hero.note}
               </motion.span>
