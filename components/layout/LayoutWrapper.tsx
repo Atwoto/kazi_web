@@ -12,9 +12,10 @@ export default function LayoutWrapper({
 }) {
   const pathname = usePathname();
   const isAdminRoute = pathname?.startsWith("/admin");
+  const isKaziCitasRoute = pathname === "/kazi-citas";
 
-  if (isAdminRoute) {
-    // Admin routes get no frontend navigation/footer
+  if (isAdminRoute || isKaziCitasRoute) {
+    // Admin routes and specialized pages like Kazi Citas get no default layout
     return <>{children}</>;
   }
 

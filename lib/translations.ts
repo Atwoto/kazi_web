@@ -1277,6 +1277,35 @@ export const translations = {
         ]
       }
     },
+    kaziCitasFooter: {
+      description: "Kazi is your local digital partner. We help businesses in Barcelona grow with simple and effective technology.",
+      sections: {
+        services: {
+          title: "Services",
+          find: "Find Businesses",
+          book: "Book Appointment",
+          bookings: "My Bookings"
+        },
+        business: {
+          title: "Business",
+          list: "List Your Business",
+          dashboard: "Dashboard",
+          plans: "Pricing Plans"
+        },
+        company: {
+          title: "Company",
+          about: "About Us",
+          blog: "Blog",
+          help: "Help Center"
+        },
+        legal: {
+          title: "Legal",
+          privacy: "Privacy Policy",
+          terms: "Terms",
+          cookies: "Cookies"
+        }
+      }
+    },
     footer: {
       blurb: "Kazi is your local digital partner. We help businesses in Catalonia grow with simple and effective technology.",
       roiCalculator: "ROI Calculator",
@@ -2920,6 +2949,35 @@ export const translations = {
       alreadySubscribed: "¡Ya estás suscrito!",
     },
 
+    kaziCitasFooter: {
+      description: "Kazi es tu socio digital local. Ayudamos a los negocios de Barcelona a crecer con tecnología sencilla y efectiva.",
+      sections: {
+        services: {
+          title: "Servicios",
+          find: "Buscar Negocios",
+          book: "Reservar Cita",
+          bookings: "Mis Reservas"
+        },
+        business: {
+          title: "Negocios",
+          list: "Registrar mi Negocio",
+          dashboard: "Panel de Control",
+          plans: "Planes de Precios"
+        },
+        company: {
+          title: "Empresa",
+          about: "Sobre Nosotros",
+          blog: "Blog",
+          help: "Centro de Ayuda"
+        },
+        legal: {
+          title: "Legal",
+          privacy: "Política de Privacidad",
+          terms: "Términos",
+          cookies: "Cookies"
+        }
+      }
+    },
     footer: {
       blurb: "Kazi es tu socio digital local. Ayudamos a negocios en Cataluña a crecer con tecnología simple y efectiva.",
       roiCalculator: "Calculadora ROI",
@@ -4435,6 +4493,35 @@ export const translations = {
           { q: "I si no quedo satisfet?", a: "Oferim revisions il·limitades durant la fase de disseny. El nostre procés inclou múltiples rondes de feedback per assegurar que t'encanta el resultat abans de començar el desenvolupament." },
           { q: "Ofereixeu suport continu?", a: "Sí! Oferim paquets de manteniment des de €200/mes per mantenir la teva web segura, ràpida i actualitzada. Sempre estem aquí per ajudar-te." }
         ]
+      }
+    },
+    kaziCitasFooter: {
+      description: "Kazi és el teu soci digital local. Ajudem els negocis de Barcelona a créixer amb tecnologia senzilla i efectiva.",
+      sections: {
+        services: {
+          title: "Serveis",
+          find: "Buscar Negocis",
+          book: "Reservar Cita",
+          bookings: "Les Meves Reserves"
+        },
+        business: {
+          title: "Negocis",
+          list: "Registrar el meu Negoci",
+          dashboard: "Panell de Control",
+          plans: "Plans de Preus"
+        },
+        company: {
+          title: "Empresa",
+          about: "Sobre Nosaltres",
+          blog: "Blog",
+          help: "Centre d'Ajuda"
+        },
+        legal: {
+          title: "Legal",
+          privacy: "Política de Privadesa",
+          terms: "Termes",
+          cookies: "Cookies"
+        }
       }
     },
     footer: {
