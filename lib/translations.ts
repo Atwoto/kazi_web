@@ -39,7 +39,7 @@ export const translations = {
             simplicity: "Client Simplicity",
             simplicityDesc: "Effortless booking"
         },
-        cta: "Join the movement",
+        cta: "Explore now",
         note: "No credit card required · Cancel anytime"
       },
       comingSoon: {
@@ -1575,7 +1575,7 @@ export const translations = {
             simplicity: "Simplicidad para el Cliente",
             simplicityDesc: "Reservas sin esfuerzo"
         },
-        cta: "Únete al movimiento",
+        cta: "Explorar ahora",
         note: "No se requiere tarjeta de crédito · Cancela cuando quieras"
       },
       comingSoon: {
@@ -3247,7 +3247,7 @@ export const translations = {
             simplicity: "Simplicitat per al Client",
             simplicityDesc: "Reserves sense esforç"
         },
-        cta: "Uneix-te al moviment",
+        cta: "Explora ara",
         note: "No es requereix targeta de crèdit · Cancel·la quan vulguis"
       },
       comingSoon: {

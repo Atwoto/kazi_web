@@ -62,17 +62,15 @@ export default function HeroSection() {
               ))}
               <br />
               <motion.span 
-                className="text-blue-500 inline-block py-1"
+                className="text-[#3b82f6] inline-block py-1"
                 initial={{ opacity: 0, width: 0 }}
                 animate={{ 
                   opacity: 1,
                   width: "auto",
-                  color: ["#3b82f6", "#60a5fa", "#3b82f6"],
                 }}
                 transition={{ 
                   opacity: { delay: 0.8, duration: 0.5 },
                   width: { delay: 0.8, duration: 0.8 },
-                  color: { duration: 4, repeat: Infinity, ease: "easeInOut" }
                 }}
               >
                 {t.kaziCitas.hero.titleHighlight}
@@ -91,11 +89,6 @@ export default function HeroSection() {
                   {char}
                 </motion.span>
               ))}
-              <motion.span
-                animate={{ opacity: [1, 0] }}
-                transition={{ duration: 0.8, repeat: Infinity, ease: "steps(2)" }}
-                className="inline-block w-[3px] md:w-[4px] h-[0.9em] md:h-[1em] bg-blue-500 ml-1 translate-y-[0.1em]"
-              />
             </h1>
           </motion.div>
           

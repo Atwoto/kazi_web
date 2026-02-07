@@ -1,7 +1,6 @@
 "use client";
 
-import Link from "next/link";
-import { Facebook, Instagram, Twitter, Linkedin, Globe } from "lucide-react";
+import { Instagram } from "lucide-react";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
 
@@ -71,18 +70,17 @@ export default function KaziCitasFooter() {
           
           <div className="flex gap-6 pt-4">
               {[
-                { icon: <Instagram size={20} />, href: "#" },
-                { icon: <Facebook size={20} />, href: "#" },
-                { icon: <Twitter size={20} />, href: "#" },
-                { icon: <Linkedin size={20} />, href: "#" }
+                { content: <Instagram size={20} />, href: "#", label: "Instagram" },
+                { content: <span className="text-base font-bold leading-none">X</span>, href: "#", label: "X" }
               ].map((social, i) => (
                 <motion.a 
                   key={i}
                   href={social.href} 
+                  aria-label={social.label}
                   whileHover={{ y: -5, scale: 1.1, color: "#3b82f6" }}
                   className="p-3 bg-slate-900/50 border border-white/5 rounded-2xl text-slate-400 transition-all hover:bg-slate-900 hover:border-blue-500/30 shadow-lg"
                 >
-                  {social.icon}
+                  {social.content}
                 </motion.a>
               ))}
           </div>
